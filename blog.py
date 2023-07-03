@@ -1,58 +1,43 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
+# https://pygithub.readthedocs.io/en/stable/examples/Issue.html
 from github import Github
-from github.Issue import Issue
-from github.Repository import Repository
-import os
-import time
-import urllib.parse
-import codecs
+g = Github("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")
+repo=g.get_user().get_repos()[10]
 
-user: Github
-username: str
-ghiblog: Repository
+import markdown
+from xpinyin import Pinyin
+py=Pinyin()
 
-def update_readme_md_file(contents):
-    with codecs.open('README.md', 'w', encoding='utf-8') as f:
-        f.writelines(contents)
-        f.flush()
-        f.close()
+def md2html(title,mdstr):
+    exts = ['markdown.extensions.extra', 'markdown.extensions.codehilite','markdown.extensions.toc']
+    html = '''
+    <html>
+    <head>
+    <meta content="text/html; charset=utf-8" http-equiv="content-type" />
+    <link href="../static/default.css" rel="stylesheet">
+    <link href="../static/github.css" rel="stylesheet">
+    </head>
+    <body>
+    <h1>%s</h1>
+    %s
+    </body>
+    </html>
+    '''
+    ret = markdown.markdown(mdstr,extensions=exts)
+    return html % (title,ret)
 
+def saveHtml(title,body):
+    genHtml = 'docs/post/{}.html'.format(py.get_pinyin(title))
+    f = open(genHtml, 'w', encoding='UTF-8')
+    message = md2html(title,body)
+    f.write(message)
+    f.close()
 
-def login():
-    global user, username
-    github_repo_env = os.environ.get('GITHUB_REPOSITORY')
-    username = github_repo_env[0:github_repo_env.index('/')]
-    password = os.environ.get('GITHUB_TOKEN')
-    user = Github(username, password)
+def savePost(id):
+    saveHtml(repo.get_issues()[id].title,repo.get_issues()[id].body)
 
-
-def get_ghiblog():
-    global ghiblog
-    ghiblog = user.get_repo(os.environ.get('GITHUB_REPOSITORY'))
-
-
-def bundle_new_created_section():
-    global ghiblog
-
-    new_5_created_issues = ghiblog.get_issues()[:5]
-
-    new_created_section = '## 最新 :new: \n'
-
-    for issue in new_5_created_issues:
-        print(issue)
-        # new_created_section += format_issue_with_labels(issue)
-
-    return new_created_section
-
-def execute():
-    login()
-    get_ghiblog()
-    new_created_section = bundle_new_created_section()
-
-    # update_readme_md_file(contents)
-
-
-if __name__ == '__main__':
-    execute()
+savePost(0)
+savePost(1)
+savePost(2)
