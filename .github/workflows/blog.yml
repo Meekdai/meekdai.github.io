@@ -13,6 +13,8 @@ jobs:
       run: |
         pip3 install setuptools --user
         pip3 install PyGithub --user
+        pip3 install markdown --user
+        pip3 install xpinyin --user
     - name: run python script
       env:
         GITHUB_LOGIN: Meekdai
