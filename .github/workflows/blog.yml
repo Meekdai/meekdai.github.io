@@ -1,39 +1,59 @@
 name: build blog
 
-on: [issues, issue_comment]
+on:
+  workflow_dispatch:
+  issues:
+    types: [opened, edited]
+  issue_comment:
+    types: [created, edited]
+  push:
+    branches:
+      - main
+    paths:
+      - blog.py
+
+env:
+  GITHUB_NAME: Meekdai
+  GITHUB_EMAIL: meekdai@163.com
 
 jobs:
-  build:
-
-    runs-on: ubuntu-latest
-    
+  sync:
+    name: Generate blog
+    runs-on: ubuntu-20.04
     steps:
-    - uses: actions/checkout@master
-    - name: install dependencies
-      run: |
-        pip3 install setuptools --user
-        pip3 install PyGithub --user
-        pip3 install markdown --user
-        pip3 install xpinyin --user
-    - name: run python script
-      env:
-        GITHUB_LOGIN: Meekdai
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      run: python3 blog.py
-    - name: config git info
-      run: |
-        git config --global user.email "meekdai@163.com"
-        git config --global user.name "Meekdai"
-    - name: commit change
-      run: |
-        git checkout main
-        git add .
-        git commit -m "Update from Github Action"
-    - name: push change
-      env:
-        GITHUB_LOGIN: Meekdai
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      run: |
-        git push https://$GITHUB_LOGIN:$GITHUB_TOKEN@github.com/$GITHUB_REPOSITORY.git
-    - name: done
-      run: echo 'done'
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Set up Python
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.8
+
+      - name: Configure pip cache
+        uses: actions/cache@v1
+        id: pip-cache
+        with:
+          path: venv
+          key: pip-1-${{ hashFiles('**/requirements.txt') }}
+          restore-keys: |
+            pip-
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m venv venv
+          source venv/bin/activate
+          pip install -r requirements.txt
+        if: steps.pip-cache.outputs.cache-hit != 'true'
+
+      - name: Generate new html
+        run: |
+          source venv/bin/activate
+          python blog.py ${{ secrets.G_T }} ${{ github.repository }}'
+        
+      - name: update html
+        run: |
+          git config --local user.email "${{ env.GITHUB_EMAIL }}"
+          git config --local user.name "${{ env.GITHUB_EMAIL }}"
+          git add .
+          git commit -a -m '🎉update readme' || echo "nothing to commit"
+          git push || echo "nothing to push"

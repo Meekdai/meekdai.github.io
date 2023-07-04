@@ -1,0 +1,65 @@
+
+    <html>
+    <head>
+    <meta content="text/html; charset=utf-8" http-equiv="content-type" />
+    <link href="../static/default.css" rel="stylesheet">
+    <link href="../static/github.css" rel="stylesheet">
+    </head>
+    <body>
+    <h1>Allegro封装建库程序化</h1>
+    <p>在进行allegro封装建库的时候，我通常会使用FPM这个软件，因为通过这个软件，我就可以用代码来建立PCB封装。FPM这个软件网上可以下载到的版本是<code>0.0.8</code>，它内置了许多常用的封装类型，简单的填写一些参数就可以生产一个标准的封装。</p>
+<p>除此之外，有些特殊的封装可以自定义，通过编写<code>skill</code>的<code>il</code>文件来实现。下面是一些常用的语句。</p>
+<h3 id="_1">注释部分</h3>
+<div class="codehilite"><pre><span></span><code><span class="o">;</span><span class="nt">FPM</span><span class="w"> </span><span class="nt">skill</span><span class="w"> </span><span class="nt">by</span><span class="w"> </span><span class="nt">Meekdai</span>
+<span class="o">;</span><span class="nt">Tree</span><span class="p">:</span><span class="nd">Meekdai</span><span class="o">/</span><span class="nt">RJ45</span><span class="w"> </span><span class="nt">Connector</span>
+<span class="o">;</span><span class="nt">Desc</span><span class="p">:</span><span class="nd">W5500</span>
+<span class="o">;</span><span class="nt">Vendor</span><span class="p">:</span><span class="nd">Meekdai</span>
+<span class="o">;</span><span class="nt">Count</span><span class="p">:</span><span class="nd">1</span>
+<span class="o">;</span><span class="nt">Datasheet</span><span class="p">:</span><span class="nd">https</span><span class="o">://</span><span class="nt">item</span><span class="p">.</span><span class="nc">szlcsc</span><span class="p">.</span><span class="nc">com</span><span class="o">/</span><span class="nt">12651</span><span class="p">.</span><span class="nc">html</span>
+</code></pre></div>
+
+<h3 id="_2">开头引入</h3>
+<div class="codehilite"><pre><span></span><code><span class="k">sprintf</span><span class="ss">(</span><span class="nv">pName</span>,<span class="s2">&quot;W5500&quot;</span><span class="ss">)</span>
+<span class="nv">_PrepareNewSym</span><span class="ss">(</span><span class="nv">pName</span><span class="ss">)</span>
+</code></pre></div>
+
+<h3 id="_3">定义焊盘</h3>
+<div class="codehilite"><pre><span></span><code>PadT = _PadTH_Default(2.5 1.7)
+PadT1 = _PadTH_Default(2.5 2.5)
+PadS = _PadSMFillet(0.72 0.6)
+PadN = _PadSM(0.8 2.8) ;圆边焊盘
+PadC = _Pad_Slot(4.0 1.8 2.8 0.8)
+</code></pre></div>
+
+<h3 id="_4">创建焊盘</h3>
+<div class="codehilite"><pre><span></span><code><span class="k">_</span><span class="nv">CreatePin</span><span class="p">(</span><span class="nv">PadT</span> <span class="o">-</span><span class="mf">4.445</span><span class="o">:-</span><span class="mf">4.355</span> <span class="s2">&quot;1&quot;</span><span class="p">)</span>
+<span class="k">_</span><span class="nv">CreatePinMechanical</span><span class="p">(</span><span class="nv">PadT1</span> <span class="o">-</span><span class="mf">5.715</span><span class="o">:</span><span class="mf">1.995</span><span class="p">)</span>
+</code></pre></div>
+
+<h3 id="_5">使用循环</h3>
+<div class="codehilite"><pre><span></span><code><span class="k">for</span><span class="ss">(</span><span class="nv">i</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="nv">num</span><span class="w"> </span><span class="nv">_CreatePin</span><span class="ss">(</span><span class="nv">PadTH2</span><span class="w"> </span><span class="nv">pitch</span><span class="o">*</span><span class="ss">(</span><span class="nv">i</span><span class="o">-</span><span class="mi">1</span><span class="ss">)</span>:<span class="mi">0</span><span class="w"> </span><span class="nv">i</span><span class="ss">)))</span>
+</code></pre></div>
+
+<p>其中i从1开始，一直到num，每次执行一次</p>
+<h3 id="_6">使用条件语句</h3>
+<div class="codehilite"><pre><span></span><code><span class="k">if</span><span class="ss">(</span><span class="nv">i</span><span class="o">==</span><span class="mi">1</span><span class="w"> </span><span class="nv">_CreatePin</span><span class="ss">(</span><span class="nv">PadTH1</span><span class="w"> </span><span class="mi">0</span>:<span class="mi">0</span><span class="w"> </span><span class="nv">i</span><span class="ss">)</span><span class="w"> </span><span class="nv">_CreatePin</span><span class="ss">(</span><span class="nv">PadTH2</span><span class="w"> </span><span class="nv">pitch</span><span class="o">*</span><span class="ss">(</span><span class="nv">i</span><span class="o">-</span><span class="mi">1</span><span class="ss">)</span>:<span class="mi">0</span><span class="w"> </span><span class="nv">i</span><span class="ss">))</span>
+</code></pre></div>
+
+<p>如果i等于1就执行第一个语句使用PadTH1，否则用第二个语句使用PadTH2</p>
+<p>更多内容可以参考官方文档x:\Cadence\SPB_16.x\doc\sklangref\sklangref.pdf</p>
+<h3 id="_7">创建丝印</h3>
+<div class="codehilite"><pre><span></span><code>_Layer(lPkgGeoSilkT) _Rectangle(15.8 20.8 0:0)
+_Layer(lPkgGeoSilkT) _Circle(0.254 1.7:1.7)
+_Layer(lPkgGeoSilkT) _Line(list(2.5:2.5 -2.5:2.5))
+</code></pre></div>
+
+<h3 id="_8">创建位号</h3>
+<div class="codehilite"><pre><span></span><code>_CreateRefValue(pName -3:5 -3:5)
+</code></pre></div>
+
+<h3 id="_9">完成创建</h3>
+<div class="codehilite"><pre><span></span><code>_SaveDesign(pName)
+</code></pre></div>
+    </body>
+    </html>
+    
