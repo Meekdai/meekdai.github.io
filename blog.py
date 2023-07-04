@@ -39,7 +39,7 @@ def saveHtml(title,body,dir_name):
 def get_repo(user: Github, repo: str):
     return user.get_repo(repo)
 
-def main(token,repo_name,issue_number=None, dir_name="docs"):
+def main(token,repo_name,issue_number=None, dir_name="/docs"):
     user = Github(token)
     repo = get_repo(user, repo_name)
     for issue in repo.get_issues():
