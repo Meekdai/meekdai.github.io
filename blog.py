@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 import os
-import markdown
+import requests
+# import markdown
 import argparse
 from github import Github
 from xpinyin import Pinyin
@@ -38,9 +39,13 @@ html='''
 '''
 
 def md2html(title,mdstr):
-    exts = ['markdown.extensions.extra', 'markdown.extensions.codehilite','markdown.extensions.toc']
-    ret = markdown.markdown(mdstr,extensions=exts)
-    return html % (title,ret)
+    global options
+    payload = {"text": mdstr, "mode": "markdown"}
+    ret=requests.post("https://api.github.com/markdown", json=payload,headers={"Authorzation":"token {}".format(options.github_token)})
+    if ret.status_code==200:
+        return html % (title,ret.text)
+    else:
+        raise Exception("md2html error title=%s status_code=%d"%(title,ret.status_code))
 
 def createHtml(title,body,dir_name):
     global index_md
@@ -50,6 +55,7 @@ def createHtml(title,body,dir_name):
     f.write(message)
     f.close()
     index_md=index_md+("- [%s](%s)\r\n" % (title,host_name+genHtml))
+    print("create title=%s file=%s ok" % (title,genHtml))
 
 def createIndex():
     global index_md
@@ -57,6 +63,7 @@ def createIndex():
     message = md2html("首页",index_md)
     f.write(message)
     f.close()
+    print("create index.html ok")
 
 def get_repo(user: Github, repo: str):
     return user.get_repo(repo)
@@ -64,13 +71,16 @@ def get_repo(user: Github, repo: str):
 def main(token,repo_name,issue_number=None, dir_name=""):
     user = Github(token)
     repo = get_repo(user, repo_name)
+    print("====== start create static html ======")
     for issue in repo.get_issues():
         createHtml(issue.title,issue.body,dir_name)
-
+        
     createIndex()
+    print("====== create static html end ======")
 
 
 if __name__ == "__main__":
+    global options
     os.chdir("docs/")
     parser = argparse.ArgumentParser()
     parser.add_argument("github_token", help="github_token")
