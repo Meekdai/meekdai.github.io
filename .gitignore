@@ -2,3 +2,5 @@ __pycache__
 nohup.out
 .git-credentials
 venv/
+docs/post/
+docs/*.html
