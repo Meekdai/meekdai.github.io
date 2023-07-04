@@ -48,7 +48,7 @@ jobs:
       - name: Generate new html
         run: |
           source venv/bin/activate
-          python blog.py ${{ secrets.G_T }} ${{ github.repository }}
+          python blog.py ${{ secrets.GITHUB_TOKEN }} ${{ github.repository }} 
         
       - name: update html
         run: |
