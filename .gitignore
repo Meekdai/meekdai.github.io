@@ -1,2 +1,4 @@
-.idea/
-__pycache__/
+__pycache__
+nohup.out
+.git-credentials
+venv/
