@@ -1,15 +1,11 @@
 # -*- coding: utf-8 -*-
+import os
 import markdown
 import argparse
 from github import Github
 from xpinyin import Pinyin
-py=Pinyin()
 
-# g = Github("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")
-# repo=g.get_user().get_repos()[10]
-
-
-
+HTML_DIR="docs/post/"
 
 def md2html(title,mdstr):
     exts = ['markdown.extensions.extra', 'markdown.extensions.codehilite','markdown.extensions.toc']
@@ -30,7 +26,7 @@ def md2html(title,mdstr):
     return html % (title,ret)
 
 def saveHtml(title,body,dir_name):
-    genHtml = dir_name+'/post/{}.html'.format(py.get_pinyin(title))
+    genHtml = dir_name+'{}.html'.format(Pinyin().get_pinyin(title))
     f = open(genHtml, 'w', encoding='UTF-8')
     message = md2html(title,body)
     f.write(message)
@@ -39,7 +35,7 @@ def saveHtml(title,body,dir_name):
 def get_repo(user: Github, repo: str):
     return user.get_repo(repo)
 
-def main(token,repo_name,issue_number=None, dir_name="/docs"):
+def main(token,repo_name,issue_number=None, dir_name=""):
     user = Github(token)
     repo = get_repo(user, repo_name)
     for issue in repo.get_issues():
@@ -51,4 +47,10 @@ if __name__ == "__main__":
     parser.add_argument("repo_name", help="repo_name")
     parser.add_argument("--issue_number", help="issue_number", default=None, required=False)
     options = parser.parse_args()
-    main(options.github_token, options.repo_name)
+
+    if not os.path.exists(HTML_DIR):
+        os.mkdir(HTML_DIR)
+
+    main(options.github_token, options.repo_name,dir_name=HTML_DIR)
+
+
