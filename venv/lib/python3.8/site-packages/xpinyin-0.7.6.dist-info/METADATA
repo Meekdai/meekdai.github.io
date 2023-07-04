@@ -1,0 +1,212 @@
+Metadata-Version: 2.1
+Name: xpinyin
+Version: 0.7.6
+Summary: Translate Chinese hanzi to pinyin (拼音) by Python, 汉字转拼音
+Home-page: https://github.com/lxneng/xpinyin
+Author: Eric Lo
+Author-email: lxneng@gmail.com
+License: BSD
+Keywords: pinyin
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Provides-Extra: test
+Requires-Dist: pytest (>=6.2.0) ; extra == 'test'
+
+xpinyin
+==========
+
+Translate Chinese hanzi to pinyin (拼音) by Python, 汉字转拼音
+
+.. image:: https://github.com/lxneng/xpinyin/workflows/Tests/badge.svg
+   :target: https://github.com/lxneng/xpinyin/actions?query=workflow%3ATests
+
+.. image:: https://img.shields.io/travis/lxneng/xpinyin.svg
+    :target: https://travis-ci.org/lxneng/xpinyin
+
+.. image:: https://img.shields.io/pypi/v/xpinyin.svg
+    :target: https://pypi.python.org/pypi/xpinyin/
+
+.. image:: https://img.shields.io/pypi/dm/xpinyin.svg
+    :target: https://pypi.python.org/pypi/xpinyin/
+
+
+Install
+----------
+
+Python version >= 3.6
+
+.. code-block:: python
+
+    pip install -U xpinyin
+
+
+Python version < 3.6
+
+.. code-block:: python
+
+    pip install xpinyin==0.5.7
+
+
+Usage
+-----
+
+.. code-block:: python
+
+    >>> from xpinyin import Pinyin
+    >>> p = Pinyin()
+    >>> # default splitter is `-`
+    >>> p.get_pinyin("上海")
+    'shang-hai'
+    >>> # show tone marks
+    >>> p.get_pinyin("上海", tone_marks='marks')
+    'shàng-hǎi'
+    >>> p.get_pinyin("上海", tone_marks='numbers')
+    >>> 'shang4-hai3'
+    >>> # remove splitter
+    >>> p.get_pinyin("上海", '')
+    'shanghai'
+    >>> # set splitter as whitespace
+    >>> p.get_pinyin("上海", ' ')
+    'shang hai'
+    >>> p.get_initial("上")
+    'S'
+    >>> p.get_initials("上海")
+    'S-H'
+    >>> p.get_initials("上海", '')
+    'SH'
+    >>> p.get_initials("上海", ' ')
+    'S H'
+    >>> # get_initials with retroflex, #39
+    >>> p.get_initials("上海", splitter='-', with_retroflex=True)
+    'SH-H'
+    >>> # New in version 0.7.0, get combinations of the multiple readings of the characters
+    >>> p.get_pinyins('模型', splitter=' ', tone_marks='marks')
+    ['mó xíng', 'mú xíng']
+    >>> p.get_pinyins('模样', splitter=' ', tone_marks='marks')
+    ['mó yáng', 'mó yàng', 'mó xiàng', 'mú yáng', 'mú yàng', 'mú xiàng']
+
+
+Changelog
+=========
+
+0.7.6 - Dec. 21, 2020
+----------------------
+
+- Fix typing of the Pinyin's data_path argument
+  https://github.com/lxneng/xpinyin/pull/53
+
+0.7.5 - Dec. 21, 2020
+----------------------
+
+- fix py2 compatible versions
+
+0.7.4 - Dec. 15, 2020
+----------------------
+
+- update install doc in readme
+
+0.7.3 - Dec. 14, 2020
+----------------------
+
+- fix github actions status icon
+
+0.7.2 - Dec. 14, 2020
+----------------------
+
+- Improve func `get_initials`, added with retroflex options, resolve #39
+- Better testing
+  https://github.com/lxneng/xpinyin/pull/50
+
+0.7.0 - Dec. 13, 2020
+----------------------
+
+- Modernize Python versions, 3.6 - 3.9
+
+  https://github.com/lxneng/xpinyin/pull/47
+  https://github.com/lxneng/xpinyin/pull/48
+  https://github.com/lxneng/xpinyin/pull/49
+
+0.6.0 - Dec. 11, 2020
+----------------------
+
+- Add pinyin combinations.
+  https://github.com/lxneng/xpinyin/pull/46
+
+0.5.7 - Jun. 28, 2020
+----------------------
+
+- fixes #36, #37
+
+0.5.6 - Oct. 15, 2018
+----------------------
+- add tones as numbers support.
+  https://github.com/lxneng/xpinyin/pull/42
+- fix tests
+
+
+0.5.5 - Feb. 28, 2016
+----------------------
+- add a new staticmethod which can convert pinyin to upper, lower or capitalize.
+  https://github.com/lxneng/xpinyin/pull/28
+
+- Removed extraneous "!" being appended to non 'a' vowel replacements when show_tone_marks=True; also added simple unitest.main() for non-nose users
+  https://github.com/lxneng/xpinyin/pull/30
+
+
+0.5.4 - Dec. 14, 2015
+----------------------
+
+- replace open() calls with io.open() for Python 3 compatibility,
+  fix `UnicodeDecodeError`
+- change \u730E 猎 to LIE4
+- improve readme
+
+
+0.5.3 - Dec. 25, 2014
+----------------------
+
+- adjust default pinyin for character '什' and '么', 什么 => 'shén-me'
+
+
+0.5.2 - Jul. 6, 2014
+----------------------
+
+- 修复一些常用字的拼音标注
+
+0.4.9 - Oct. 25, 2013
+----------------------
+
+- change README and get_initials; add get_initial
+  [tangsty]
+
+
+0.4.8 - Jun. 16, 2013
+----------------------
+
+- change README and get_initials; add get_initial
+  [tangsty]
+
+- add download status image to README.rst
+  [lxneng]
+
+- add travis status image to README.rst
+  [lxneng]
+
+- add .travis.yml
+  [lxneng]
+
+- 添加测试
+  [lxneng]
+
+- 解决翻译中英文混合句子问题
+  [lxneng]
+
+
