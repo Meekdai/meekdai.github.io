@@ -9,35 +9,36 @@ host_name="https://meekdai.github.io/"
 
 index_md="\r\n#### 文章列表\r\n"
 
+html='''
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="content-type" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.2.0/github-markdown.min.css" integrity="sha512-Ya9H+OPj8NgcQk34nCrbehaA0atbzGdZCI2uCbqVRELgnlrh8vQ2INMnkadVMSniC54HChLIh5htabVuKJww8g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<style>
+.markdown-body {
+    box-sizing: border-box;
+    min-width: 200px;
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 45px;
+}
+@media (max-width: 767px) {
+    .markdown-body {
+        padding: 15px;
+    }
+}
+</style>
+
+<body class="markdown-body">
+<h1>%s</h1>
+%s
+</body>
+</html>
+'''
+
 def md2html(title,mdstr):
     exts = ['markdown.extensions.extra', 'markdown.extensions.codehilite','markdown.extensions.toc']
-    html = '''
-    <html>
-    <head>
-    <meta content="text/html; charset=utf-8" http-equiv="content-type" />
-    <link href="../static/default.css" rel="stylesheet">
-    <link href="../static/github.css" rel="stylesheet">
-    </head>
-    <body>
-    <h1>%s</h1>
-    %s
-    </body>
-    </html>
-    '''
-    if title=="首页":
-        html = '''
-        <html>
-        <head>
-        <meta content="text/html; charset=utf-8" http-equiv="content-type" />
-        <link href="static/default.css" rel="stylesheet">
-        <link href="static/github.css" rel="stylesheet">
-        </head>
-        <body>
-        <h1>%s</h1>
-        %s
-        </body>
-        </html>
-        '''
     ret = markdown.markdown(mdstr,extensions=exts)
     return html % (title,ret)
 
