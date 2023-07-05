@@ -13,7 +13,8 @@ html='''
 <html>
 <head>
 <meta content="text/html; charset=utf-8" http-equiv="content-type" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.2.0/github-markdown.min.css" integrity="sha512-Ya9H+OPj8NgcQk34nCrbehaA0atbzGdZCI2uCbqVRELgnlrh8vQ2INMnkadVMSniC54HChLIh5htabVuKJww8g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<title>%s</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.2.0/github-markdown.min.css"/>
 </head>
 <style>
 .markdown-body {
@@ -51,7 +52,7 @@ def md2html(title,mdstr):
     payload = {"text": mdstr, "mode": "markdown"}
     ret=requests.post("https://api.github.com/markdown", json=payload,headers={"Authorzation":"token {}".format(options.github_token)})
     if ret.status_code==200:
-        return html % (title,ret.text)
+        return html % (title,title,ret.text)
     else:
         raise Exception("md2html error title=%s status_code=%d"%(title,ret.status_code))
 
