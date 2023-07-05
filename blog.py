@@ -20,27 +20,28 @@ html='''
 .markdown-body {
     box-sizing: border-box;
     min-width: 200px;
-    max-width: 980px;
+    max-width: 900px;
     margin: 0 auto;
     padding: 45px;
+    border: 1px solid;
+    border-radius: 6px;
+    border-color: #54aeff66;
 }
-@media (max-width: 767px) {
-    .markdown-body {
-        padding: 15px;
-    }
-}
+@media (max-width: 767px) { .markdown-body { padding: 15px;} }
 </style>
 
-<body class="markdown-body">
+<body>
+<div class="markdown-body">
 <h1>%s</h1>
 %s
+</div>
 
 <script src="https://utteranc.es/client.js"
-        repo="Meekdai/meekdai.github.io"
-        issue-term="title"
-        theme="github-light"
-        crossorigin="anonymous"
-        async>
+    repo="Meekdai/meekdai.github.io"
+    issue-term="title"
+    theme="github-light"
+    crossorigin="anonymous"
+    async>
 </script>
 
 </body>
