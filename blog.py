@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 import os
 import requests
-# import markdown
 import argparse
 from github import Github
 from xpinyin import Pinyin
@@ -34,6 +33,15 @@ html='''
 <body class="markdown-body">
 <h1>%s</h1>
 %s
+
+<script src="https://utteranc.es/client.js"
+        repo="Meekdai/meekdai.github.io"
+        issue-term="title"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+
 </body>
 </html>
 '''
