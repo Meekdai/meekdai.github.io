@@ -9,18 +9,18 @@
 .markdown-body {
     box-sizing: border-box;
     min-width: 200px;
-    max-width: 980px;
+    max-width: 900px;
     margin: 0 auto;
     padding: 45px;
+    border: 1px solid;
+    border-radius: 6px;
+    border-color: #54aeff66;
 }
-@media (max-width: 767px) {
-    .markdown-body {
-        padding: 15px;
-    }
-}
+@media (max-width: 767px) { .markdown-body { padding: 15px;} }
 </style>
 
-<body class="markdown-body">
+<body>
+<div class="markdown-body">
 <h1>Allegro封装建库程序化</h1>
 <p>在进行allegro封装建库的时候，我通常会使用FPM这个软件，因为通过这个软件，我就可以用代码来建立PCB封装。FPM这个软件网上可以下载到的版本是<code>0.0.8</code>，它内置了许多常用的封装类型，简单的填写一些参数就可以生产一个标准的封装。</p>
 <p>除此之外，有些特殊的封装可以自定义，通过编写<code>skill</code>的<code>il</code>文件来实现。下面是一些常用的语句。</p>
@@ -68,13 +68,14 @@ _Layer(lPkgGeoSilkT) _Line(list(2.5:2.5 -2.5:2.5))
 <pre><code>_SaveDesign(pName)
 </code></pre>
 
+</div>
 
 <script src="https://utteranc.es/client.js"
-        repo="Meekdai/meekdai.github.io"
-        issue-term="title"
-        theme="github-light"
-        crossorigin="anonymous"
-        async>
+    repo="Meekdai/meekdai.github.io"
+    issue-term="title"
+    theme="github-light"
+    crossorigin="anonymous"
+    async>
 </script>
 
 </body>
