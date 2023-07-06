@@ -1,25 +1,55 @@
-
-<html>
+<html data-color-mode="light" data-dark-theme="light">
 <head>
 <meta content="text/html; charset=utf-8" http-equiv="content-type" />
-<title>markdown测试页面</title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.2.0/github-markdown.min.css"/>
+<title>markdown测试页面-Meekdai</title>
+<link href="../static/github-light.css" rel="stylesheet" />
+<link href="https://unpkg.com/@primer/css@^21.0.7/dist/primer.css" rel="stylesheet" />
 </head>
 <style>
 .markdown-body {
     box-sizing: border-box;
     min-width: 200px;
     max-width: 900px;
-    margin: 0 auto;
+    margin: 10px auto;
     padding: 45px;
     border: 1px solid;
     border-radius: 6px;
     border-color: #54aeff66;
 }
 @media (max-width: 767px) { .markdown-body { padding: 15px;} }
+
+.Header{justify-content: space-between;}
+.Header-left{display: flex;}
+.Header-right{display: flex;}
+
+.Header-left img{margin:auto 32px;}
+.Header-left a{font-size:x-large;}
+.Header-right a{font-size:large;}
+
 </style>
 
 <body>
+<div class="Header">
+    <div class="Header-left">
+        <div class="Header-item">
+            <img class="avatar circle" src=https://avatars.githubusercontent.com/u/11755104?v=4 size="32" height="32" width="32">
+            <a href=http://blog.meekdai.com class="Header-link">Meekdai</a>
+        </div>
+    </div>
+
+    <div class="Header-right">
+        <div class="Header-item">
+            <a href="#" class="Header-link">友情链接</a>
+        </div>
+        <div class="Header-item">
+            <a href="#" class="Header-link">开源项目</a>
+        </div>
+        <div class="Header-item">
+            <a href="#" class="Header-link">关于</a>
+        </div>
+    </div>
+</div>
+
 <div class="markdown-body">
 <h1>markdown测试页面</h1>
 <h1><a id="user-content-heading-one" class="anchor" aria-hidden="true" href="#heading-one"><span aria-hidden="true" class="octicon octicon-link"></span></a>Heading one</h1>

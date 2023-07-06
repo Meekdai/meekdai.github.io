@@ -5,85 +5,67 @@ import argparse
 from github import Github
 from xpinyin import Pinyin
 
-host_name="https://meekdai.github.io/"
-
-index_md="\r\n#### 文章列表\r\n"
-
-html='''
-<html>
-<head>
-<meta content="text/html; charset=utf-8" http-equiv="content-type" />
-<title>%s</title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.2.0/github-markdown.min.css"/>
-</head>
-<style>
-.markdown-body {
-    box-sizing: border-box;
-    min-width: 200px;
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 45px;
-    border: 1px solid;
-    border-radius: 6px;
-    border-color: #54aeff66;
-}
-@media (max-width: 767px) { .markdown-body { padding: 15px;} }
-</style>
-
-<body>
-<div class="markdown-body">
-<h1>%s</h1>
-%s
-</div>
-
-<script src="https://utteranc.es/client.js"
-    repo="Meekdai/meekdai.github.io"
-    issue-term="title"
-    theme="github-light"
-    crossorigin="anonymous"
-    async>
-</script>
-
-</body>
-</html>
-'''
-
-def md2html(title,mdstr):
+######################################################################################
+def postmd2html(title,mdstr):
     global options
+    global post_html
+    global avatarUrl
+    global blog_name
+    
     payload = {"text": mdstr, "mode": "markdown"}
     ret=requests.post("https://api.github.com/markdown", json=payload,headers={"Authorzation":"token {}".format(options.github_token)})
     if ret.status_code==200:
-        return html % (title,title,ret.text)
+        return post_html % (title+'-'+blog_name,avatarUrl,options.blog_url,blog_name,title,ret.text)
     else:
-        raise Exception("md2html error title=%s status_code=%d"%(title,ret.status_code))
+        raise Exception("post md2html error title=%s status_code=%d"%(title,ret.status_code))
 
-def createHtml(title,body,dir_name):
+def createPost(title,body,dir_name):
+    global options
     global index_md
     genHtml = dir_name+'{}.html'.format(Pinyin().get_pinyin(title))
     f = open(genHtml, 'w', encoding='UTF-8')
-    message = md2html(title,body)
+    message = postmd2html(title,body)
     f.write(message)
     f.close()
-    index_md=index_md+("- [%s](%s)\r\n" % (title,host_name+genHtml))
+    index_md=index_md+("- [%s](%s)\r\n" % (title,genHtml))
     print("create title=%s file=%s ok" % (title,genHtml))
+######################################################################################
+def indexmd2html(mdstr):
+    global options
+    global index_html
+    global avatarUrl
+    global blog_name
+
+    payload = {"text": mdstr, "mode": "markdown"}
+    ret=requests.post("https://api.github.com/markdown", json=payload,headers={"Authorzation":"token {}".format(options.github_token)})
+    if ret.status_code==200:
+        return index_html % (blog_name,avatarUrl,options.blog_url,blog_name,ret.text)
+    else:
+        raise Exception("index md2html error title=%s status_code=%d"%(title,ret.status_code))
 
 def createIndex():
     global index_md
     f = open("index.html", 'w', encoding='UTF-8')
-    message = md2html("首页",index_md)
+    message = indexmd2html(index_md)
     f.write(message)
     f.close()
     print("create index.html ok")
 
+######################################################################################
 def get_repo(user: Github, repo: str):
     return user.get_repo(repo)
 
 def main(token,repo_name,issue_number=None, dir_name=""):
+    global avatarUrl
+    global blog_name
     user = Github(token)
     repo = get_repo(user, repo_name)
+    avatarUrl=user.get_user().avatar_url
+    blog_name=user.get_user().login
+
     print("====== start create static html ======")
     for issue in repo.get_issues():
-        createHtml(issue.title,issue.body,dir_name)
+        createPost(issue.title,issue.body,dir_name)
         
     createIndex()
     print("====== create static html end ======")
@@ -91,10 +73,18 @@ def main(token,repo_name,issue_number=None, dir_name=""):
 
 if __name__ == "__main__":
     global options
+    global index_md
+    global index_html
+    global post_html
+    index_md = "\r\n#### 文章列表\r\n"
+    index_html=open('index_example.html', 'r', encoding='utf-8').read()
+    post_html=open('post_example.html', 'r', encoding='utf-8').read()
+    
     os.chdir("docs/")
     parser = argparse.ArgumentParser()
     parser.add_argument("github_token", help="github_token")
     parser.add_argument("repo_name", help="repo_name")
+    parser.add_argument("blog_url", help="blog_url")
     parser.add_argument("--issue_number", help="issue_number", default=None, required=False)
     options = parser.parse_args()
 

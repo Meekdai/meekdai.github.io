@@ -1,25 +1,55 @@
-
-<html>
+<html data-color-mode="light" data-dark-theme="light">
 <head>
 <meta content="text/html; charset=utf-8" http-equiv="content-type" />
-<title>Allegro封装建库程序化</title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.2.0/github-markdown.min.css"/>
+<title>Allegro封装建库程序化-Meekdai</title>
+<link href="../static/github-light.css" rel="stylesheet" />
+<link href="https://unpkg.com/@primer/css@^21.0.7/dist/primer.css" rel="stylesheet" />
 </head>
 <style>
 .markdown-body {
     box-sizing: border-box;
     min-width: 200px;
     max-width: 900px;
-    margin: 0 auto;
+    margin: 10px auto;
     padding: 45px;
     border: 1px solid;
     border-radius: 6px;
     border-color: #54aeff66;
 }
 @media (max-width: 767px) { .markdown-body { padding: 15px;} }
+
+.Header{justify-content: space-between;}
+.Header-left{display: flex;}
+.Header-right{display: flex;}
+
+.Header-left img{margin:auto 32px;}
+.Header-left a{font-size:x-large;}
+.Header-right a{font-size:large;}
+
 </style>
 
 <body>
+<div class="Header">
+    <div class="Header-left">
+        <div class="Header-item">
+            <img class="avatar circle" src=https://avatars.githubusercontent.com/u/11755104?v=4 size="32" height="32" width="32">
+            <a href=http://blog.meekdai.com class="Header-link">Meekdai</a>
+        </div>
+    </div>
+
+    <div class="Header-right">
+        <div class="Header-item">
+            <a href="#" class="Header-link">友情链接</a>
+        </div>
+        <div class="Header-item">
+            <a href="#" class="Header-link">开源项目</a>
+        </div>
+        <div class="Header-item">
+            <a href="#" class="Header-link">关于</a>
+        </div>
+    </div>
+</div>
+
 <div class="markdown-body">
 <h1>Allegro封装建库程序化</h1>
 <p>在进行allegro封装建库的时候，我通常会使用FPM这个软件，因为通过这个软件，我就可以用代码来建立PCB封装。FPM这个软件网上可以下载到的版本是<code>0.0.8</code>，它内置了许多常用的封装类型，简单的填写一些参数就可以生产一个标准的封装。</p>
