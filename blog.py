@@ -15,7 +15,7 @@ def postmd2html(title,mdstr):
     payload = {"text": mdstr, "mode": "markdown"}
     ret=requests.post("https://api.github.com/markdown", json=payload,headers={"Authorzation":"token {}".format(options.github_token)})
     if ret.status_code==200:
-        return post_html % (title+'-'+blog_name,avatarUrl,options.blog_url,blog_name,title,ret.text)
+        return post_html % (title,avatarUrl,options.blog_url,blog_name,title,ret.text)
     else:
         raise Exception("post md2html error title=%s status_code=%d"%(title,ret.status_code))
 
