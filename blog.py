@@ -19,7 +19,7 @@ def postmd2html(title,mdstr):
     else:
         raise Exception("post md2html error title=%s status_code=%d"%(title,ret.status_code))
 
-def createPost(title,body,dir_name):
+def createPost(create_time,title,body,dir_name):
     global options
     global index_md
     genHtml = dir_name+'{}.html'.format(Pinyin().get_pinyin(title))
@@ -27,7 +27,7 @@ def createPost(title,body,dir_name):
     message = postmd2html(title,body)
     f.write(message)
     f.close()
-    index_md=index_md+("- [%s](%s)\r\n" % (title,genHtml))
+    index_md=index_md+("- %s &nbsp;&nbsp;&nbsp;&nbsp;[%s](%s)\r\n" % (create_time,title,genHtml))
     print("create title=%s file=%s ok" % (title,genHtml))
 ######################################################################################
 def indexmd2html(mdstr):
@@ -65,7 +65,7 @@ def main(token,repo_name,issue_number=None, dir_name=""):
 
     print("====== start create static html ======")
     for issue in repo.get_issues():
-        createPost(issue.title,issue.body,dir_name)
+        createPost(issue.created_at.strftime("%Y-%m-%d"),issue.title,issue.body,dir_name)
         
     createIndex()
     print("====== create static html end ======")
