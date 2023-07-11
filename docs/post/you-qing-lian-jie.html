@@ -1,0 +1,78 @@
+<html data-color-mode="light" data-dark-theme="light">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="content-type" />
+<title>友情链接</title>
+<link href="../static/github-light.css" rel="stylesheet" />
+<link href="https://unpkg.com/@primer/css@^21.0.7/dist/primer.css" rel="stylesheet" />
+</head>
+<style>
+.markdown-body {
+    box-sizing: border-box;
+    min-width: 200px;
+    max-width: 900px;
+    margin: 10px auto;
+    padding: 45px;
+    border: 1px solid;
+    border-radius: 6px;
+    border-color: #54aeff66;
+}
+@media (max-width: 767px) { .markdown-body { padding: 15px;} }
+
+.Header{justify-content: space-between;}
+.Header-left{display: flex;}
+.Header-right{display: flex;}
+
+.Header-left img{margin:auto 32px;}
+.Header-left a{font-size:x-large;}
+.Header-right a{font-size:large;}
+
+</style>
+
+<body>
+<div class="Header">
+    <div class="Header-left">
+        <div class="Header-item">
+            <img class="avatar circle" src=https://avatars.githubusercontent.com/u/11755104?v=4 size="32" height="32" width="32">
+            <a href=http://blog.meekdai.com class="Header-link">Meekdai</a>
+        </div>
+    </div>
+
+    <div class="Header-right">
+        <div class="Header-item">
+            <a href="#" class="Header-link">友情链接</a>
+        </div>
+        <div class="Header-item">
+            <a href="#" class="Header-link">开源项目</a>
+        </div>
+        <div class="Header-item">
+            <a href="#" class="Header-link">关于</a>
+        </div>
+    </div>
+</div>
+
+<div class="markdown-body">
+<h1>友情链接</h1>
+<p>在2023年的暑假，之前购买阿里云3年的活动ECS主机到期了，续费价格超级贵<g-emoji class="g-emoji" alias="sob" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f62d.png">😭</g-emoji>，所以打算在github page上面搭建自己的博客。看了很多不同类型的，例如<a href="https://github.com/hexojs/hexo">Hexo</a>、<a href="https://github.com/gohugoio/hugo">Hugo</a>这些比较有名的，也了解了很多在github上的小项目，发现了<a href="https://github.com/yihong0618/gitblog">gitblog</a>，这个博客是用python抓取github issues的内容然后展示在首页<code>readme.md</code>，当即就来了灵感<g-emoji class="g-emoji" alias="clap" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f44f.png">👏</g-emoji>，我可以自己通过Python抓取github issues的内容，生成静态页面，不仅仅包含首页，文章页面也可以生成后存储在github上，而且也可以通过github Action来自动执行Python文件，搭建好后就不需要任何的本地操作。</p>
+<p>目前已经实现了抓取文章页面和首页的基础程序，内容展示用了<a href="https://primer.style/css/" rel="nofollow">primer/css</a>，评论直接使用<a href="https://utteranc.es/" rel="nofollow">utteranc.es</a>拉取issues的评论，但是目前还只是一个简单的框架 =&gt;&gt; <a href="http://meekdai.github.io" rel="nofollow">meekblog</a></p>
+<p>TODO:</p>
+<ul>
+<li>[ ] 优化首页和文章页UI，这是一个持久的事情<g-emoji class="g-emoji" alias="muscle" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4aa.png">💪</g-emoji></li>
+<li>[ ] 给首页添加页面<a href="https://primer.style/css/components/pagination" rel="nofollow">Pagination</a>，例如一页展示10篇文章的标题内容，或者可以使用懒加载的方式</li>
+<li>[ ] 给首页添加<a href="https://primer.style/css/components/timeline" rel="nofollow">Timeline</a>
+</li>
+<li>[ ] 添加友情链接/关于等独立页面</li>
+<li>[ ] 解决其他人提交issues污染博客内容的情况</li>
+</ul>
+
+</div>
+
+<script src="https://utteranc.es/client.js"
+    repo="Meekdai/meekdai.github.io"
+    issue-term="title"
+    theme="github-light"
+    crossorigin="anonymous"
+    async>
+</script>
+
+</body>
+</html>
