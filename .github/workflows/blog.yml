@@ -13,7 +13,6 @@ on:
 env:
   GITHUB_NAME: Meekdai
   GITHUB_EMAIL: meekdai@163.com
-  BLOG_URL: http://blog.meekdai.com
 
 jobs:
   sync:
@@ -47,7 +46,7 @@ jobs:
       - name: Generate new html
         run: |
           source venv/bin/activate
-          python blog.py ${{ secrets.meblog }} ${{ github.repository }} ${{ env.BLOG_URL }} --issue_number '${{ github.event.issue.number }}'
+          python meekblog.py ${{ secrets.meblog }} ${{ github.repository }} --issue_number '${{ github.event.issue.number }}'
         
       - name: update html
         run: |
