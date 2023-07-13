@@ -1,9 +1,10 @@
-<html data-color-mode="light" data-dark-theme="dark" data-dark-theme="light">
+<html data-color-mode="light" data-dark-theme="dark" data-light-theme="light">
 <head>
 <meta content="text/html; charset=utf-8" http-equiv="content-type" />
 <title>Allegro封装建库程序化</title>
-<link href="../static/github-light.css" rel="stylesheet" />
+<link href="../static/github-syntax-highlighting.css" rel="stylesheet" />
 <link href="https://unpkg.com/@primer/css@^21.0.7/dist/primer.css" rel="stylesheet" />
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
 <style>
 .markdown-body {
@@ -26,6 +27,12 @@
 
 .avatar {transition: 0.8s;}
 .avatar:hover {transform: scale(1.15) rotate(360deg);}
+
+h1 {display:flex;flex-direction:row;}
+.title-right{display:flex;margin:auto 0 0 auto;}
+.source{display:flex;font-size: 14px;margin-right: 24px;}
+.source span{margin-left: 8px;}
+
 </style>
 
 <body>
@@ -44,7 +51,21 @@
 </div>
 
 <div class="markdown-body">
-<h1>Allegro封装建库程序化</h1>
+<h1>
+    Allegro封装建库程序化
+    <div class="title-right">
+    <div class="source">
+        <svg class="octicon" viewBox="0 0 16 16" width="16" height="16"><path fill-rule="evenodd" d="M1.679 7.932c.412-.621 1.242-1.75 2.366-2.717C5.175 4.242 6.527 3.5 8 3.5c1.473 0 2.824.742 3.955 1.715 1.124.967 1.954 2.096 2.366 2.717a.119.119 0 010 .136c-.412.621-1.242 1.75-2.366 2.717C10.825 11.758 9.473 12.5 8 12.5c-1.473 0-2.824-.742-3.955-1.715C2.92 9.818 2.09 8.69 1.679 8.068a.119.119 0 010-.136zM8 2c-1.981 0-3.67.992-4.933 2.078C1.797 5.169.88 6.423.43 7.1a1.619 1.619 0 000 1.798c.45.678 1.367 1.932 2.637 3.024C4.329 13.008 6.019 14 8 14c1.981 0 3.67-.992 4.933-2.078 1.27-1.091 2.187-2.345 2.637-3.023a1.619 1.619 0 000-1.798c-.45-.678-1.367-1.932-2.637-3.023C11.671 2.992 9.981 2 8 2zm0 8a2 2 0 100-4 2 2 0 000 4z"></path></svg>
+        <span id="busuanzi_value_page_pv"></span>
+    </div>
+    <a href=https://github.com/Meekdai/meekdai.github.io/issues/3 target="_blank">
+        <div class="source">
+            <svg class="octicon" viewBox="0 0 16 16" width="16" height="16"><path fill-rule="evenodd" d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg>
+            <span>Source</span>
+        </div>
+    </a>
+    </div>
+</h1>
 <p>在进行allegro封装建库的时候，我通常会使用FPM这个软件，因为通过这个软件，我就可以用代码来建立PCB封装。FPM这个软件网上可以下载到的版本是<code>0.0.8</code>，它内置了许多常用的封装类型，简单的填写一些参数就可以生产一个标准的封装。</p>
 <p>除此之外，有些特殊的封装可以自定义，通过编写<code>skill</code>的<code>il</code>文件来实现。下面是一些常用的语句。</p>
 <h3><a id="user-content-注释部分" class="anchor" aria-hidden="true" href="#注释部分"><span aria-hidden="true" class="octicon octicon-link"></span></a>注释部分</h3>
@@ -107,9 +128,9 @@ _Layer(lPkgGeoSilkT) _Line(list(2.5:2.5 -2.5:2.5))
 
 <script>
 var utterancesLoad=0
-if(localStorage.getItem("theme")==null){localStorage.setItem("theme","light")}
-else if(localStorage.getItem("theme")=="dark"){changeDark();}
-else if(localStorage.getItem("theme")=="light"){changeLight();}
+if(localStorage.getItem("meek_theme")==null){localStorage.setItem("meek_theme","light")}
+else if(localStorage.getItem("meek_theme")=="dark"){changeDark();}
+else if(localStorage.getItem("meek_theme")=="light"){changeLight();}
 
 function changeDark(){
     document.getElementsByTagName("html")[0].attributes.getNamedItem("data-color-mode").value="dark";
@@ -122,8 +143,8 @@ function changeLight(){
     if(utterancesLoad==1){utterancesTheme("github-light");}
 }
 function modeSwitch(){
-    if(document.getElementsByTagName("html")[0].attributes[0].value=="light"){changeDark();localStorage.setItem("theme","dark");}
-    else{changeLight();localStorage.setItem("theme","light");}
+    if(document.getElementsByTagName("html")[0].attributes[0].value=="light"){changeDark();localStorage.setItem("meek_theme","dark");}
+    else{changeLight();localStorage.setItem("meek_theme","light");}
 }
 function utterancesTheme(theme){
     const message = {type: 'set-theme',theme: theme};
@@ -133,8 +154,9 @@ function utterancesTheme(theme){
 utterancesFrame=document.getElementsByClassName("utterances-frame")[0];
 utterancesFrame.onload=function(){
     utterancesLoad=1
-    if(localStorage.getItem("theme")=="dark"){changeDark();}
+    if(localStorage.getItem("meek_theme")=="dark"){changeDark();}
     else{changeLight();}
 }
+
 </script>
 </html>
