@@ -49,7 +49,8 @@ class MEEKBLOG():
             gen_Html = single+".html"
         f = open(gen_Html, 'w', encoding='UTF-8')
         post_body=self.markdown2html(issue.body)
-        f.write(self.value2postHtml(self.blog_name,issue.title,post_body,self.avatar_url,self.header_right))
+        source_url="https://github.com/"+options.repo_name+"/issues/"+str(issue.number)
+        f.write(self.value2postHtml(self.blog_name,issue.title,post_body,self.avatar_url,source_url,self.header_right))
         f.close()
 
         if self.backupMd:
@@ -58,8 +59,8 @@ class MEEKBLOG():
             f.close()
         return gen_Html
 
-    def value2postHtml(self,blog_name,post_title,post_body,avatar_url,header_right):
-        return self.post_example%(post_title,avatar_url,blog_name,header_right,post_title,post_body)
+    def value2postHtml(self,blog_name,post_title,post_body,avatar_url,source_url,header_right):
+        return self.post_example%(post_title,avatar_url,blog_name,header_right,post_title,source_url,post_body)
 
     def creatIndexHtml(self):
         f = open("index.html", 'w', encoding='UTF-8')
