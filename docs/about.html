@@ -35,7 +35,7 @@ h1 {display:flex;flex-direction:row;}
 
 </style>
 
-<body onload="initComments()">
+<body>
 <div class="Header">
     <div class="Header-left">
         <div class="Header-item">
@@ -109,15 +109,15 @@ function utterancesTheme(theme){
     iframe.contentWindow.postMessage(message, 'https://utteranc.es');
 }
 
-function initComments(){
-    utterancesFrame=document.getElementsByClassName("utterances-frame")[0];
+utterancesFrame=document.getElementsByClassName("utterances-frame")[0];
+if(utterancesFrame!=null){
     utterancesFrame.onload=function(){
-        utterancesLoad=1
+        utterancesLoad=1;
         if(localStorage.getItem("meek_theme")=="dark"){changeDark();}
         else{changeLight();}
     }
 }
-
+else{console.debug("utterancesFrame load be late");}
 
 </script>
 </html>
