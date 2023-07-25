@@ -30,21 +30,14 @@ class MEEKBLOG():
         self.avatar_url=avatar_url
         self.blog_name=user.get_user().login
 
-    #     self.checkPostDir()
-
-    # def checkPostDir(self):
-    #     if not os.path.exists(self.post_dir):
-    #         os.mkdir(self.post_dir)
-    #     if not os.path.exists("backup/"):
-    #         os.mkdir("backup/")
-
     def cleanFile(self):
-        shutil.rmtree("backup/")
-        shutil.rmtree("docs/")
-
-        os.mkdir("backup/")
-        os.mkdir("docs/")
-        os.mkdir(self.post_dir)
+        if os.path.exists("backup/"):
+            shutil.rmtree("backup/")
+            os.mkdir("backup/")
+        if os.path.exists("docs/"):
+            shutil.rmtree("docs/")
+            os.mkdir("docs/")
+            os.mkdir(self.post_dir)
 
     def get_repo(self,user: Github, repo: str):
         return user.get_repo(repo)
