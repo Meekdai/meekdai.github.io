@@ -34,11 +34,10 @@ class MEEKBLOG():
         if os.path.exists("backup/"):
             shutil.rmtree("backup/")
             
-        if os.path.exists("docs/"):
-            shutil.rmtree("docs/")
+        if os.path.exists(self.post_dir):
+            shutil.rmtree(self.post_dir)
 
         os.mkdir("backup/")
-        os.mkdir("docs/")
         os.mkdir(self.post_dir)
         
 
@@ -80,7 +79,7 @@ class MEEKBLOG():
                 color=self.label_color[int(post_time.year)%5]
                 self.post_url=self.post_dir[5:]+'{}.html'.format(Pinyin().get_pinyin(self.postDict[num]["title"]))
 
-                self.index_md=self.index_md+('<a class="SideNav-item d-flex flex-items-center flex-justify-between" href="/%s.html" target="_blank">%s<span class="Label color-bg-%s-emphasis color-fg-on-emphasis">%s</span></a>'%(self.post_url,self.postDict[num]["title"],color,post_time.strftime("%Y-%m-%d")))
+                self.index_md=self.index_md+('<a class="SideNav-item d-flex flex-items-center flex-justify-between" href="/%s" target="_blank">%s<span class="Label color-bg-%s-emphasis color-fg-on-emphasis">%s</span></a>'%(self.post_url,self.postDict[num]["title"],color,post_time.strftime("%Y-%m-%d")))
             else:
                 self.single_link=self.single_link+('<a class="SideNav-item d-flex flex-items-center flex-justify-between" href="/%s.html" target="_blank">%s<span class="Label color-bg-sponsors-emphasis color-fg-on-emphasis">独立页面</span></a>' %(self.postDict[num]["label"],self.postDict[num]["title"]))
 
