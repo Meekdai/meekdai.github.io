@@ -153,7 +153,7 @@ if not os.path.exists("postList.json"):
     print("postList is not exists, runAll")
     blog.runAll()
 else:
-    if options.issue_number=="0":
+    if options.issue_number=="0" or options.issue_number=="":
         print("issue_number=='0', runAll")
         blog.runAll()
     else:

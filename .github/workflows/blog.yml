@@ -4,11 +4,6 @@ on:
   workflow_dispatch:
   issues:
     types: [opened, edited]
-  push:
-    branches:
-      - main
-    paths:
-      - meekblog.py
 
 env:
   GITHUB_NAME: Meekdai
