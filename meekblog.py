@@ -33,11 +33,14 @@ class MEEKBLOG():
     def cleanFile(self):
         if os.path.exists("backup/"):
             shutil.rmtree("backup/")
-            os.mkdir("backup/")
+            
         if os.path.exists("docs/"):
             shutil.rmtree("docs/")
-            os.mkdir("docs/")
-            os.mkdir(self.post_dir)
+
+        os.mkdir("backup/")
+        os.mkdir("docs/")
+        os.mkdir(self.post_dir)
+        
 
     def get_repo(self,user: Github, repo: str):
         return user.get_repo(repo)
