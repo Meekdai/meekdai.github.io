@@ -96,15 +96,15 @@ class MEEKBLOG():
 
     def addOnePostJson(self,issue):
         for label in issue.labels:
-            self.postDict[issue.number]=json.loads('{}')
-            self.postDict[issue.number]["label"]=label.name
-            self.postDict[issue.number]["title"]=issue.title
-            self.postDict[issue.number]["source_url"]="https://github.com/"+options.repo_name+"/issues/"+str(issue.number)
+            self.postDict[str(issue.number)]=json.loads('{}')
+            self.postDict[str(issue.number)]["label"]=label.name
+            self.postDict[str(issue.number)]["title"]=issue.title
+            self.postDict[str(issue.number)]["source_url"]="https://github.com/"+options.repo_name+"/issues/"+str(issue.number)
             try:
                 modifyTime=json.loads(issue.body.split("\r\n")[-1:][0].split("##")[1])
-                self.postDict[issue.number]["created_at"]=modifyTime["timestamp"]
+                self.postDict[str(issue.number)]["created_at"]=modifyTime["timestamp"]
             except:
-                self.postDict[issue.number]["created_at"]=int(time.mktime(issue.created_at.timetuple()))
+                self.postDict[str(issue.number)]["created_at"]=int(time.mktime(issue.created_at.timetuple()))
         f = open("backup/"+issue.title+".md", 'w', encoding='UTF-8')
         f.write(issue.body)
         f.close()
@@ -131,11 +131,11 @@ class MEEKBLOG():
         self.creatIndexHtml()
         print("====== create static html end ======")
 
-    def runOne(self,number):
+    def runOne(self,number_str):
         print("====== start create static html ======")
-        issue=self.repo.get_issue(int(number))
+        issue=self.repo.get_issue(int(number_str))
         self.addOnePostJson(issue)
-        self.creatOneHtml(self.postDict[number])
+        self.creatOneHtml(self.postDict[number_str])
         self.creatIndexHtml()
         print("====== create static html end ======")
 
