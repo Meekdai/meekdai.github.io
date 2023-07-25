@@ -14,42 +14,51 @@
     max-width: 900px;
     margin: 20px auto;
     padding: 45px;
+    font-family: sans-serif;
 }
-@media (max-width: 767px) { .markdown-body { padding: 15px;} }
+@media (max-width: 767px) {
+    .markdown-body { padding: 15px;} 
+    .subnav-search form{display:none;}
+    .subnav-search svg{display:none;}
+}
 
-.Header{justify-content: space-between;padding:8px;}
-.Header-left{display: flex;}
-.Header-right{display: flex;}
-
-.Header-left img{margin:auto 16px;}
-.Header-left a{font-size:x-large;}
-.Header-right a{font-size:large;}
-.Header-right button{margin:auto 16px;height:48px;}
+h1 {display:flex;}
+h1 a{margin-left: 4px;margin-top: 16px;}
+h1 .subnav-search{margin-left: auto;margin-top: 24px;height:32px;display:flex;}
+h1 .subnav-search-input{width:200px;border-top-right-radius: 0px;border-bottom-right-radius: 0px;}
+h1 button:last-child{border-top-left-radius: 0px;border-bottom-left-radius: 0px;}
+#changeTheme{margin-left:16px;margin-top:16px;padding:16px;}
 
 .avatar {transition: 0.8s;}
 .avatar:hover {transform: scale(1.15) rotate(360deg);}
+
+.SideNav{min-width: 360px;}
+.SideNav-icon{margin-right: 16px}
+
+.footer {margin: 40px auto; text-align: center;font-size: small;}
 
 </style>
 
 <body>
 
-<div class="Header">
-    <div class="Header-left">
-        <div class="Header-item">
-            <img class="avatar circle" src=%s width="48">
-            <a href="/" class="Header-link">%s</a>
-        </div>
-    </div>
-
-    <div class="Header-right">
-    %s
-    <button class="btn btn-invisible circle" onclick="modeSwitch()"><svg class="octicon octicon-sun" width="16" height="16" ><path id="themeSwitch" fill-rule="evenodd" d="M8 10.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5zM8 12a4 4 0 100-8 4 4 0 000 8zM8 0a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0V.75A.75.75 0 018 0zm0 13a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0v-1.5A.75.75 0 018 13zM2.343 2.343a.75.75 0 011.061 0l1.06 1.061a.75.75 0 01-1.06 1.06l-1.06-1.06a.75.75 0 010-1.06zm9.193 9.193a.75.75 0 011.06 0l1.061 1.06a.75.75 0 01-1.06 1.061l-1.061-1.06a.75.75 0 010-1.061zM16 8a.75.75 0 01-.75.75h-1.5a.75.75 0 010-1.5h1.5A.75.75 0 0116 8zM3 8a.75.75 0 01-.75.75H.75a.75.75 0 010-1.5h1.5A.75.75 0 013 8zm10.657-5.657a.75.75 0 010 1.061l-1.061 1.06a.75.75 0 11-1.06-1.06l1.06-1.06a.75.75 0 011.06 0zm-9.193 9.193a.75.75 0 010 1.06l-1.06 1.061a.75.75 0 11-1.061-1.06l1.06-1.061a.75.75 0 011.061 0z"></path></svg></button>
-    </div>
-
-</div>
-
 <div class="markdown-body">
-%s
+    <h1>
+        <img src=%s size="64" height="64" width="64" class="avatar circle"><a style="font-family:Monaco;">eekdai</a>
+        
+        <div class="subnav-search">
+            <form action="https://www.google.com/search" method="get" target="_blank"><input type="search" name="q" class="form-control subnav-search-input" aria-label="Search site" value=""><button class="btn" type="submit">搜索</button></form>
+            <svg class="subnav-search-icon octicon octicon-search" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"> <path fill-rule="evenodd" d="M15.7 13.3l-3.81-3.83A5.93 5.93 0 0 0 13 6c0-3.31-2.69-6-6-6S1 2.69 1 6s2.69 6 6 6c1.3 0 2.48-.41 3.47-1.11l3.83 3.81c.19.2.45.3.7.3.25 0 .52-.09.7-.3a.996.996 0 0 0 0-1.41v.01zM7 10.7c-2.59 0-4.7-2.11-4.7-4.7 0-2.59 2.11-4.7 4.7-4.7 2.59 0 4.7 2.11 4.7 4.7 0 2.59-2.11 4.7-4.7 4.7z"></path></svg>
+        </div>
+        
+        <div><button id="changeTheme" class="btn btn-invisible circle" onclick="modeSwitch()"><svg class="octicon octicon-sun" width="16" height="16" ><path id="themeSwitch" fill-rule="evenodd" d="M8 10.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5zM8 12a4 4 0 100-8 4 4 0 000 8zM8 0a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0V.75A.75.75 0 018 0zm0 13a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0v-1.5A.75.75 0 018 13zM2.343 2.343a.75.75 0 011.061 0l1.06 1.061a.75.75 0 01-1.06 1.06l-1.06-1.06a.75.75 0 010-1.06zm9.193 9.193a.75.75 0 011.06 0l1.061 1.06a.75.75 0 01-1.06 1.061l-1.061-1.06a.75.75 0 010-1.061zM16 8a.75.75 0 01-.75.75h-1.5a.75.75 0 010-1.5h1.5A.75.75 0 0116 8zM3 8a.75.75 0 01-.75.75H.75a.75.75 0 010-1.5h1.5A.75.75 0 013 8zm10.657-5.657a.75.75 0 010 1.061l-1.061 1.06a.75.75 0 11-1.06-1.06l1.06-1.06a.75.75 0 011.06 0zm-9.193 9.193a.75.75 0 010 1.06l-1.06 1.061a.75.75 0 11-1.061-1.06l1.06-1.061a.75.75 0 011.061 0z"></path></svg></button></div>
+    </h1>
+    <div>童话是一种生活态度，仅此而已。</div><p></p>
+
+    <nav class="SideNav border">%s</nav><p></p>
+
+    <nav class="SideNav border">%s</nav>
+
+    <div class="footer">浙ICP备20023628号</div>
 </div>
 
 </body>

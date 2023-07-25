@@ -19,8 +19,8 @@ class MEEKBLOG():
         self.index_example=open('index_example.html', 'r', encoding='utf-8').read()
         self.post_example=open('post_example.html', 'r', encoding='utf-8').read()
         self.index_md=''
-        self.post_year=0
-        self.header_right=''
+        self.single_link=''
+        self.label_color=["accent","success","attention","severe"]
 
         self.postDict=json.loads('{}')
 
@@ -64,35 +64,35 @@ class MEEKBLOG():
         f.close()
 
         f = open(gen_Html, 'w', encoding='UTF-8')
-        f.write(self.value2postHtml(self.blog_name,issue["title"],post_body,self.avatar_url,issue["source_url"],self.header_right))
+        f.write(self.value2postHtml(self.blog_name,issue["title"],post_body,self.avatar_url,issue["source_url"],self.single_link))
         f.close()
 
         return gen_Html
 
     def value2postHtml(self,blog_name,post_title,post_body,avatar_url,source_url,header_right):
-        return self.post_example%(post_title,avatar_url,blog_name,header_right,post_title,source_url,post_body)
+        return self.post_example%(post_title,post_title,source_url,post_body)
 
     def creatIndexHtml(self):
         self.postDict=dict(sorted(self.postDict.items(),key=lambda x:x[1]["created_at"],reverse=True))#使列表由时间排序
         for num in self.postDict:
             if self.postDict[num]["label"]=='post':
                 post_time = datetime.datetime.fromtimestamp(self.postDict[num]["created_at"])
-                if self.post_year!=post_time.year:
-                    self.post_year=post_time.year
-                    self.index_md=self.index_md+("## %s \r\n"%(self.post_year))
+                color=self.label_color[int(post_time.year)%5]
                 self.post_url=self.post_dir[5:]+'{}.html'.format(Pinyin().get_pinyin(self.postDict[num]["title"]))
-                self.index_md=self.index_md+("- %s &nbsp;&nbsp;&nbsp;&nbsp;[%s](%s)\r\n" % (post_time.strftime("%Y-%m-%d"),self.postDict[num]["title"],self.post_url))
+
+                self.index_md=self.index_md+('<a class="SideNav-item d-flex flex-items-center flex-justify-between" href="/%s.html" target="_blank">%s<span class="Label color-bg-%s-emphasis color-fg-on-emphasis">%s</span></a>'%(self.post_url,self.postDict[num]["title"],color,post_time.strftime("%Y-%m-%d")))
             else:
-                self.header_right=self.header_right+('<div class="Header-item"><a href="/%s.html" class="Header-link">%s</a></div>' % (self.postDict[num]["label"],self.postDict[num]["title"]))
+                self.single_link=self.single_link+('<a class="SideNav-item d-flex flex-items-center flex-justify-between" href="/%s.html" target="_blank">%s<span class="Label color-bg-sponsors-emphasis color-fg-on-emphasis">独立页面</span></a>' %(self.postDict[num]["label"],self.postDict[num]["title"]))
 
         f = open("docs/index.html", 'w', encoding='UTF-8')
-        index_body=self.markdown2html(self.index_md)
-        f.write(self.value2indexHtml(self.blog_name,index_body,self.avatar_url,self.header_right))
+        # index_body=self.markdown2html(self.index_md)
+        index_body=self.index_md
+        f.write(self.value2indexHtml(self.blog_name,index_body,self.avatar_url,self.single_link))
         f.close()
         print("create docs/index.html")
 
-    def value2indexHtml(self,blog_name,index_body,avatar_url,header_right):
-        return self.index_example%(blog_name,avatar_url,blog_name,header_right,index_body)
+    def value2indexHtml(self,blog_name,index_body,avatar_url,single_link):
+        return self.index_example%(blog_name,avatar_url,index_body,single_link)
 
     def addOnePostJson(self,issue):
         for label in issue.labels:
