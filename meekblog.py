@@ -133,8 +133,8 @@ class MEEKBLOG():
 
     def runOne(self,number):
         print("====== start create static html ======")
-        issues=self.repo.get_issues()
-        self.addOnePostJson(issues[int(number)])
+        issue=self.repo.get_issue(int(number))
+        self.addOnePostJson(issue)
         self.creatOneHtml(self.postDict[number])
         self.creatIndexHtml()
         print("====== create static html end ======")
