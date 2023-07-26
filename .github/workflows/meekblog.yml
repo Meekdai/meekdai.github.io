@@ -1,9 +1,8 @@
 name: build meekblog
 
 on:
-  workflow_dispatch:
   issues:
-    types: [opened, edited]
+    types: [assigned, unassigned, labeled, unlabeled]
 
 env:
   GITHUB_NAME: Meekdai
