@@ -2,10 +2,17 @@
 
 目前已经实现了抓取文章页面和首页的基础程序，内容展示用了[primer/css](https://primer.style/css/)，评论直接使用[utteranc.es](https://utteranc.es/)拉取issues的评论，但是目前还只是一个简单的框架 =>> [meekblog](http://meekdai.github.io)
 
-### 更新日志
 #### 20230726
-- 统一首页和博客页等样式排布
 - 使用`if: github.event.repository.owner.id == github.event.sender.id` 辨别他人提交issues
+- 修复会抓取其他用户提交的issue的BUG
+- 添加底部copyright和网站运行时长
+- 添加首页文章列表前的Icon图标
+- 添加首页显示文章对应的`labels`，自动抓取对应github上的标签颜色
+
+#### 20230725
+- 统一首页和博客页等样式排布
+
+#### 20230711
 - 添加友情链接和关于等独立页面
 - 可以手动切换暗亮主题
 
