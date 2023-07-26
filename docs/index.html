@@ -58,7 +58,7 @@ h1 button:last-child{border-top-left-radius: 0px;border-bottom-left-radius: 0px;
 
     <nav class="SideNav border"><a class="SideNav-item d-flex flex-items-center flex-justify-between" href="/link.html">友情链接<span class="Label color-bg-sponsors-emphasis color-fg-on-emphasis">独立页面</span></a><a class="SideNav-item d-flex flex-items-center flex-justify-between" href="/about.html">关于<span class="Label color-bg-sponsors-emphasis color-fg-on-emphasis">独立页面</span></a></nav>
 
-    <div class="footer">浙ICP备20023628号</div>
+    <div class="footer">浙ICP备20023628号 • Copyright © <span id="year"></span> <a href="http://meekdai.com">Meekdai</a> • 网站已运行<span id="runday"></span>天</div>
 </div>
 
 </body>
@@ -79,5 +79,12 @@ function modeSwitch(){
     if(document.getElementsByTagName("html")[0].attributes[0].value=="light"){changeDark();localStorage.setItem("meek_theme","dark");}
     else{changeLight();localStorage.setItem("meek_theme","light");}
 }
+
+var now=new Date();
+var startSite=new Date("02/16/2015");
+var diff=now.getTime()-startSite.getTime();
+var diffDay=Math.floor(diff/(1000*60*60*24));
+document.getElementById("year").innerHTML=now.getFullYear();
+document.getElementById("runday").innerHTML=diffDay;
 </script>
 </html>
