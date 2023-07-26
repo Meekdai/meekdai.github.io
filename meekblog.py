@@ -84,7 +84,6 @@ class MEEKBLOG():
                 self.single_link=self.single_link+('<a class="SideNav-item d-flex flex-items-center flex-justify-between" href="/%s.html">%s<span class="Label color-bg-sponsors-emphasis color-fg-on-emphasis">独立页面</span></a>' %(self.postDict[num]["label"],self.postDict[num]["title"]))
 
         f = open("docs/index.html", 'w', encoding='UTF-8')
-        # index_body=self.markdown2html(self.index_md)
         index_body=self.index_md
         f.write(self.value2indexHtml(self.blog_name,index_body,self.avatar_url,self.single_link))
         f.close()
