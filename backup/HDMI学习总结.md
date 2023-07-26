@@ -14,7 +14,6 @@ HDMI标准继续沿用了和DVI相同的，由Silicon Image公司发明的TMDS(T
 ![a15b4afegw1ezdeqxlxvij20t30drjt6](https://github.com/Meekdai/meekdai.github.io/assets/11755104/bb31ab5b-3c9b-4c30-b177-41e7132150d1)
 
 #### 2.HDMI带宽和TMDS的关系
-
 在HDMI标准中所规定的带宽，在1.0版本就设定为最高4.96Gbps。那么这一数值是怎么的来的呢？和TMDS又有什么关系呢？我们看下面的公式：
 
 ```串行接口带宽 = 系统时钟频率 X 数据量```
