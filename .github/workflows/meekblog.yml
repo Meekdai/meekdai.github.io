@@ -2,7 +2,7 @@ name: build meekblog
 
 on:
   issues:
-    types: [assigned, unassigned, labeled, unlabeled]
+    types: [opened, edited, labeled, unlabeled]
 
 env:
   GITHUB_NAME: Meekdai
