@@ -11,6 +11,9 @@ from xpinyin import Pinyin
 ######################################################################################
 avatar_url="http://meekdai.com/avatar.jpg"
 
+postIcon='<div class="d-flex flex-items-center"><svg class="SideNav-icon octicon" width="16" height="16"> <path fill-rule="evenodd" d="M0 3.75C0 2.784.784 2 1.75 2h12.5c.966 0 1.75.784 1.75 1.75v8.5A1.75 1.75 0 0 1 14.25 14H1.75A1.75 1.75 0 0 1 0 12.25Zm1.75-.25a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25v-8.5a.25.25 0 0 0-.25-.25ZM3.5 6.25a.75.75 0 0 1 .75-.75h7a.75.75 0 0 1 0 1.5h-7a.75.75 0 0 1-.75-.75Zm.75 2.25h4a.75.75 0 0 1 0 1.5h-4a.75.75 0 0 1 0-1.5Z"></path></svg>%s</div>'
+linkIcon='<div class="d-flex flex-items-center"><svg class="SideNav-icon octicon" width="16" height="16"> <path fill-rule="evenodd" d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>%s</div>'
+aboutIcon='<div class="d-flex flex-items-center"><svg class="SideNav-icon octicon" width="16" height="16"> <path fill-rule="evenodd" d="M10.561 8.073a6.005 6.005 0 0 1 3.432 5.142.75.75 0 1 1-1.498.07 4.5 4.5 0 0 0-8.99 0 .75.75 0 0 1-1.498-.07 6.004 6.004 0 0 1 3.431-5.142 3.999 3.999 0 1 1 5.123 0ZM10.5 5a2.5 2.5 0 1 0-5 0 2.5 2.5 0 0 0 5 0Z"></path></svg>%s</div>'
 ######################################################################################
 class MEEKBLOG():
     def __init__(self,options,post_dir):
@@ -20,7 +23,6 @@ class MEEKBLOG():
         self.post_example=open('post_example.html', 'r', encoding='utf-8').read()
         self.index_md=''
         self.single_link=''
-        self.label_color=["accent","success","attention","severe"]
         self.postDict=json.loads('{}')
 
         user = Github(self.options.github_token)
@@ -28,6 +30,11 @@ class MEEKBLOG():
         # self.avatar_url=user.get_user().avatar_url
         self.avatar_url=avatar_url
         self.blog_name=user.get_user().login
+        self.labelColorDict=json.loads('{}')
+        self.yearColorList=['#bc4c00', '#0969da', '#1f883d', '#A333D0']
+        for label in self.repo.get_labels():
+            self.labelColorDict[label.name]='#'+label.color
+        print(self.labelColorDict)
 
     def cleanFile(self):
         if os.path.exists("backup/"):
@@ -73,14 +80,25 @@ class MEEKBLOG():
     def creatIndexHtml(self):
         self.postDict=dict(sorted(self.postDict.items(),key=lambda x:x[1]["created_at"],reverse=True))#使列表由时间排序
         for num in self.postDict:
-            if self.postDict[num]["label"]=='post':
+            if 'post' in self.postDict[num]["labels"]:
                 post_time = datetime.datetime.fromtimestamp(self.postDict[num]["created_at"])
-                color=self.label_color[int(post_time.year)%5]
                 self.post_url=self.post_dir[5:]+'{}.html'.format(Pinyin().get_pinyin(self.postDict[num]["title"]))
 
-                self.index_md=self.index_md+('<a class="SideNav-item d-flex flex-items-center flex-justify-between" href="/%s">%s<span class="Label color-bg-%s-emphasis color-fg-on-emphasis">%s</span></a>'%(self.post_url,self.postDict[num]["title"],color,post_time.strftime("%Y-%m-%d")))
+                SideNavItem=('<a class="SideNav-item d-flex flex-items-center flex-justify-between" href="/%s">'+postIcon+'<div>') % (self.post_url,self.postDict[num]["title"])
+                for label in self.postDict[num]["labels"]:
+                    if label!="post":
+                        SideNavItem=SideNavItem+'<span class="Label" style="background-color:%s">%s</span>'%(self.labelColorDict[label],label)
+
+                thisYearColor=self.yearColorList[int(post_time.year)%len(self.yearColorList)]
+                self.index_md=self.index_md+SideNavItem+'<span class="Label" style="background-color:%s">%s</span></div></a>'%(thisYearColor,post_time.strftime("%Y-%m-%d"))
+
             else:
-                self.single_link=self.single_link+('<a class="SideNav-item d-flex flex-items-center flex-justify-between" href="/%s.html">%s<span class="Label color-bg-sponsors-emphasis color-fg-on-emphasis">独立页面</span></a>' %(self.postDict[num]["label"],self.postDict[num]["title"]))
+                label=self.postDict[num]["labels"][0]
+                if label=="about":
+                    Icon=aboutIcon
+                else:
+                    Icon=linkIcon
+                self.single_link=self.single_link+('<a class="SideNav-item d-flex flex-items-center flex-justify-between" href="/%s.html">'+Icon+'<span class="Label" style="background-color:%s">%s</span></a>') %(label,self.postDict[num]["title"],self.labelColorDict[label],label )
 
         f = open("docs/index.html", 'w', encoding='UTF-8')
         index_body=self.index_md
@@ -92,11 +110,12 @@ class MEEKBLOG():
         return self.index_example%(blog_name,avatar_url,index_body,single_link)
 
     def addOnePostJson(self,issue):
-        hasLabel=0
-        for label in issue.labels:
-            hasLabel=1
+        if len(issue.labels):
             self.postDict[str(issue.number)]=json.loads('{}')
-            self.postDict[str(issue.number)]["label"]=label.name
+            labelList=[]
+            for label in issue.labels:
+                labelList.append(label.name)
+            self.postDict[str(issue.number)]["labels"]=labelList
             self.postDict[str(issue.number)]["title"]=issue.title
             self.postDict[str(issue.number)]["source_url"]="https://github.com/"+options.repo_name+"/issues/"+str(issue.number)
             try:
@@ -104,17 +123,17 @@ class MEEKBLOG():
                 self.postDict[str(issue.number)]["created_at"]=modifyTime["timestamp"]
             except:
                 self.postDict[str(issue.number)]["created_at"]=int(time.mktime(issue.created_at.timetuple()))
-        if hasLabel:
+
             f = open("backup/"+issue.title+".md", 'w', encoding='UTF-8')
             f.write(issue.body)
             f.close()
 
     def creatOneHtml(self,issue):
-        if issue["label"]=='post':
+        if 'post' in issue["labels"]:
             gen_Html=self.createPostHtml(issue)
             print("create postPage title=%s file=%s " % (issue["title"],gen_Html))
         else:
-            gen_Html=self.createPostHtml(issue,single=issue["label"])
+            gen_Html=self.createPostHtml(issue,single=issue["labels"][0])
             print("create singlePage title=%s file=%s ok" % (issue["title"],gen_Html))
 
     def runAll(self):

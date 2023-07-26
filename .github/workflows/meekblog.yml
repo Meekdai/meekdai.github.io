@@ -3,7 +3,7 @@ name: build meekblog
 on:
   workflow_dispatch:
   issues:
-    types: [opened, edited, labeled, unlabeled]
+    types: [opened, edited]
 
 env:
   GITHUB_NAME: Meekdai
@@ -49,5 +49,5 @@ jobs:
           git config --local user.email "${{ env.GITHUB_EMAIL }}"
           git config --local user.name "${{ env.GITHUB_NAME }}"
           git add .
-          git commit -a -m '🎉update readme' || echo "nothing to commit"
+          git commit -a -m '🎉auto update by action' || echo "nothing to commit"
           git push || echo "nothing to push"
