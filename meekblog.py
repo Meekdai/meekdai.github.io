@@ -21,7 +21,6 @@ class MEEKBLOG():
         self.index_md=''
         self.single_link=''
         self.label_color=["accent","success","attention","severe"]
-
         self.postDict=json.loads('{}')
 
         user = Github(self.options.github_token)
@@ -93,7 +92,9 @@ class MEEKBLOG():
         return self.index_example%(blog_name,avatar_url,index_body,single_link)
 
     def addOnePostJson(self,issue):
+        hasLabel=0
         for label in issue.labels:
+            hasLabel=1
             self.postDict[str(issue.number)]=json.loads('{}')
             self.postDict[str(issue.number)]["label"]=label.name
             self.postDict[str(issue.number)]["title"]=issue.title
@@ -103,9 +104,10 @@ class MEEKBLOG():
                 self.postDict[str(issue.number)]["created_at"]=modifyTime["timestamp"]
             except:
                 self.postDict[str(issue.number)]["created_at"]=int(time.mktime(issue.created_at.timetuple()))
-        f = open("backup/"+issue.title+".md", 'w', encoding='UTF-8')
-        f.write(issue.body)
-        f.close()
+        if hasLabel:
+            f = open("backup/"+issue.title+".md", 'w', encoding='UTF-8')
+            f.write(issue.body)
+            f.close()
 
     def creatOneHtml(self,issue):
         if issue["label"]=='post':
