@@ -35,10 +35,10 @@ class MEEKBLOG():
 
         self.blogBase=json.loads('{}')
         self.blogBase["title"]=user.get_user().login
-        self.blogBase["subTitle"]="This is subTitle"
+        self.blogBase["subTitle"]="童话是一种生活态度，仅此而已。"
         self.blogBase["homeUrl"]="http://meekdai.com"
         self.blogBase["avatarUrl"]="http://meekdai.com/avatar.jpg"
-        self.blogBase["filingNum"]="备案号"
+        self.blogBase["filingNum"]="浙ICP备20023628号"
         self.blogBase["singlePage"]=["index","link","about"]
         self.blogBase["postListJson"]=json.loads('{}')
 
@@ -121,7 +121,7 @@ class MEEKBLOG():
             self.blogBase["postListJson"][postNum]["label"]=issue.labels[0].name
             self.blogBase["postListJson"][postNum]["labelColor"]=self.labelColorDict[issue.labels[0].name]
             self.blogBase["postListJson"][postNum]["postTitle"]=issue.title
-            self.blogBase["postListJson"][postNum]["postUrl"]='/{}.html'.format(Pinyin().get_pinyin(issue.title))
+            self.blogBase["postListJson"][postNum]["postUrl"]='post/{}.html'.format(Pinyin().get_pinyin(issue.title))
             self.blogBase["postListJson"][postNum]["postSourceUrl"]="https://github.com/"+options.repo_name+"/issues/"+str(issue.number)
             
             try:
@@ -149,7 +149,7 @@ class MEEKBLOG():
             if issue["label"]=="index":
                 self.creatIndexHtml(issue)
             else:
-                gen_Html=self.createPostHtml(issue)
+                self.createPostHtml(issue)
 
         self.creatPlistHtml()
         print("====== create static html end ======")
@@ -158,7 +158,10 @@ class MEEKBLOG():
         print("====== start create static html ======")
         issue=self.repo.get_issue(int(number_str))
         self.addOnePostJson(issue)
-        self.createPostHtml(self.blogBase["postListJson"]["P"+number_str])
+        if issue["label"]=="index":
+            self.creatIndexHtml(issue)
+        else:
+            self.createPostHtml(self.blogBase["postListJson"]["P"+number_str])
         self.creatPlistHtml()
         print("====== create static html end ======")
 
