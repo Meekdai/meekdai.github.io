@@ -120,7 +120,7 @@ class MEEKBLOG():
             self.blogBase["postListJson"][postNum]["label"]=issue.labels[0].name
             self.blogBase["postListJson"][postNum]["labelColor"]=self.labelColorDict[issue.labels[0].name]
             self.blogBase["postListJson"][postNum]["postTitle"]=issue.title
-            self.blogBase["postListJson"][postNum]["postUrl"]='post/{}.html'.format(Pinyin().get_pinyin(issue.title))
+            self.blogBase["postListJson"][postNum]["postUrl"]='{}.html'.format(Pinyin().get_pinyin(issue.title))
             self.blogBase["postListJson"][postNum]["postSourceUrl"]="https://github.com/"+options.repo_name+"/issues/"+str(issue.number)
             
             try:
