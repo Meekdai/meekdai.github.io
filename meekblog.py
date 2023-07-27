@@ -9,32 +9,38 @@ import argparse
 from github import Github
 from xpinyin import Pinyin
 ######################################################################################
-avatar_url="http://meekdai.com/avatar.jpg"
 
-postIcon='<div class="d-flex flex-items-center"><svg class="SideNav-icon octicon" width="16" height="16"> <path fill-rule="evenodd" d="M0 3.75C0 2.784.784 2 1.75 2h12.5c.966 0 1.75.784 1.75 1.75v8.5A1.75 1.75 0 0 1 14.25 14H1.75A1.75 1.75 0 0 1 0 12.25Zm1.75-.25a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25v-8.5a.25.25 0 0 0-.25-.25ZM3.5 6.25a.75.75 0 0 1 .75-.75h7a.75.75 0 0 1 0 1.5h-7a.75.75 0 0 1-.75-.75Zm.75 2.25h4a.75.75 0 0 1 0 1.5h-4a.75.75 0 0 1 0-1.5Z"></path></svg>%s</div>'
-linkIcon='<div class="d-flex flex-items-center"><svg class="SideNav-icon octicon" width="16" height="16"> <path fill-rule="evenodd" d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>%s</div>'
-aboutIcon='<div class="d-flex flex-items-center"><svg class="SideNav-icon octicon" width="16" height="16"> <path fill-rule="evenodd" d="M10.561 8.073a6.005 6.005 0 0 1 3.432 5.142.75.75 0 1 1-1.498.07 4.5 4.5 0 0 0-8.99 0 .75.75 0 0 1-1.498-.07 6.004 6.004 0 0 1 3.431-5.142 3.999 3.999 0 1 1 5.123 0ZM10.5 5a2.5 2.5 0 1 0-5 0 2.5 2.5 0 0 0 5 0Z"></path></svg>%s</div>'
 ######################################################################################
 class MEEKBLOG():
     def __init__(self,options,post_dir):
         self.options=options
         self.post_dir=post_dir
         self.index_example=open('index_example.html', 'r', encoding='utf-8').read()
+        self.plist_example=open('plist_example.html', 'r', encoding='utf-8').read()
         self.post_example=open('post_example.html', 'r', encoding='utf-8').read()
         self.index_md=''
         self.single_link=''
-        self.postDict=json.loads('{}')
 
         user = Github(self.options.github_token)
         self.repo = self.get_repo(user, options.repo_name)
         # self.avatar_url=user.get_user().avatar_url
-        self.avatar_url=avatar_url
+        self.avatar_url=""
         self.blog_name=user.get_user().login
         self.labelColorDict=json.loads('{}')
         self.yearColorList=['#bc4c00', '#0969da', '#1f883d', '#A333D0']
         for label in self.repo.get_labels():
             self.labelColorDict[label.name]='#'+label.color
+
         print(self.labelColorDict)
+
+        self.blogBase=json.loads('{}')
+        self.blogBase["title"]=user.get_user().login
+        self.blogBase["subTitle"]="This is subTitle"
+        self.blogBase["homeUrl"]="http://meekdai.com"
+        self.blogBase["avatarUrl"]="http://meekdai.com/avatar.jpg"
+        self.blogBase["filingNum"]="备案号"
+        self.blogBase["singlePage"]=["index","link","about"]
+        self.blogBase["postListJson"]=json.loads('{}')
 
     def cleanFile(self):
         if os.path.exists("backup/"):
@@ -58,83 +64,78 @@ class MEEKBLOG():
         else:
             raise Exception("markdown2html error status_code=%d"%(ret.status_code))
 
-    def createPostHtml(self,issue,single=None):
-        if single==None:
-            gen_Html = self.post_dir+'{}.html'.format(Pinyin().get_pinyin(issue["title"]))
+    def createPostHtml(self,issue):
+        if issue["label"] in self.blogBase["singlePage"]:
+            gen_Html = 'docs/{}.html'.format(issue["label"])
         else:
-            gen_Html = "docs/"+single+".html"
-        
-        f = open("backup/"+issue["title"]+".md", 'r', encoding='UTF-8')
+            gen_Html = self.post_dir+'{}.html'.format(Pinyin().get_pinyin(issue["postTitle"]))
+
+        f = open("backup/"+issue["postTitle"]+".md", 'r', encoding='UTF-8')
         post_body=self.markdown2html(f.read())
         f.close()
 
+        postBase=json.loads('{}')
+        postBase["postTitle"]=issue["postTitle"]
+        postBase["postBody"]=post_body
+        postBase["title"]=self.blogBase["title"]
+        postBase["homeUrl"]=self.blogBase["homeUrl"]
+        postBase["postSourceUrl"]=issue["postSourceUrl"]
+
         f = open(gen_Html, 'w', encoding='UTF-8')
-        f.write(self.value2postHtml(self.blog_name,issue["title"],post_body,self.avatar_url,issue["source_url"],self.single_link))
+        f.write(self.post_example % json.dumps(postBase))
+        f.close()
+        print("create postPage title=%s file=%s " % (issue["postTitle"],gen_Html))
+
+    def creatPlistHtml(self):
+        self.blogBase["postListJson"]=dict(sorted(self.blogBase["postListJson"].items(),key=lambda x:x[1]["createdAt"],reverse=True))#使列表由时间排序
+
+        f = open(self.post_dir+"index.html", 'w', encoding='UTF-8')
+        f.write(self.plist_example % json.dumps(self.blogBase))
+        f.close()
+        print("create docs/post/index.html")
+
+    def creatIndexHtml(self,issue):
+
+        f = open("backup/"+issue["postTitle"]+".md", 'r', encoding='UTF-8')
+        indexJson=json.loads(f.read())
         f.close()
 
-        return gen_Html
-
-    def value2postHtml(self,blog_name,post_title,post_body,avatar_url,source_url,header_right):
-        return self.post_example%(post_title,post_title,source_url,post_body)
-
-    def creatIndexHtml(self):
-        self.postDict=dict(sorted(self.postDict.items(),key=lambda x:x[1]["created_at"],reverse=True))#使列表由时间排序
-        for num in self.postDict:
-            if 'post' in self.postDict[num]["labels"]:
-                post_time = datetime.datetime.fromtimestamp(self.postDict[num]["created_at"])
-                self.post_url=self.post_dir[5:]+'{}.html'.format(Pinyin().get_pinyin(self.postDict[num]["title"]))
-
-                SideNavItem=('<a class="SideNav-item d-flex flex-items-center flex-justify-between" href="/%s">'+postIcon+'<div>') % (self.post_url,self.postDict[num]["title"])
-                for label in self.postDict[num]["labels"]:
-                    if label!="post":
-                        SideNavItem=SideNavItem+'<span class="Label" style="background-color:%s">%s</span>'%(self.labelColorDict[label],label)
-
-                thisYearColor=self.yearColorList[int(post_time.year)%len(self.yearColorList)]
-                self.index_md=self.index_md+SideNavItem+'<span class="Label" style="background-color:%s">%s</span></div></a>'%(thisYearColor,post_time.strftime("%Y-%m-%d"))
-
-            else:
-                label=self.postDict[num]["labels"][0]
-                if label=="about":
-                    Icon=aboutIcon
-                else:
-                    Icon=linkIcon
-                self.single_link=self.single_link+('<a class="SideNav-item d-flex flex-items-center flex-justify-between" href="/%s.html">'+Icon+'<span class="Label" style="background-color:%s">%s</span></a>') %(label,self.postDict[num]["title"],self.labelColorDict[label],label )
+        indexBase=json.loads('{}')
+        indexBase["title"]=self.blogBase["title"]
+        indexBase["subTitle"]=self.blogBase["subTitle"]
+        indexBase["homeUrl"]=self.blogBase["homeUrl"]
+        indexBase["avatarUrl"]=self.blogBase["avatarUrl"]
+        indexBase["filingNum"]=self.blogBase["filingNum"]
+        indexBase["indexListJson"]=indexJson
 
         f = open("docs/index.html", 'w', encoding='UTF-8')
-        index_body=self.index_md
-        f.write(self.value2indexHtml(self.blog_name,index_body,self.avatar_url,self.single_link))
+        f.write(self.index_example % json.dumps(indexBase))
         f.close()
         print("create docs/index.html")
 
-    def value2indexHtml(self,blog_name,index_body,avatar_url,single_link):
-        return self.index_example%(blog_name,avatar_url,index_body,single_link)
 
     def addOnePostJson(self,issue):
-        if len(issue.labels):
-            self.postDict[str(issue.number)]=json.loads('{}')
-            labelList=[]
-            for label in issue.labels:
-                labelList.append(label.name)
-            self.postDict[str(issue.number)]["labels"]=labelList
-            self.postDict[str(issue.number)]["title"]=issue.title
-            self.postDict[str(issue.number)]["source_url"]="https://github.com/"+options.repo_name+"/issues/"+str(issue.number)
+        if len(issue.labels)==1:
+            postNum="P"+str(issue.number)
+            self.blogBase["postListJson"][postNum]=json.loads('{}')
+            self.blogBase["postListJson"][postNum]["label"]=issue.labels[0].name
+            self.blogBase["postListJson"][postNum]["labelColor"]=self.labelColorDict[issue.labels[0].name]
+            self.blogBase["postListJson"][postNum]["postTitle"]=issue.title
+            self.blogBase["postListJson"][postNum]["postUrl"]='/{}.html'.format(Pinyin().get_pinyin(issue.title))
+            self.blogBase["postListJson"][postNum]["postSourceUrl"]="https://github.com/"+options.repo_name+"/issues/"+str(issue.number)
+            
             try:
                 modifyTime=json.loads(issue.body.split("\r\n")[-1:][0].split("##")[1])
-                self.postDict[str(issue.number)]["created_at"]=modifyTime["timestamp"]
+                self.blogBase["postListJson"][postNum]["createdAt"]=modifyTime["timestamp"]
             except:
-                self.postDict[str(issue.number)]["created_at"]=int(time.mktime(issue.created_at.timetuple()))
+                self.blogBase["postListJson"][postNum]["createdAt"]=int(time.mktime(issue.created_at.timetuple()))
+
+            thisYear=datetime.datetime.fromtimestamp(self.blogBase["postListJson"][postNum]["createdAt"]).year
+            self.blogBase["postListJson"][postNum]["dateLabelColor"]=self.yearColorList[int(thisYear)%len(self.yearColorList)]
 
             f = open("backup/"+issue.title+".md", 'w', encoding='UTF-8')
             f.write(issue.body)
             f.close()
-
-    def creatOneHtml(self,issue):
-        if 'post' in issue["labels"]:
-            gen_Html=self.createPostHtml(issue)
-            print("create postPage title=%s file=%s " % (issue["title"],gen_Html))
-        else:
-            gen_Html=self.createPostHtml(issue,single=issue["labels"][0])
-            print("create singlePage title=%s file=%s ok" % (issue["title"],gen_Html))
 
     def runAll(self):
         print("====== start create static html ======")
@@ -144,18 +145,21 @@ class MEEKBLOG():
         for issue in issues:
             self.addOnePostJson(issue)
 
-        for num in self.postDict:
-            self.creatOneHtml(self.postDict[num])
+        for issue in self.blogBase["postListJson"].values():
+            if issue["label"]=="index":
+                self.creatIndexHtml(issue)
+            else:
+                gen_Html=self.createPostHtml(issue)
 
-        self.creatIndexHtml()
+        self.creatPlistHtml()
         print("====== create static html end ======")
 
     def runOne(self,number_str):
         print("====== start create static html ======")
         issue=self.repo.get_issue(int(number_str))
         self.addOnePostJson(issue)
-        self.creatOneHtml(self.postDict[number_str])
-        self.creatIndexHtml()
+        self.createPostHtml(self.blogBase["postListJson"]["P"+number_str])
+        self.creatPlistHtml()
         print("====== create static html end ======")
 
 ######################################################################################
@@ -168,22 +172,22 @@ options = parser.parse_args()
 
 blog=MEEKBLOG(options,'docs/post/')
 
-if not os.path.exists("postList.json"):
-    print("postList is not exists, runAll")
+if not os.path.exists("blogBase.json"):
+    print("blogBase is not exists, runAll")
     blog.runAll()
 else:
     if options.issue_number=="0" or options.issue_number=="":
         print("issue_number=='0', runAll")
         blog.runAll()
     else:
-        f=open("postList.json","r")
-        print("postList is exists and issue_number!=0, runOne")
-        blog.postDict=json.loads(f.read())
+        f=open("blogBase.json","r")
+        print("blogBase is exists and issue_number!=0, runOne")
+        blog.blogBase=json.loads(f.read())
         f.close()
         blog.runOne(options.issue_number)
 
-listFile=open("postList.json","w")
-listFile.write(json.dumps(blog.postDict))
+listFile=open("blogBase.json","w")
+listFile.write(json.dumps(blog.blogBase))
 listFile.close()
 
 

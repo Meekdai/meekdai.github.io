@@ -54,7 +54,7 @@ h1 button:last-child{border-top-left-radius: 0px;border-bottom-left-radius: 0px;
 </div>
 
 </body>
-<script src="./static/icon.js"></script>
+<script src="../static/icon.js"></script>
 <script>
 if(localStorage.getItem("meek_theme")==null){localStorage.setItem("meek_theme","light")}
 else if(localStorage.getItem("meek_theme")=="dark"){changeDark();}
@@ -81,7 +81,7 @@ document.getElementById("year").innerHTML=now.getFullYear();
 document.getElementById("runday").innerHTML=diffDay;
 
 var blogBase=%s
-var blogListJson=blogBase["indexListJson"]
+var postListJson=blogBase["postListJson"]
 
 document.title=blogBase["title"];
 document.getElementById("avatarImg").src=blogBase["avatarUrl"];
@@ -90,38 +90,47 @@ document.getElementById("blogSubTitle").innerHTML=blogBase["subTitle"];
 if(blogBase["filingNum"]!=""){document.getElementById("filingNum").innerHTML=blogBase["filingNum"]+" • ";}
 document.getElementById("footerblogTitle").innerHTML=blogBase["title"];
 document.getElementById("footerblogTitle").href=blogBase["homeUrl"];
+
 var navList=document.getElementById("navList");
 
-for(var num in blogListJson){
-    SideNavItem=document.createElement("a");
-    SideNavItem.setAttribute("class", "SideNav-item d-flex flex-items-center flex-justify-between");
-    SideNavItem.setAttribute("href", blogListJson[num]["postUrl"]);
+for(var num in postListJson){
+    if(blogBase["singlePage"].indexOf(postListJson[num]["label"])==-1){
+        SideNavItem=document.createElement("a");
+        SideNavItem.setAttribute("class", "SideNav-item d-flex flex-items-center flex-justify-between");
+        SideNavItem.setAttribute("href", postListJson[num]["postUrl"]);
 
-    div=document.createElement("div");
-    svg=document.createElementNS('http://www.w3.org/2000/svg','svg');
-    path=document.createElementNS("http://www.w3.org/2000/svg","path"); 
-    span=document.createElement("span");
-    div.setAttribute("class","d-flex flex-items-center");
-    svg.setAttributeNS(null,"class","SideNav-icon octicon");
-    svg.setAttributeNS(null,"style","witdh:16px;height:16px");
-    path.setAttributeNS(null, "d", IconList[blogListJson[num]["Icon"]]);
-    span.innerHTML=blogListJson[num]["postTitle"];
-    svg.appendChild(path);
-    div.appendChild(svg);
-    div.appendChild(span);
-    SideNavItem.appendChild(div);
+        div=document.createElement("div");
+        svg=document.createElementNS('http://www.w3.org/2000/svg','svg');
+        path=document.createElementNS("http://www.w3.org/2000/svg","path"); 
+        span=document.createElement("span");
+        div.setAttribute("class","d-flex flex-items-center");
+        svg.setAttributeNS(null,"class","SideNav-icon octicon");
+        svg.setAttributeNS(null,"style","witdh:16px;height:16px");
+        path.setAttributeNS(null, "d", IconList["post"]);
+        span.innerHTML=postListJson[num]["postTitle"];
+        svg.appendChild(path);
+        div.appendChild(svg);
+        div.appendChild(span);
+        SideNavItem.appendChild(div);
 
-    div=document.createElement("div");
+        div=document.createElement("div");
 
-    span=document.createElement("span");
-    span.setAttribute("class","Label");
-    span.setAttribute("style","background-color:"+blogListJson[num]["labelColor"]);
-    span.innerHTML=blogListJson[num]["label"];
-    div.appendChild(span);
-    
-    SideNavItem.appendChild(div);
-    navList.appendChild(SideNavItem);
+        span=document.createElement("span");
+        span.setAttribute("class","Label");
+        span.setAttribute("style","background-color:"+postListJson[num]["labelColor"]);
+        span.innerHTML=postListJson[num]["label"];
+        div.appendChild(span);
 
+        span=document.createElement("span");
+        span.setAttribute("class","Label");
+        span.setAttribute("style","background-color:"+postListJson[num]["dateLabelColor"]);
+        date=new Date(postListJson[num]["createdAt"] * 1000);
+        span.innerHTML=date.getFullYear()+"-"+(date.getMonth()+1 < 10 ? '0'+(date.getMonth()+1) : date.getMonth()+1)+"-"+(date.getDate() < 10 ? '0' + (date.getDate()) : date.getDate());
+        div.appendChild(span);
+        
+        SideNavItem.appendChild(div);
+        navList.appendChild(SideNavItem);
+    }
 }
 
 </script>
