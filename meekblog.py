@@ -95,7 +95,6 @@ class MEEKBLOG():
         print("create docs/post/index.html")
 
     def creatIndexHtml(self,issue):
-
         f = open("backup/"+issue["postTitle"]+".md", 'r', encoding='UTF-8')
         indexJson=json.loads(f.read())
         f.close()
@@ -159,7 +158,7 @@ class MEEKBLOG():
         issue=self.repo.get_issue(int(number_str))
         self.addOnePostJson(issue)
         if issue.labels[0].name=="index":
-            self.creatIndexHtml(issue)
+            self.creatIndexHtml(self.blogBase["postListJson"]["P"+number_str])
         else:
             self.createPostHtml(self.blogBase["postListJson"]["P"+number_str])
         self.creatPlistHtml()
