@@ -158,7 +158,7 @@ class MEEKBLOG():
         print("====== start create static html ======")
         issue=self.repo.get_issue(int(number_str))
         self.addOnePostJson(issue)
-        if issue["label"]=="index":
+        if issue.labels[0].name=="index":
             self.creatIndexHtml(issue)
         else:
             self.createPostHtml(self.blogBase["postListJson"]["P"+number_str])
