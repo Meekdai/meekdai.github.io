@@ -1,0 +1,121 @@
+<html data-color-mode="light" data-dark-theme="dark" data-light-theme="light">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="content-type" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<link href="../static/github-light.css" rel="stylesheet" />
+<link href="https://unpkg.com/@primer/css@^21.0.7/dist/primer.css" rel="stylesheet" />
+<link rel="icon" href="http://meekdai.com/favicon.ico">
+</head>
+<style>
+.markdown-body {
+    box-sizing: border-box;
+    min-width: 200px;
+    max-width: 900px;
+    margin: 10px auto;
+    padding: 45px;
+    font-family: sans-serif;
+}
+@media (max-width: 767px) {
+    .markdown-body { padding: 8px;} 
+}
+
+.avatar {transition: 0.8s;}
+.avatar:hover {transform: scale(1.15) rotate(360deg);}
+
+h1 {display:flex;}
+.title-right{display:flex;margin:auto 0 0 auto;}
+/* #changeTheme{margin-left:16px;padding:16px;} */
+.title-right button{margin-left:8px;padding:16px;}
+.SideNav{min-width: 360px;}
+.SideNav-icon{margin-right: 16px}
+.comments{border-top: 2px solid var(--color-border-default);}
+.footer {margin: 40px auto; text-align: center;font-size: small;}
+
+</style>
+
+<body>
+<div class="markdown-body">
+    <h1>
+        <div id="postTitle"></div>
+        <div class="title-right">
+        <button class="btn btn-invisible circle" onclick="window.location.href='/'"><svg class="octicon octicon-sun" width="16" height="16" ><path fill-rule="evenodd" d="M6.906.664a1.749 1.749 0 0 1 2.187 0l5.25 4.2c.415.332.657.835.657 1.367v7.019A1.75 1.75 0 0 1 13.25 15h-3.5a.75.75 0 0 1-.75-.75V9H7v5.25a.75.75 0 0 1-.75.75h-3.5A1.75 1.75 0 0 1 1 13.25V6.23c0-.531.242-1.034.657-1.366l5.25-4.2Zm1.25 1.171a.25.25 0 0 0-.312 0l-5.25 4.2a.25.25 0 0 0-.094.196v7.019c0 .138.112.25.25.25H5.5V8.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v5.25h2.75a.25.25 0 0 0 .25-.25V6.23a.25.25 0 0 0-.094-.195Z"></path></svg></button>
+        
+        <button class="btn btn-invisible circle" onclick="gotoSource()"><svg class="octicon octicon-sun" width="16" height="16" ><path fill-rule="evenodd" d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></button>
+        
+        <button class="btn btn-invisible circle" onclick="modeSwitch()"><svg class="octicon octicon-sun" width="16" height="16" ><path id="themeSwitch" fill-rule="evenodd" d="M8 10.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5zM8 12a4 4 0 100-8 4 4 0 000 8zM8 0a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0V.75A.75.75 0 018 0zm0 13a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0v-1.5A.75.75 0 018 13zM2.343 2.343a.75.75 0 011.061 0l1.06 1.061a.75.75 0 01-1.06 1.06l-1.06-1.06a.75.75 0 010-1.06zm9.193 9.193a.75.75 0 011.06 0l1.061 1.06a.75.75 0 01-1.06 1.061l-1.061-1.06a.75.75 0 010-1.061zM16 8a.75.75 0 01-.75.75h-1.5a.75.75 0 010-1.5h1.5A.75.75 0 0116 8zM3 8a.75.75 0 01-.75.75H.75a.75.75 0 010-1.5h1.5A.75.75 0 013 8zm10.657-5.657a.75.75 0 010 1.061l-1.061 1.06a.75.75 0 11-1.06-1.06l1.06-1.06a.75.75 0 011.06 0zm-9.193 9.193a.75.75 0 010 1.06l-1.06 1.061a.75.75 0 11-1.061-1.06l1.06-1.061a.75.75 0 011.061 0z"></path></svg></button>
+        </div>
+    </h1>
+    <div id="postBody"></div>
+
+    <div class="comments">
+    <script src="https://utteranc.es/client.js"
+        repo="Meekdai/meekdai.github.io"
+        issue-term="title"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+    </script>
+    </div>
+    <div class="footer">Copyright © <span id="year"></span> <a id="footerblogTitle" href=""></a> <p><span id="filingNum"></span>网站已运行<span id="runday"></span>天 • Powered by <a href="http://meekdai.com">Gmeek</a></p></div>
+</div>
+</body>
+
+<script>
+var utterancesLoad=0
+if(localStorage.getItem("meek_theme")==null){localStorage.setItem("meek_theme","light")}
+else if(localStorage.getItem("meek_theme")=="dark"){changeDark();}
+else if(localStorage.getItem("meek_theme")=="light"){changeLight();}
+
+function changeDark(){
+    document.getElementsByTagName("html")[0].attributes.getNamedItem("data-color-mode").value="dark";
+    document.getElementById("themeSwitch").attributes.getNamedItem("d").value="M9.598 1.591a.75.75 0 01.785-.175 7 7 0 11-8.967 8.967.75.75 0 01.961-.96 5.5 5.5 0 007.046-7.046.75.75 0 01.175-.786zm1.616 1.945a7 7 0 01-7.678 7.678 5.5 5.5 0 107.678-7.678z";
+    if(utterancesLoad==1){utterancesTheme("dark-blue");}
+}
+function changeLight(){
+    document.getElementsByTagName("html")[0].attributes.getNamedItem("data-color-mode").value="light";
+    document.getElementById("themeSwitch").attributes.getNamedItem("d").value="M8 10.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5zM8 12a4 4 0 100-8 4 4 0 000 8zM8 0a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0V.75A.75.75 0 018 0zm0 13a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0v-1.5A.75.75 0 018 13zM2.343 2.343a.75.75 0 011.061 0l1.06 1.061a.75.75 0 01-1.06 1.06l-1.06-1.06a.75.75 0 010-1.06zm9.193 9.193a.75.75 0 011.06 0l1.061 1.06a.75.75 0 01-1.06 1.061l-1.061-1.06a.75.75 0 010-1.061zM16 8a.75.75 0 01-.75.75h-1.5a.75.75 0 010-1.5h1.5A.75.75 0 0116 8zM3 8a.75.75 0 01-.75.75H.75a.75.75 0 010-1.5h1.5A.75.75 0 013 8zm10.657-5.657a.75.75 0 010 1.061l-1.061 1.06a.75.75 0 11-1.06-1.06l1.06-1.06a.75.75 0 011.06 0zm-9.193 9.193a.75.75 0 010 1.06l-1.06 1.061a.75.75 0 11-1.061-1.06l1.06-1.061a.75.75 0 011.061 0z";
+    if(utterancesLoad==1){utterancesTheme("github-light");}
+}
+function modeSwitch(){
+    if(document.getElementsByTagName("html")[0].attributes[0].value=="light"){changeDark();localStorage.setItem("meek_theme","dark");}
+    else{changeLight();localStorage.setItem("meek_theme","light");}
+}
+function utterancesTheme(theme){
+    const message = {type: 'set-theme',theme: theme};
+    const iframe = document.getElementsByClassName('utterances-frame')[0];
+    iframe.contentWindow.postMessage(message, 'https://utteranc.es');
+}
+
+utterancesFrame=document.getElementsByClassName("utterances-frame")[0];
+if(utterancesFrame!=null){
+    utterancesFrame.onload=function(){
+        utterancesLoad=1;
+        if(localStorage.getItem("meek_theme")=="dark"){changeDark();}
+        else{changeLight();}
+    }
+}
+else{console.info("utterancesFrame load be late");}
+
+var now=new Date();
+var startSite=new Date("02/16/2015");
+var diff=now.getTime()-startSite.getTime();
+var diffDay=Math.floor(diff/(1000*60*60*24));
+document.getElementById("year").innerHTML=now.getFullYear();
+document.getElementById("runday").innerHTML=diffDay;
+
+var blogBase={"postTitle": "\u53cb\u60c5\u94fe\u63a5", "postBody": "<h3><a id=\"user-content-\u6211\u7684\u90bb\u5c45\" class=\"anchor\" aria-hidden=\"true\" href=\"#\u6211\u7684\u90bb\u5c45\"><span aria-hidden=\"true\" class=\"octicon octicon-link\"></span></a>\u6211\u7684\u90bb\u5c45</h3>\n<ul>\n<li>\n<a href=\"http://kn007.net/\" rel=\"nofollow\">kn007</a> \u6292\u53d1\u5fc3\u60c5\uff0c\u6298\u817ewp\uff0c\u5076\u5c14\u7684\u9050\u60f3\uff0c\u97f3\u4e50\u9a9a\u4eba\uff0c\u7231\u62a4\u81ea\u7136\uff0c\u5e2e\u5fd9\u6298\u817e</li>\n<li>\n<a href=\"http://yefengs.com/\" rel=\"nofollow\">\u591c\u67ab\u5fc6\u6808</a> \u591a\u6101\u5584\u611f\u7684\u5c0f\u4f19\u5b50</li>\n<li>\n<a href=\"http://storeweb.cn/\" rel=\"nofollow\">\u4e2a\u7ad9\u5546\u5e97</a> \u4e2a\u4eba\u7f51\u7ad9\u7684\u5546\u5e97\uff0c\u8fd9\u91cc\u662f\u6211\u4eec\u7684\u201c\u4e2a\u4eba\u7f51\u7ad9\u201d\u5171\u4eab\u4e0e\u53d1\u5e03\u5e73\u53f0</li>\n<li>\n<a href=\"http://www.mr158.cn/\" rel=\"nofollow\">\u738b\u5d07\u5b87\u7684ACG\u535a\u5ba2</a> \u4e0d\u5c48\u7684\u5fc3\uff0c\u4e0d\u61c8\u7684\u52aa\u529b\uff0c\u4e0d\u5fd8\u6b23\u8d4f\u6cbf\u8def\u7684\u98ce\u666f</li>\n<li>\n<a href=\"http://limif.cn/\" rel=\"nofollow\">\u5999\u6708\u5f26</a> \u7a7a\u57ce\u65e7\u68a6\uff0c\u4f59\u60c5\u672a\u4e86</li>\n</ul>\n<h3><a id=\"user-content-\u6211\u7684\u5de5\u5177\" class=\"anchor\" aria-hidden=\"true\" href=\"#\u6211\u7684\u5de5\u5177\"><span aria-hidden=\"true\" class=\"octicon octicon-link\"></span></a>\u6211\u7684\u5de5\u5177</h3>\n<ul>\n<li>\n<a href=\"https://bing.ioliu.cn/\" rel=\"nofollow\">\u5fc5\u5e94\u58c1\u7eb8</a> \u5fc5\u5e94\u6bcf\u65e5\u9ad8\u6e05\u58c1\u7eb8 - \u7cbe\u5f69\uff0c\u4ece\u8fd9\u91cc\u5f00\u59cb</li>\n<li>\n<a href=\"https://amazing-apps.gitbooks.io/windows-apps-that-amaze-us/\" rel=\"nofollow\">Awesome Windows</a> Windows \u7edd\u8d5e\u5e94\u7528</li>\n<li>\n<a href=\"https://www.inoreader.com/\" rel=\"nofollow\">Inoreader</a> \u535a\u5ba2\u8ba2\u9605\u5de5\u5177</li>\n<li>\n<a href=\"https://tongji.baidu.com\" rel=\"nofollow\">\u767e\u5ea6\u7edf\u8ba1</a> \u770b\u770b\u4eca\u5929\u6709\u51e0\u4e2a\u4eba\u8bbf\u95ee\u4e86 O\u03c9O</li>\n<li>\n<a href=\"https://unsplash.com/\" rel=\"nofollow\">unsplash</a> \u56fe\u7247\u7ad9</li>\n</ul>\n<h3><a id=\"user-content-\u7279\u522b\u9e23\u8c22\u65e7\u535a\u5ba2\" class=\"anchor\" aria-hidden=\"true\" href=\"#\u7279\u522b\u9e23\u8c22\u65e7\u535a\u5ba2\"><span aria-hidden=\"true\" class=\"octicon octicon-link\"></span></a>\u7279\u522b\u9e23\u8c22\uff08\u65e7\u535a\u5ba2\uff09</h3>\n<ul>\n<li>\u670d\u52a1\u5546\uff1a<a href=\"http://www.hostker.com/\" rel=\"nofollow\">\u4e3b\u673a\u58f3</a>  \u53ef\u80fd\u662f\u6700\u840c\u7684\u4e91\u8ba1\u7b97\u670d\u52a1\u5546</li>\n<li>\u9a71\u52a8\uff1a<a href=\"http://typecho.org/\" rel=\"nofollow\">Typecho</a> \u5ff5\u5ff5\u4e0d\u5fd8\uff0c\u5fc5\u6709\u56de\u54cd</li>\n<li>\u4e3b\u9898\uff1a<a href=\"https://hran.me/\" rel=\"nofollow\">Hran</a> \u819c\u62dc\u8d77\u6765</li>\n</ul>\n", "title": "Meekdai", "homeUrl": "http://meekdai.com", "postSourceUrl": "https://github.com/Meekdai/meekdai.github.io/issues/2"}
+
+document.title=blogBase["postTitle"];
+document.getElementById("postTitle").innerHTML=blogBase["postTitle"];
+document.getElementById("postBody").innerHTML=blogBase["postBody"];
+
+if(blogBase["filingNum"]!=""){document.getElementById("filingNum").innerHTML=blogBase["filingNum"]+" • ";}
+document.getElementById("footerblogTitle").innerHTML=blogBase["title"];
+document.getElementById("footerblogTitle").href=blogBase["homeUrl"];
+
+function gotoSource(){
+    window.open(blogBase["postSourceUrl"]);
+}
+</script>
+</html>
