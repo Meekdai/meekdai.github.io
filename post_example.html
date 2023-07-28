@@ -47,15 +47,8 @@ h1 {display:flex;}
     </h1>
     <div id="postBody"></div>
 
-    <div class="comments">
-    <script src="https://utteranc.es/client.js"
-        repo="Meekdai/meekdai.github.io"
-        issue-term="title"
-        theme="github-light"
-        crossorigin="anonymous"
-        async>
-    </script>
-    </div>
+    <button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">Comments</button>
+    <div class="comments" style="display:none;" id="comments"></div>
 
     <div class="footer">Copyright © <span id="year"></span> <a id="footerblogTitle" href=""></a> <p><span id="filingNum"></span><span id="runday"></span>Powered by <a href="https://github.com/Meekdai/Gmeek" target="_blank">Gmeek</a></p></div>
 </div>
@@ -64,7 +57,7 @@ h1 {display:flex;}
 <script src="../static/icon.js"></script>
 <script>
 
-var blogBase=%s
+var blogBase={}
 if(blogBase["startSite"]!=""){
     var now=new Date();
     var startSite=new Date(blogBase["startSite"]);
@@ -117,6 +110,23 @@ function utterancesTheme(theme){
     const message = {type: 'set-theme',theme: theme};
     const iframe = document.getElementsByClassName('utterances-frame')[0];
     iframe.contentWindow.postMessage(message, 'https://utteranc.es');
+}
+
+function openComments(){
+    cm=document.getElementById("comments");
+    cmButton=document.getElementById("cmButton");
+    script=document.createElement("script");
+    script.setAttribute("src","https://utteranc.es/client.js");
+    script.setAttribute("repo","Meekdai/meekdai.github.io");
+    script.setAttribute("issue-term","title");
+    script.setAttribute("theme","github-light");
+    script.setAttribute("crossorigin","anonymous");
+    script.setAttribute("async","");
+    cm.appendChild(script);
+
+    cmButton.style.display="none";
+    cm.style.display="block";
+    utterancesLoad=1;
 }
 
 utterancesFrame=document.getElementsByClassName("utterances-frame")[0];
