@@ -7,6 +7,7 @@
 <link rel="icon" href="http://meekdai.com/favicon.ico">
 </head>
 <style>
+    
 .markdown-body {
     box-sizing: border-box;
     min-width: 200px;
@@ -19,15 +20,18 @@
     .markdown-body { padding: 8px;} 
     .subnav-search form{display:none;}
     .subnav-search svg{display:none;}
-    .SideNav-item span{display:none;}
+    .SideNav-item .listLabels{display:none;}
 }
 
 h1 {display:flex;}
 h1 a{margin-left: 4px;margin-top: 16px;}
-h1 .subnav-search{margin-left: auto;margin-top: 24px;height:32px;display:flex;}
-h1 .subnav-search-input{width:200px;border-top-right-radius: 0px;border-bottom-right-radius: 0px;}
-h1 button:last-child{border-top-left-radius: 0px;border-bottom-left-radius: 0px;}
-#changeTheme{margin-left:16px;margin-top:16px;padding:16px;}
+.title-right{display:flex;margin:auto 0 0 auto;}
+.title-right button{margin-right:8px;padding:16px;}
+
+.subnav-search{display:flex;margin-top:8px;margin-right:16px;}
+.subnav-search-input{width:160px;border-top-right-radius:0px;border-bottom-right-radius:0px;}
+.subnav-search form{margin-bottom:0;}
+.subnav-search button{padding:5px 8px;border-top-left-radius:0px;border-bottom-left-radius:0px;}
 
 .avatar {transition: 0.8s;}
 .avatar:hover {transform: scale(1.15) rotate(360deg);}
@@ -37,16 +41,27 @@ h1 button:last-child{border-top-left-radius: 0px;border-bottom-left-radius: 0px;
 .SideNav-item .Label{color: #fff;margin-left:8px;}
 .footer {margin: 40px auto; text-align: center;font-size: small;}
 </style>
-    
+
 <body>
 <div class="markdown-body">
     <h1>
         <img src='' size="64" height="64" width="64" class="avatar circle" id="avatarImg"><a style="font-family:Monaco;" id="blogTitle"></a>
-        <div class="subnav-search">
-            <form action="https://www.google.com/search" method="get" target="_blank"><input type="search" name="q" class="form-control subnav-search-input" aria-label="Search site" value=""><button class="btn" type="submit">Search</button></form>
-            <svg class="subnav-search-icon octicon octicon-search" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"> <path fill-rule="evenodd" d="M15.7 13.3l-3.81-3.83A5.93 5.93 0 0 0 13 6c0-3.31-2.69-6-6-6S1 2.69 1 6s2.69 6 6 6c1.3 0 2.48-.41 3.47-1.11l3.83 3.81c.19.2.45.3.7.3.25 0 .52-.09.7-.3a.996.996 0 0 0 0-1.41v.01zM7 10.7c-2.59 0-4.7-2.11-4.7-4.7 0-2.59 2.11-4.7 4.7-4.7 2.59 0 4.7 2.11 4.7 4.7 0 2.59-2.11 4.7-4.7 4.7z"></path></svg>
+
+        <div class="title-right">
+            
+            <div class="subnav-search">
+                <form action="https://www.google.com/search" method="get" target="_blank"><input type="search" name="q" class="form-control subnav-search-input" aria-label="Search site" value=""><button class="btn" type="submit">Search</button></form>
+                <svg class="subnav-search-icon octicon octicon-search" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"> <path id="searchSVG" fill-rule="evenodd" d=""></path></svg>
+            </div>
+            
+            <button id="buttonLink" style="display: none;" class="btn btn-invisible circle" onclick="window.location.href='/link.html'" title="友情链接"><svg class="octicon" width="16" height="16" ><path fill-rule="evenodd"></path></svg></button>
+
+            <button id="buttonAbout" style="display: none;" class="btn btn-invisible circle" onclick="window.location.href='/about.html'" title="关于"><svg class="octicon" width="16" height="16" ><path fill-rule="evenodd"></path></svg></button>
+
+            <div><button id="changeTheme" class="btn btn-invisible circle" onclick="modeSwitch()" title="切换主题"><svg class="octicon" width="16" height="16" ><path id="themeSwitch" fill-rule="evenodd"></path></svg></button></div>
+
+
         </div>
-        <div><button id="changeTheme" class="btn btn-invisible circle" onclick="modeSwitch()"><svg class="octicon octicon-sun" width="16" height="16" ><path id="themeSwitch" fill-rule="evenodd" d="M8 10.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5zM8 12a4 4 0 100-8 4 4 0 000 8zM8 0a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0V.75A.75.75 0 018 0zm0 13a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0v-1.5A.75.75 0 018 13zM2.343 2.343a.75.75 0 011.061 0l1.06 1.061a.75.75 0 01-1.06 1.06l-1.06-1.06a.75.75 0 010-1.06zm9.193 9.193a.75.75 0 011.06 0l1.061 1.06a.75.75 0 01-1.06 1.061l-1.061-1.06a.75.75 0 010-1.061zM16 8a.75.75 0 01-.75.75h-1.5a.75.75 0 010-1.5h1.5A.75.75 0 0116 8zM3 8a.75.75 0 01-.75.75H.75a.75.75 0 010-1.5h1.5A.75.75 0 013 8zm10.657-5.657a.75.75 0 010 1.061l-1.061 1.06a.75.75 0 11-1.06-1.06l1.06-1.06a.75.75 0 011.06 0zm-9.193 9.193a.75.75 0 010 1.06l-1.06 1.061a.75.75 0 11-1.061-1.06l1.06-1.061a.75.75 0 011.061 0z"></path></svg></button></div>
     </h1>
     <div id="blogSubTitle"></div><p></p>
     <nav class="SideNav border"id="navList"></nav>
@@ -54,19 +69,22 @@ h1 button:last-child{border-top-left-radius: 0px;border-bottom-left-radius: 0px;
 </div>
 
 </body>
-<script src="../static/icon.js"></script>
+<script src="./static/icon.js"></script>
 <script>
+
+document.getElementById("searchSVG").setAttribute("d",value=IconList["search"]);
+document.getElementById("themeSwitch").setAttribute("d",value=IconList["sun"]);
 if(localStorage.getItem("meek_theme")==null){localStorage.setItem("meek_theme","light")}
 else if(localStorage.getItem("meek_theme")=="dark"){changeDark();}
 else if(localStorage.getItem("meek_theme")=="light"){changeLight();}
 
 function changeDark(){
     document.getElementsByTagName("html")[0].attributes.getNamedItem("data-color-mode").value="dark";
-    document.getElementById("themeSwitch").attributes.getNamedItem("d").value="M9.598 1.591a.75.75 0 01.785-.175 7 7 0 11-8.967 8.967.75.75 0 01.961-.96 5.5 5.5 0 007.046-7.046.75.75 0 01.175-.786zm1.616 1.945a7 7 0 01-7.678 7.678 5.5 5.5 0 107.678-7.678z";
+    document.getElementById("themeSwitch").attributes.getNamedItem("d").value=IconList["moon"];
 }
 function changeLight(){
     document.getElementsByTagName("html")[0].attributes.getNamedItem("data-color-mode").value="light";
-    document.getElementById("themeSwitch").attributes.getNamedItem("d").value="M8 10.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5zM8 12a4 4 0 100-8 4 4 0 000 8zM8 0a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0V.75A.75.75 0 018 0zm0 13a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0v-1.5A.75.75 0 018 13zM2.343 2.343a.75.75 0 011.061 0l1.06 1.061a.75.75 0 01-1.06 1.06l-1.06-1.06a.75.75 0 010-1.06zm9.193 9.193a.75.75 0 011.06 0l1.061 1.06a.75.75 0 01-1.06 1.061l-1.061-1.06a.75.75 0 010-1.061zM16 8a.75.75 0 01-.75.75h-1.5a.75.75 0 010-1.5h1.5A.75.75 0 0116 8zM3 8a.75.75 0 01-.75.75H.75a.75.75 0 010-1.5h1.5A.75.75 0 013 8zm10.657-5.657a.75.75 0 010 1.061l-1.061 1.06a.75.75 0 11-1.06-1.06l1.06-1.06a.75.75 0 011.06 0zm-9.193 9.193a.75.75 0 010 1.06l-1.06 1.061a.75.75 0 11-1.061-1.06l1.06-1.061a.75.75 0 011.061 0z";
+    document.getElementById("themeSwitch").attributes.getNamedItem("d").value=IconList["sun"];
 }
 function modeSwitch(){
     if(document.getElementsByTagName("html")[0].attributes[0].value=="light"){changeDark();localStorage.setItem("meek_theme","dark");}
@@ -81,6 +99,7 @@ document.getElementById("year").innerHTML=now.getFullYear();
 document.getElementById("runday").innerHTML=diffDay;
 
 var blogBase=%s
+
 var postListJson=blogBase["postListJson"]
 
 document.title=blogBase["title"];
@@ -114,6 +133,7 @@ for(var num in postListJson){
         SideNavItem.appendChild(div);
 
         div=document.createElement("div");
+        div.setAttribute("class","listLabels");
 
         span=document.createElement("span");
         span.setAttribute("class","Label");
@@ -130,6 +150,16 @@ for(var num in postListJson){
         
         SideNavItem.appendChild(div);
         navList.appendChild(SideNavItem);
+    }
+    else{
+        if(postListJson[num]["label"]=="link"){
+            document.getElementById("buttonLink").childNodes[0].childNodes[0].setAttribute("d",value=IconList["link"]);
+            document.getElementById("buttonLink").style="display:block";
+        }
+        else if(postListJson[num]["label"]=="about"){
+            document.getElementById("buttonAbout").childNodes[0].childNodes[0].setAttribute("d",value=IconList["person"]);
+            document.getElementById("buttonAbout").style="display:block";
+        }
     }
 }
 

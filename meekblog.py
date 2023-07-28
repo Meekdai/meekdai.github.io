@@ -12,20 +12,21 @@ from xpinyin import Pinyin
 
 ######################################################################################
 class MEEKBLOG():
-    def __init__(self,options,post_dir):
+    def __init__(self,options):
         self.options=options
-        self.post_dir=post_dir
-        self.index_example=open('index_example.html', 'r', encoding='utf-8').read()
+
+        self.root_dir='docs/'
+        self.post_folder='post/'
+        self.post_dir=self.root_dir+self.post_folder
+
+        # self.index_example=open('index_example.html', 'r', encoding='utf-8').read()
         self.plist_example=open('plist_example.html', 'r', encoding='utf-8').read()
         self.post_example=open('post_example.html', 'r', encoding='utf-8').read()
-        self.index_md=''
-        self.single_link=''
 
         user = Github(self.options.github_token)
         self.repo = self.get_repo(user, options.repo_name)
         # self.avatar_url=user.get_user().avatar_url
-        self.avatar_url=""
-        self.blog_name=user.get_user().login
+        # self.blog_name=user.get_user().login
         self.labelColorDict=json.loads('{}')
         self.yearColorList=['#bc4c00', '#0969da', '#1f883d', '#A333D0']
         for label in self.repo.get_labels():
@@ -89,29 +90,10 @@ class MEEKBLOG():
     def creatPlistHtml(self):
         self.blogBase["postListJson"]=dict(sorted(self.blogBase["postListJson"].items(),key=lambda x:x[1]["createdAt"],reverse=True))#使列表由时间排序
 
-        f = open(self.post_dir+"index.html", 'w', encoding='UTF-8')
+        f = open(self.root_dir+"index.html", 'w', encoding='UTF-8')
         f.write(self.plist_example % json.dumps(self.blogBase))
         f.close()
-        print("create docs/post/index.html")
-
-    def creatIndexHtml(self,issue):
-        f = open("backup/"+issue["postTitle"]+".md", 'r', encoding='UTF-8')
-        indexJson=json.loads(f.read())
-        f.close()
-
-        indexBase=json.loads('{}')
-        indexBase["title"]=self.blogBase["title"]
-        indexBase["subTitle"]=self.blogBase["subTitle"]
-        indexBase["homeUrl"]=self.blogBase["homeUrl"]
-        indexBase["avatarUrl"]=self.blogBase["avatarUrl"]
-        indexBase["filingNum"]=self.blogBase["filingNum"]
-        indexBase["indexListJson"]=indexJson
-
-        f = open("docs/index.html", 'w', encoding='UTF-8')
-        f.write(self.index_example % json.dumps(indexBase))
-        f.close()
         print("create docs/index.html")
-
 
     def addOnePostJson(self,issue):
         if len(issue.labels)==1:
@@ -120,7 +102,7 @@ class MEEKBLOG():
             self.blogBase["postListJson"][postNum]["label"]=issue.labels[0].name
             self.blogBase["postListJson"][postNum]["labelColor"]=self.labelColorDict[issue.labels[0].name]
             self.blogBase["postListJson"][postNum]["postTitle"]=issue.title
-            self.blogBase["postListJson"][postNum]["postUrl"]='{}.html'.format(Pinyin().get_pinyin(issue.title))
+            self.blogBase["postListJson"][postNum]["postUrl"]=self.post_folder+'{}.html'.format(Pinyin().get_pinyin(issue.title))
             self.blogBase["postListJson"][postNum]["postSourceUrl"]="https://github.com/"+options.repo_name+"/issues/"+str(issue.number)
             
             try:
@@ -145,10 +127,7 @@ class MEEKBLOG():
             self.addOnePostJson(issue)
 
         for issue in self.blogBase["postListJson"].values():
-            if issue["label"]=="index":
-                self.creatIndexHtml(issue)
-            else:
-                self.createPostHtml(issue)
+            self.createPostHtml(issue)
 
         self.creatPlistHtml()
         print("====== create static html end ======")
@@ -157,10 +136,7 @@ class MEEKBLOG():
         print("====== start create static html ======")
         issue=self.repo.get_issue(int(number_str))
         self.addOnePostJson(issue)
-        if issue.labels[0].name=="index":
-            self.creatIndexHtml(self.blogBase["postListJson"]["P"+number_str])
-        else:
-            self.createPostHtml(self.blogBase["postListJson"]["P"+number_str])
+        self.createPostHtml(self.blogBase["postListJson"]["P"+number_str])
         self.creatPlistHtml()
         print("====== create static html end ======")
 
@@ -172,7 +148,7 @@ parser.add_argument("repo_name", help="repo_name")
 parser.add_argument("--issue_number", help="issue_number", default=0, required=False)
 options = parser.parse_args()
 
-blog=MEEKBLOG(options,'docs/post/')
+blog=MEEKBLOG(options)
 
 if not os.path.exists("blogBase.json"):
     print("blogBase is not exists, runAll")
