@@ -30,7 +30,7 @@ h1 {display:flex;}
 .SideNav-icon{margin-right: 16px}
 .comments{border-top: 2px solid var(--color-border-default);}
 .footer {margin: 40px auto; text-align: center;font-size: small;}
-
+#cmButton{height:48px;}
 </style>
 
 <body>
@@ -47,7 +47,7 @@ h1 {display:flex;}
     </h1>
     <div id="postBody"></div>
 
-    <button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">Comments</button>
+    <button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">Comments </button>
     <div class="comments" style="display:none;" id="comments"></div>
 
     <div class="footer">Copyright © <span id="year"></span> <a id="footerblogTitle" href=""></a> <p><span id="filingNum"></span><span id="runday"></span>Powered by <a href="https://github.com/Meekdai/Gmeek" target="_blank">Gmeek</a></p></div>
@@ -112,12 +112,20 @@ function utterancesTheme(theme){
     iframe.contentWindow.postMessage(message, 'https://utteranc.es');
 }
 
+if(blogBase["commentNum"]>0){
+    cmButton=document.getElementById("cmButton");
+    span=document.createElement("span");
+    span.setAttribute("class","Counter");
+    span.innerHTML=blogBase["commentNum"];
+    cmButton.appendChild(span);
+}
+
 function openComments(){
     cm=document.getElementById("comments");
     cmButton=document.getElementById("cmButton");
     script=document.createElement("script");
     script.setAttribute("src","https://utteranc.es/client.js");
-    script.setAttribute("repo",blogBase["repo_name"]);
+    script.setAttribute("repo",blogBase["repoName"]);
     script.setAttribute("issue-term","title");
     if(localStorage.getItem("meek_theme")=="dark"){script.setAttribute("theme","dark-blue");}
     else{script.setAttribute("theme","github-light");}

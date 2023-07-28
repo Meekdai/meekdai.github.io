@@ -75,6 +75,7 @@ class GMEEK():
         postBase["faviconUrl"]=self.blogBase["faviconUrl"]
         postBase["filingNum"]=self.blogBase["filingNum"]
         postBase["startSite"]=self.blogBase["startSite"]
+        postBase["commentNum"]=issue["commentNum"]
         postBase["repoName"]=options.repo_name
 
         f = open(gen_Html, 'w', encoding='UTF-8')
@@ -99,6 +100,7 @@ class GMEEK():
             self.blogBase["postListJson"][postNum]["postTitle"]=issue.title
             self.blogBase["postListJson"][postNum]["postUrl"]=self.post_folder+'{}.html'.format(Pinyin().get_pinyin(issue.title))
             self.blogBase["postListJson"][postNum]["postSourceUrl"]="https://github.com/"+options.repo_name+"/issues/"+str(issue.number)
+            self.blogBase["postListJson"][postNum]["commentNum"]=issue.get_comments().totalCount
             
             try:
                 modifyTime=json.loads(issue.body.split("\r\n")[-1:][0].split("##")[1])

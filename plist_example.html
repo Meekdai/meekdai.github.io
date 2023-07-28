@@ -124,6 +124,14 @@ for(var num in postListJson){
         div=document.createElement("div");
         div.setAttribute("class","listLabels");
 
+        if(postListJson[num]["commentNum"]>0){
+            span=document.createElement("span");
+            span.setAttribute("class","Label");
+            span.setAttribute("style","background-color:"+blogBase["commentLabelColor"]);
+            span.innerHTML=postListJson[num]["commentNum"];
+            div.appendChild(span);
+        }
+
         span=document.createElement("span");
         span.setAttribute("class","Label");
         span.setAttribute("style","background-color:"+postListJson[num]["labelColor"]);
