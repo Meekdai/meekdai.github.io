@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <link href="../static/github-light.css" rel="stylesheet" />
 <link href="https://unpkg.com/@primer/css@^21.0.7/dist/primer.css" rel="stylesheet" />
-<link rel="icon" href="http://meekdai.com/favicon.ico">
+
 </head>
 <style>
 .markdown-body {
@@ -38,11 +38,11 @@ h1 {display:flex;}
     <h1>
         <div id="postTitle"></div>
         <div class="title-right">
-        <button class="btn btn-invisible circle" onclick="window.location.href='/'"><svg class="octicon octicon-sun" width="16" height="16" title="首页"><path fill-rule="evenodd" d="M6.906.664a1.749 1.749 0 0 1 2.187 0l5.25 4.2c.415.332.657.835.657 1.367v7.019A1.75 1.75 0 0 1 13.25 15h-3.5a.75.75 0 0 1-.75-.75V9H7v5.25a.75.75 0 0 1-.75.75h-3.5A1.75 1.75 0 0 1 1 13.25V6.23c0-.531.242-1.034.657-1.366l5.25-4.2Zm1.25 1.171a.25.25 0 0 0-.312 0l-5.25 4.2a.25.25 0 0 0-.094.196v7.019c0 .138.112.25.25.25H5.5V8.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v5.25h2.75a.25.25 0 0 0 .25-.25V6.23a.25.25 0 0 0-.094-.195Z"></path></svg></button>
+        <button class="btn btn-invisible circle" onclick="window.location.href='/'" title="首页"><svg class="octicon octicon-sun" width="16" height="16"><path id="pathHome" fill-rule="evenodd"></path></svg></button>
         
-        <button class="btn btn-invisible circle" onclick="gotoSource()"><svg class="octicon octicon-sun" width="16" height="16" title="Issue"><path fill-rule="evenodd" d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></button>
+        <button class="btn btn-invisible circle" onclick="gotoSource()" title="Issue"><svg class="octicon octicon-sun" width="16" height="16"><path id="pathIssue" fill-rule="evenodd"></path></svg></button>
         
-        <button class="btn btn-invisible circle" onclick="modeSwitch()"><svg class="octicon octicon-sun" width="16" height="16" title="切换主题"><path id="themeSwitch" fill-rule="evenodd" d="M8 10.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5zM8 12a4 4 0 100-8 4 4 0 000 8zM8 0a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0V.75A.75.75 0 018 0zm0 13a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0v-1.5A.75.75 0 018 13zM2.343 2.343a.75.75 0 011.061 0l1.06 1.061a.75.75 0 01-1.06 1.06l-1.06-1.06a.75.75 0 010-1.06zm9.193 9.193a.75.75 0 011.06 0l1.061 1.06a.75.75 0 01-1.06 1.061l-1.061-1.06a.75.75 0 010-1.061zM16 8a.75.75 0 01-.75.75h-1.5a.75.75 0 010-1.5h1.5A.75.75 0 0116 8zM3 8a.75.75 0 01-.75.75H.75a.75.75 0 010-1.5h1.5A.75.75 0 013 8zm10.657-5.657a.75.75 0 010 1.061l-1.061 1.06a.75.75 0 11-1.06-1.06l1.06-1.06a.75.75 0 011.06 0zm-9.193 9.193a.75.75 0 010 1.06l-1.06 1.061a.75.75 0 11-1.061-1.06l1.06-1.061a.75.75 0 011.061 0z"></path></svg></button>
+        <button class="btn btn-invisible circle" onclick="modeSwitch()" title="切换主题"><svg class="octicon octicon-sun" width="16" height="16"><path id="themeSwitch" fill-rule="evenodd"></path></svg></button>
         </div>
     </h1>
     <div id="postBody"></div>
@@ -56,24 +56,28 @@ h1 {display:flex;}
         async>
     </script>
     </div>
-    <div class="footer">Copyright © <span id="year"></span> <a id="footerblogTitle" href=""></a> <p><span id="filingNum"></span>网站已运行<span id="runday"></span>天 • Powered by <a href="https://github.com/Meekdai/Gmeek">Gmeek</a></p></div>
+    <div class="footer">Copyright © <span id="year"></span> <a id="footerblogTitle" href=""></a> <p><span id="filingNum"></span><span id="runday"></span>Powered by <a href="https://github.com/Meekdai/Gmeek" target="_blank">Gmeek</a></p></div>
 </div>
 </body>
 
+<script src="../static/icon.js"></script>
 <script>
 var utterancesLoad=0
+document.getElementById("pathHome").setAttribute("d",value=IconList["home"]);
+document.getElementById("pathIssue").setAttribute("d",value=IconList["github"]);
+document.getElementById("themeSwitch").setAttribute("d",value=IconList["sun"]);
 if(localStorage.getItem("meek_theme")==null){localStorage.setItem("meek_theme","light")}
 else if(localStorage.getItem("meek_theme")=="dark"){changeDark();}
 else if(localStorage.getItem("meek_theme")=="light"){changeLight();}
 
 function changeDark(){
     document.getElementsByTagName("html")[0].attributes.getNamedItem("data-color-mode").value="dark";
-    document.getElementById("themeSwitch").attributes.getNamedItem("d").value="M9.598 1.591a.75.75 0 01.785-.175 7 7 0 11-8.967 8.967.75.75 0 01.961-.96 5.5 5.5 0 007.046-7.046.75.75 0 01.175-.786zm1.616 1.945a7 7 0 01-7.678 7.678 5.5 5.5 0 107.678-7.678z";
+    document.getElementById("themeSwitch").attributes.getNamedItem("d").value=IconList["moon"];
     if(utterancesLoad==1){utterancesTheme("dark-blue");}
 }
 function changeLight(){
     document.getElementsByTagName("html")[0].attributes.getNamedItem("data-color-mode").value="light";
-    document.getElementById("themeSwitch").attributes.getNamedItem("d").value="M8 10.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5zM8 12a4 4 0 100-8 4 4 0 000 8zM8 0a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0V.75A.75.75 0 018 0zm0 13a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0v-1.5A.75.75 0 018 13zM2.343 2.343a.75.75 0 011.061 0l1.06 1.061a.75.75 0 01-1.06 1.06l-1.06-1.06a.75.75 0 010-1.06zm9.193 9.193a.75.75 0 011.06 0l1.061 1.06a.75.75 0 01-1.06 1.061l-1.061-1.06a.75.75 0 010-1.061zM16 8a.75.75 0 01-.75.75h-1.5a.75.75 0 010-1.5h1.5A.75.75 0 0116 8zM3 8a.75.75 0 01-.75.75H.75a.75.75 0 010-1.5h1.5A.75.75 0 013 8zm10.657-5.657a.75.75 0 010 1.061l-1.061 1.06a.75.75 0 11-1.06-1.06l1.06-1.06a.75.75 0 011.06 0zm-9.193 9.193a.75.75 0 010 1.06l-1.06 1.061a.75.75 0 11-1.061-1.06l1.06-1.061a.75.75 0 011.061 0z";
+    document.getElementById("themeSwitch").attributes.getNamedItem("d").value=IconList["sun"];
     if(utterancesLoad==1){utterancesTheme("github-light");}
 }
 function modeSwitch(){
@@ -96,18 +100,26 @@ if(utterancesFrame!=null){
 }
 else{console.info("utterancesFrame load be late");}
 
-var now=new Date();
-var startSite=new Date("02/16/2015");
-var diff=now.getTime()-startSite.getTime();
-var diffDay=Math.floor(diff/(1000*60*60*24));
-document.getElementById("year").innerHTML=now.getFullYear();
-document.getElementById("runday").innerHTML=diffDay;
-
-var blogBase={"postTitle": "\u6781\u7c73Z4-Air\u4e0e\u97f3\u54cd\u9ad8\u97f3\u5587\u53ed", "postBody": "<p>\u524d\u9762\u51e0\u7bc7\u90fd\u662f\u4e0d\u5927\u6b63\u5e38\u7684\u6587\u7ae0\uff0c\u8fd9\u7bc7\u5c31\u5199\u4e00\u4e0b\u6700\u8fd1\u81ea\u5df1\u4e70\u7684\u6295\u5f71\u4eea\u548c\u7ed9\u97f3\u54cd\u6309\u4e0a\u4e86\u9ad8\u97f3\u5587\u53ed\uff0c\u4e00\u5207\u90fd\u662f\u4e3a\u4e86\u63d0\u9ad8\u51ac\u5929\u7684\u751f\u6d3b\u6c34\u5e73\uff01</p>\n<p>\u662f\u7684\uff0c\u8fd9\u662f\u4e00\u6b3e\u5c0f\u5de7\u73b2\u73d1\u7684\u6295\u5f71\u4eea\uff0c\u529f\u80fd\u6781\u5176\u5f3a\u5927\uff0c\u5916\u89c2\u8bbe\u8ba1\u65e0\u53ef\u6311\u5254\u3002</p>\n<p>\u5177\u4f53\u53c2\u6570\u914d\u7f6e\u5982\u4e0b\uff1a</p>\n<p><a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://github.com/Meekdai/meekdai.github.io/assets/11755104/a42012b7-f6c7-4b68-a03f-f1c98446ecc0\"><img src=\"https://github.com/Meekdai/meekdai.github.io/assets/11755104/a42012b7-f6c7-4b68-a03f-f1c98446ecc0\" alt=\"7f3b1e89gy1fzpqnjokytj20u01b7wo2\" style=\"max-width: 100%;\"></a></p>\n<p>\u867d\u7136\u6d41\u660e\u4e0d\u662f\u592a\u9ad8\uff0c\u4f46\u662f\u5728\u665a\u4e0a\u89c2\u5f71\uff0c\u6216\u8005\u767d\u5929\u62c9\u4e0a\u7a97\u5e18\u7684\u65f6\u5019\u6548\u679c\u8fd8\u662f\u975e\u5e38\u4e0d\u9519\u7684\uff0c\u4e0b\u9762\u662f\u5b9e\u62cd\u7684\u6548\u679c\u56fe\u3002</p>\n<p><a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://github.com/Meekdai/meekdai.github.io/assets/11755104/2188ca51-5bfb-40da-9879-5e4968e19298\"><img src=\"https://github.com/Meekdai/meekdai.github.io/assets/11755104/2188ca51-5bfb-40da-9879-5e4968e19298\" alt=\"7f3b1e89gy1fzpqoor26mj21900u07wk\" style=\"max-width: 100%;\"></a></p>\n<p>\u7531\u4e8e\u673a\u8eab\u5185\u90e8\u6709\u9640\u87ba\u4eea\u4f20\u611f\u5668\uff0c\u6781\u7c73Z4-Air\u652f\u6301\u81ea\u52a8\u68af\u5f62\u6821\u51c6\uff0c\u514d\u53bb\u4e86\u7e41\u7410\u7684\u8bbe\u7f6e\uff0c\u5f00\u673a\u4ec5\u9700\u8981\u8c03\u6574\u4e00\u4e0b\u7126\u8ddd\u5373\u53ef\u4f7f\u7528\u3002\u4f46\u662f\u5b83\u53ea\u652f\u6301\u4e0a\u4e0b\u68af\u5f62\u6821\u51c6\uff0c\u5de6\u53f3\u4e0d\u80fd\u8c03\u6574\uff0c\u8fd9\u662f\u4e00\u4e2a\u7f3a\u70b9\u3002</p>\n<p>\u8fd8\u6709\u65e0\u7ebf\u540c\u5c4f\u529f\u80fd\uff0c\u5728MAC\u6216\u8005iPhone\u7684AirPlay\u4e0b\u975e\u5e38\u7684\u6d41\u7545\uff0c\u4f46\u662f\u7528Windows\u7684PC\u540c\u5c4f\u52a9\u624b\uff0c\u771f\u7684\u975e\u5e38\u5361\uff0c\u51e0\u4e4e\u4e0d\u80fd\u7528\u3002</p>\n<p>\u6211\u8bf4\u4e86\u4e00\u4e9b\u5728\u4f7f\u7528\u8fc7\u7a0b\u4e2d\u53d1\u73b0\u7684\u7f3a\u70b9\uff0c\u4f46\u662f\u5b83\u7684\u4f18\u70b9\u771f\u7684\u5f88\u591a\uff0c\u8fd9\u91cc\u5c31\u4e0d\u8be6\u7ec6\u5199\u51fa\u6765\u4e86\uff0c\u6709\u5174\u8da3\u53ef\u4ee5\u53bb<a href=\"http://www.xgimi.com/\" rel=\"nofollow\">\u6781\u7c73\u5b98\u7f51</a>\u77a7\u77a7\uff0c\u5927\u51ac\u5929\u7684\u665a\u4e0a\u8eba\u5728\u88ab\u7a9d\uff0c\u770b\u5927\u5c4f\u5e55\u7684\u7535\u5f71\u8fd8\u662f\u975e\u5e38\u4eab\u53d7\u7684\u4e00\u4ef6\u4e8b\u3002</p>\n<hr>\n<p>\u7136\u540e\u662f\u524d\u51e0\u5929\u6539\u88c5\u7684\u97f3\u54cd\uff0c\u5c31\u662f\u7ed9\u539f\u6709\u7684\u97f3\u54cd\u52a0\u4e0a\u4e86\u4e00\u5bf9\u9ad8\u97f3\u5587\u53ed\u3002</p>\n<p><a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://github.com/Meekdai/meekdai.github.io/assets/11755104/d163f848-49cd-4431-89ef-db94c06c032a\"><img src=\"https://github.com/Meekdai/meekdai.github.io/assets/11755104/d163f848-49cd-4431-89ef-db94c06c032a\" alt=\"7f3b1e89gy1fzpqpp6l3ij21400u0x6p\" style=\"max-width: 100%;\"></a></p>\n<p>\u4f46\u662f\u51e0\u5929\u4e0b\u6765\uff0c\u611f\u89c9\u58f0\u97f3\u4e5f\u5c31\u8fd9\u6837\uff0c\u542c\u4e0d\u51fa\u4e2a\u4ec0\u4e48\u6240\u4ee5\u7136\u6765\u3002</p>\n", "title": "Meekdai", "homeUrl": "http://blog.meekdai.com", "postSourceUrl": "https://github.com/Meekdai/meekdai.github.io/issues/9"}
+var blogBase={"postTitle": "\u6781\u7c73Z4-Air\u4e0e\u97f3\u54cd\u9ad8\u97f3\u5587\u53ed", "postBody": "<p>\u524d\u9762\u51e0\u7bc7\u90fd\u662f\u4e0d\u5927\u6b63\u5e38\u7684\u6587\u7ae0\uff0c\u8fd9\u7bc7\u5c31\u5199\u4e00\u4e0b\u6700\u8fd1\u81ea\u5df1\u4e70\u7684\u6295\u5f71\u4eea\u548c\u7ed9\u97f3\u54cd\u6309\u4e0a\u4e86\u9ad8\u97f3\u5587\u53ed\uff0c\u4e00\u5207\u90fd\u662f\u4e3a\u4e86\u63d0\u9ad8\u51ac\u5929\u7684\u751f\u6d3b\u6c34\u5e73\uff01</p>\n<p>\u662f\u7684\uff0c\u8fd9\u662f\u4e00\u6b3e\u5c0f\u5de7\u73b2\u73d1\u7684\u6295\u5f71\u4eea\uff0c\u529f\u80fd\u6781\u5176\u5f3a\u5927\uff0c\u5916\u89c2\u8bbe\u8ba1\u65e0\u53ef\u6311\u5254\u3002</p>\n<p>\u5177\u4f53\u53c2\u6570\u914d\u7f6e\u5982\u4e0b\uff1a</p>\n<p><a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://github.com/Meekdai/meekdai.github.io/assets/11755104/a42012b7-f6c7-4b68-a03f-f1c98446ecc0\"><img src=\"https://github.com/Meekdai/meekdai.github.io/assets/11755104/a42012b7-f6c7-4b68-a03f-f1c98446ecc0\" alt=\"7f3b1e89gy1fzpqnjokytj20u01b7wo2\" style=\"max-width: 100%;\"></a></p>\n<p>\u867d\u7136\u6d41\u660e\u4e0d\u662f\u592a\u9ad8\uff0c\u4f46\u662f\u5728\u665a\u4e0a\u89c2\u5f71\uff0c\u6216\u8005\u767d\u5929\u62c9\u4e0a\u7a97\u5e18\u7684\u65f6\u5019\u6548\u679c\u8fd8\u662f\u975e\u5e38\u4e0d\u9519\u7684\uff0c\u4e0b\u9762\u662f\u5b9e\u62cd\u7684\u6548\u679c\u56fe\u3002</p>\n<p><a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://github.com/Meekdai/meekdai.github.io/assets/11755104/2188ca51-5bfb-40da-9879-5e4968e19298\"><img src=\"https://github.com/Meekdai/meekdai.github.io/assets/11755104/2188ca51-5bfb-40da-9879-5e4968e19298\" alt=\"7f3b1e89gy1fzpqoor26mj21900u07wk\" style=\"max-width: 100%;\"></a></p>\n<p>\u7531\u4e8e\u673a\u8eab\u5185\u90e8\u6709\u9640\u87ba\u4eea\u4f20\u611f\u5668\uff0c\u6781\u7c73Z4-Air\u652f\u6301\u81ea\u52a8\u68af\u5f62\u6821\u51c6\uff0c\u514d\u53bb\u4e86\u7e41\u7410\u7684\u8bbe\u7f6e\uff0c\u5f00\u673a\u4ec5\u9700\u8981\u8c03\u6574\u4e00\u4e0b\u7126\u8ddd\u5373\u53ef\u4f7f\u7528\u3002\u4f46\u662f\u5b83\u53ea\u652f\u6301\u4e0a\u4e0b\u68af\u5f62\u6821\u51c6\uff0c\u5de6\u53f3\u4e0d\u80fd\u8c03\u6574\uff0c\u8fd9\u662f\u4e00\u4e2a\u7f3a\u70b9\u3002</p>\n<p>\u8fd8\u6709\u65e0\u7ebf\u540c\u5c4f\u529f\u80fd\uff0c\u5728MAC\u6216\u8005iPhone\u7684AirPlay\u4e0b\u975e\u5e38\u7684\u6d41\u7545\uff0c\u4f46\u662f\u7528Windows\u7684PC\u540c\u5c4f\u52a9\u624b\uff0c\u771f\u7684\u975e\u5e38\u5361\uff0c\u51e0\u4e4e\u4e0d\u80fd\u7528\u3002</p>\n<p>\u6211\u8bf4\u4e86\u4e00\u4e9b\u5728\u4f7f\u7528\u8fc7\u7a0b\u4e2d\u53d1\u73b0\u7684\u7f3a\u70b9\uff0c\u4f46\u662f\u5b83\u7684\u4f18\u70b9\u771f\u7684\u5f88\u591a\uff0c\u8fd9\u91cc\u5c31\u4e0d\u8be6\u7ec6\u5199\u51fa\u6765\u4e86\uff0c\u6709\u5174\u8da3\u53ef\u4ee5\u53bb<a href=\"http://www.xgimi.com/\" rel=\"nofollow\">\u6781\u7c73\u5b98\u7f51</a>\u77a7\u77a7\uff0c\u5927\u51ac\u5929\u7684\u665a\u4e0a\u8eba\u5728\u88ab\u7a9d\uff0c\u770b\u5927\u5c4f\u5e55\u7684\u7535\u5f71\u8fd8\u662f\u975e\u5e38\u4eab\u53d7\u7684\u4e00\u4ef6\u4e8b\u3002</p>\n<hr>\n<p>\u7136\u540e\u662f\u524d\u51e0\u5929\u6539\u88c5\u7684\u97f3\u54cd\uff0c\u5c31\u662f\u7ed9\u539f\u6709\u7684\u97f3\u54cd\u52a0\u4e0a\u4e86\u4e00\u5bf9\u9ad8\u97f3\u5587\u53ed\u3002</p>\n<p><a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://github.com/Meekdai/meekdai.github.io/assets/11755104/d163f848-49cd-4431-89ef-db94c06c032a\"><img src=\"https://github.com/Meekdai/meekdai.github.io/assets/11755104/d163f848-49cd-4431-89ef-db94c06c032a\" alt=\"7f3b1e89gy1fzpqpp6l3ij21400u0x6p\" style=\"max-width: 100%;\"></a></p>\n<p>\u4f46\u662f\u51e0\u5929\u4e0b\u6765\uff0c\u611f\u89c9\u58f0\u97f3\u4e5f\u5c31\u8fd9\u6837\uff0c\u542c\u4e0d\u51fa\u4e2a\u4ec0\u4e48\u6240\u4ee5\u7136\u6765\u3002</p>\n", "title": "Meekdai", "homeUrl": "http://blog.meekdai.com", "postSourceUrl": "https://github.com/Meekdai/meekdai.github.io/issues/9", "faviconUrl": "http://meekdai.com/favicon.ico", "filingNum": "\u6d59ICP\u590720023628\u53f7", "startSite": "02/16/2015"}
+if(blogBase["startSite"]!=""){
+    var now=new Date();
+    var startSite=new Date(blogBase["startSite"]);
+    var diff=now.getTime()-startSite.getTime();
+    var diffDay=Math.floor(diff/(1000*60*60*24));
+    document.getElementById("year").innerHTML=now.getFullYear();
+    document.getElementById("runday").innerHTML="Blog run "+diffDay+" days • ";
+}
 
 document.title=blogBase["postTitle"];
 document.getElementById("postTitle").innerHTML=blogBase["postTitle"];
 document.getElementById("postBody").innerHTML=blogBase["postBody"];
+
+if(blogBase["faviconUrl"]!=""){
+    link=document.createElement("link");
+    link.setAttribute("rel","icon");
+    link.setAttribute("href",blogBase["faviconUrl"]);
+    document.head.appendChild(link);
+}
 
 if(blogBase["filingNum"]!=""){document.getElementById("filingNum").innerHTML=blogBase["filingNum"]+" • ";}
 document.getElementById("footerblogTitle").innerHTML=blogBase["title"];
