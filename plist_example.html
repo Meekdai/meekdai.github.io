@@ -72,25 +72,6 @@ h1 a{margin-left: 4px;margin-top: 16px;}
 <script src="./static/icon.js"></script>
 <script>
 
-document.getElementById("searchSVG").setAttribute("d",value=IconList["search"]);
-document.getElementById("themeSwitch").setAttribute("d",value=IconList["sun"]);
-if(localStorage.getItem("meek_theme")==null){localStorage.setItem("meek_theme","light")}
-else if(localStorage.getItem("meek_theme")=="dark"){changeDark();}
-else if(localStorage.getItem("meek_theme")=="light"){changeLight();}
-
-function changeDark(){
-    document.getElementsByTagName("html")[0].attributes.getNamedItem("data-color-mode").value="dark";
-    document.getElementById("themeSwitch").attributes.getNamedItem("d").value=IconList["moon"];
-}
-function changeLight(){
-    document.getElementsByTagName("html")[0].attributes.getNamedItem("data-color-mode").value="light";
-    document.getElementById("themeSwitch").attributes.getNamedItem("d").value=IconList["sun"];
-}
-function modeSwitch(){
-    if(document.getElementsByTagName("html")[0].attributes[0].value=="light"){changeDark();localStorage.setItem("meek_theme","dark");}
-    else{changeLight();localStorage.setItem("meek_theme","light");}
-}
-
 var blogBase=%s
 if(blogBase["startSite"]!=""){
     var now=new Date();
@@ -169,6 +150,26 @@ for(var num in postListJson){
             document.getElementById("buttonAbout").style="display:block";
         }
     }
+}
+
+
+document.getElementById("searchSVG").setAttribute("d",value=IconList["search"]);
+document.getElementById("themeSwitch").setAttribute("d",value=IconList["sun"]);
+if(localStorage.getItem("meek_theme")==null){localStorage.setItem("meek_theme","light")}
+else if(localStorage.getItem("meek_theme")=="dark"){changeDark();}
+else if(localStorage.getItem("meek_theme")=="light"){changeLight();}
+
+function changeDark(){
+    document.getElementsByTagName("html")[0].attributes.getNamedItem("data-color-mode").value="dark";
+    document.getElementById("themeSwitch").attributes.getNamedItem("d").value=IconList["moon"];
+}
+function changeLight(){
+    document.getElementsByTagName("html")[0].attributes.getNamedItem("data-color-mode").value="light";
+    document.getElementById("themeSwitch").attributes.getNamedItem("d").value=IconList["sun"];
+}
+function modeSwitch(){
+    if(document.getElementsByTagName("html")[0].attributes[0].value=="light"){changeDark();localStorage.setItem("meek_theme","dark");}
+    else{changeLight();localStorage.setItem("meek_theme","light");}
 }
 
 </script>
