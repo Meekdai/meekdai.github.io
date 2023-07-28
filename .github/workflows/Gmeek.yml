@@ -1,4 +1,4 @@
-name: build meekblog
+name: build Gmeek
 
 on:
   workflow_dispatch:
@@ -42,7 +42,7 @@ jobs:
       - name: Generate new html
         run: |
           source venv/bin/activate
-          python meekblog.py ${{ secrets.meblog }} ${{ github.repository }} --issue_number '${{ github.event.issue.number }}'
+          python Gmeek.py ${{ secrets.meblog }} ${{ github.repository }} --issue_number '${{ github.event.issue.number }}'
         
       - name: update html
         run: |
