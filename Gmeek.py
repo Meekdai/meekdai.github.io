@@ -75,6 +75,7 @@ class GMEEK():
         postBase["faviconUrl"]=self.blogBase["faviconUrl"]
         postBase["filingNum"]=self.blogBase["filingNum"]
         postBase["startSite"]=self.blogBase["startSite"]
+        postBase["repoName"]=options.repo_name
 
         f = open(gen_Html, 'w', encoding='UTF-8')
         f.write(self.post_example % json.dumps(postBase))

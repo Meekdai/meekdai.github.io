@@ -117,9 +117,10 @@ function openComments(){
     cmButton=document.getElementById("cmButton");
     script=document.createElement("script");
     script.setAttribute("src","https://utteranc.es/client.js");
-    script.setAttribute("repo","Meekdai/meekdai.github.io");
+    script.setAttribute("repo",blogBase["repo_name"]);
     script.setAttribute("issue-term","title");
-    script.setAttribute("theme","github-light");
+    if(localStorage.getItem("meek_theme")=="dark"){script.setAttribute("theme","dark-blue");}
+    else{script.setAttribute("theme","github-light");}
     script.setAttribute("crossorigin","anonymous");
     script.setAttribute("async","");
     cm.appendChild(script);
@@ -128,16 +129,6 @@ function openComments(){
     cm.style.display="block";
     utterancesLoad=1;
 }
-
-utterancesFrame=document.getElementsByClassName("utterances-frame")[0];
-if(utterancesFrame!=null){
-    utterancesFrame.onload=function(){
-        utterancesLoad=1;
-        if(localStorage.getItem("meek_theme")=="dark"){changeDark();}
-        else{changeLight();}
-    }
-}
-else{console.info("utterancesFrame load be late");}
 
 </script>
 </html>
