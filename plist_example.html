@@ -4,7 +4,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <link href="https://unpkg.com/@primer/css@^21.0.7/dist/primer.css" rel="stylesheet" />
-<link rel="icon" href="http://meekdai.com/favicon.ico">
+
 </head>
 <style>
     
@@ -65,7 +65,7 @@ h1 a{margin-left: 4px;margin-top: 16px;}
     </h1>
     <div id="blogSubTitle"></div><p></p>
     <nav class="SideNav border"id="navList"></nav>
-    <div class="footer">Copyright © <span id="year"></span> <a id="footerblogTitle" href=""></a> <p><span id="filingNum"></span>网站已运行<span id="runday"></span>天 • Powered by <a href="https://github.com/Meekdai/Gmeek">Gmeek</a></p></div>
+    <div class="footer">Copyright © <span id="year"></span> <a id="footerblogTitle" href=""></a> <p><span id="filingNum"></span><span id="runday"></span>Powered by <a href="https://github.com/Meekdai/Gmeek" target="_blank">Gmeek</a></p></div>
 </div>
 
 </body>
@@ -91,14 +91,15 @@ function modeSwitch(){
     else{changeLight();localStorage.setItem("meek_theme","light");}
 }
 
-var now=new Date();
-var startSite=new Date("02/16/2015");
-var diff=now.getTime()-startSite.getTime();
-var diffDay=Math.floor(diff/(1000*60*60*24));
-document.getElementById("year").innerHTML=now.getFullYear();
-document.getElementById("runday").innerHTML=diffDay;
-
 var blogBase=%s
+if(blogBase["startSite"]!=""){
+    var now=new Date();
+    var startSite=new Date(blogBase["startSite"]);
+    var diff=now.getTime()-startSite.getTime();
+    var diffDay=Math.floor(diff/(1000*60*60*24));
+    document.getElementById("year").innerHTML=now.getFullYear();
+    document.getElementById("runday").innerHTML="Blog run "+diffDay+" days • ";
+}
 
 var postListJson=blogBase["postListJson"]
 
@@ -111,6 +112,13 @@ document.getElementById("footerblogTitle").innerHTML=blogBase["title"];
 document.getElementById("footerblogTitle").href=blogBase["homeUrl"];
 
 var navList=document.getElementById("navList");
+
+if(blogBase["faviconUrl"]!=""){
+    link=document.createElement("link");
+    link.setAttribute("rel","icon");
+    link.setAttribute("href",blogBase["faviconUrl"]);
+    document.head.appendChild(link);
+}
 
 for(var num in postListJson){
     if(blogBase["singlePage"].indexOf(postListJson[num]["label"])==-1){
