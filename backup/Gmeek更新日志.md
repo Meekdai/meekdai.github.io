@@ -2,6 +2,13 @@
 
 目前已经实现了抓取文章页面和首页的基础程序，内容展示用了[primer/css](https://primer.style/css/)，评论直接使用[utteranc.es](https://utteranc.es/)拉取issues的评论，但是目前还只是一个简单的框架 =>> [Gmeek](https://github.com/Meekdai/Gmeek)
 
+TODO:
+- 添加文章置顶功能
+- 搜索框功能，目前就是一个google跳转
+- 需要另外开发个人导航页的项目，方面nas用户搭建
+
+---
+
 #### 20230728
 - 博客框架更名为Gmeek，源码上传Github
 - 修改python传递参数为Json格式
