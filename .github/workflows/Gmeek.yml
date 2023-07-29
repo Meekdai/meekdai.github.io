@@ -14,6 +14,17 @@ jobs:
     name: Generate blog
     runs-on: ubuntu-20.04
     if: github.event.repository.owner.id == github.event.sender.id
+    permissions:
+      contents: write
+      pages: write
+      id-token: write
+    concurrency:
+      group: "pages"
+      cancel-in-progress: false
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+      
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -22,32 +33,45 @@ jobs:
         with:
           python-version: 3.8
 
-      - name: Configure pip cache
-        uses: actions/cache@v1
-        id: pip-cache
-        with:
-          path: venv
-          key: pip-1-${{ hashFiles('**/requirements.txt') }}
-          restore-keys: |
-            pip-
+      - name: Clone source code
+        run: |
+          git clone https://github.com/Meekdai/Gmeek.git /opt/Gmeek
 
       - name: Install dependencies
         run: |
-          python -m pip install --upgrade pip
-          python -m venv venv
-          source venv/bin/activate
-          pip install -r requirements.txt
-        if: steps.pip-cache.outputs.cache-hit != 'true'
+          pip install --upgrade pip
+          pip install -r /opt/Gmeek/requirements.txt
 
       - name: Generate new html
         run: |
-          source venv/bin/activate
+          cp -r ./* /opt/Gmeek/
+          cd /opt/Gmeek/
+          echo "====== check config.josn file ======"
+          cat config.json
+          echo "====== check config.josn end  ======"
           python Gmeek.py ${{ secrets.meblog }} ${{ github.repository }} --issue_number '${{ github.event.issue.number }}'
+          cp -a /opt/Gmeek/docs/. ${{ github.workspace }} 
+          cp /opt/Gmeek/blogBase.json ${{ github.workspace }} 
         
       - name: update html
         run: |
           git config --local user.email "${{ env.GITHUB_EMAIL }}"
           git config --local user.name "${{ env.GITHUB_NAME }}"
           git add .
-          git commit -a -m '🎉auto update by action' || echo "nothing to commit"
+          git commit -a -m '🎉auto update by Gmeek action' || echo "nothing to commit"
           git push || echo "nothing to push"
+    
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Setup Pages
+        uses: actions/configure-pages@v3
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v2
+        with:
+          # Upload entire repository
+          path: '.'
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v2
+
+        
