@@ -51,6 +51,7 @@ jobs:
           echo "====== check config.josn end  ======"
           python Gmeek.py ${{ secrets.meblog }} ${{ github.repository }} --issue_number '${{ github.event.issue.number }}'
           cp -a /opt/Gmeek/docs/. ${{ github.workspace }} 
+          cp -a /opt/Gmeek/backup ${{ github.workspace }} 
           cp /opt/Gmeek/blogBase.json ${{ github.workspace }} 
         
       - name: update html
