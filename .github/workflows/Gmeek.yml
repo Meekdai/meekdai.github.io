@@ -44,23 +44,12 @@ jobs:
           cat config.json
           echo "====== check config.josn end  ======"
           python Gmeek.py ${{ secrets.meblog }} ${{ github.repository }} --issue_number '${{ github.event.issue.number }}'
-          cp -a /opt/Gmeek/backup ${{ github.workspace }} 
-          cp /opt/Gmeek/blogBase.json ${{ github.workspace }} 
           
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
         with:
           path: 'docs/.'
           
-      - name: Update github
-        run: |
-          git config --local user.email "${{ env.GITHUB_EMAIL }}"
-          git config --local user.name "${{ env.GITHUB_NAME }}"
-          git add .
-          git commit -a -m '🎉auto update by Gmeek action' || echo "nothing to commit"
-          git push || echo "nothing to push"
-
-
   deploy:
     name: Deploy blog
     runs-on: ubuntu-20.04
