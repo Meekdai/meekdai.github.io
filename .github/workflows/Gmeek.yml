@@ -10,21 +10,10 @@ env:
   GITHUB_EMAIL: meekdai@163.com
 
 jobs:
-  sync:
+  build:
     name: Generate blog
     runs-on: ubuntu-20.04
-    if: github.event.repository.owner.id == github.event.sender.id
-    permissions:
-      contents: write
-      pages: write
-      id-token: write
-    concurrency:
-      group: "pages"
-      cancel-in-progress: false
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-      
+    if: github.event.repository.owner.id == github.event.sender.id 
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -61,7 +50,22 @@ jobs:
           git add .
           git commit -a -m '🎉auto update by Gmeek action' || echo "nothing to commit"
           git push || echo "nothing to push"
-    
+
+  deploy:
+    name: deploy blog
+    runs-on: ubuntu-20.04
+    needs: build
+    permissions:
+      contents: write
+      pages: write
+      id-token: write
+    concurrency:
+      group: "pages"
+      cancel-in-progress: false
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Setup Pages
