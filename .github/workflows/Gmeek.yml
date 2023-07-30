@@ -17,6 +17,11 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+
+      - name: Setup Pages
+        id: pages
+        uses: actions/configure-pages@v3
+
       - name: Set up Python
         uses: actions/setup-python@v1
         with:
@@ -39,11 +44,10 @@ jobs:
           cat config.json
           echo "====== check config.josn end  ======"
           python Gmeek.py ${{ secrets.meblog }} ${{ github.repository }} --issue_number '${{ github.event.issue.number }}'
-          cp -a /opt/Gmeek/docs ${{ github.workspace }} 
           cp -a /opt/Gmeek/backup ${{ github.workspace }} 
           cp /opt/Gmeek/blogBase.json ${{ github.workspace }} 
         
-      - name: update html
+      - name: update github
         run: |
           git config --local user.email "${{ env.GITHUB_EMAIL }}"
           git config --local user.name "${{ env.GITHUB_NAME }}"
@@ -51,8 +55,13 @@ jobs:
           git commit -a -m '🎉auto update by Gmeek action' || echo "nothing to commit"
           git push || echo "nothing to push"
 
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v2
+        with:
+          path: 'docs/.'
+
   deploy:
-    name: deploy blog
+    name: Deploy blog
     runs-on: ubuntu-20.04
     needs: build
     permissions:
@@ -66,15 +75,6 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Setup Pages
-        uses: actions/configure-pages@v3
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v2
-        with:
-          # Upload entire repository
-          path: 'docs/.'
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v2
-
-        
