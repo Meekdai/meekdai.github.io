@@ -16,7 +16,7 @@ jobs:
     if: github.event.repository.owner.id == github.event.sender.id 
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Set up Python
         uses: actions/setup-python@v1
         with:
@@ -66,8 +66,6 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
       - name: Setup Pages
         uses: actions/configure-pages@v3
       - name: Upload artifact
