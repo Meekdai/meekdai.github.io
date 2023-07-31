@@ -31,7 +31,7 @@ jobs:
 
       - name: Clone source code
         run: |
-          git clone https://github.com/Meekdai/Gmeek.git /opt/Gmeek
+          git clone -b ${{ env.GMEEK_VERSION }} https://github.com/Meekdai/Gmeek.git /opt/Gmeek
 
       - name: Install dependencies
         run: |
