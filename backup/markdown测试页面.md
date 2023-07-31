@@ -39,14 +39,14 @@
 - 羽毛球
 
 ## 代码高亮 
-\`\`\`python 
-import request 
-import time 
-
-time.sleep_ms(1000) 
-print("Hello World") 
-\`\`\` 
- 
+\`\`\`python  
+import request  
+import time  
+  
+time.sleep_ms(1000)  
+print("Hello World")  
+\`\`\`   
+  
 ```python
 import request
 import time
