@@ -25,9 +25,9 @@ jobs:
           cat config.json
           echo "====== check config.josn end  ======"
           sudo apt-get install jq
-          GMEEK_VERSION=cat config.json | jq '.GMEEK_VERSION'
-          USER_GITHUB_NAME=cat config.json | jq '.GITHUB_NAME'
-          USER_GITHUB_EMAIL=cat config.json | jq '.GITHUB_EMAIL'
+          GMEEK_VERSION=cat ./config.json | jq '.GMEEK_VERSION'
+          USER_GITHUB_NAME=cat /.config.json | jq '.GITHUB_NAME'
+          USER_GITHUB_EMAIL=cat /.config.json | jq '.GITHUB_EMAIL'
           
       - name: Set up Python
         uses: actions/setup-python@v4
