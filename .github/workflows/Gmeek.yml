@@ -25,7 +25,6 @@ jobs:
           cat config.json
           echo "====== check config.josn end  ======"
           sudo apt-get install jq
-          cat config.json | jq '.GMEEK_VERSION'
 
       - name: Set up Python
         uses: actions/setup-python@v4
