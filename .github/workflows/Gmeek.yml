@@ -34,7 +34,7 @@ jobs:
 
       - name: Clone source code
         run: |
-          git clone -b $(jq ".GMEEK_VERSION" config.json) https://github.com/Meekdai/Gmeek.git /opt/Gmeek
+          git clone -b $(jq -r ".GMEEK_VERSION" config.json) https://github.com/Meekdai/Gmeek.git /opt/Gmeek
 
       - name: Install dependencies
         run: |
@@ -46,7 +46,7 @@ jobs:
           cp -r ./* /opt/Gmeek/
           cd /opt/Gmeek/
           GMEEK_VERSION= cat config.json | jq '.GMEEK_VERSION'
-          python Gmeek.py ${{ secrets.GITHUB_TOKEN }} ${{ github.repository }} $(jq ".GMEEK_VERSION" config.json) --issue_number '${{ github.event.issue.number }}'
+          python Gmeek.py ${{ secrets.GITHUB_TOKEN }} ${{ github.repository }} $(jq -r ".GMEEK_VERSION" config.json) --issue_number '${{ github.event.issue.number }}'
           cp -a /opt/Gmeek/docs ${{ github.workspace }} 
           cp -a /opt/Gmeek/backup ${{ github.workspace }} 
           cp /opt/Gmeek/blogBase.json ${{ github.workspace }} 
