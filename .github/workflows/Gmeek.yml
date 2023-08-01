@@ -25,8 +25,8 @@ jobs:
           cat config.json
           echo "====== check config.josn end  ======"
           sudo apt-get install jq
-          jq ".GMEEK_VERSION" config.json
-          export GMEEK_VERSION= jq ".GMEEK_VERSION" config.json
+          cat config.json | jq '.GMEEK_VERSION'
+          export GMEEK_VERSION= cat config.json | jq '.GMEEK_VERSION'
           echo "::set-env name=GMEEK_VERSION::$GMEEK_VERSION"
           
       - name: Set up Python
