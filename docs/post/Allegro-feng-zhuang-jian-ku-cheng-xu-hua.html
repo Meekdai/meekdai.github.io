@@ -33,7 +33,7 @@ h1 {display:flex;}
 .footer {margin: 40px auto; text-align: center;font-size: small;}
 #cmButton{height:48px;margin-top:48px;}
 </style>
-
+<script>var blogBase={"postTitle": "Allegro\u5c01\u88c5\u5efa\u5e93\u7a0b\u5e8f\u5316", "postBody": "<p>\u5728\u8fdb\u884callegro\u5c01\u88c5\u5efa\u5e93\u7684\u65f6\u5019\uff0c\u6211\u901a\u5e38\u4f1a\u4f7f\u7528FPM\u8fd9\u4e2a\u8f6f\u4ef6\uff0c\u56e0\u4e3a\u901a\u8fc7\u8fd9\u4e2a\u8f6f\u4ef6\uff0c\u6211\u5c31\u53ef\u4ee5\u7528\u4ee3\u7801\u6765\u5efa\u7acbPCB\u5c01\u88c5\u3002FPM\u8fd9\u4e2a\u8f6f\u4ef6\u7f51\u4e0a\u53ef\u4ee5\u4e0b\u8f7d\u5230\u7684\u7248\u672c\u662f<code>0.0.8</code>\uff0c\u5b83\u5185\u7f6e\u4e86\u8bb8\u591a\u5e38\u7528\u7684\u5c01\u88c5\u7c7b\u578b\uff0c\u7b80\u5355\u7684\u586b\u5199\u4e00\u4e9b\u53c2\u6570\u5c31\u53ef\u4ee5\u751f\u4ea7\u4e00\u4e2a\u6807\u51c6\u7684\u5c01\u88c5\u3002</p>\n<p>\u9664\u6b64\u4e4b\u5916\uff0c\u6709\u4e9b\u7279\u6b8a\u7684\u5c01\u88c5\u53ef\u4ee5\u81ea\u5b9a\u4e49\uff0c\u901a\u8fc7\u7f16\u5199<code>skill</code>\u7684<code>il</code>\u6587\u4ef6\u6765\u5b9e\u73b0\u3002\u4e0b\u9762\u662f\u4e00\u4e9b\u5e38\u7528\u7684\u8bed\u53e5\u3002</p>\n<h3><a id=\"user-content-\u6ce8\u91ca\u90e8\u5206\" class=\"anchor\" aria-hidden=\"true\" href=\"#\u6ce8\u91ca\u90e8\u5206\"><span aria-hidden=\"true\" class=\"octicon octicon-link\"></span></a>\u6ce8\u91ca\u90e8\u5206</h3>\n<pre><code>;FPM skill by Meekdai\n;Tree:Meekdai/RJ45 Connector\n;Desc:W5500\n;Vendor:Meekdai\n;Count:1\n;Datasheet:https://item.szlcsc.com/12651.html\n</code></pre>\n<h3><a id=\"user-content-\u5f00\u5934\u5f15\u5165\" class=\"anchor\" aria-hidden=\"true\" href=\"#\u5f00\u5934\u5f15\u5165\"><span aria-hidden=\"true\" class=\"octicon octicon-link\"></span></a>\u5f00\u5934\u5f15\u5165</h3>\n<pre><code>sprintf(pName,\"W5500\")\n_PrepareNewSym(pName)\n</code></pre>\n<h3><a id=\"user-content-\u5b9a\u4e49\u710a\u76d8\" class=\"anchor\" aria-hidden=\"true\" href=\"#\u5b9a\u4e49\u710a\u76d8\"><span aria-hidden=\"true\" class=\"octicon octicon-link\"></span></a>\u5b9a\u4e49\u710a\u76d8</h3>\n<pre><code>PadT = _PadTH_Default(2.5 1.7)\nPadT1 = _PadTH_Default(2.5 2.5)\nPadS = _PadSMFillet(0.72 0.6)\nPadN = _PadSM(0.8 2.8) ;\u5706\u8fb9\u710a\u76d8\nPadC = _Pad_Slot(4.0 1.8 2.8 0.8)\n</code></pre>\n<h3><a id=\"user-content-\u521b\u5efa\u710a\u76d8\" class=\"anchor\" aria-hidden=\"true\" href=\"#\u521b\u5efa\u710a\u76d8\"><span aria-hidden=\"true\" class=\"octicon octicon-link\"></span></a>\u521b\u5efa\u710a\u76d8</h3>\n<pre><code>_CreatePin(PadT -4.445:-4.355 \"1\")\n_CreatePinMechanical(PadT1 -5.715:1.995)\n</code></pre>\n<h3><a id=\"user-content-\u4f7f\u7528\u5faa\u73af\" class=\"anchor\" aria-hidden=\"true\" href=\"#\u4f7f\u7528\u5faa\u73af\"><span aria-hidden=\"true\" class=\"octicon octicon-link\"></span></a>\u4f7f\u7528\u5faa\u73af</h3>\n<pre><code>for(i 1 num _CreatePin(PadTH2 pitch*(i-1):0 i)))\n</code></pre>\n<p>\u5176\u4e2di\u4ece1\u5f00\u59cb\uff0c\u4e00\u76f4\u5230num\uff0c\u6bcf\u6b21\u6267\u884c\u4e00\u6b21</p>\n<h3><a id=\"user-content-\u4f7f\u7528\u6761\u4ef6\u8bed\u53e5\" class=\"anchor\" aria-hidden=\"true\" href=\"#\u4f7f\u7528\u6761\u4ef6\u8bed\u53e5\"><span aria-hidden=\"true\" class=\"octicon octicon-link\"></span></a>\u4f7f\u7528\u6761\u4ef6\u8bed\u53e5</h3>\n<pre><code>if(i==1 _CreatePin(PadTH1 0:0 i) _CreatePin(PadTH2 pitch*(i-1):0 i))\n</code></pre>\n<p>\u5982\u679ci\u7b49\u4e8e1\u5c31\u6267\u884c\u7b2c\u4e00\u4e2a\u8bed\u53e5\u4f7f\u7528PadTH1\uff0c\u5426\u5219\u7528\u7b2c\u4e8c\u4e2a\u8bed\u53e5\u4f7f\u7528PadTH2</p>\n<p>\u66f4\u591a\u5185\u5bb9\u53ef\u4ee5\u53c2\u8003\u5b98\u65b9\u6587\u6863x:\\Cadence\\SPB_16.x\\doc\\sklangref\\sklangref.pdf</p>\n<h3><a id=\"user-content-\u521b\u5efa\u4e1d\u5370\" class=\"anchor\" aria-hidden=\"true\" href=\"#\u521b\u5efa\u4e1d\u5370\"><span aria-hidden=\"true\" class=\"octicon octicon-link\"></span></a>\u521b\u5efa\u4e1d\u5370</h3>\n<pre><code>_Layer(lPkgGeoSilkT) _Rectangle(15.8 20.8 0:0)\n_Layer(lPkgGeoSilkT) _Circle(0.254 1.7:1.7)\n_Layer(lPkgGeoSilkT) _Line(list(2.5:2.5 -2.5:2.5))\n</code></pre>\n<h3><a id=\"user-content-\u521b\u5efa\u4f4d\u53f7\" class=\"anchor\" aria-hidden=\"true\" href=\"#\u521b\u5efa\u4f4d\u53f7\"><span aria-hidden=\"true\" class=\"octicon octicon-link\"></span></a>\u521b\u5efa\u4f4d\u53f7</h3>\n<pre><code>_CreateRefValue(pName -3:5 -3:5)\n</code></pre>\n<h3><a id=\"user-content-\u5b8c\u6210\u521b\u5efa\" class=\"anchor\" aria-hidden=\"true\" href=\"#\u5b8c\u6210\u521b\u5efa\"><span aria-hidden=\"true\" class=\"octicon octicon-link\"></span></a>\u5b8c\u6210\u521b\u5efa</h3>\n<pre><code>_SaveDesign(pName)\n</code></pre>\n", "title": "Meekdai", "homeUrl": "http://blog.meekdai.com", "postSourceUrl": "https://github.com/Meekdai/meekdai.github.io/issues/3", "faviconUrl": "http://meekdai.com/favicon.ico", "filingNum": "\u6d59ICP\u590720023628\u53f7", "startSite": "02/16/2015", "i18n": "CN", "commentNum": 0, "repoName": "Meekdai/meekdai.github.io", "GMEEK_VERSION": "main"}</script>
 <body>
 <div class="markdown-body">
     <h1>
@@ -55,114 +55,17 @@ h1 {display:flex;}
 </div>
 </body>
 
-<script src="../static/icon.js"></script>
 <script>
-
-var blogBase={"postTitle": "Allegro\u5c01\u88c5\u5efa\u5e93\u7a0b\u5e8f\u5316", "postBody": "<p>\u5728\u8fdb\u884callegro\u5c01\u88c5\u5efa\u5e93\u7684\u65f6\u5019\uff0c\u6211\u901a\u5e38\u4f1a\u4f7f\u7528FPM\u8fd9\u4e2a\u8f6f\u4ef6\uff0c\u56e0\u4e3a\u901a\u8fc7\u8fd9\u4e2a\u8f6f\u4ef6\uff0c\u6211\u5c31\u53ef\u4ee5\u7528\u4ee3\u7801\u6765\u5efa\u7acbPCB\u5c01\u88c5\u3002FPM\u8fd9\u4e2a\u8f6f\u4ef6\u7f51\u4e0a\u53ef\u4ee5\u4e0b\u8f7d\u5230\u7684\u7248\u672c\u662f<code>0.0.8</code>\uff0c\u5b83\u5185\u7f6e\u4e86\u8bb8\u591a\u5e38\u7528\u7684\u5c01\u88c5\u7c7b\u578b\uff0c\u7b80\u5355\u7684\u586b\u5199\u4e00\u4e9b\u53c2\u6570\u5c31\u53ef\u4ee5\u751f\u4ea7\u4e00\u4e2a\u6807\u51c6\u7684\u5c01\u88c5\u3002</p>\n<p>\u9664\u6b64\u4e4b\u5916\uff0c\u6709\u4e9b\u7279\u6b8a\u7684\u5c01\u88c5\u53ef\u4ee5\u81ea\u5b9a\u4e49\uff0c\u901a\u8fc7\u7f16\u5199<code>skill</code>\u7684<code>il</code>\u6587\u4ef6\u6765\u5b9e\u73b0\u3002\u4e0b\u9762\u662f\u4e00\u4e9b\u5e38\u7528\u7684\u8bed\u53e5\u3002</p>\n<h3><a id=\"user-content-\u6ce8\u91ca\u90e8\u5206\" class=\"anchor\" aria-hidden=\"true\" href=\"#\u6ce8\u91ca\u90e8\u5206\"><span aria-hidden=\"true\" class=\"octicon octicon-link\"></span></a>\u6ce8\u91ca\u90e8\u5206</h3>\n<pre><code>;FPM skill by Meekdai\n;Tree:Meekdai/RJ45 Connector\n;Desc:W5500\n;Vendor:Meekdai\n;Count:1\n;Datasheet:https://item.szlcsc.com/12651.html\n</code></pre>\n<h3><a id=\"user-content-\u5f00\u5934\u5f15\u5165\" class=\"anchor\" aria-hidden=\"true\" href=\"#\u5f00\u5934\u5f15\u5165\"><span aria-hidden=\"true\" class=\"octicon octicon-link\"></span></a>\u5f00\u5934\u5f15\u5165</h3>\n<pre><code>sprintf(pName,\"W5500\")\n_PrepareNewSym(pName)\n</code></pre>\n<h3><a id=\"user-content-\u5b9a\u4e49\u710a\u76d8\" class=\"anchor\" aria-hidden=\"true\" href=\"#\u5b9a\u4e49\u710a\u76d8\"><span aria-hidden=\"true\" class=\"octicon octicon-link\"></span></a>\u5b9a\u4e49\u710a\u76d8</h3>\n<pre><code>PadT = _PadTH_Default(2.5 1.7)\nPadT1 = _PadTH_Default(2.5 2.5)\nPadS = _PadSMFillet(0.72 0.6)\nPadN = _PadSM(0.8 2.8) ;\u5706\u8fb9\u710a\u76d8\nPadC = _Pad_Slot(4.0 1.8 2.8 0.8)\n</code></pre>\n<h3><a id=\"user-content-\u521b\u5efa\u710a\u76d8\" class=\"anchor\" aria-hidden=\"true\" href=\"#\u521b\u5efa\u710a\u76d8\"><span aria-hidden=\"true\" class=\"octicon octicon-link\"></span></a>\u521b\u5efa\u710a\u76d8</h3>\n<pre><code>_CreatePin(PadT -4.445:-4.355 \"1\")\n_CreatePinMechanical(PadT1 -5.715:1.995)\n</code></pre>\n<h3><a id=\"user-content-\u4f7f\u7528\u5faa\u73af\" class=\"anchor\" aria-hidden=\"true\" href=\"#\u4f7f\u7528\u5faa\u73af\"><span aria-hidden=\"true\" class=\"octicon octicon-link\"></span></a>\u4f7f\u7528\u5faa\u73af</h3>\n<pre><code>for(i 1 num _CreatePin(PadTH2 pitch*(i-1):0 i)))\n</code></pre>\n<p>\u5176\u4e2di\u4ece1\u5f00\u59cb\uff0c\u4e00\u76f4\u5230num\uff0c\u6bcf\u6b21\u6267\u884c\u4e00\u6b21</p>\n<h3><a id=\"user-content-\u4f7f\u7528\u6761\u4ef6\u8bed\u53e5\" class=\"anchor\" aria-hidden=\"true\" href=\"#\u4f7f\u7528\u6761\u4ef6\u8bed\u53e5\"><span aria-hidden=\"true\" class=\"octicon octicon-link\"></span></a>\u4f7f\u7528\u6761\u4ef6\u8bed\u53e5</h3>\n<pre><code>if(i==1 _CreatePin(PadTH1 0:0 i) _CreatePin(PadTH2 pitch*(i-1):0 i))\n</code></pre>\n<p>\u5982\u679ci\u7b49\u4e8e1\u5c31\u6267\u884c\u7b2c\u4e00\u4e2a\u8bed\u53e5\u4f7f\u7528PadTH1\uff0c\u5426\u5219\u7528\u7b2c\u4e8c\u4e2a\u8bed\u53e5\u4f7f\u7528PadTH2</p>\n<p>\u66f4\u591a\u5185\u5bb9\u53ef\u4ee5\u53c2\u8003\u5b98\u65b9\u6587\u6863x:\\Cadence\\SPB_16.x\\doc\\sklangref\\sklangref.pdf</p>\n<h3><a id=\"user-content-\u521b\u5efa\u4e1d\u5370\" class=\"anchor\" aria-hidden=\"true\" href=\"#\u521b\u5efa\u4e1d\u5370\"><span aria-hidden=\"true\" class=\"octicon octicon-link\"></span></a>\u521b\u5efa\u4e1d\u5370</h3>\n<pre><code>_Layer(lPkgGeoSilkT) _Rectangle(15.8 20.8 0:0)\n_Layer(lPkgGeoSilkT) _Circle(0.254 1.7:1.7)\n_Layer(lPkgGeoSilkT) _Line(list(2.5:2.5 -2.5:2.5))\n</code></pre>\n<h3><a id=\"user-content-\u521b\u5efa\u4f4d\u53f7\" class=\"anchor\" aria-hidden=\"true\" href=\"#\u521b\u5efa\u4f4d\u53f7\"><span aria-hidden=\"true\" class=\"octicon octicon-link\"></span></a>\u521b\u5efa\u4f4d\u53f7</h3>\n<pre><code>_CreateRefValue(pName -3:5 -3:5)\n</code></pre>\n<h3><a id=\"user-content-\u5b8c\u6210\u521b\u5efa\" class=\"anchor\" aria-hidden=\"true\" href=\"#\u5b8c\u6210\u521b\u5efa\"><span aria-hidden=\"true\" class=\"octicon octicon-link\"></span></a>\u5b8c\u6210\u521b\u5efa</h3>\n<pre><code>_SaveDesign(pName)\n</code></pre>\n", "title": "Meekdai", "homeUrl": "http://blog.meekdai.com", "postSourceUrl": "https://github.com/Meekdai/meekdai.github.io/issues/3", "faviconUrl": "http://meekdai.com/favicon.ico", "filingNum": "\u6d59ICP\u590720023628\u53f7", "startSite": "02/16/2015", "i18n": "CN", "commentNum": 0, "repoName": "Meekdai/meekdai.github.io", "GMEEK_VERSION": "main"}
-
-var i18nEN=["switch theme","Run "," days","Home","Comments","Loading"];
-var i18nCN=["切换主题","网站运行","天","首页","评论","加载中"];
-if(blogBase["i18n"]=="CN"){var i18n=i18nCN;}
-else{var i18n=i18nEN;}
-
-if(blogBase["startSite"]!=""){
-    var now=new Date();
-    var startSite=new Date(blogBase["startSite"]);
-    var diff=now.getTime()-startSite.getTime();
-    var diffDay=Math.floor(diff/(1000*60*60*24));
-    document.getElementById("year").innerHTML=now.getFullYear();
-    document.getElementById("runday").innerHTML=i18n[1]+diffDay+i18n[2]+" • ";
+function addScript(url){
+    var script = document.createElement('script');
+    script.setAttribute('type','text/javascript');
+    script.setAttribute('src',url);
+    document.body.appendChild(script);
 }
-
-document.title=blogBase["postTitle"];
-document.getElementById("postTitle").innerHTML=blogBase["postTitle"];
-document.getElementById("postBody").innerHTML=blogBase["postBody"];
-document.getElementById("changeTheme").setAttribute("title",i18n[0]);
-document.getElementById("buttonHome").setAttribute("title",i18n[3]);
-document.getElementById("cmButton").innerHTML=i18n[4];
-
-if(blogBase["faviconUrl"]!=""){
-    link=document.createElement("link");
-    link.setAttribute("rel","icon");
-    link.setAttribute("href",blogBase["faviconUrl"]);
-    document.head.appendChild(link);
+window.onload=function(){
+    addScript("https://cdn.jsdelivr.net/gh/Meekdai/Gmeek@"+blogBase["GMEEK_VERSION"]+"/icon.js" );
+    addScript("https://cdn.jsdelivr.net/gh/Meekdai/Gmeek@"+blogBase["GMEEK_VERSION"]+"/Gmeek.js" );
 }
-
-if(blogBase["filingNum"]!=""){document.getElementById("filingNum").innerHTML=blogBase["filingNum"]+" • ";}
-document.getElementById("footerblogTitle").innerHTML=blogBase["title"];
-document.getElementById("footerblogTitle").href=blogBase["homeUrl"];
-
-function gotoSource(){window.open(blogBase["postSourceUrl"]);}
-
-var utterancesLoad=0
-document.getElementById("pathHome").setAttribute("d",value=IconList["home"]);
-document.getElementById("pathIssue").setAttribute("d",value=IconList["github"]);
-document.getElementById("themeSwitch").setAttribute("d",value=IconList["sun"]);
-if(localStorage.getItem("meek_theme")==null){localStorage.setItem("meek_theme","light")}
-else if(localStorage.getItem("meek_theme")=="dark"){changeDark();}
-else if(localStorage.getItem("meek_theme")=="light"){changeLight();}
-
-function changeDark(){
-    document.getElementsByTagName("html")[0].attributes.getNamedItem("data-color-mode").value="dark";
-    document.getElementById("themeSwitch").attributes.getNamedItem("d").value=IconList["moon"];
-    if(utterancesLoad==1){utterancesTheme("dark-blue");}
-}
-function changeLight(){
-    document.getElementsByTagName("html")[0].attributes.getNamedItem("data-color-mode").value="light";
-    document.getElementById("themeSwitch").attributes.getNamedItem("d").value=IconList["sun"];
-    if(utterancesLoad==1){utterancesTheme("github-light");}
-}
-function modeSwitch(){
-    if(document.getElementsByTagName("html")[0].attributes[0].value=="light"){changeDark();localStorage.setItem("meek_theme","dark");}
-    else{changeLight();localStorage.setItem("meek_theme","light");}
-}
-function utterancesTheme(theme){
-    const message = {type: 'set-theme',theme: theme};
-    const iframe = document.getElementsByClassName('utterances-frame')[0];
-    iframe.contentWindow.postMessage(message, 'https://utteranc.es');
-}
-
-if(blogBase["commentNum"]>0){
-    cmButton=document.getElementById("cmButton");
-    span=document.createElement("span");
-    span.setAttribute("class","Counter");
-    span.innerHTML=blogBase["commentNum"];
-    cmButton.appendChild(span);
-}
-
-function openComments(){
-    cm=document.getElementById("comments");
-    cmButton=document.getElementById("cmButton");
-    cmButton.innerHTML=i18n[5];
-    span=document.createElement("span");
-    span.setAttribute("class","AnimatedEllipsis");
-    cmButton.appendChild(span);
-
-    script=document.createElement("script");
-    script.setAttribute("src","https://utteranc.es/client.js");
-    script.setAttribute("repo",blogBase["repoName"]);
-    script.setAttribute("issue-term","title");
-    if(localStorage.getItem("meek_theme")=="dark"){script.setAttribute("theme","dark-blue");}
-    else{script.setAttribute("theme","github-light");}
-    script.setAttribute("crossorigin","anonymous");
-    script.setAttribute("async","");
-    cm.appendChild(script);
-
-    int=self.setInterval("iFrameLoading()",200);
-}
-
-function iFrameLoading(){
-    var utterances=document.getElementsByClassName('utterances');
-    if(utterances.length==1){
-        if(utterances[0].style.height!=""){
-            utterancesLoad=1;
-            int=window.clearInterval(int);
-            document.getElementById("cmButton").style.display="none";
-            console.log("utterances Load OK");
-        }
-    }
-}
-
-console.log("\n %c Gmeek "+blogBase["GMEEK_VERSION"]+" %c https://github.com/Meekdai/Gmeek \n\n", "color: #fff; background-image: linear-gradient(90deg, rgb(47, 172, 178) 0%, rgb(45, 190, 96) 100%); padding:5px 1px;", "background-image: linear-gradient(90deg, rgb(45, 190, 96) 0%, rgb(255, 255, 255) 100%); padding:5px 0;");
 </script>
+
 </html>
