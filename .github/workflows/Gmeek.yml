@@ -25,7 +25,7 @@ jobs:
           cat config.json
           echo "====== check config.josn end  ======"
           sudo apt-get install jq
-          ${{ vars.GMEEK_VERSION }}= jq ".GMEEK_VERSION" config.json
+          $GMEEK_VERSION= $(jq ".GMEEK_VERSION" config.json)
         env:
           GMEEK_VERSION: ${{ vars.GMEEK_VERSION }}
           
@@ -51,7 +51,9 @@ jobs:
           cp -a /opt/Gmeek/docs ${{ github.workspace }} 
           cp -a /opt/Gmeek/backup ${{ github.workspace }} 
           cp /opt/Gmeek/blogBase.json ${{ github.workspace }} 
-        
+        env:
+          GMEEK_VERSION: ${{ vars.GMEEK_VERSION }}
+          
       - name: update html
         run: |
           git config --local user.email "gmeek@gmeek.com"
