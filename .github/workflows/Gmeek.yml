@@ -26,9 +26,7 @@ jobs:
           echo "====== check config.josn end  ======"
           sudo apt-get install jq
           cat config.json | jq '.GMEEK_VERSION'
-          export GMEEK_VERSION= cat config.json | jq '.GMEEK_VERSION'
-          echo "::set-env name=GMEEK_VERSION::$GMEEK_VERSION"
-          
+
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
@@ -36,7 +34,8 @@ jobs:
 
       - name: Clone source code
         run: |
-          git clone -b ${{ vars.GMEEK_VERSION }} https://github.com/Meekdai/Gmeek.git /opt/Gmeek
+          GMEEK_VERSION= cat config.json | jq '.GMEEK_VERSION'
+          git clone -b $GMEEK_VERSION https://github.com/Meekdai/Gmeek.git /opt/Gmeek
 
       - name: Install dependencies
         run: |
@@ -47,6 +46,7 @@ jobs:
         run: |
           cp -r ./* /opt/Gmeek/
           cd /opt/Gmeek/
+          GMEEK_VERSION= cat config.json | jq '.GMEEK_VERSION'
           python Gmeek.py ${{ secrets.GITHUB_TOKEN }} ${{ github.repository }} $GMEEK_VERSION --issue_number '${{ github.event.issue.number }}'
           cp -a /opt/Gmeek/docs ${{ github.workspace }} 
           cp -a /opt/Gmeek/backup ${{ github.workspace }} 
