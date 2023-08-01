@@ -1,6 +1,12 @@
-一个博客框架，超轻量级个人博客模板，完全基于Github Pages 、 Github Issues 和 Github Actions。不需要本地部署，从搭建到写作，只需要几分钟的时间，3步搭建好博客，第4步就是写作。
+一个博客框架，超轻量级个人博客模板，完全基于`Github Pages `、 `Github Issues` 和 `Github Actions`。不需要本地部署，从搭建到写作，只需要几分钟的时间，3步搭建好博客，第4步就是写作。
 
-#### 20230731（v1.1）
+#### 20230801（v1.2）:clinking_glasses:
+- 添加RSS
+- 独立JS文件，使用jsdelivr CDN
+- 添加控制台console版本号输出
+- 把所有配置都统一到了`config.json`文件中，其他地方无需再修改
+
+#### 20230731（v1.1）:poultry_leg:
 - 无需自己创建繁琐的secrets，简单3步搭建好，有手就行
 - 搜索框目前指定到Google搜索
 - 评论按钮加载优化，添加loading
