@@ -1,0 +1,73 @@
+<html data-color-mode="light" data-dark-theme="dark" data-light-theme="light">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="content-type" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<link href="https://unpkg.com/@wooorm/starry-night@2.1.1/style/both.css" rel="stylesheet" />
+<link href="https://unpkg.com/@primer/css@^21.0.7/dist/primer.css" rel="stylesheet" />
+
+</head>
+<style>
+.markdown-body {
+    box-sizing: border-box;
+    min-width: 200px;
+    max-width: 900px;
+    margin: 10px auto;
+    padding: 45px;
+    font-family: sans-serif;
+}
+.markdown-body hr{height:2px;}
+@media (max-width: 560px) {
+    .markdown-body { padding: 8px;} 
+}
+
+.avatar {transition: 0.8s;}
+.avatar:hover {transform: scale(1.15) rotate(360deg);}
+
+h1 {display:flex;}
+.g-emoji{font-size:24px;}
+.title-right{display:flex;margin:auto 0 0 auto;}
+.title-right button{margin-left:8px;padding:16px;}
+.SideNav{min-width: 360px;}
+.SideNav-icon{margin-right: 16px}
+#postBody{border-bottom: 1px solid var(--color-border-default);}
+#comments{margin-top:64px;}
+.footer {margin: 40px auto; text-align: center;font-size: small;}
+#cmButton{height:48px;margin-top:48px;}
+</style>
+<script>var blogBase={"postTitle": "JS\u5224\u65ad\u8bc4\u8bba\u6846\u662f\u5426\u6210\u529f\u52a0\u8f7d\u7684\u65b9\u6cd5", "postBody": "<p>\u5728\u7ed9\u535a\u5ba2\u6dfb\u52a0 <a href=\"https://utteranc.es/\" rel=\"nofollow\">utteranc</a> \u8bc4\u8bba\u6846\u7684\u65f6\u5019\uff0c\u53d1\u73b0\u6dfb\u52a0\u6309\u94ae\u518d\u52a0\u8f7d\u8bc4\u8bba\u6846\u6bd4\u8f83\u53cb\u597d\u3002\u4f46\u662f\u53d1\u73b0\u70b9\u51fb\u540e\u9700\u8981\u9690\u85cf\u6309\u94ae\u5143\u7d20\uff0c\u5426\u5219\u4f1a\u6bd4\u8f83\u5947\u602a\uff0c\u8fd9\u4e2a\u65f6\u5019\u5c31\u9700\u8981\u901a\u8fc7JS\u6765\u5224\u65adiframe\u662f\u5426\u6210\u529f\u52a0\u8f7d\u4e86\u3002</p>\n<p>\u5728\u7f51\u4e0a\u627e\u4e86\u4e00\u5708\uff0c\u53d1\u73b0 <a href=\"https://humanwhocodes.com/blog/2009/09/15/iframes-onload-and-documentdomain/\" rel=\"nofollow\">Iframes, onload, and document.domain</a> \u6587\u4e2d\u7ed9\u51fa\u6765\u6bd4\u8f83\u8be6\u7ec6\u7684\u4ecb\u7ecd\u548c\u65b9\u6cd5\uff0c\u4f46\u662f\u7528\u5728<code>utteranc</code>\u7684\u65f6\u5019\uff0c\u51fa\u73b0\u4e86\u95ee\u9898\u3002</p>\n<p><code>Uncaught TypeError: Cannot read properties of undefined (reading 'attachEvent')</code></p>\n<p>\u5b9a\u4f4d\u53d1\u73b0\uff0c\u662f\u7531\u4e8e<code>iframe</code>\u6807\u7b7e\u90fd\u8fd8\u6ca1\u6709\u7684\u65f6\u5019\uff0c\u5c31\u53bb\u5224\u65ad<code>iframe.attachEvent</code>\u662f\u4e0d\u884c\u7684\u3002\u6240\u4ee5\u6211\u66f2\u7ebf\u6551\u56fd\uff0c\u901a\u8fc7\u5b9a\u65f6\u5668\u8bfb\u53d6\u5143\u7d20\u7684\u9ad8\u5ea6\u6765\u5224\u65ad<code>iframe</code>\u6807\u7b7e\u662f\u5426\u5b8c\u6210\u4e86\u52a0\u8f7d\uff0c\u6b63\u5e38\u60c5\u51b5\u4e0b\uff0c<code>height</code>\u503c\u90fd\u5e94\u8be5\u662f\u5b58\u5728\u7684\uff0c\u6240\u4ee5\u4ee3\u7801\u5982\u4e0b\uff1a</p>\n<div class=\"highlight highlight-source-js\"><pre><span class=\"pl-s1\">int</span><span class=\"pl-c1\">=</span><span class=\"pl-s1\">self</span><span class=\"pl-kos\">.</span><span class=\"pl-en\">setInterval</span><span class=\"pl-kos\">(</span><span class=\"pl-s\">\"iFrameLoading()\"</span><span class=\"pl-kos\">,</span><span class=\"pl-c1\">200</span><span class=\"pl-kos\">)</span><span class=\"pl-kos\">;</span>\n\n<span class=\"pl-k\">function</span> <span class=\"pl-en\">iFrameLoading</span><span class=\"pl-kos\">(</span><span class=\"pl-kos\">)</span><span class=\"pl-kos\">{</span>\n    <span class=\"pl-k\">var</span> <span class=\"pl-s1\">utterances</span><span class=\"pl-c1\">=</span><span class=\"pl-smi\">document</span><span class=\"pl-kos\">.</span><span class=\"pl-en\">getElementsByClassName</span><span class=\"pl-kos\">(</span><span class=\"pl-s\">'utterances'</span><span class=\"pl-kos\">)</span><span class=\"pl-kos\">;</span>\n    <span class=\"pl-k\">if</span><span class=\"pl-kos\">(</span><span class=\"pl-s1\">utterances</span><span class=\"pl-kos\">.</span><span class=\"pl-c1\">length</span><span class=\"pl-c1\">==</span><span class=\"pl-c1\">1</span><span class=\"pl-kos\">)</span><span class=\"pl-kos\">{</span>\n        <span class=\"pl-k\">if</span><span class=\"pl-kos\">(</span><span class=\"pl-s1\">utterances</span><span class=\"pl-kos\">[</span><span class=\"pl-c1\">0</span><span class=\"pl-kos\">]</span><span class=\"pl-kos\">.</span><span class=\"pl-c1\">style</span><span class=\"pl-kos\">.</span><span class=\"pl-c1\">height</span><span class=\"pl-c1\">!=</span><span class=\"pl-s\">\"\"</span><span class=\"pl-kos\">)</span><span class=\"pl-kos\">{</span>\n            <span class=\"pl-s1\">int</span><span class=\"pl-c1\">=</span><span class=\"pl-smi\">window</span><span class=\"pl-kos\">.</span><span class=\"pl-en\">clearInterval</span><span class=\"pl-kos\">(</span><span class=\"pl-s1\">int</span><span class=\"pl-kos\">)</span><span class=\"pl-kos\">;</span>\n            <span class=\"pl-smi\">console</span><span class=\"pl-kos\">.</span><span class=\"pl-en\">log</span><span class=\"pl-kos\">(</span><span class=\"pl-s\">\"utterances Load OK\"</span><span class=\"pl-kos\">)</span><span class=\"pl-kos\">;</span>\n        <span class=\"pl-kos\">}</span>\n    <span class=\"pl-kos\">}</span>\n<span class=\"pl-kos\">}</span></pre></div>\n<p>\u53e6\u5916\u6211\u8fd8\u5728\u5b98\u65b9\u63d0\u4e86\u4e2a <a href=\"https://github.com/utterance/utterances/issues/657\">Issue</a>\uff0c\u4e0d\u77e5\u9053\u6709\u6ca1\u6709\u66f4\u597d\u7684\u529e\u6cd5\u6765\u5224\u65ad\u3002\ud83e\udd23</p>\n", "title": "Meekdai", "homeUrl": "http://blog.meekdai.com", "postSourceUrl": "https://github.com/Meekdai/meekdai.github.io/issues/20", "faviconUrl": "http://meekdai.com/favicon.ico", "filingNum": "\u6d59ICP\u590720023628\u53f7", "startSite": "02/16/2015", "i18n": "CN", "commentNum": 0, "repoName": "Meekdai/meekdai.github.io", "GMEEK_VERSION": "main"}</script>
+<body>
+<div class="markdown-body">
+    <h1>
+        <div id="postTitle"></div>
+        <div class="title-right">
+        <button id="buttonHome" class="btn btn-invisible circle" onclick="window.location.href='/'"><svg class="octicon octicon-sun" width="16" height="16"><path id="pathHome" fill-rule="evenodd"></path></svg></button>
+        
+        <button class="btn btn-invisible circle" onclick="gotoSource()" title="Issue"><svg class="octicon octicon-sun" width="16" height="16"><path id="pathIssue" fill-rule="evenodd"></path></svg></button>
+        
+        <button id="changeTheme" class="btn btn-invisible circle" onclick="modeSwitch()"><svg class="octicon octicon-sun" width="16" height="16"><path id="themeSwitch" fill-rule="evenodd"></path></svg></button>
+        </div>
+    </h1>
+    <div id="postBody"></div>
+
+    <button class="btn btn-block" type="button" onclick="openComments()" id="cmButton"> </button>
+    <div class="comments" id="comments"></div>
+
+    <div class="footer">Copyright © <span id="year"></span> <a id="footerblogTitle" href=""></a> <p><span id="filingNum"></span><span id="runday"></span>Powered by <a href="https://github.com/Meekdai/Gmeek" target="_blank">Gmeek</a></p></div>
+</div>
+</body>
+
+<script>
+function addScript(url){
+    var script = document.createElement('script');
+    script.setAttribute('type','text/javascript');
+    script.setAttribute('src',url);
+    document.body.appendChild(script);
+}
+window.onload=function(){
+    addScript("https://cdn.jsdelivr.net/gh/Meekdai/Gmeek@"+blogBase["GMEEK_VERSION"]+"/icon.js" );
+    addScript("https://cdn.jsdelivr.net/gh/Meekdai/Gmeek@"+blogBase["GMEEK_VERSION"]+"/Gmeek.js" );
+}
+</script>
+
+</html>
