@@ -1,0 +1,73 @@
+<html data-color-mode="light" data-dark-theme="dark" data-light-theme="light">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="content-type" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<link href="https://unpkg.com/@wooorm/starry-night@2.1.1/style/both.css" rel="stylesheet" />
+<link href="https://unpkg.com/@primer/css@^21.0.7/dist/primer.css" rel="stylesheet" />
+
+</head>
+<style>
+.markdown-body {
+    box-sizing: border-box;
+    min-width: 200px;
+    max-width: 900px;
+    margin: 10px auto;
+    padding: 45px;
+    font-family: sans-serif;
+}
+.markdown-body hr{height:2px;}
+@media (max-width: 560px) {
+    .markdown-body { padding: 8px;} 
+}
+
+.avatar {transition: 0.8s;}
+.avatar:hover {transform: scale(1.15) rotate(360deg);}
+
+h1 {display:flex;}
+.g-emoji{font-size:24px;}
+.title-right{display:flex;margin:auto 0 0 auto;}
+.title-right button{margin-left:8px;padding:16px;}
+.SideNav{min-width: 360px;}
+.SideNav-icon{margin-right: 16px}
+#postBody{border-bottom: 1px solid var(--color-border-default);}
+#comments{margin-top:64px;}
+.footer {margin: 40px auto; text-align: center;font-size: small;}
+#cmButton{height:48px;margin-top:48px;}
+</style>
+<script>var blogBase={"postTitle": "\u5ef6\u957fWIN\u81ea\u52a8\u66f4\u65b0\u65e5\u671f", "postBody": "<p>\u7531\u4e8e\u6211\u7684\u7535\u8111\u6bd4\u8f83\u8001\u4e86\uff0c\u4e0d\u652f\u6301WIN11\uff0c\u4f46\u662fWIN10\u81ea\u52a8\u66f4\u65b0\u50cf\u4e2a\u8111\u6b8b\u4e00\u6837\uff0c\u6bcf\u6b21\u90fd\u81ea\u52a8\u4e0b\u8f7dWIN11\u7684\u66f4\u65b0\u5305\uff0c\u7136\u540e\u63d0\u793a\u4e0d\u652f\u6301\u672c\u673a\uff0c\u5220\u9664\u66f4\u65b0\u5305\uff0c\u4e4b\u540e\u8fc7\u51e0\u5929\u53c8\u5728\u4e0b\u8f7dWIN11\u66f4\u65b0\u5305\uff0c\u5982\u6b64\u53cd\u590d\uff0c\u5b9e\u5728\u5fcd\u65e0\u53ef\u5fcd\u3002<g-emoji class=\"g-emoji\" alias=\"imp\" fallback-src=\"https://github.githubassets.com/images/icons/emoji/unicode/1f47f.png\">\ud83d\udc7f</g-emoji></p>\n<p>\u5728\u7f51\u4e0a\u627e\u4e86\u5f88\u591a\u529e\u6cd5\uff0c\u6709\u7684\u5df2\u7ecf\u5931\u6548\uff0c\u6709\u7684\u4f1a\u5bfc\u81f4\u5404\u79cd\u5947\u5947\u602a\u602a\u7684\u95ee\u9898\u3002\u73b0\u5728\u7ec8\u4e8e\u627e\u5230\u4e00\u4e2a\u6709\u6548\u4e14\u65e0\u4efb\u4f55<code>\u526f\u4f5c\u7528</code>\u7684\u65b9\u6cd5\uff1a</p>\n<h3><a id=\"user-content-\u5ef6\u957f\u6682\u505c\u66f4\u65b0\u7684\u65f6\u95f4\" class=\"anchor\" aria-hidden=\"true\" href=\"#\u5ef6\u957f\u6682\u505c\u66f4\u65b0\u7684\u65f6\u95f4\"><span aria-hidden=\"true\" class=\"octicon octicon-link\"></span></a>\u5ef6\u957f\u6682\u505c\u66f4\u65b0\u7684\u65f6\u95f4</h3>\n<ol>\n<li>\u6309\u4e0b<code>win+R</code>\u952e\uff0c\u8f93\u5165<code>regedit</code>\u8fd0\u884c\uff0c\u8fdb\u5165\u6ce8\u518c\u8868\u7f16\u8f91\u5668</li>\n<li>\u6309\u7167\u8def\u5f84\uff1a<code>\\HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\WindowsUpdate\\UX\\Settings</code>\n</li>\n<li>\u5728Settings\u91cc\u9762\uff0c\u53f3\u952e\u65b0\u5efa\u4e00\u4e2a<code>DWORD(32\u4f4d)\u503c</code>\uff0c\u91cd\u547d\u540d\u4e3a<code>FlightSettingsMaxPauseDays</code>\n</li>\n<li>\u53cc\u51fb\u65b0\u5efa\u7684\u8fd9\u4e2a\u53c2\u6570\uff0c\u57fa\u6570\u9009\u62e9\u4e3a\u5341\u8fdb\u5236\uff0c\u7136\u540e\u5728\u6570\u503c\u6570\u636e\u91cc\u9762\u586b\u5199\u5982<code>4000</code>\uff0c\u70b9\u51fb\u786e\u5b9a</li>\n<li>\u6700\u540e\u5728win\u8bbe\u7f6e\u91cc\u9762\u627e\u5230Windows\u66f4\u65b0\uff0c\u5728\u91cc\u9762\u627e\u5230\u6682\u505c\u66f4\u65b0\u7684\u9009\u9879\uff0c\u672c\u6765\u6700\u957f\u53ea\u80fd\u6682\u505c1\u5468\u7684\u66f4\u65b0\uff0c\u5728\u914d\u7f6e\u5b8c\u4e0a\u9762\u7684\u53c2\u6570\u540e\uff0c\u8fd9\u91cc\u7684\u9009\u9879\u52a0\u957f\u4e86\u5f88\u591a\uff0c\u7b2c4\u6b65\u586b\u5199\u76844000\u5c31\u662f\u53ef\u6682\u505c\u7684\u6700\u5927\u5929\u6570\u3002</li>\n</ol>\n<p>\u81f3\u6b64\uff0c\u6211\u7684\u7cfb\u7edf\u5df2\u7ecf\u6682\u505c\u66f4\u65b0\u52302034\u5e746\u670827\u53f7\u3002\u800c\u4e14\u5982\u679c\u9700\u8981\u66f4\u65b0\u4e86\uff0c\u53ea\u9700\u8981\u70b9\u51fb\u7ee7\u7eed\u66f4\u65b0\uff0c\u5c31\u80fd\u9a6c\u4e0a\u83b7\u53d6\u66f4\u65b0\u3002</p>\n<p><a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://github.com/Meekdai/meekdai.github.io/assets/11755104/b25f48ac-ca50-477c-83ca-c3bdb0b388ab\"><img src=\"https://github.com/Meekdai/meekdai.github.io/assets/11755104/b25f48ac-ca50-477c-83ca-c3bdb0b388ab\" alt=\"image\" style=\"max-width: 100%;\"></a></p>\n", "title": "Meekdai", "homeUrl": "https://blog.meekdai.com", "postSourceUrl": "https://github.com/Meekdai/meekdai.github.io/issues/22", "faviconUrl": "https://meekdai.com/favicon.ico", "filingNum": "\u6d59ICP\u590720023628\u53f7", "startSite": "02/16/2015", "i18n": "CN", "commentNum": 0, "fontSize": "", "top": 0, "repoName": "Meekdai/meekdai.github.io", "GMEEK_VERSION": "main"}</script>
+<body>
+<div class="markdown-body">
+    <h1>
+        <div id="postTitle"></div>
+        <div class="title-right">
+        <button id="buttonHome" class="btn btn-invisible circle" onclick="window.location.href='/'"><svg class="octicon octicon-sun" width="16" height="16"><path id="pathHome" fill-rule="evenodd"></path></svg></button>
+        
+        <button class="btn btn-invisible circle" onclick="gotoSource()" title="Issue"><svg class="octicon octicon-sun" width="16" height="16"><path id="pathIssue" fill-rule="evenodd"></path></svg></button>
+        
+        <button id="changeTheme" class="btn btn-invisible circle" onclick="modeSwitch()"><svg class="octicon octicon-sun" width="16" height="16"><path id="themeSwitch" fill-rule="evenodd"></path></svg></button>
+        </div>
+    </h1>
+    <div id="postBody"></div>
+
+    <button class="btn btn-block" type="button" onclick="openComments()" id="cmButton"> </button>
+    <div class="comments" id="comments"></div>
+
+    <div class="footer">Copyright © <span id="year"></span> <a id="footerblogTitle" href=""></a> <p><span id="filingNum"></span><span id="runday"></span>Powered by <a href="https://github.com/Meekdai/Gmeek" target="_blank">Gmeek</a></p></div>
+</div>
+</body>
+
+<script>
+function addScript(url){
+    var script = document.createElement('script');
+    script.setAttribute('type','text/javascript');
+    script.setAttribute('src',url);
+    document.body.appendChild(script);
+}
+window.onload=function(){
+    addScript("https://cdn.jsdelivr.net/gh/Meekdai/Gmeek@"+blogBase["GMEEK_VERSION"]+"/icon.js" );
+    addScript("https://cdn.jsdelivr.net/gh/Meekdai/Gmeek@"+blogBase["GMEEK_VERSION"]+"/Gmeek.js" );
+}
+</script>
+
+</html>
