@@ -46,3 +46,5 @@ Paddy音阶将第三孔的吹气音G改为了A。
 ![a15b4afegw1f39chmmgb9j21kw16oqpg](https://github.com/Meekdai/meekdai.github.io/assets/11755104/b02e49d8-ca9b-45d8-836d-ef6d51eab6af)
 
 提醒：如果发现频率对了，但是不稳定的话，是因为簧片的边上有毛刺，用砂纸打磨一下就行了。
+
+[comment]: # (##{"timestamp":1461596880}##)
