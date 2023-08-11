@@ -225,7 +225,7 @@ hdmi_mode参数表可以参考下面：
 [/tab]
 [/tabs]
 
-参考链接：
+参考链接：  
 [https://www.raspberrypi.org/documentation/configuration/config-txt/video.md](https://www.raspberrypi.org/documentation/configuration/config-txt/video.md)
 [https://www.raspberrypi.org/documentation/configuration/config-txt/conditional.md](https://www.raspberrypi.org/documentation/configuration/config-txt/conditional.md)
 
