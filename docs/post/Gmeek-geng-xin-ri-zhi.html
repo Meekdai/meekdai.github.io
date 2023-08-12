@@ -59,7 +59,7 @@ h1 a:not([href]){color:inherit;text-decoration:none;vertical-align: bottom;font-
         </svg>
     </button></a>
 
-    <button id="changeTheme" class="btn btn-invisible circle" onclick="modeSwitch();" title="切换主题">
+    <button class="btn btn-invisible circle" onclick="modeSwitch();" title="切换主题">
         <svg class="octicon" width="16" height="16" >
             <path id="themeSwitch" fill-rule="evenodd"></path>
         </svg>
@@ -81,7 +81,7 @@ h1 a:not([href]){color:inherit;text-decoration:none;vertical-align: bottom;font-
 <li>添加文章置顶功能  <g-emoji class="g-emoji" alias="top" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f51d.png">🔝</g-emoji></li>
 <li>可自定义单篇文章的字体大小</li>
 </ul>
-<h4><a id="user-content-20230801v12-clinking_glasses" class="anchor" aria-hidden="true" href="#20230801v12-clinking_glasses"><span aria-hidden="true" class="octicon octicon-link"></span></a>20230801（v1.2） 🥂</h4>
+<h4><a id="user-content-20230801v12-clinking_glasses" class="anchor" aria-hidden="true" href="#20230801v12-clinking_glasses"><span aria-hidden="true" class="octicon octicon-link"></span></a>20230801（v1.2） <g-emoji class="g-emoji" alias="clinking_glasses" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f942.png">🥂</g-emoji></h4>
 <ul>
 <li>添加RSS</li>
 <li>独立JS文件，使用jsdelivr CDN</li>
@@ -93,12 +93,12 @@ h1 a:not([href]){color:inherit;text-decoration:none;vertical-align: bottom;font-
 <li>无需自己创建繁琐的secrets，简单3步搭建好，有手就行</li>
 <li>搜索框目前指定到Google搜索</li>
 <li>评论按钮加载优化，添加loading</li>
-<li>支持github Emoji表情 <g-emoji class="g-emoji" alias="sparkles" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/2728.png">✨</g-emoji></li>
+<li>支持github Emoji表情 ✨</li>
 </ul>
 <h4><a id="user-content-20230730" class="anchor" aria-hidden="true" href="#20230730"><span aria-hidden="true" class="octicon octicon-link"></span></a>20230730</h4>
 <ul>
 <li>文章生成和部署流程合并到一个工作流中</li>
-<li>添加简易的i18n，目前支持中文<code>CN</code>和英文<code>EN</code>，可以在配置文件中配置 <g-emoji class="g-emoji" alias="wink" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f609.png">😉</g-emoji></li>
+<li>添加简易的i18n，目前支持中文<code>CN</code>和英文<code>EN</code>，可以在配置文件中配置 😉</li>
 </ul>
 <h4><a id="user-content-20230729" class="anchor" aria-hidden="true" href="#20230729"><span aria-hidden="true" class="octicon octicon-link"></span></a>20230729</h4>
 <ul>
@@ -127,7 +127,7 @@ h1 a:not([href]){color:inherit;text-decoration:none;vertical-align: bottom;font-
 </ul>
 <h4><a id="user-content-20230711" class="anchor" aria-hidden="true" href="#20230711"><span aria-hidden="true" class="octicon octicon-link"></span></a>20230711</h4>
 <ul>
-<li>添加友情链接和关于等独立页面 <g-emoji class="g-emoji" alias="new" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f195.png">🆕</g-emoji></li>
+<li>添加友情链接和关于等独立页面 🆕</li>
 <li>可以手动切换暗亮主题</li>
 </ul>
 <hr>
@@ -174,11 +174,13 @@ else if(localStorage.getItem("meek_theme")=="light"){changeLight();}
 function changeDark(){
     document.getElementsByTagName("html")[0].attributes.getNamedItem("data-color-mode").value="dark";
     document.getElementById("themeSwitch").attributes.getNamedItem("d").value=IconList["moon"];
+    document.getElementById("themeSwitch").parentNode.style.color="#00f0ff";
     if(utterancesLoad==1){utterancesTheme("dark-blue");}
 }
 function changeLight(){
     document.getElementsByTagName("html")[0].attributes.getNamedItem("data-color-mode").value="light";
     document.getElementById("themeSwitch").attributes.getNamedItem("d").value=IconList["sun"];
+    document.getElementById("themeSwitch").parentNode.style.color="#ff5000";
     if(utterancesLoad==1){utterancesTheme("github-light");}
 }
 function modeSwitch(){
