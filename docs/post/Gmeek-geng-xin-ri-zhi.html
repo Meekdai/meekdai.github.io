@@ -35,6 +35,7 @@ h1 a:not([href]){color:inherit;text-decoration:none;vertical-align: bottom;font-
 #postBody hr{height:2px;}
 #cmButton{height:48px;margin-top:48px;}
 #comments{margin-top:64px;}
+.g-emoji{font-size:24px;}
 @media (max-width: 767px) {body {padding: 8px;}}
 </style>
 
@@ -71,17 +72,17 @@ h1 a:not([href]){color:inherit;text-decoration:none;vertical-align: bottom;font-
 <p>一个博客框架，超轻量级个人博客模板，完全基于<code>Github Pages </code>、 <code>Github Issues</code> 和 <code>Github Actions</code>。不需要本地部署，从搭建到写作，只需要几分钟的时间，3步搭建好博客，第4步就是写作。</p>
 <h4><a id="user-content-20230804v13" class="anchor" aria-hidden="true" href="#20230804v13"><span aria-hidden="true" class="octicon octicon-link"></span></a>20230804（v1.3）</h4>
 <ul>
-<li>添加文章置顶功能 🔝</li>
+<li>添加文章置顶功能 <g-emoji class="g-emoji" alias="top" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f51d.png">🔝</g-emoji></li>
 <li>可自定义单篇文章的字体大小</li>
 </ul>
-<h4><a id="user-content-20230801v12clinking_glasses" class="anchor" aria-hidden="true" href="#20230801v12clinking_glasses"><span aria-hidden="true" class="octicon octicon-link"></span></a>20230801（v1.2）<g-emoji class="g-emoji" alias="clinking_glasses" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f942.png">🥂</g-emoji></h4>
+<h4><a id="user-content-20230801v12clinking_glasses" class="anchor" aria-hidden="true" href="#20230801v12clinking_glasses"><span aria-hidden="true" class="octicon octicon-link"></span></a>20230801（v1.2）🥂</h4>
 <ul>
 <li>添加RSS</li>
 <li>独立JS文件，使用jsdelivr CDN</li>
 <li>添加控制台console版本号输出</li>
 <li>把所有配置都统一到了<code>config.json</code>文件中，其他地方无需再修改</li>
 </ul>
-<h4><a id="user-content-20230731v11poultry_leg" class="anchor" aria-hidden="true" href="#20230731v11poultry_leg"><span aria-hidden="true" class="octicon octicon-link"></span></a>20230731（v1.1）<g-emoji class="g-emoji" alias="poultry_leg" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f357.png">🍗</g-emoji></h4>
+<h4><a id="user-content-20230731v11poultry_leg" class="anchor" aria-hidden="true" href="#20230731v11poultry_leg"><span aria-hidden="true" class="octicon octicon-link"></span></a>20230731（v1.1）🍗</h4>
 <ul>
 <li>无需自己创建繁琐的secrets，简单3步搭建好，有手就行</li>
 <li>搜索框目前指定到Google搜索</li>
@@ -91,7 +92,7 @@ h1 a:not([href]){color:inherit;text-decoration:none;vertical-align: bottom;font-
 <h4><a id="user-content-20230730" class="anchor" aria-hidden="true" href="#20230730"><span aria-hidden="true" class="octicon octicon-link"></span></a>20230730</h4>
 <ul>
 <li>文章生成和部署流程合并到一个工作流中</li>
-<li>添加简易的i18n，目前支持中文<code>CN</code>和英文<code>EN</code>，可以在配置文件中配置<g-emoji class="g-emoji" alias="wink" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f609.png">😉</g-emoji></li>
+<li>添加简易的i18n，目前支持中文<code>CN</code>和英文<code>EN</code>，可以在配置文件中配置😉</li>
 </ul>
 <h4><a id="user-content-20230729" class="anchor" aria-hidden="true" href="#20230729"><span aria-hidden="true" class="octicon octicon-link"></span></a>20230729</h4>
 <ul>
@@ -124,7 +125,7 @@ h1 a:not([href]){color:inherit;text-decoration:none;vertical-align: bottom;font-
 <li>可以手动切换暗亮主题</li>
 </ul>
 <hr>
-<p>在2023年的暑假，之前购买阿里云3年的活动ECS主机到期了，续费价格超级贵<g-emoji class="g-emoji" alias="sob" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f62d.png">😭</g-emoji>，所以打算在github page上面搭建自己的博客。看了很多不同类型的，例如<a href="https://github.com/hexojs/hexo">Hexo</a>、<a href="https://github.com/gohugoio/hugo">Hugo</a>这些比较有名的，也了解了很多在github上的小项目，发现了<a href="https://github.com/yihong0618/gitblog">gitblog</a>，这个博客是用python抓取github issues的内容然后展示在首页<code>readme.md</code>，当即就来了灵感<g-emoji class="g-emoji" alias="clap" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f44f.png">👏</g-emoji>，我可以自己通过Python抓取github issues的内容，生成静态页面，不仅仅包含首页，文章页面也可以生成后存储在github上，而且也可以通过 github Action 来自动执行 Python 文件，完全不需要任何的本地部署和操作。</p>
+<p>在2023年的暑假，之前购买阿里云3年的活动ECS主机到期了，续费价格超级贵<g-emoji class="g-emoji" alias="sob" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f62d.png">😭</g-emoji>，所以打算在github page上面搭建自己的博客。看了很多不同类型的，例如<a href="https://github.com/hexojs/hexo">Hexo</a>、<a href="https://github.com/gohugoio/hugo">Hugo</a>这些比较有名的，也了解了很多在github上的小项目，发现了<a href="https://github.com/yihong0618/gitblog">gitblog</a>，这个博客是用python抓取github issues的内容然后展示在首页<code>readme.md</code>，当即就来了灵感👏，我可以自己通过Python抓取github issues的内容，生成静态页面，不仅仅包含首页，文章页面也可以生成后存储在github上，而且也可以通过 github Action 来自动执行 Python 文件，完全不需要任何的本地部署和操作。</p>
 <p>目前已经实现了抓取文章页面和首页的基础程序，内容展示用了<a href="https://primer.style/css/" rel="nofollow">primer/css</a>，评论直接使用<a href="https://utteranc.es/" rel="nofollow">utteranc.es</a>拉取issues的评论，但是目前还只是一个简单的框架 =&gt;&gt; <a href="https://github.com/Meekdai/Gmeek">Gmeek</a></p>
 <hr>
 <p>TODO:</p>
