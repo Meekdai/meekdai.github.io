@@ -85,7 +85,7 @@ h1 a:not([href]){color:inherit;text-decoration:none;vertical-align: bottom;font-
 我骑车回来了，路上都是春天的味道啊，湘湖边柳树已经绿了，樱花、桃花、迎春花都格外的艳丽，只不过空气质量真的不是很好，感觉以后有必要带个口罩呢。</p>
 
 </div>
-<button class="btn btn-block" type="button" onclick="openComments()" id="cmButton" value="Meekdai/meekdai.github.io">评论</button>
+<button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
 <div class="comments" id="comments"></div>
 </div>
     <div id="footer">Copyright © <span id="year"></span> <a href="https://blog.meekdai.com"> Meekdai </a><p> 浙ICP备20023628号 <span id="runday"></span>Powered by <a href="https://github.com/Meekdai/Gmeek" target="_blank">Gmeek</a></p>
@@ -141,7 +141,7 @@ console.log("\n %c Gmeek main %c https://github.com/Meekdai/Gmeek \n\n", "color:
 
 <script>
 
-if(blogBase["fontSize"]!=""){document.getElementById("postBody").setAttribute("style","font-size:"+blogBase["fontSize"])}
+document.getElementById("postBody").setAttribute("style","font-size:20px");
 
 function openComments(){
     cm=document.getElementById("comments");
@@ -153,7 +153,7 @@ function openComments(){
 
     script=document.createElement("script");
     script.setAttribute("src","https://utteranc.es/client.js");
-    script.setAttribute("repo",cmButton.value);
+    script.setAttribute("repo","Meekdai/meekdai.github.io");
     script.setAttribute("issue-term","title");
     if(localStorage.getItem("meek_theme")=="dark"){script.setAttribute("theme","dark-blue");}
     else{script.setAttribute("theme","github-light");}

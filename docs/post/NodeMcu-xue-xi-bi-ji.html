@@ -441,7 +441,7 @@ $ python ./luatool.py --ip 192.168.0.128:2323 -f test.lua -d -v
 <p>好了，基础的学习就到这里，我其实是一遍搜索资料，自己一遍尝试，然后记录下来的，如果后续发现什么地方不对，会对上面的内容进行修改。</p>
 
 </div>
-<button class="btn btn-block" type="button" onclick="openComments()" id="cmButton" value="Meekdai/meekdai.github.io">评论</button>
+<button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
 <div class="comments" id="comments"></div>
 </div>
     <div id="footer">Copyright © <span id="year"></span> <a href="https://blog.meekdai.com"> Meekdai </a><p> 浙ICP备20023628号 <span id="runday"></span>Powered by <a href="https://github.com/Meekdai/Gmeek" target="_blank">Gmeek</a></p>
@@ -497,7 +497,7 @@ console.log("\n %c Gmeek main %c https://github.com/Meekdai/Gmeek \n\n", "color:
 
 <script>
 
-if(blogBase["fontSize"]!=""){document.getElementById("postBody").setAttribute("style","font-size:"+blogBase["fontSize"])}
+
 
 function openComments(){
     cm=document.getElementById("comments");
@@ -509,7 +509,7 @@ function openComments(){
 
     script=document.createElement("script");
     script.setAttribute("src","https://utteranc.es/client.js");
-    script.setAttribute("repo",cmButton.value);
+    script.setAttribute("repo","Meekdai/meekdai.github.io");
     script.setAttribute("issue-term","title");
     if(localStorage.getItem("meek_theme")=="dark"){script.setAttribute("theme","dark-blue");}
     else{script.setAttribute("theme","github-light");}
