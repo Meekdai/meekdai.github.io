@@ -1,73 +1,472 @@
+<!DOCTYPE html>
 <html data-color-mode="light" data-dark-theme="dark" data-light-theme="light">
 <head>
-<meta content="text/html; charset=utf-8" http-equiv="content-type" />
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<link href="https://unpkg.com/@wooorm/starry-night@2.1.1/style/both.css" rel="stylesheet" />
-<link href="https://unpkg.com/@primer/css@^21.0.7/dist/primer.css" rel="stylesheet" />
-
+    <meta content="text/html; charset=utf-8" http-equiv="content-type" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="https://unpkg.com/@primer/css@21.0.7/dist/primer.css" rel="stylesheet" />
+    <link rel="icon" href="https://meekdai.com/favicon.ico">
+    <title>Meekdai</title>
 </head>
 <style>
-.markdown-body {
+body{
     box-sizing: border-box;
     min-width: 200px;
     max-width: 900px;
-    margin: 10px auto;
+    margin: 20px auto;
     padding: 45px;
+    font-size: 16px;
     font-family: sans-serif;
+    line-height: 1.25;
 }
-.markdown-body hr{height:2px;}
-@media (max-width: 560px) {
-    .markdown-body { padding: 8px;} 
-}
-
 .avatar {transition: 0.8s;}
 .avatar:hover {transform: scale(1.15) rotate(360deg);}
+#header{display:flex;padding-bottom:8px;border-bottom: 1px solid var(--borderColor-muted, var(--color-border-muted));margin-bottom: 16px;}
+#footer {margin: 40px auto; text-align: center;font-size: small;}
 
-h1 {display:flex;}
-.g-emoji{font-size:24px;}
+</style>
+
+<style>
+h1 a:not([href]){color:inherit;text-decoration:none;vertical-align: bottom;font-size:40px;font-family:Monaco;}
 .title-right{display:flex;margin:auto 0 0 auto;}
-.title-right button{margin-left:8px;padding:16px;}
-.SideNav{min-width: 360px;}
-.SideNav-icon{margin-right: 16px}
-#postBody{border-bottom: 1px solid var(--color-border-default);}
-#comments{margin-top:64px;}
-.footer {margin: 40px auto; text-align: center;font-size: small;}
+.title-right .circle{padding: 14px 16px;margin-right:8px;}
 #cmButton{height:48px;margin-top:48px;}
 </style>
-<script>var blogBase={"postTitle": "NodeMcu\u5b66\u4e60\u7b14\u8bb0", "postBody": "<p>##NodeMCU \u7b80\u4ecb</p>\n<p>\u8d85\u7b80\u5355\u7684\u7269\u8054\u7f51\u5f00\u53d1\u5e73\u53f0<a href=\"http://nodemcu.com/index_cn.html\" rel=\"nofollow\">NodeMcu</a>\uff0c\u4e00\u6b3e\u5f00\u6e90\u5feb\u901f\u786c\u4ef6\u539f\u578b\u5e73\u53f0\uff0c\u5305\u62ec\u56fa\u4ef6\u548c\u5f00\u53d1\u677f\uff0c\u7528\u51e0\u884c\u7b80\u5355\u7684Lua\u811a\u672c\u5c31\u80fd\u5f00\u53d1\u7269\u8054\u7f51\u5e94\u7528\u3002</p>\n<p>\u5176\u4e3b\u8981\u7279\u70b9\u5982\u4e0b\uff1a</p>\n<ul>\n<li>\u50cf Arduino \u4e00\u6837\u64cd\u4f5c\u786c\u4ef6 IO \u63d0\u4f9b\u786c\u4ef6\u7684\u9ad8\u7ea7\u63a5\u53e3\uff0c\u53ef\u4ee5\u5c06\u5e94\u7528\u5f00\u53d1\u8005\u4ece\u7e41\u590d\u7684\u786c\u4ef6\u914d\u7f6e\u3001\u5bc4\u5b58\u5668\u64cd\u4f5c\u4e2d\u89e3\u653e\u51fa\u6765\u3002\u7528\u4ea4\u4e92\u5f0f Lua \u811a\u672c\uff0c\u50cf Arduino \u4e00\u6837\u7f16\u5199\u786c\u4ef6\u4ee3\u7801\uff01</li>\n<li>\u7528 Nodejs \u7c7b\u4f3c\u8bed\u6cd5\u5199\u7f51\u7edc\u5e94\u7528 \u4e8b\u4ef6\u9a71\u52a8\u578b API \u6781\u5927\u7684\u65b9\u4fbf\u4e86\u7528\u6237\u8fdb\u884c\u7f51\u7edc\u5e94\u7528\u5f00\u53d1\uff0c\u4f7f\u7528\u7c7b\u4f3c Nodejs \u7684\u65b9\u5f0f\u7f16\u5199\u7f51\u7edc\u4ee3\u7801\uff0c\u5e76\u8fd0\u884c\u4e8e 5mm*5mm \u5927\u5c0f\u7684 MCU \u4e4b\u4e0a\uff0c\u52a0\u5feb\u60a8\u7684\u7269\u8054\u7f51\u5f00\u53d1\u8fdb\u5ea6\u3002</li>\n<li>\u8d85\u4f4e\u6210\u672c\u7684 WIFI \u6a21\u5757 \u7528\u4e8e\u5feb\u901f\u539f\u578b\u7684\u5f00\u53d1\u677f\uff0c\u96c6\u6210\u4e86\u552e\u4ef7\u4f4e\u4e8e 10 \u4eba\u6c11\u5e01 WIFI \u82af\u7247 ESP8266\uff0c\u4e3a\u60a8\u63d0\u4f9b\u6027\u4ef7\u6bd4\u6700\u9ad8\u7684\u7269\u8054\u7f51\u5e94\u7528\u5f00\u53d1\u5e73\u53f0\u3002</li>\n</ul>\n<p>\u57fa\u4e8e\u4e50\u946b ESP8266 \u7684 NodeMCU \u5f00\u53d1\u677f\uff0c\u5177\u6709 GPIO\u3001PWM\u3001I2C\u30011-Wire\u3001ADC \u7b49\u529f\u80fd\uff0c\u7ed3\u5408 NodeMCU \u56fa\u4ef6\u4e3a\u60a8\u7684\u539f\u578b\u5f00\u53d1\u63d0\u4f9b\u6700\u5feb\u901f\u7684\u9014\u5f84\u3002</p>\n<p>NodeMCU \u6700\u65b0\u7248\u4e3a 1.0\uff0c\u5982\u4e0b\u56fe\uff1a</p>\n<p><a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://github.com/Meekdai/meekdai.github.io/assets/11755104/b4c8e6c7-0be7-4488-8517-3034592ad1ba\"><img src=\"https://github.com/Meekdai/meekdai.github.io/assets/11755104/b4c8e6c7-0be7-4488-8517-3034592ad1ba\" alt=\"4004543695.jpg\" style=\"max-width: 100%;\"></a></p>\n<p>\u5176\u786c\u4ef6\u8be6\u7ec6\u914d\u7f6e\u5982\u4e0b\uff1a</p>\n<p>\u6838\u5fc3\u6a21\u7ec4\u4e3a ESP8266</p>\n<blockquote>\n<pre><code>MCU \u4e3a Xtensa L106\nRAM 50K\nFlash 512K\nD1~D10\uff1a10 GPIO, \u6bcf\u4e2a\u90fd\u80fd\u914d\u7f6e\u4e3a PWM, I2C, 1-wire\nFCC \u8ba4\u8bc1\u7684 WIFI \u6a21\u5757\uff0c\u5185\u7f6e PCB \u5929\u7ebf\uff0c\u53ef\u4f5c\u4e3a AP\n</code></pre>\n</blockquote>\n<p>CP2102 USB \u4e32\u53e3\uff0c\u5373\u63d2\u5373\u7528\uff08\u5b98\u65b9\u9a71\u52a8\u652f\u6301 Windows, OS X\uff0cLinux \u4ee5\u53ca VMware\uff09</p>\n<p>##\u9009\u62e9\u5f00\u53d1\u7cfb\u7edf</p>\n<p>NodeMCU \u76ee\u524d\u652f\u6301\u7684\u5f00\u53d1\u4e3b\u673a\u7cfb\u7edf\u7c7b\u578b\u6db5\u76d6 Windows\uff0cLinux \u548c Mac OS X\uff0c\u4e5f\u652f\u6301\u901a\u8fc7 VMware \u865a\u62df\u673a\u642d\u5efa\u7684 Linux \u73af\u5883\u3002\n\u6211\u7528\u7684\u662fWindows\uff0c\u5e76\u4e14\u7528\u4e86<a href=\"http://cmder.net/\" rel=\"nofollow\">cmder</a>\u6765\u4f18\u5316\u547d\u4ee4\u884c\u7684\u7528\u6237\u4f53\u9a8c\u3002\u6709\u5173cmder\u7684\u4f7f\u7528\u7b14\u8bb0\uff0c\u540e\u9762\u4f1a\u6709\u6587\u7ae0\u8be6\u7ec6\u8bb0\u5f55\u3002</p>\n<p><a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://github.com/Meekdai/meekdai.github.io/assets/11755104/73a4b628-c0f3-49a9-8fea-baa57e855dff\"><img src=\"https://github.com/Meekdai/meekdai.github.io/assets/11755104/73a4b628-c0f3-49a9-8fea-baa57e855dff\" alt=\"1384392589.jpg\" style=\"max-width: 100%;\"></a></p>\n<p>##\u5b89\u88c5\u4e32\u53e3\u9a71\u52a8</p>\n<p>\u5728\u9009\u5b9a\u5f00\u53d1\u7cfb\u7edf\u540e\uff0c\u63a5\u4e0b\u6765\u5c31\u662f\u8981\u5b89\u88c5\u4e32\u53e3\u9a71\u52a8\uff0c\u6253\u901a\u5f00\u53d1\u4e3b\u673a\u4e0e NodeMCU \u677f\u5b50\u7684\u901a\u4fe1\uff0c\u4ee5\u4fbf\u70e7\u5f55\u56fa\u4ef6\u3001\u6267\u884c\u547d\u4ee4\u6216\u8005\u4e0a\u4f20 Lua \u7a0b\u5e8f\u3002</p>\n<p>\u56e0\u4e3a NodeMCU 1.0 \u91c7\u7528\u4e86 cp2102 USB \u4e32\u53e3\uff0c\u5176\u9a71\u52a8\u5b8c\u7f8e\u652f\u6301 Windows\uff0cLinux\uff0cOS X \u548c VMWare\uff0c\u6240\u4ee5\u5404\u4e2a\u5e73\u53f0\u4e0b\u8f7d <a href=\"http://www.silabs.com/products/mcu/Pages/USBtoUARTBridgeVCPDrivers.aspx\" rel=\"nofollow\">CP210x</a> \u5b89\u88c5\u4e0a\u5373\u53ef\u3002</p>\n<p>\u5bf9\u4e8e VMware + Linux\uff0c\u9664\u4e86\u5728\u5f00\u53d1\u4e3b\u673a\u4e0a\u5b89\u88c5\u597d\u4e32\u53e3\u9a71\u52a8\u5916\uff0c\u9700\u8981\u5728\u63d2\u5165 USB \u4e32\u53e3\u4ee5\u540e\uff0c\u6839\u636e\u63d0\u793a\uff0c\u5141\u8bb8 VMware \u63a7\u5236\u8be5 USB \u4e32\u53e3\uff0c\u4e5f\u53ef\u4ee5\u901a\u8fc7\u8bbe\u7f6e/Settings \u7684 USB &amp; Bluetooth \u6765\u8fdb\u884c\u8bbe\u7f6e\u3002</p>\n<p>\u5728\u547d\u4ee4\u884c\u4e0b\u8fd0\u884c\uff0c\u770b\u9a71\u52a8\u662f\u5426\u6b63\u786e\u52a0\u8f7d\u3002</p>\n<pre><code>$ ls -l /dev/tty*\n</code></pre>\n<p>\u4e0b\u9762\u4f60\u9700\u8981\u4e00\u4e2a\u4e32\u53e3\u901a\u4fe1\u5de5\u5177\uff0c\u5728 Linux \u4e0b\u63a8\u8350 minicom</p>\n<pre><code>$ sudo apt-get install minicom\n</code></pre>\n<p>\u5728Windows\u4e0b\u63a8\u8350SecureCRT\uff08<a href=\"https://securecrt.en.softonic.com/%EF%BC%89%EF%BC%8C%E6%88%96%E8%80%85%E8%87%AA%E8%A1%8C%E4%B8%8B%E8%BD%BD%E3%80%82\" rel=\"nofollow\">https://securecrt.en.softonic.com/\uff09\uff0c\u6216\u8005\u81ea\u884c\u4e0b\u8f7d\u3002</a></p>\n<p>\u4f7f\u7528\u4e32\u53e3\u901a\u4fe1\u5de5\u5177\u4e4b\u524d\uff0c\u9700\u8981\u660e\u786e NodeMCU 1.0 \u7684\u4e32\u53e3\u5c5e\u6027\u3002NodeMCU 1.0 \u7684\u542f\u52a8\u65f6\u6ce2\u7279\u7387\u4e3a 74880\uff0c\u4f46\u662f\u542f\u52a8\u540e\u5c31\u5207\u5230\u4e86 9600\uff0c\u5982\u679c\u76f4\u63a5\u7528 9600\uff0c\u5219\u5f00\u5934\u4f1a\u770b\u5230\u4e00\u4e32\u4e71\u7801\u4e4b\u540e\u6062\u590d\u6b63\u5e38\u3002\u800c\u5237\u56fa\u4ef6\u65f6\u53ef\u4ee5\u901a\u8fc7 esptool \u81ea\u5df1\u8bbe\u7f6e\u6ce2\u7279\u7387\uff0cNodeMCU 1.0 \u90a3\u8fb9\u4f1a\u6839\u636e\u7528\u6237\u8bbe\u7f6e\u81ea\u52a8\u914d\u7f6e\u6ce2\u7279\u7387\uff0c\u6bd4\u5982\u8bf4\u8bbe\u7f6e\u6210 115200\uff0c921600 \u90fd\u53ef\u4ee5\u3002</p>\n<p>\u4e32\u53e3\u8bbe\u5907\u5728\u4e0d\u540c\u7cfb\u7edf\u4e0b\u540d\u5b57\u6709\u4e9b\u5dee\u5f02\uff0c\u5728 Linux \u4e0b\u4e3a <code>/dev/ttyUSBn</code>\uff0c\u5728 Mac OS X \u4e0b\u4e3a <code>/dev/cu.SLAB_USBtoUART</code> \u548c <code>/dev/tty.SLAB_USBtoUART</code>\uff0cWindows \u4e0b\u4e3a <code>COMn</code>\u3002</p>\n<p>\u5176\u4ed6\u914d\u7f6e\u4e3a\u5e38\u89c1\u7684\uff1a<code>8N1</code>\uff0c\u5373 Bits\uff1a8\uff1bParity\uff1aNone\uff1bStop Bits\uff1a1\u3002\u53e6\u5916\uff0cHardware Flow Control \u548c Software Flow Control \u5747\u4e3a No \u3002</p>\n<p>##\u4e0b\u8f7d\u5e76\u70e7\u5f55\u6700\u65b0\u56fa\u4ef6</p>\n<p>###\u5728Linux\u4e0b</p>\n<p>\u4ece <a href=\"https://github.com/nodemcu/nodemcu-firmware/releases/\">NodeMCU Firmware Release</a> \u4e0b\u8f7d\u6700\u65b0\u56fa\u4ef6\uff0c\u4ee5 float \u4e3a\u4f8b\uff08\u6ce8\uff1ainteger \u4e0d\u652f\u6301 float\uff0c\u4f46\u8282\u7701\u4e86 11 KB\uff09\uff1a</p>\n<pre><code>$ wget -c https://github.com/nodemcu/nodemcu-firmware/releases/download/0.9.6-dev_20150704/nodemcu_float_0.9.6-dev_20150704.bin\n</code></pre>\n<p>\u63a5\u7740\u54b1\u4eec\u628a\u70e7\u5f55\u5de5\u5177 esptool.py \u4e0b\u8f7d\u4e0b\u6765\u3002\u540c\u65f6\u5b89\u88c5\u5176\u4ed6\u5fc5\u8981\u5de5\u5177\u3002</p>\n<pre><code>$ sudo apt-get install git python python-serial python-setuptools\n$ git clone https://github.com/themadinventor/esptool.git\n$ cd esptool\n$ python setup.py install\n</code></pre>\n<p>\u5728\u70e7\u5f55\u56fa\u4ef6\u4e4b\u524d\u9700\u8981\u901a\u8fc7\u5982\u4e0b\u64cd\u4f5c\u8fdb\u5165 NodeMCU \u7684\u56fa\u4ef6\u70e7\u5f55\u6a21\u5f0f\uff1a</p>\n<ul>\n<li>\u6309\u4f4f FLASH \u6309\u952e\uff08\u8fd9\u91cc\u4e0d\u677e\u5f00\uff09</li>\n<li>\u6309\u4e0b RST \u6309\u952e\u5e76\u677e\u5f00</li>\n<li>\u677e\u5f00 FLASH \u6309\u952e</li>\n</ul>\n<p>\u63a5\u7740\u901a\u8fc7 esptool.py \u70e7\u5f55\u56fa\u4ef6\uff1a</p>\n<pre><code>$ sudo esptool.py --port /dev/ttyUSB0 write_flash -fm dio -fs 32m -ff 40m 0x00000 nodemcu_float_0.9.6-dev_20150704.bin\n</code></pre>\n<p>\u70e7\u5f55\u5b8c\u4ee5\u540e\u8bb0\u5f97\u6309\u4e0b RST \u91cd\u542f\u8fdb\u5165\u65b0\u56fa\u4ef6\u3002</p>\n<p>esptool.py \u70e7\u5199\u65f6\u9ed8\u8ba4\u7684\u901a\u4fe1\u6ce2\u7279\u7387\u4e3a 115200\uff0c\u4e3a\u4e86\u52a0\u901f\u70e7\u5199\u901f\u5ea6\uff0c\u53ef\u4ee5\u901a\u8fc7 --baud 921600 \u8bbe\u7f6e\u4e3a 921600\u3002</p>\n<p>\u9700\u8981\u63d0\u5230\u7684\u662f\uff0c\u5982\u679c\u4e0d\u60f3\u4fdd\u7559\u56fa\u4ef6\u4e2d\u539f\u6709\u7684\u5404\u7c7b Lua \u7a0b\u5e8f\uff0c\u53ef\u4ee5\u5728\u542f\u52a8\u540e\u683c\u5f0f\u5316\u6587\u4ef6\u7cfb\u7edf\uff08file.format()\uff0c\u89c1\u540e\u6587\uff09\uff0c\u4e5f\u53ef\u4ee5\u5728\u70e7\u5f55\u524d\u5237\u6389\u6574\u4e2a\u56fa\u4ef6\uff1a</p>\n<pre><code>$ sudo esptool.py --port /dev/ttyUSB0 erase_flash\n</code></pre>\n<p>\u5f53\u6587\u4ef6\u7cfb\u7edf\u88ab\u7834\u574f\u6216\u8005\u67d0\u4e2a Lua \u7a0b\u5e8f\u51fa\u9519\u4ee5\u540e\u5bfc\u81f4\u7cfb\u7edf\u4e0d\u65ad\u91cd\u542f\u65f6\uff0c\u64e6\u9664\u6574\u4e2a Flash \u51e0\u4e4e\u662f\u5fc5\u8981\u7684\uff08\u5b9e\u9645\u4e5f\u53ef\u4ee5\u64e6\u9664\u6587\u4ef6\u7cfb\u7edf\u6240\u5728\u7684\u533a\u5757\u6216\u8005\u91cd\u5199\u8be5\u533a\u5757\uff09\uff0c\u5f53\u7136\uff0c\u8fd8\u6709\u4e00\u4e9b\u53e6\u7c7b\u7684\u529e\u6cd5\uff0c\u540e\u9762\u4f1a\u8865\u5145\u3002</p>\n<p>###\u5728Windows\u4e0b</p>\n<p>\u56fa\u4ef6\u4e0b\u8f7d\u5730\u5740\uff1a<a href=\"https://github.com/nodemcu/nodemcu-firmware/releases/\">NodeMCU Firmware Release</a>\n\u4e00\u952e\u70e7\u5f55\u8f6f\u4ef6\u4e0b\u8f7d\u5730\u5740\uff1a<a href=\"https://github.com/nodemcu/nodemcu-flasher\">nodemcu-flasher</a></p>\n<p>\u6253\u5f00\u4e00\u952e\u70e7\u5f55\u8f6f\u4ef6\uff0c\u8bbe\u7f6e\u56fa\u4ef6\u6240\u5728\u76ee\u5f55</p>\n<p><a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://github.com/Meekdai/meekdai.github.io/assets/11755104/144b7448-49ed-4a51-9324-9591f2228cdf\"><img src=\"https://github.com/Meekdai/meekdai.github.io/assets/11755104/144b7448-49ed-4a51-9324-9591f2228cdf\" alt=\"2682123040.jpg\" style=\"max-width: 100%;\"></a></p>\n<p>\u8bbe\u7f6eESP8266 FLASH\u4fe1\u606f\uff0c\u6ce2\u7279\u7387\u53ef\u4ee5\u81ea\u5df1\u8bbe\u5b9a\uff0c9600\u5e94\u8be5\u4f1a\u6709\u70b9\u6162\u3002</p>\n<p><a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://github.com/Meekdai/meekdai.github.io\"><img src=\"https://github.com/Meekdai/meekdai.github.io\" alt=\"1498565922.jpg\" style=\"max-width: 100%;\"></a></p>\n<p>\u9009\u62e9\u4e32\u53e3\uff0c\u5f00\u59cb\u70e7\u5f55\uff0c\u6709\u4e9b\u6587\u6863\u8bf4\u9700\u8981GPIO0\u62c9\u4f4e\u540e\u4e0a\u7535\uff0c\u4f46\u662f\u6211\u4e0d\u9700\u8981\u62c9\u4f4e\u4e5f\u53ef\u4ee5\u70e7\u5199\u3002</p>\n<p><a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://github.com/Meekdai/meekdai.github.io/assets/11755104/47b2cd88-787f-471b-8247-9450d334b047\"><img src=\"https://github.com/Meekdai/meekdai.github.io/assets/11755104/47b2cd88-787f-471b-8247-9450d334b047\" alt=\"2891132200.jpg\" style=\"max-width: 100%;\"></a></p>\n<p>\u70e7\u5f55\u5b8c\u6210</p>\n<p><a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://github.com/Meekdai/meekdai.github.io/assets/11755104/f56ae279-c339-4ca6-a0f3-18dc0f05390d\"><img src=\"https://github.com/Meekdai/meekdai.github.io/assets/11755104/f56ae279-c339-4ca6-a0f3-18dc0f05390d\" alt=\"1930085769.jpg\" style=\"max-width: 100%;\"></a></p>\n<p>\u4e0a\u7535\u540eESP8266\u4eceFLASH\u6b63\u5e38\u542f\u52a8\u3002\u4e32\u53e3\u6ce2\u7279\u7387\u8bbe\u7f6e\u4e3a9600\uff0c\u5c31\u53ef\u4ee5\u548cnodemcu\u4ea4\u4e92\u4e86\uff0c\u4f46\u662f\u590d\u4f4d\u540e\u524d\u9762\u4f1a\u6709\u4e00\u6bb5\u4e71\u7801\u6709\u5f85\u89e3\u51b3\u3002</p>\n<p><a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://github.com/Meekdai/meekdai.github.io/assets/11755104/4ee9e4dd-c028-4e56-a9a2-ec6d1a79a327\"><img src=\"https://github.com/Meekdai/meekdai.github.io/assets/11755104/4ee9e4dd-c028-4e56-a9a2-ec6d1a79a327\" alt=\"424483076.jpg\" style=\"max-width: 100%;\"></a></p>\n<p>\u53e6\u5916\uff0c\u6700\u65b0\u7684NodeMCU \u7248\u672c\u8c8c\u4f3c\u6ca1\u6709bin\u6587\u4ef6\u4e0b\u8f7d\uff0c\u9700\u8981\u81ea\u5df1\u7f16\u8bd1\uff0c\u8fd9\u4e2a\u540e\u9762\u518d\u6765\u89e3\u51b3\u3002</p>\n<p>##\u57fa\u672c\u64cd\u4f5c\u6f14\u793a</p>\n<p>\u70e7\u5f55\u5b8c\u4ee5\u540e\u6309\u4e0b RST \u6309\u94ae\u91cd\u542f NodeMCU\uff0c\u518d\u542f\u52a8\u4e32\u53e3\u5de5\u5177\u5c31\u53ef\u4ee5\u8fdb\u5165 Lua \u4ea4\u4e92\u5f0f\u547d\u4ee4\u884c\uff1a\n\u5728\u5728Linux\u4e0b\u53ef\u4ee5\u7528<code>$ minicom -D /dev/ttyUSB0</code>\u6765\u6253\u5f00\u4e32\u53e3\u5de5\u5177\uff0cWindows\u4e0b\u76f4\u63a5\u8fd0\u884c\u76f8\u5e94\u7684\u8f6f\u4ef6\u5c31\u884c\u4e86\u3002</p>\n<pre><code>&gt; print('Hello, Meekdai')\nHello, Meekdai\n&gt; gpio.mode(0, gpio.OUTPUT)\n&gt; gpio.write(0, gpio.LOW)\n&gt; gpio.write(0, gpio.HIGH)\n&gt; file.format()\n&gt; node.restart()\n</code></pre>\n<p>\u4e0a\u9762\u51e0\u6761\u547d\u4ee4\u5206\u522b\u5b8c\u6210\uff1a</p>\n<ul>\n<li>\u6253\u5370\u4e86\u4e00\u4e32\u5b57\u7b26\u4e32</li>\n<li>\u5f00/\u5173\u4e86\u9760\u8fd1 USB \u53e3\u7684 LED\uff08\u9760\u8fd1 Wifi \u6a21\u5757\u7684 LED \u7684 pin \u4e3a 4\uff09</li>\n<li>\u683c\u5f0f\u5316\u6587\u4ef6\u7cfb\u7edf</li>\n<li>\u6700\u540e\u91cd\u542f\u4e86 NodeMCU</li>\n</ul>\n<p>\u5982\u679c\u5acc\u4e0d\u591f\u9177\uff0c\u53ef\u4ee5\u53c2\u8003 <a href=\"http://nodemcu.github.io/\" rel=\"nofollow\">NodeMCU API \u624b\u518c</a> \u53ef\u4ee5\u505a\u66f4\u591a\u6709\u8da3\u7684\u64cd\u4f5c\u3002</p>\n<p>\u63a5\u4e0b\u6765\uff0c\u521b\u5efa\u4e00\u4e2a\u521d\u59cb\u5316\u7a0b\u5e8f\uff1a<code>init.lua</code>\uff0c\u5b83\u5728 NodeMCU \u542f\u52a8\u540e\u81ea\u52a8\u6267\u884c\u3002</p>\n<p>\u54b1\u4eec\u901a\u8fc7\u8be5\u7a0b\u5e8f\u5728 NodeMCU \u542f\u52a8\u540e\u7acb\u5373\u70b9\u4eae LED\uff1a</p>\n<pre><code>&gt; file.open('init.lua','w')\n&gt; file.writeline('gpio.mode(0,gpio.OUTPUT)')\n&gt; file.writeline('gpio.write(0,gpio.LOW)')\n&gt; file.close()\n&gt; node.restart()\n</code></pre>\n<p><code>init.lua</code> \u662f NodeMCU \u542f\u52a8\u65f6\u9ed8\u8ba4\u6267\u884c\u7684\u7b2c\u4e00\u4e2a\u7a0b\u5e8f\uff0c\u6709\u70b9\u7c7b\u4f3c Linux \u4e0a\u7684 init \u7a0b\u5e8f\u3002\u901a\u8fc7\u5b83\u8fd8\u53ef\u4ee5\u52a0\u8f7d\u5176\u4ed6\u7a0b\u5e8f\u6765\u5b8c\u6210\u7279\u5b9a\u7684\u529f\u80fd\u3002</p>\n<p>\u54b1\u4eec\u518d\u505a\u4e00\u4e2a\u590d\u6742\u4e00\u70b9\u7684\u64cd\u4f5c\uff0c\u5728 <code>init.lua</code> \u91cc\u5934\u8c03\u7528\uff08dofile\uff09\u4e00\u4e2a <code>user.lua</code> \u6765\u70b9\u4eae LED\uff1a</p>\n<pre><code>&gt; file.open('init.lua','w')\n&gt; file.writeline('dofile(\"user.lua\")')\n&gt; file.close()\n&gt; file.open('user.lua','w')\n&gt; file.writeline('gpio.mode(0,gpio.OUTPUT)')\n&gt; file.writeline('gpio.write(0,gpio.LOW)')\n&gt; file.close()\n&gt; node.restart()\n</code></pre>\n<p>\u8bfb\u51fa <code>init.lua</code> \u770b\u4e0b\u6548\u679c\uff1a</p>\n<pre><code>&gt; file.open('init.lua','r')\n&gt; print(file.readline())\ndofile(\"user.lua\")\n&gt; file.close()\n</code></pre>\n<p>\u5f53 <code>user.lua</code> \u811a\u672c\u51fa\u9519\u65f6\u53ef\u80fd\u5bfc\u81f4\u7cfb\u7edf\u4e0d\u505c\u5730\u91cd\u542f\uff0c\u8fd9\u4e2a\u65f6\u5019\u9664\u4e86\u64e6\u9664\u6574\u4e2a Flash \u5916\uff0c\u8fd8\u53ef\u4ee5\u901a\u8fc7 <code>init.lua</code> \u505a\u4e2a\u7b80\u5355\u7684\u5bb9\u9519\u5904\u7406\uff1a</p>\n<pre><code>if gpio.read(2) == 1:\n    file.format()\nelse\n    dofile('user.lua')\nend\n</code></pre>\n<p>\u4e00\u65e6\u7cfb\u7edf\u51fa\u9519\uff0c\u53ea\u8981\u62c9\u9ad8 GPIO 2 \u5c31\u53ef\u4ee5\u683c\u5f0f\u5316\u6587\u4ef6\u7cfb\u7edf\u3002</p>\n<p>\u6682\u65f6\u5148\u5230\u8fd9\u91cc\u5427\uff0c\u540e\u9762\u4f1a\u9010\u6b65\u4ecb\u7ecd\u66f4\u591a\u5b9e\u4f8b\u3002</p>\n<p>##\u4e0a\u4f20 Lua \u7a0b\u5e8f</p>\n<p>\u4e0a\u9762\u6f14\u793a\u7684\u662f\u547d\u4ee4\u884c\u64cd\u4f5c\uff0c\u8fd9\u91cc\u518d\u4ecb\u7ecd\u5982\u4f55\u628a\u5728\u4e3b\u673a\u7aef\u5199\u597d\u7684 Lua \u7a0b\u5e8f\u4e0a\u4f20\u5230 NodeMCU \u4e0a\u3002</p>\n<p>\u6d4b\u8bd5\u8fc7\u4e24\u4e2a\u5de5\u5177\u90fd\u53ef\u4ee5\u7528\u6765\u4e0a\u4f20 Lua \u7a0b\u5e8f\uff0c\u5206\u522b\u662f\uff1a</p>\n<ul>\n<li>\n<a href=\"https://github.com/4refr0nt/luatool\">luatool.py</a>\uff1a\u53ef\u7528\u4e8e\u547d\u4ee4\u884c\u4f20\u9001 Lua \u811a\u672c\uff0c\u65e0\u987b\u590d\u6742\u7684\u56fe\u5f62\u5316\u5de5\u5177\u652f\u6301\uff0c\u540c\u65f6\u652f\u6301\u901a\u8fc7\u4e32\u53e3\u548c Telnet \u4e0a\u4f20</li>\n<li>\n<a href=\"https://github.com/md5crypt/nodemcu.py\">nodemcu.py</a>\uff1a\u9664\u4e86\u4e0d\u652f\u6301\u901a\u8fc7 Telnet \u4e0a\u4f20\u5916\uff0c\u57fa\u672c\u529f\u80fd\u540c luatool\uff0c\u53ea\u662f\u64cd\u4f5c\u65b9\u5f0f\u7a0d\u6709\u5dee\u5f02</li>\n</ul>\n<p>\u4e0b\u8f7d\u4e0a\u8ff0\u5de5\u5177\uff1a</p>\n<pre><code>$ git clone https://github.com/4refr0nt/luatool.git\n$ git clone https://github.com/md5crypt/nodemcu.py.git\n</code></pre>\n<p>\u4e24\u4e2a\u90fd\u53ef\u4ee5\u8fdb\u884c\u6587\u4ef6\u4f20\u8f93\uff0c\u7b2c\u4e8c\u4e2a\u8fd8\u53ef\u4ee5\u4f5c\u4e3a\u4e32\u53e3\u7ec8\u7aef\uff0c\u4e24\u4e2a\u90fd\u4f9d\u8d56 pySerial\uff0c\u7b2c\u4e8c\u4e2a\u8fd8\u9700\u8981\u5b89\u88c5 clipboard\uff1a</p>\n<pre><code>$ easy_install clipboard\n</code></pre>\n<p>\u5728\u4e0a\u4f20\u524d\u54b1\u4eec\u5199\u4e00\u4e2a\u7b80\u5355\u7684 <code>init.lua</code> \u811a\u672c\uff0c\u8be5\u811a\u672c\u7528\u4e8e\u70b9\u4eae\u53e6\u5916\u4e00\u4e2a LED\uff1a</p>\n<pre><code>print('Hello, Meekdai')\nprint('I am Nodemcu')\ngpio.mode(4, gpio.OUTPUT)\ngpio.write(4, gpio.LOW)\n</code></pre>\n<p>###luatool.py</p>\n<p>\u5728Linux\u4e0b\u901a\u8fc7 luatool.py \u4f20\u9001\uff0c\u4f20\u9001\u5b8c\u7acb\u9a6c\u91cd\u542f\uff1a</p>\n<pre><code>$ cd luatool/luatool/\n$ sudo ./luatool.py -p /dev/ttyUSB0 -b 9600 -f init.lua -r\n</code></pre>\n<p>\u67e5\u770b\u5e2e\u52a9\uff0c\u53ef\u4ee5\u770b\u5230\u66f4\u591a\u7528\u6cd5\uff1a</p>\n<pre><code>$ sudo ./luatool.py -h\nUsage: luatool.py [-h] [-p PORT] [-b BAUD] [-f SRC] [-t DEST] [-c] [-r] [-d]\n                  [-v] [-a] [-l] [-w] [-i] [--delete DELETE] [--ip IP]\nESP8266 Lua script uploader.\noptional arguments:\n  -h, --help            show this help message and exit\n  -p PORT, --port PORT  Device name, default /dev/ttyUSB0\n  -b BAUD, --baud BAUD  Baudrate, default 9600\n  -f SRC, --src SRC     Source file on computer, default main.lua\n  -t DEST, --dest DEST  Destination file on MCU, default to source file name\n  -c, --compile         Compile lua to lc after upload\n  -r, --restart         Restart MCU after upload\n  -d, --dofile          Run the Lua script after upload\n  -v, --verbose         Show progress messages.\n  -a, --append          Append source file to destination file.\n  -l, --list            List files on device\n  -w, --wipe            Delete all lua/lc files on device.\n  -i, --id              Query the modules chip id.\n  --delete DELETE       Delete a lua/lc file from device.\n  --ip IP               Connect to a telnet server on the device (--ip\n                        IP[:port])\n</code></pre>\n<p>\u5728Windows\u4e0b\u7684\u6307\u4ee4\u5982\u4e0b\uff0c\u5f53\u7136\u4f60\u9700\u8981\u5148\u5b89\u88c5Python</p>\n<pre><code>python ./luatool.py --port COM3 --src init.lua -r\n</code></pre>\n<p>###nodemcu.py</p>\n<p>\u901a\u8fc7 <code>nodemcu.py</code> \u4e0a\u4f20\uff1a</p>\n<pre><code>$ cd nodemcu.py/\n$ python ./nodemcu.py /dev/ttyUSB0 9600\n&gt; :file init.lua init.lua\n&gt; node.restart()\n</code></pre>\n<p>\u67e5\u770b\u5e2e\u52a9\uff0c\u66f4\u591a\u7528\u6cd5\uff1a</p>\n<pre><code>&gt; :help\n:help\n:uart [boudrate]          - dynamic boudrate change\n:load src                 - evaluate file content\n:file dst src             - write local file src to dst\n:paste [file]             - evaluate clipboard content\n                            or write it to file if given\n:cross-compile dst [file] - compile file or clipboard using\n                            luac-cross and save to dst\n:execute [file]           - cross-compile and execute clipboard or\n                            file content without saving to flash\n:soft-compile dst [file]  - compile file or clipboard on device\n                            and save do dst. This call should handle\n                            lager files than file.compile\n</code></pre>\n<p>##Lua \u7a0b\u5e8f\u793a\u4f8b</p>\n<p>\u8fd9\u91cc\u4ec5\u4ec5\u5c55\u793a\u51e0\u5219\u57fa\u672c\u7684 Lua \u7a0b\u5e8f\uff0c\u65b9\u4fbf\u5927\u5bb6\u5feb\u901f\u4e0a\u624b\u3002\u66f4\u591a\u4f8b\u5b50\u8bf7\u53c2\u8003 NodeMCU Firmware \u4e0b\u7684 <a href=\"https://github.com/nodemcu/nodemcu-firmware/tree/master/lua_examples\">lua_examples</a></p>\n<p>###\u542f\u52a8\u540e\u4e0d\u65ad\u95ea\u70c1 LED</p>\n<p>\u4e0a\u9762\u5176\u5b9e\u5df2\u7ecf\u6f14\u793a\u4e86 LED \u7684\u57fa\u672c\u64cd\u4f5c\uff0c\u8fd9\u91cc\u518d\u4ecb\u7ecd\u4e00\u4e2a timer module \u7684 API\uff1atmr.alarm()\uff1a</p>\n<blockquote>\n<p>tmr.alarm(id, interval, repeat, function do())</p>\n<p>id: 0~6, alarmer id. Interval: alarm time, unit: millisecond repeat: 0</p>\n<ul>\n<li>one time alarm, 1 - repeat function do(): callback function for alarm timed out</li>\n</ul>\n</blockquote>\n<p>\u54b1\u4eec\u57fa\u4e8e\u5b83\u5b9e\u73b0\u4e00\u4e2a <code>blink.lua</code>:</p>\n<pre><code>print('Blink Demo')\nlighton=0\nled=0\ngpio.write(led, gpio.HIGH)\ntmr.alarm(0,1000,1,function()\nif lighton==0 then\n    lighton=1\n    gpio.mode(led, gpio.OUTPUT)\n    gpio.write(led, gpio.LOW)\nelse\n    lighton=0\n    gpio.write(led, gpio.HIGH)\nend\nend)\ngpio.mode(led, gpio.INPUT)\n</code></pre>\n<p>\u4e0a\u4f20 <code>blink.lua</code> \u5e76\u7acb\u5373\u6267\u884c\uff1a</p>\n<pre><code>python ./luatool.py --port COM3 --src blink.lua -r\n</code></pre>\n<blockquote>\n<p>\u8fd9\u91cc\u63d0\u9192\u4e00\u4e0b\uff0c\u5728\u7528\u4e32\u53e3\u4e0b\u8f7d\u7a0b\u5e8f\u7684\u65f6\u5019\uff0c\u9700\u8981\u5148\u628a\u4e32\u53e3\u901a\u4fe1\u5de5\u5177\u7ed9\u5173\u95ed\uff0c\u4e0d\u7136\u4f1a\u62a5\u9519</p>\n</blockquote>\n<p>###\u8fdc\u7a0b\u63a7\u5236 LED \u95ea\u70c1</p>\n<p>\u5bf9\u4e8e\u7269\u8054\u7f51\u6765\u8bb2\uff0c\u8fdc\u7a0b\u63a7\u5236\u5f88\u5173\u952e\u3002\u54b1\u4eec\u8fd9\u91cc\u6f14\u793a\u5982\u4f55\u901a\u8fc7 Wifi \u5f00\u542f\u4e00\u4e2a\u670d\u52a1\u7aef\u53e3 8888 \u7528\u4e8e\u63a7\u5236 LED\uff0c<code>remote_led.lua</code>\uff1a</p>\n<pre><code>-- \u5f00\u542f Wifi \u5e76\u83b7\u5f97 NodeMCU IP \u5730\u5740\n-- ssid \u548c pwd \u5206\u522b\u4e3a\u81ea\u5bb6\u8def\u7531\u5668\u7684 SSID \u548c\u8bbf\u95ee\u5bc6\u7801\nlocal ssid=\"SSID\"\nlocal pwd=\"password\"\nip=wifi.sta.getip()\nprint(ip)\nif not ip then\n    wifi.setmode(wifi.STATION)\n    wifi.sta.config(ssid,pwd)\n    print(wifi.sta.getip())\nend\n-- \u5f00\u542f\u4e00\u4e2a 8888 \u7684\u7aef\u53e3\n-- \u5e76\u901a\u8fc7 node.input() \u8c03\u7528 Lua \u89e3\u91ca\u5668\u63a7\u5236 LED\nsrv=net.createServer(net.TCP)\nsrv:listen(8888,function(conn)\n    conn:on(\"receive\",function(conn,payload)\n    node.input(\"gpio.mode(0, gpio.OUTPUT)\")\n    node.input(\"gpio.write(0, gpio.LOW)\")\n    end)\nend)\n</code></pre>\n<p>\u4e0a\u4f20 Lua \u7a0b\u5e8f\u5230\u670d\u52a1\u5668\u6267\u884c\uff1a</p>\n<pre><code>python ./luatool.py --port COM3 --src remote_led.lua -r\n</code></pre>\n<p>\u67e5\u770b NodeMCU \u83b7\u53d6\u7684 IP \u5730\u5740\uff1a</p>\n<pre><code>&gt; print(wifi.sta.getip())\n192.168.0.128   255.255.255.0   192.168.0.1\n</code></pre>\n<p>\u5e76\u6d4b\u8bd5\uff08\u5728Linux\u4e0b\uff09\uff1a</p>\n<pre><code>$ sudo apt-get install lynx\n$ lynx 192.168.0.104:8888\n</code></pre>\n<p>###\u8fdc\u7a0b\u63a7\u5236 LED \u5f00\u5173</p>\n<p>\u521b\u5efa\u4e00\u4e2a<code>wifi_led.lua</code>\uff0c\u6ce8\u610f\u4fee\u6539\u65e0\u7ebf\u7f51\u7684\u540d\u79f0\u548c\u5bc6\u7801\u3002</p>\n<pre><code>wifi.setmode(wifi.STATION)  \nwifi.sta.config(\"YOUR_NETWORK_NAME\",\"YOUR_NETWORK_PASSWORD\")  \nprint(wifi.sta.getip())  \nled1 = 0  \ngpio.mode(led1, gpio.OUTPUT)  \nsrv=net.createServer(net.TCP)  \nsrv:listen(80,function(conn)  \n    conn:on(\"receive\", function(client,request)  \n        local buf = \"\";  \n        local _, _, method, path, vars = string.find(request, \"([A-Z]+) (.+)?(.+) HTTP\");  \n        if(method == nil)then  \n            _, _, method, path = string.find(request, \"([A-Z]+) (.+) HTTP\");  \n        end  \n        local _GET = {}  \n        if (vars ~= nil)then  \n            for k, v in string.gmatch(vars, \"(%w+)=(%w+)&amp;*\") do  \n                _GET[k] = v  \n            end  \n        end  \n        buf = buf..\"&lt;h1&gt; Meekdai LED Web Server&lt;/h1&gt;\";  \n        buf = buf..\"&lt;p&gt;GPIO0 &lt;a href=\\\"?pin=ON1\\\"&gt;&lt;button&gt;ON&lt;/button&gt;&lt;/a&gt; &lt;a href=\\\"?pin=OFF1\\\"&gt;&lt;button&gt;OFF&lt;/button&gt;&lt;/a&gt;&lt;/p&gt;\";  \n        local _on,_off = \"\",\"\"  \n        if(_GET.pin == \"ON1\")then  \n              gpio.write(led1, gpio.LOW);  \n        elseif(_GET.pin == \"OFF1\")then  \n              gpio.write(led1, gpio.HIGH);   \n        end  \n        client:send(buf);  \n        client:close();  \n        collectgarbage();  \n    end)  \nend)\n</code></pre>\n<p>\u67e5\u770b NodeMCU \u83b7\u53d6\u7684 IP \u5730\u5740\uff1a</p>\n<pre><code>&gt; print(wifi.sta.getip())\n192.168.0.128   255.255.255.0   192.168.0.1\n</code></pre>\n<p>\u7136\u540e\u5728\u6d4f\u89c8\u5668\u4e2d\u8f93\u5165192.168.0.128\uff0c\u53ef\u4ee5\u770b\u5230\u5982\u4e0b\u754c\u9762\uff0c\u70b9\u51fbON\u4e3a\u6253\u5f00LED\u706f\uff0c\u70b9\u51fbOFF\u4e3a\u5173\u95ed\u3002</p>\n<p><a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://camo.githubusercontent.com/76871e0a432d6e335409256877951d7544dca02fc6d51fb7b2f5d15c8b67607d/687474703a2f2f6d65656b6461692e636f6d2f696d672f3766336231653839677931667a707179633078756b6a32306e773067716a73742e6a7067\"><img src=\"https://camo.githubusercontent.com/76871e0a432d6e335409256877951d7544dca02fc6d51fb7b2f5d15c8b67607d/687474703a2f2f6d65656b6461692e636f6d2f696d672f3766336231653839677931667a707179633078756b6a32306e773067716a73742e6a7067\" alt=\"3634745125.jpg\" data-canonical-src=\"http://meekdai.com/img/7f3b1e89gy1fzpqyc0xukj20nw0gqjst.jpg\" style=\"max-width: 100%;\"></a></p>\n<p>###\u5f00\u542f\u4e00\u4e2a Telnet \u670d\u52a1</p>\n<p>\u5148\u4ece NodeMCU.com \u4e0b\u8f7d\u8be5\u4f8b\u5b50\uff0c<code>telnet.lua</code>\uff1a</p>\n<pre><code>-- a simple telnet server\ns=net.createServer(net.TCP,180)\ns:listen(2323,function(c)\n    function s_output(str)\n      if(c~=nil)\n        then c:send(str)\n      end\n    end\n    node.output(s_output, 0)\n    -- re-direct output to function s_ouput.\n    c:on(\"receive\",function(c,l)\n      node.input(l)\n      --like pcall(loadstring(l)), support multiple separate lines\n    end)\n    c:on(\"disconnection\",function(c)\n      node.output(nil)\n      --unregist redirect output function, output goes to serial\n    end)\n    print(\"Welcome to NodeMCU world.\")\nend)\n</code></pre>\n<p>\u4e0a\u4f20\u5e76\u6267\u884c\uff1a</p>\n<pre><code>python ./luatool.py --port COM3 --src telnet.lua -r\n</code></pre>\n<p>\u901a\u8fc7 telnet \u8fde\u63a5\uff1a</p>\n<p><strong>\u5728Linux\u4e0b\uff1a</strong></p>\n<pre><code>$ sudo apt-get install telnet\n$ telnet 192.168.0.104 2323\nTrying 192.168.0.104...\nConnected to 192.168.0.104.\nEscape character is '^]'.\nWelcome to NodeMCU world.\n&gt; print('Hello, NodeMCU Telnet')\nHello, NodeMCU Telnet\n</code></pre>\n<p><strong>\u5728Windows\u4e0b\uff1a</strong></p>\n<p>\u9700\u8981\u5148\u53bb\u542f\u52a8\u6216\u8005\u5173\u95edWindows\u529f\u80fd\u4e2d\u6253\u5f00telnet\u670d\u52a1\uff0c\u7136\u540e\uff1a</p>\n<pre><code>&gt; print(wifi.sta.getip())\n192.168.0.128   255.255.255.0   192.168.0.1\n&gt; telnet 192.168.0.128 2323\nWelcome to NodeMcu world.\n</code></pre>\n<p>\u6709\u4e86 telnet \u670d\u52a1\uff0c\u54b1\u5c31\u53ef\u4ee5\u4e0d\u4f9d\u8d56\u4e32\u53e3\u800c\u662f\u76f4\u63a5\u901a\u8fc7 Wifi \u4e0a\u4f20 Lua \u811a\u672c\u4e86\uff1a</p>\n<p>\u5728Linux\u4e0b\uff1a</p>\n<pre><code>$ cat test.lua\nprint('Upload via telnet service')\n$ sudo ./luatool.py --ip 192.168.0.104:2323 -f test.lua -d -v\n</code></pre>\n<p>\u5728Windows\u4e0b\uff1a</p>\n<pre><code>$ cat test.lua\nprint('Upload via telnet service')\n$ python ./luatool.py --ip 192.168.0.128:2323 -f test.lua -d -v\n</code></pre>\n<p>\u597d\u4e86\uff0c\u57fa\u7840\u7684\u5b66\u4e60\u5c31\u5230\u8fd9\u91cc\uff0c\u6211\u5176\u5b9e\u662f\u4e00\u904d\u641c\u7d22\u8d44\u6599\uff0c\u81ea\u5df1\u4e00\u904d\u5c1d\u8bd5\uff0c\u7136\u540e\u8bb0\u5f55\u4e0b\u6765\u7684\uff0c\u5982\u679c\u540e\u7eed\u53d1\u73b0\u4ec0\u4e48\u5730\u65b9\u4e0d\u5bf9\uff0c\u4f1a\u5bf9\u4e0a\u9762\u7684\u5185\u5bb9\u8fdb\u884c\u4fee\u6539\u3002</p>\n", "title": "Meekdai", "homeUrl": "https://blog.meekdai.com", "postSourceUrl": "https://github.com/Meekdai/meekdai.github.io/issues/18", "faviconUrl": "https://meekdai.com/favicon.ico", "filingNum": "\u6d59ICP\u590720023628\u53f7", "startSite": "02/16/2015", "i18n": "CN", "commentNum": 0, "fontSize": "", "top": 0, "repoName": "Meekdai/meekdai.github.io", "GMEEK_VERSION": "main"}</script>
+
+
 <body>
-<div class="markdown-body">
-    <h1>
-        <div id="postTitle"></div>
-        <div class="title-right">
-        <button id="buttonHome" class="btn btn-invisible circle" onclick="window.location.href='/'"><svg class="octicon octicon-sun" width="16" height="16"><path id="pathHome" fill-rule="evenodd"></path></svg></button>
-        
-        <button class="btn btn-invisible circle" onclick="gotoSource()" title="Issue"><svg class="octicon octicon-sun" width="16" height="16"><path id="pathIssue" fill-rule="evenodd"></path></svg></button>
-        
-        <button id="changeTheme" class="btn btn-invisible circle" onclick="modeSwitch()"><svg class="octicon octicon-sun" width="16" height="16"><path id="themeSwitch" fill-rule="evenodd"></path></svg></button>
-        </div>
-    </h1>
-    <div id="postBody"></div>
+    <div id="header">
+<h1>
+    <a>NodeMcu学习笔记</a>
+</h1>
+<div class="title-right">
 
-    <button class="btn btn-block" type="button" onclick="openComments()" id="cmButton"> </button>
-    <div class="comments" id="comments"></div>
+    <button id="buttonHome" class="btn btn-invisible circle" onclick="window.location.href='/'" title="首页">
+        <svg class="octicon" width="16" height="16">
+            <path id="pathHome" fill-rule="evenodd"></path>
+        </svg>
+    </button>
 
-    <div class="footer">Copyright © <span id="year"></span> <a id="footerblogTitle" href=""></a> <p><span id="filingNum"></span><span id="runday"></span>Powered by <a href="https://github.com/Meekdai/Gmeek" target="_blank">Gmeek</a></p></div>
+    <button class="btn btn-invisible circle" onclick="window.open('https://github.com/Meekdai/meekdai.github.io/issues/18')" title="Issue">
+        <svg class="octicon" width="16" height="16">
+            <path id="pathIssue" fill-rule="evenodd"></path>
+        </svg>
+    </button>
+
+    <button id="changeTheme" class="btn btn-invisible circle" onclick="modeSwitch()" title="切换主题">
+        <svg class="octicon" width="16" height="16" >
+            <path id="themeSwitch" fill-rule="evenodd"></path>
+        </svg>
+    </button>
+
 </div>
-</body>
+</div>
+    <div id="content">
+<div class="markdown-body">
+<p>##NodeMCU 简介</p>
+<p>超简单的物联网开发平台<a href="http://nodemcu.com/index_cn.html" rel="nofollow">NodeMcu</a>，一款开源快速硬件原型平台，包括固件和开发板，用几行简单的Lua脚本就能开发物联网应用。</p>
+<p>其主要特点如下：</p>
+<ul>
+<li>像 Arduino 一样操作硬件 IO 提供硬件的高级接口，可以将应用开发者从繁复的硬件配置、寄存器操作中解放出来。用交互式 Lua 脚本，像 Arduino 一样编写硬件代码！</li>
+<li>用 Nodejs 类似语法写网络应用 事件驱动型 API 极大的方便了用户进行网络应用开发，使用类似 Nodejs 的方式编写网络代码，并运行于 5mm*5mm 大小的 MCU 之上，加快您的物联网开发进度。</li>
+<li>超低成本的 WIFI 模块 用于快速原型的开发板，集成了售价低于 10 人民币 WIFI 芯片 ESP8266，为您提供性价比最高的物联网应用开发平台。</li>
+</ul>
+<p>基于乐鑫 ESP8266 的 NodeMCU 开发板，具有 GPIO、PWM、I2C、1-Wire、ADC 等功能，结合 NodeMCU 固件为您的原型开发提供最快速的途径。</p>
+<p>NodeMCU 最新版为 1.0，如下图：</p>
+<p><a target="_blank" rel="noopener noreferrer" href="https://github.com/Meekdai/meekdai.github.io/assets/11755104/b4c8e6c7-0be7-4488-8517-3034592ad1ba"><img src="https://github.com/Meekdai/meekdai.github.io/assets/11755104/b4c8e6c7-0be7-4488-8517-3034592ad1ba" alt="4004543695.jpg" style="max-width: 100%;"></a></p>
+<p>其硬件详细配置如下：</p>
+<p>核心模组为 ESP8266</p>
+<blockquote>
+<pre><code>MCU 为 Xtensa L106
+RAM 50K
+Flash 512K
+D1~D10：10 GPIO, 每个都能配置为 PWM, I2C, 1-wire
+FCC 认证的 WIFI 模块，内置 PCB 天线，可作为 AP
+</code></pre>
+</blockquote>
+<p>CP2102 USB 串口，即插即用（官方驱动支持 Windows, OS X，Linux 以及 VMware）</p>
+<p>##选择开发系统</p>
+<p>NodeMCU 目前支持的开发主机系统类型涵盖 Windows，Linux 和 Mac OS X，也支持通过 VMware 虚拟机搭建的 Linux 环境。
+我用的是Windows，并且用了<a href="http://cmder.net/" rel="nofollow">cmder</a>来优化命令行的用户体验。有关cmder的使用笔记，后面会有文章详细记录。</p>
+<p><a target="_blank" rel="noopener noreferrer" href="https://github.com/Meekdai/meekdai.github.io/assets/11755104/73a4b628-c0f3-49a9-8fea-baa57e855dff"><img src="https://github.com/Meekdai/meekdai.github.io/assets/11755104/73a4b628-c0f3-49a9-8fea-baa57e855dff" alt="1384392589.jpg" style="max-width: 100%;"></a></p>
+<p>##安装串口驱动</p>
+<p>在选定开发系统后，接下来就是要安装串口驱动，打通开发主机与 NodeMCU 板子的通信，以便烧录固件、执行命令或者上传 Lua 程序。</p>
+<p>因为 NodeMCU 1.0 采用了 cp2102 USB 串口，其驱动完美支持 Windows，Linux，OS X 和 VMWare，所以各个平台下载 <a href="http://www.silabs.com/products/mcu/Pages/USBtoUARTBridgeVCPDrivers.aspx" rel="nofollow">CP210x</a> 安装上即可。</p>
+<p>对于 VMware + Linux，除了在开发主机上安装好串口驱动外，需要在插入 USB 串口以后，根据提示，允许 VMware 控制该 USB 串口，也可以通过设置/Settings 的 USB &amp; Bluetooth 来进行设置。</p>
+<p>在命令行下运行，看驱动是否正确加载。</p>
+<pre><code>$ ls -l /dev/tty*
+</code></pre>
+<p>下面你需要一个串口通信工具，在 Linux 下推荐 minicom</p>
+<pre><code>$ sudo apt-get install minicom
+</code></pre>
+<p>在Windows下推荐SecureCRT（<a href="https://securecrt.en.softonic.com/%EF%BC%89%EF%BC%8C%E6%88%96%E8%80%85%E8%87%AA%E8%A1%8C%E4%B8%8B%E8%BD%BD%E3%80%82" rel="nofollow">https://securecrt.en.softonic.com/），或者自行下载。</a></p>
+<p>使用串口通信工具之前，需要明确 NodeMCU 1.0 的串口属性。NodeMCU 1.0 的启动时波特率为 74880，但是启动后就切到了 9600，如果直接用 9600，则开头会看到一串乱码之后恢复正常。而刷固件时可以通过 esptool 自己设置波特率，NodeMCU 1.0 那边会根据用户设置自动配置波特率，比如说设置成 115200，921600 都可以。</p>
+<p>串口设备在不同系统下名字有些差异，在 Linux 下为 <code>/dev/ttyUSBn</code>，在 Mac OS X 下为 <code>/dev/cu.SLAB_USBtoUART</code> 和 <code>/dev/tty.SLAB_USBtoUART</code>，Windows 下为 <code>COMn</code>。</p>
+<p>其他配置为常见的：<code>8N1</code>，即 Bits：8；Parity：None；Stop Bits：1。另外，Hardware Flow Control 和 Software Flow Control 均为 No 。</p>
+<p>##下载并烧录最新固件</p>
+<p>###在Linux下</p>
+<p>从 <a href="https://github.com/nodemcu/nodemcu-firmware/releases/">NodeMCU Firmware Release</a> 下载最新固件，以 float 为例（注：integer 不支持 float，但节省了 11 KB）：</p>
+<pre><code>$ wget -c https://github.com/nodemcu/nodemcu-firmware/releases/download/0.9.6-dev_20150704/nodemcu_float_0.9.6-dev_20150704.bin
+</code></pre>
+<p>接着咱们把烧录工具 esptool.py 下载下来。同时安装其他必要工具。</p>
+<pre><code>$ sudo apt-get install git python python-serial python-setuptools
+$ git clone https://github.com/themadinventor/esptool.git
+$ cd esptool
+$ python setup.py install
+</code></pre>
+<p>在烧录固件之前需要通过如下操作进入 NodeMCU 的固件烧录模式：</p>
+<ul>
+<li>按住 FLASH 按键（这里不松开）</li>
+<li>按下 RST 按键并松开</li>
+<li>松开 FLASH 按键</li>
+</ul>
+<p>接着通过 esptool.py 烧录固件：</p>
+<pre><code>$ sudo esptool.py --port /dev/ttyUSB0 write_flash -fm dio -fs 32m -ff 40m 0x00000 nodemcu_float_0.9.6-dev_20150704.bin
+</code></pre>
+<p>烧录完以后记得按下 RST 重启进入新固件。</p>
+<p>esptool.py 烧写时默认的通信波特率为 115200，为了加速烧写速度，可以通过 --baud 921600 设置为 921600。</p>
+<p>需要提到的是，如果不想保留固件中原有的各类 Lua 程序，可以在启动后格式化文件系统（file.format()，见后文），也可以在烧录前刷掉整个固件：</p>
+<pre><code>$ sudo esptool.py --port /dev/ttyUSB0 erase_flash
+</code></pre>
+<p>当文件系统被破坏或者某个 Lua 程序出错以后导致系统不断重启时，擦除整个 Flash 几乎是必要的（实际也可以擦除文件系统所在的区块或者重写该区块），当然，还有一些另类的办法，后面会补充。</p>
+<p>###在Windows下</p>
+<p>固件下载地址：<a href="https://github.com/nodemcu/nodemcu-firmware/releases/">NodeMCU Firmware Release</a>
+一键烧录软件下载地址：<a href="https://github.com/nodemcu/nodemcu-flasher">nodemcu-flasher</a></p>
+<p>打开一键烧录软件，设置固件所在目录</p>
+<p><a target="_blank" rel="noopener noreferrer" href="https://github.com/Meekdai/meekdai.github.io/assets/11755104/144b7448-49ed-4a51-9324-9591f2228cdf"><img src="https://github.com/Meekdai/meekdai.github.io/assets/11755104/144b7448-49ed-4a51-9324-9591f2228cdf" alt="2682123040.jpg" style="max-width: 100%;"></a></p>
+<p>设置ESP8266 FLASH信息，波特率可以自己设定，9600应该会有点慢。</p>
+<p><a target="_blank" rel="noopener noreferrer" href="https://github.com/Meekdai/meekdai.github.io"><img src="https://github.com/Meekdai/meekdai.github.io" alt="1498565922.jpg" style="max-width: 100%;"></a></p>
+<p>选择串口，开始烧录，有些文档说需要GPIO0拉低后上电，但是我不需要拉低也可以烧写。</p>
+<p><a target="_blank" rel="noopener noreferrer" href="https://github.com/Meekdai/meekdai.github.io/assets/11755104/47b2cd88-787f-471b-8247-9450d334b047"><img src="https://github.com/Meekdai/meekdai.github.io/assets/11755104/47b2cd88-787f-471b-8247-9450d334b047" alt="2891132200.jpg" style="max-width: 100%;"></a></p>
+<p>烧录完成</p>
+<p><a target="_blank" rel="noopener noreferrer" href="https://github.com/Meekdai/meekdai.github.io/assets/11755104/f56ae279-c339-4ca6-a0f3-18dc0f05390d"><img src="https://github.com/Meekdai/meekdai.github.io/assets/11755104/f56ae279-c339-4ca6-a0f3-18dc0f05390d" alt="1930085769.jpg" style="max-width: 100%;"></a></p>
+<p>上电后ESP8266从FLASH正常启动。串口波特率设置为9600，就可以和nodemcu交互了，但是复位后前面会有一段乱码有待解决。</p>
+<p><a target="_blank" rel="noopener noreferrer" href="https://github.com/Meekdai/meekdai.github.io/assets/11755104/4ee9e4dd-c028-4e56-a9a2-ec6d1a79a327"><img src="https://github.com/Meekdai/meekdai.github.io/assets/11755104/4ee9e4dd-c028-4e56-a9a2-ec6d1a79a327" alt="424483076.jpg" style="max-width: 100%;"></a></p>
+<p>另外，最新的NodeMCU 版本貌似没有bin文件下载，需要自己编译，这个后面再来解决。</p>
+<p>##基本操作演示</p>
+<p>烧录完以后按下 RST 按钮重启 NodeMCU，再启动串口工具就可以进入 Lua 交互式命令行：
+在在Linux下可以用<code>$ minicom -D /dev/ttyUSB0</code>来打开串口工具，Windows下直接运行相应的软件就行了。</p>
+<pre><code>&gt; print('Hello, Meekdai')
+Hello, Meekdai
+&gt; gpio.mode(0, gpio.OUTPUT)
+&gt; gpio.write(0, gpio.LOW)
+&gt; gpio.write(0, gpio.HIGH)
+&gt; file.format()
+&gt; node.restart()
+</code></pre>
+<p>上面几条命令分别完成：</p>
+<ul>
+<li>打印了一串字符串</li>
+<li>开/关了靠近 USB 口的 LED（靠近 Wifi 模块的 LED 的 pin 为 4）</li>
+<li>格式化文件系统</li>
+<li>最后重启了 NodeMCU</li>
+</ul>
+<p>如果嫌不够酷，可以参考 <a href="http://nodemcu.github.io/" rel="nofollow">NodeMCU API 手册</a> 可以做更多有趣的操作。</p>
+<p>接下来，创建一个初始化程序：<code>init.lua</code>，它在 NodeMCU 启动后自动执行。</p>
+<p>咱们通过该程序在 NodeMCU 启动后立即点亮 LED：</p>
+<pre><code>&gt; file.open('init.lua','w')
+&gt; file.writeline('gpio.mode(0,gpio.OUTPUT)')
+&gt; file.writeline('gpio.write(0,gpio.LOW)')
+&gt; file.close()
+&gt; node.restart()
+</code></pre>
+<p><code>init.lua</code> 是 NodeMCU 启动时默认执行的第一个程序，有点类似 Linux 上的 init 程序。通过它还可以加载其他程序来完成特定的功能。</p>
+<p>咱们再做一个复杂一点的操作，在 <code>init.lua</code> 里头调用（dofile）一个 <code>user.lua</code> 来点亮 LED：</p>
+<pre><code>&gt; file.open('init.lua','w')
+&gt; file.writeline('dofile("user.lua")')
+&gt; file.close()
+&gt; file.open('user.lua','w')
+&gt; file.writeline('gpio.mode(0,gpio.OUTPUT)')
+&gt; file.writeline('gpio.write(0,gpio.LOW)')
+&gt; file.close()
+&gt; node.restart()
+</code></pre>
+<p>读出 <code>init.lua</code> 看下效果：</p>
+<pre><code>&gt; file.open('init.lua','r')
+&gt; print(file.readline())
+dofile("user.lua")
+&gt; file.close()
+</code></pre>
+<p>当 <code>user.lua</code> 脚本出错时可能导致系统不停地重启，这个时候除了擦除整个 Flash 外，还可以通过 <code>init.lua</code> 做个简单的容错处理：</p>
+<pre><code>if gpio.read(2) == 1:
+    file.format()
+else
+    dofile('user.lua')
+end
+</code></pre>
+<p>一旦系统出错，只要拉高 GPIO 2 就可以格式化文件系统。</p>
+<p>暂时先到这里吧，后面会逐步介绍更多实例。</p>
+<p>##上传 Lua 程序</p>
+<p>上面演示的是命令行操作，这里再介绍如何把在主机端写好的 Lua 程序上传到 NodeMCU 上。</p>
+<p>测试过两个工具都可以用来上传 Lua 程序，分别是：</p>
+<ul>
+<li>
+<a href="https://github.com/4refr0nt/luatool">luatool.py</a>：可用于命令行传送 Lua 脚本，无须复杂的图形化工具支持，同时支持通过串口和 Telnet 上传</li>
+<li>
+<a href="https://github.com/md5crypt/nodemcu.py">nodemcu.py</a>：除了不支持通过 Telnet 上传外，基本功能同 luatool，只是操作方式稍有差异</li>
+</ul>
+<p>下载上述工具：</p>
+<pre><code>$ git clone https://github.com/4refr0nt/luatool.git
+$ git clone https://github.com/md5crypt/nodemcu.py.git
+</code></pre>
+<p>两个都可以进行文件传输，第二个还可以作为串口终端，两个都依赖 pySerial，第二个还需要安装 clipboard：</p>
+<pre><code>$ easy_install clipboard
+</code></pre>
+<p>在上传前咱们写一个简单的 <code>init.lua</code> 脚本，该脚本用于点亮另外一个 LED：</p>
+<pre><code>print('Hello, Meekdai')
+print('I am Nodemcu')
+gpio.mode(4, gpio.OUTPUT)
+gpio.write(4, gpio.LOW)
+</code></pre>
+<p>###luatool.py</p>
+<p>在Linux下通过 luatool.py 传送，传送完立马重启：</p>
+<pre><code>$ cd luatool/luatool/
+$ sudo ./luatool.py -p /dev/ttyUSB0 -b 9600 -f init.lua -r
+</code></pre>
+<p>查看帮助，可以看到更多用法：</p>
+<pre><code>$ sudo ./luatool.py -h
+Usage: luatool.py [-h] [-p PORT] [-b BAUD] [-f SRC] [-t DEST] [-c] [-r] [-d]
+                  [-v] [-a] [-l] [-w] [-i] [--delete DELETE] [--ip IP]
+ESP8266 Lua script uploader.
+optional arguments:
+  -h, --help            show this help message and exit
+  -p PORT, --port PORT  Device name, default /dev/ttyUSB0
+  -b BAUD, --baud BAUD  Baudrate, default 9600
+  -f SRC, --src SRC     Source file on computer, default main.lua
+  -t DEST, --dest DEST  Destination file on MCU, default to source file name
+  -c, --compile         Compile lua to lc after upload
+  -r, --restart         Restart MCU after upload
+  -d, --dofile          Run the Lua script after upload
+  -v, --verbose         Show progress messages.
+  -a, --append          Append source file to destination file.
+  -l, --list            List files on device
+  -w, --wipe            Delete all lua/lc files on device.
+  -i, --id              Query the modules chip id.
+  --delete DELETE       Delete a lua/lc file from device.
+  --ip IP               Connect to a telnet server on the device (--ip
+                        IP[:port])
+</code></pre>
+<p>在Windows下的指令如下，当然你需要先安装Python</p>
+<pre><code>python ./luatool.py --port COM3 --src init.lua -r
+</code></pre>
+<p>###nodemcu.py</p>
+<p>通过 <code>nodemcu.py</code> 上传：</p>
+<pre><code>$ cd nodemcu.py/
+$ python ./nodemcu.py /dev/ttyUSB0 9600
+&gt; :file init.lua init.lua
+&gt; node.restart()
+</code></pre>
+<p>查看帮助，更多用法：</p>
+<pre><code>&gt; :help
+:help
+:uart [boudrate]          - dynamic boudrate change
+:load src                 - evaluate file content
+:file dst src             - write local file src to dst
+:paste [file]             - evaluate clipboard content
+                            or write it to file if given
+:cross-compile dst [file] - compile file or clipboard using
+                            luac-cross and save to dst
+:execute [file]           - cross-compile and execute clipboard or
+                            file content without saving to flash
+:soft-compile dst [file]  - compile file or clipboard on device
+                            and save do dst. This call should handle
+                            lager files than file.compile
+</code></pre>
+<p>##Lua 程序示例</p>
+<p>这里仅仅展示几则基本的 Lua 程序，方便大家快速上手。更多例子请参考 NodeMCU Firmware 下的 <a href="https://github.com/nodemcu/nodemcu-firmware/tree/master/lua_examples">lua_examples</a></p>
+<p>###启动后不断闪烁 LED</p>
+<p>上面其实已经演示了 LED 的基本操作，这里再介绍一个 timer module 的 API：tmr.alarm()：</p>
+<blockquote>
+<p>tmr.alarm(id, interval, repeat, function do())</p>
+<p>id: 0~6, alarmer id. Interval: alarm time, unit: millisecond repeat: 0</p>
+<ul>
+<li>one time alarm, 1 - repeat function do(): callback function for alarm timed out</li>
+</ul>
+</blockquote>
+<p>咱们基于它实现一个 <code>blink.lua</code>:</p>
+<pre><code>print('Blink Demo')
+lighton=0
+led=0
+gpio.write(led, gpio.HIGH)
+tmr.alarm(0,1000,1,function()
+if lighton==0 then
+    lighton=1
+    gpio.mode(led, gpio.OUTPUT)
+    gpio.write(led, gpio.LOW)
+else
+    lighton=0
+    gpio.write(led, gpio.HIGH)
+end
+end)
+gpio.mode(led, gpio.INPUT)
+</code></pre>
+<p>上传 <code>blink.lua</code> 并立即执行：</p>
+<pre><code>python ./luatool.py --port COM3 --src blink.lua -r
+</code></pre>
+<blockquote>
+<p>这里提醒一下，在用串口下载程序的时候，需要先把串口通信工具给关闭，不然会报错</p>
+</blockquote>
+<p>###远程控制 LED 闪烁</p>
+<p>对于物联网来讲，远程控制很关键。咱们这里演示如何通过 Wifi 开启一个服务端口 8888 用于控制 LED，<code>remote_led.lua</code>：</p>
+<pre><code>-- 开启 Wifi 并获得 NodeMCU IP 地址
+-- ssid 和 pwd 分别为自家路由器的 SSID 和访问密码
+local ssid="SSID"
+local pwd="password"
+ip=wifi.sta.getip()
+print(ip)
+if not ip then
+    wifi.setmode(wifi.STATION)
+    wifi.sta.config(ssid,pwd)
+    print(wifi.sta.getip())
+end
+-- 开启一个 8888 的端口
+-- 并通过 node.input() 调用 Lua 解释器控制 LED
+srv=net.createServer(net.TCP)
+srv:listen(8888,function(conn)
+    conn:on("receive",function(conn,payload)
+    node.input("gpio.mode(0, gpio.OUTPUT)")
+    node.input("gpio.write(0, gpio.LOW)")
+    end)
+end)
+</code></pre>
+<p>上传 Lua 程序到服务器执行：</p>
+<pre><code>python ./luatool.py --port COM3 --src remote_led.lua -r
+</code></pre>
+<p>查看 NodeMCU 获取的 IP 地址：</p>
+<pre><code>&gt; print(wifi.sta.getip())
+192.168.0.128   255.255.255.0   192.168.0.1
+</code></pre>
+<p>并测试（在Linux下）：</p>
+<pre><code>$ sudo apt-get install lynx
+$ lynx 192.168.0.104:8888
+</code></pre>
+<p>###远程控制 LED 开关</p>
+<p>创建一个<code>wifi_led.lua</code>，注意修改无线网的名称和密码。</p>
+<pre><code>wifi.setmode(wifi.STATION)  
+wifi.sta.config("YOUR_NETWORK_NAME","YOUR_NETWORK_PASSWORD")  
+print(wifi.sta.getip())  
+led1 = 0  
+gpio.mode(led1, gpio.OUTPUT)  
+srv=net.createServer(net.TCP)  
+srv:listen(80,function(conn)  
+    conn:on("receive", function(client,request)  
+        local buf = "";  
+        local _, _, method, path, vars = string.find(request, "([A-Z]+) (.+)?(.+) HTTP");  
+        if(method == nil)then  
+            _, _, method, path = string.find(request, "([A-Z]+) (.+) HTTP");  
+        end  
+        local _GET = {}  
+        if (vars ~= nil)then  
+            for k, v in string.gmatch(vars, "(%w+)=(%w+)&amp;*") do  
+                _GET[k] = v  
+            end  
+        end  
+        buf = buf.."&lt;h1&gt; Meekdai LED Web Server&lt;/h1&gt;";  
+        buf = buf.."&lt;p&gt;GPIO0 &lt;a href=\"?pin=ON1\"&gt;&lt;button&gt;ON&lt;/button&gt;&lt;/a&gt; &lt;a href=\"?pin=OFF1\"&gt;&lt;button&gt;OFF&lt;/button&gt;&lt;/a&gt;&lt;/p&gt;";  
+        local _on,_off = "",""  
+        if(_GET.pin == "ON1")then  
+              gpio.write(led1, gpio.LOW);  
+        elseif(_GET.pin == "OFF1")then  
+              gpio.write(led1, gpio.HIGH);   
+        end  
+        client:send(buf);  
+        client:close();  
+        collectgarbage();  
+    end)  
+end)
+</code></pre>
+<p>查看 NodeMCU 获取的 IP 地址：</p>
+<pre><code>&gt; print(wifi.sta.getip())
+192.168.0.128   255.255.255.0   192.168.0.1
+</code></pre>
+<p>然后在浏览器中输入192.168.0.128，可以看到如下界面，点击ON为打开LED灯，点击OFF为关闭。</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/76871e0a432d6e335409256877951d7544dca02fc6d51fb7b2f5d15c8b67607d/687474703a2f2f6d65656b6461692e636f6d2f696d672f3766336231653839677931667a707179633078756b6a32306e773067716a73742e6a7067"><img src="https://camo.githubusercontent.com/76871e0a432d6e335409256877951d7544dca02fc6d51fb7b2f5d15c8b67607d/687474703a2f2f6d65656b6461692e636f6d2f696d672f3766336231653839677931667a707179633078756b6a32306e773067716a73742e6a7067" alt="3634745125.jpg" data-canonical-src="http://meekdai.com/img/7f3b1e89gy1fzpqyc0xukj20nw0gqjst.jpg" style="max-width: 100%;"></a></p>
+<p>###开启一个 Telnet 服务</p>
+<p>先从 NodeMCU.com 下载该例子，<code>telnet.lua</code>：</p>
+<pre><code>-- a simple telnet server
+s=net.createServer(net.TCP,180)
+s:listen(2323,function(c)
+    function s_output(str)
+      if(c~=nil)
+        then c:send(str)
+      end
+    end
+    node.output(s_output, 0)
+    -- re-direct output to function s_ouput.
+    c:on("receive",function(c,l)
+      node.input(l)
+      --like pcall(loadstring(l)), support multiple separate lines
+    end)
+    c:on("disconnection",function(c)
+      node.output(nil)
+      --unregist redirect output function, output goes to serial
+    end)
+    print("Welcome to NodeMCU world.")
+end)
+</code></pre>
+<p>上传并执行：</p>
+<pre><code>python ./luatool.py --port COM3 --src telnet.lua -r
+</code></pre>
+<p>通过 telnet 连接：</p>
+<p><strong>在Linux下：</strong></p>
+<pre><code>$ sudo apt-get install telnet
+$ telnet 192.168.0.104 2323
+Trying 192.168.0.104...
+Connected to 192.168.0.104.
+Escape character is '^]'.
+Welcome to NodeMCU world.
+&gt; print('Hello, NodeMCU Telnet')
+Hello, NodeMCU Telnet
+</code></pre>
+<p><strong>在Windows下：</strong></p>
+<p>需要先去启动或者关闭Windows功能中打开telnet服务，然后：</p>
+<pre><code>&gt; print(wifi.sta.getip())
+192.168.0.128   255.255.255.0   192.168.0.1
+&gt; telnet 192.168.0.128 2323
+Welcome to NodeMcu world.
+</code></pre>
+<p>有了 telnet 服务，咱就可以不依赖串口而是直接通过 Wifi 上传 Lua 脚本了：</p>
+<p>在Linux下：</p>
+<pre><code>$ cat test.lua
+print('Upload via telnet service')
+$ sudo ./luatool.py --ip 192.168.0.104:2323 -f test.lua -d -v
+</code></pre>
+<p>在Windows下：</p>
+<pre><code>$ cat test.lua
+print('Upload via telnet service')
+$ python ./luatool.py --ip 192.168.0.128:2323 -f test.lua -d -v
+</code></pre>
+<p>好了，基础的学习就到这里，我其实是一遍搜索资料，自己一遍尝试，然后记录下来的，如果后续发现什么地方不对，会对上面的内容进行修改。</p>
+
+</div>
+<button class="btn btn-block" type="button" onclick="openComments()" id="cmButton" value="Meekdai/meekdai.github.io">评论</button>
+<div class="comments" id="comments"></div>
+</div>
+    <div id="footer">Copyright © <span id="year"></span> <a href="https://blog.meekdai.com"> Meekdai </a><p> 浙ICP备20023628号 <span id="runday"></span>Powered by <a href="https://github.com/Meekdai/Gmeek" target="_blank">Gmeek</a></p>
 
 <script>
-function addScript(url){
-    var script = document.createElement('script');
-    script.setAttribute('type','text/javascript');
-    script.setAttribute('src',url);
-    document.body.appendChild(script);
+if("02/16/2015"!=""){
+    var now=new Date();
+    var startSite=new Date("02/16/2015");
+    var diff=now.getTime()-startSite.getTime();
+    var diffDay=Math.floor(diff/(1000*60*60*24));
+    document.getElementById("year").innerHTML=now.getFullYear();
+    if("浙ICP备20023628号"!=""){document.getElementById("runday").innerHTML=" • "+"网站运行"+diffDay+"天"+" • ";}
+    else{document.getElementById("runday").innerHTML="网站运行"+diffDay+"天"+" • ";}
 }
-window.onload=function(){
-    addScript("https://cdn.jsdelivr.net/gh/Meekdai/Gmeek@"+blogBase["GMEEK_VERSION"]+"/icon.js" );
-    addScript("https://cdn.jsdelivr.net/gh/Meekdai/Gmeek@"+blogBase["GMEEK_VERSION"]+"/Gmeek.js" );
-}
+</script>
+</div>
+</body>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/Meekdai/Gmeek@main/icon.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/Meekdai/Gmeek@main/Gmeek.js"></script>
+<script>
+console.log("\n %c Gmeek main %c https://github.com/Meekdai/Gmeek \n\n", "color: #fff; background-image: linear-gradient(90deg, rgb(47, 172, 178) 0%, rgb(45, 190, 96) 100%); padding:5px 1px;", "background-image: linear-gradient(90deg, rgb(45, 190, 96) 0%, rgb(255, 255, 255) 100%); padding:5px 0;");
+</script>
+
+<script>
+document.getElementById("pathHome").setAttribute("d",IconList["home"]);
+document.getElementById("pathIssue").setAttribute("d",IconList["github"]);
+
 </script>
 
 </html>

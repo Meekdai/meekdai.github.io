@@ -1,73 +1,106 @@
+<!DOCTYPE html>
 <html data-color-mode="light" data-dark-theme="dark" data-light-theme="light">
 <head>
-<meta content="text/html; charset=utf-8" http-equiv="content-type" />
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<link href="https://unpkg.com/@wooorm/starry-night@2.1.1/style/both.css" rel="stylesheet" />
-<link href="https://unpkg.com/@primer/css@^21.0.7/dist/primer.css" rel="stylesheet" />
-
+    <meta content="text/html; charset=utf-8" http-equiv="content-type" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="https://unpkg.com/@primer/css@21.0.7/dist/primer.css" rel="stylesheet" />
+    <link rel="icon" href="https://meekdai.com/favicon.ico">
+    <title>Meekdai</title>
 </head>
 <style>
-.markdown-body {
+body{
     box-sizing: border-box;
     min-width: 200px;
     max-width: 900px;
-    margin: 10px auto;
+    margin: 20px auto;
     padding: 45px;
+    font-size: 16px;
     font-family: sans-serif;
+    line-height: 1.25;
 }
-.markdown-body hr{height:2px;}
-@media (max-width: 560px) {
-    .markdown-body { padding: 8px;} 
-}
-
 .avatar {transition: 0.8s;}
 .avatar:hover {transform: scale(1.15) rotate(360deg);}
+#header{display:flex;padding-bottom:8px;border-bottom: 1px solid var(--borderColor-muted, var(--color-border-muted));margin-bottom: 16px;}
+#footer {margin: 40px auto; text-align: center;font-size: small;}
 
-h1 {display:flex;}
-.g-emoji{font-size:24px;}
+</style>
+
+<style>
+h1 a:not([href]){color:inherit;text-decoration:none;vertical-align: bottom;font-size:40px;font-family:Monaco;}
 .title-right{display:flex;margin:auto 0 0 auto;}
-.title-right button{margin-left:8px;padding:16px;}
-.SideNav{min-width: 360px;}
-.SideNav-icon{margin-right: 16px}
-#postBody{border-bottom: 1px solid var(--color-border-default);}
-#comments{margin-top:64px;}
-.footer {margin: 40px auto; text-align: center;font-size: small;}
+.title-right .circle{padding: 14px 16px;margin-right:8px;}
 #cmButton{height:48px;margin-top:48px;}
 </style>
-<script>var blogBase={"postTitle": "\u5173\u4e8e", "postBody": "<p>\u672c\u4eba\u786c\u4ef6\u653b\u57ce\u72ee\u4e00\u679a\uff0c\u4f1a\u7528\u70b9<a href=\"https://micropython.org/\" rel=\"nofollow\">micropython</a>\u5199\u5d4c\u5165\u5f0f\u4ee3\u7801\uff0c\u5e73\u65f6\u4e5f\u559c\u6b22\u6298\u817e\u7f51\u7ad9\uff0c\u5b66\u4e00\u70b9\u524d\u7aef\u77e5\u8bc6\u3002</p>\n<ul>\n<li>2012\u5e74\u7684\u7b2c\u4e00\u4e2a\u57df\u540d<code>djydiy.com</code>\uff08\u5f03\u7528\uff09\uff0c\u670d\u52a1\u5668\u7528\u7684\u65b0\u6d6a\u7684SAE\u3002</li>\n<li>2015\u5e74\u6ce8\u518c\u57df\u540d<code>meekdai.com</code>,\u670d\u52a1\u5668\u7528<code>Hostker</code>\uff0c\u5f88\u957f\u4e00\u6bb5\u65f6\u95f4\u7528<code>\u535c\u535c\u53e3</code>\u5927\u4f6c\u7684<a href=\"https://github.com/itorr/imouto\">imouto</a>\u6846\u67b6</li>\n<li>2019\u5e74\u8f6c\u7528<a href=\"https://typecho.org/\" rel=\"nofollow\">Typecho</a>\u535a\u5ba2\u6846\u67b6\uff0c\u5e76\u4e14\u8d2d\u4e70\u4e86<a href=\"https://get233.com/archives/mirages-intro.html\" rel=\"nofollow\">Mirages</a>\u4e3b\u9898</li>\n<li>2020\u5e74\u8d2d\u4e70\u4e86\u963f\u91cc\u4e91\u7684ECS\uff0c\u65b0\u7528\u62373\u5e74\u6bd4\u8f83\u4fbf\u5b9c</li>\n<li>2023\u5e74\u7531\u4e8e\u6ca1\u6709\u7c73\u7eed\u8d39\u963f\u91cc\u4e91\u7684ECS\uff0c<a href=\"https://github.com/Meekdai/Gmeek\">Gmeek</a>\u88ab\u6211\u778e\u6298\u817e\u51fa\u6765\u4e86</li>\n</ul>\n", "title": "Meekdai", "homeUrl": "https://blog.meekdai.com", "postSourceUrl": "https://github.com/Meekdai/meekdai.github.io/issues/1", "faviconUrl": "https://meekdai.com/favicon.ico", "filingNum": "\u6d59ICP\u590720023628\u53f7", "startSite": "02/16/2015", "i18n": "CN", "commentNum": 2, "fontSize": "", "top": 0, "repoName": "Meekdai/meekdai.github.io", "GMEEK_VERSION": "main"}</script>
+
+
 <body>
-<div class="markdown-body">
-    <h1>
-        <div id="postTitle"></div>
-        <div class="title-right">
-        <button id="buttonHome" class="btn btn-invisible circle" onclick="window.location.href='/'"><svg class="octicon octicon-sun" width="16" height="16"><path id="pathHome" fill-rule="evenodd"></path></svg></button>
-        
-        <button class="btn btn-invisible circle" onclick="gotoSource()" title="Issue"><svg class="octicon octicon-sun" width="16" height="16"><path id="pathIssue" fill-rule="evenodd"></path></svg></button>
-        
-        <button id="changeTheme" class="btn btn-invisible circle" onclick="modeSwitch()"><svg class="octicon octicon-sun" width="16" height="16"><path id="themeSwitch" fill-rule="evenodd"></path></svg></button>
-        </div>
-    </h1>
-    <div id="postBody"></div>
+    <div id="header">
+<h1>
+    <a>关于</a>
+</h1>
+<div class="title-right">
 
-    <button class="btn btn-block" type="button" onclick="openComments()" id="cmButton"> </button>
-    <div class="comments" id="comments"></div>
+    <button id="buttonHome" class="btn btn-invisible circle" onclick="window.location.href='/'" title="首页">
+        <svg class="octicon" width="16" height="16">
+            <path id="pathHome" fill-rule="evenodd"></path>
+        </svg>
+    </button>
 
-    <div class="footer">Copyright © <span id="year"></span> <a id="footerblogTitle" href=""></a> <p><span id="filingNum"></span><span id="runday"></span>Powered by <a href="https://github.com/Meekdai/Gmeek" target="_blank">Gmeek</a></p></div>
+    <button class="btn btn-invisible circle" onclick="window.open('https://github.com/Meekdai/meekdai.github.io/issues/1')" title="Issue">
+        <svg class="octicon" width="16" height="16">
+            <path id="pathIssue" fill-rule="evenodd"></path>
+        </svg>
+    </button>
+
+    <button id="changeTheme" class="btn btn-invisible circle" onclick="modeSwitch()" title="切换主题">
+        <svg class="octicon" width="16" height="16" >
+            <path id="themeSwitch" fill-rule="evenodd"></path>
+        </svg>
+    </button>
+
 </div>
-</body>
+</div>
+    <div id="content">
+<div class="markdown-body">
+<p>本人硬件攻城狮一枚，会用点<a href="https://micropython.org/" rel="nofollow">micropython</a>写嵌入式代码，平时也喜欢折腾网站，学一点前端知识。</p>
+<ul>
+<li>2012年的第一个域名<code>djydiy.com</code>（弃用），服务器用的新浪的SAE。</li>
+<li>2015年注册域名<code>meekdai.com</code>,服务器用<code>Hostker</code>，很长一段时间用<code>卜卜口</code>大佬的<a href="https://github.com/itorr/imouto">imouto</a>框架</li>
+<li>2019年转用<a href="https://typecho.org/" rel="nofollow">Typecho</a>博客框架，并且购买了<a href="https://get233.com/archives/mirages-intro.html" rel="nofollow">Mirages</a>主题</li>
+<li>2020年购买了阿里云的ECS，新用户3年比较便宜</li>
+<li>2023年由于没有米续费阿里云的ECS，<a href="https://github.com/Meekdai/Gmeek">Gmeek</a>被我瞎折腾出来了</li>
+</ul>
+
+</div>
+<button class="btn btn-block" type="button" onclick="openComments()" id="cmButton" value="Meekdai/meekdai.github.io">评论</button>
+<div class="comments" id="comments"></div>
+</div>
+    <div id="footer">Copyright © <span id="year"></span> <a href="https://blog.meekdai.com"> Meekdai </a><p> 浙ICP备20023628号 <span id="runday"></span>Powered by <a href="https://github.com/Meekdai/Gmeek" target="_blank">Gmeek</a></p>
 
 <script>
-function addScript(url){
-    var script = document.createElement('script');
-    script.setAttribute('type','text/javascript');
-    script.setAttribute('src',url);
-    document.body.appendChild(script);
+if("02/16/2015"!=""){
+    var now=new Date();
+    var startSite=new Date("02/16/2015");
+    var diff=now.getTime()-startSite.getTime();
+    var diffDay=Math.floor(diff/(1000*60*60*24));
+    document.getElementById("year").innerHTML=now.getFullYear();
+    if("浙ICP备20023628号"!=""){document.getElementById("runday").innerHTML=" • "+"网站运行"+diffDay+"天"+" • ";}
+    else{document.getElementById("runday").innerHTML="网站运行"+diffDay+"天"+" • ";}
 }
-window.onload=function(){
-    addScript("https://cdn.jsdelivr.net/gh/Meekdai/Gmeek@"+blogBase["GMEEK_VERSION"]+"/icon.js" );
-    addScript("https://cdn.jsdelivr.net/gh/Meekdai/Gmeek@"+blogBase["GMEEK_VERSION"]+"/Gmeek.js" );
-}
+</script>
+</div>
+</body>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/Meekdai/Gmeek@main/icon.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/Meekdai/Gmeek@main/Gmeek.js"></script>
+<script>
+console.log("\n %c Gmeek main %c https://github.com/Meekdai/Gmeek \n\n", "color: #fff; background-image: linear-gradient(90deg, rgb(47, 172, 178) 0%, rgb(45, 190, 96) 100%); padding:5px 1px;", "background-image: linear-gradient(90deg, rgb(45, 190, 96) 0%, rgb(255, 255, 255) 100%); padding:5px 0;");
+</script>
+
+<script>
+document.getElementById("pathHome").setAttribute("d",IconList["home"]);
+document.getElementById("pathIssue").setAttribute("d",IconList["github"]);
+
 </script>
 
 </html>
