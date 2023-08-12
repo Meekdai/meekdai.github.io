@@ -19,13 +19,6 @@ body{
     font-family: sans-serif;
     line-height: 1.25;
 }
-@media (max-width: 767px) {
-    body { padding: 8px;} 
-    .subnav-search form{display:none;}
-    .subnav-search svg{display:none;}
-    .SideNav-item .listLabels{display:none;}
-    #buttonRSS{display:none;}
-}
 
 .avatar {transition: 0.8s;}
 .avatar:hover {transform: scale(1.15) rotate(360deg);}
@@ -42,6 +35,7 @@ h1 a:not([href]){color:inherit;text-decoration:none;vertical-align: bottom;font-
 #postBody hr{height:2px;}
 #cmButton{height:48px;margin-top:48px;}
 #comments{margin-top:64px;}
+@media (max-width: 767px) {body {padding: 8px;}}
 </style>
 
 
@@ -92,16 +86,16 @@ h1 a:not([href]){color:inherit;text-decoration:none;vertical-align: bottom;font-
 <li>无需自己创建繁琐的secrets，简单3步搭建好，有手就行</li>
 <li>搜索框目前指定到Google搜索</li>
 <li>评论按钮加载优化，添加loading</li>
-<li>支持github Emoji表情 <g-emoji class="g-emoji" alias="sparkles" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/2728.png">✨</g-emoji></li>
+<li>支持github Emoji表情 ✨</li>
 </ul>
 <h4><a id="user-content-20230730" class="anchor" aria-hidden="true" href="#20230730"><span aria-hidden="true" class="octicon octicon-link"></span></a>20230730</h4>
 <ul>
 <li>文章生成和部署流程合并到一个工作流中</li>
-<li>添加简易的i18n，目前支持中文<code>CN</code>和英文<code>EN</code>，可以在配置文件中配置<g-emoji class="g-emoji" alias="wink" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f609.png">😉</g-emoji></li>
+<li>添加简易的i18n，目前支持中文<code>CN</code>和英文<code>EN</code>，可以在配置文件中配置😉</li>
 </ul>
 <h4><a id="user-content-20230729" class="anchor" aria-hidden="true" href="#20230729"><span aria-hidden="true" class="octicon octicon-link"></span></a>20230729</h4>
 <ul>
-<li>简化搭建流程，无需克隆，只需要创建自己的仓库3步轻松搭建😄</li>
+<li>简化搭建流程，无需克隆，只需要创建自己的仓库3步轻松搭建<g-emoji class="g-emoji" alias="smile" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f604.png">😄</g-emoji></li>
 </ul>
 <h4><a id="user-content-20230728" class="anchor" aria-hidden="true" href="#20230728"><span aria-hidden="true" class="octicon octicon-link"></span></a>20230728</h4>
 <ul>
@@ -126,11 +120,11 @@ h1 a:not([href]){color:inherit;text-decoration:none;vertical-align: bottom;font-
 </ul>
 <h4><a id="user-content-20230711" class="anchor" aria-hidden="true" href="#20230711"><span aria-hidden="true" class="octicon octicon-link"></span></a>20230711</h4>
 <ul>
-<li>添加友情链接和关于等独立页面<g-emoji class="g-emoji" alias="new" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f195.png">🆕</g-emoji></li>
+<li>添加友情链接和关于等独立页面🆕</li>
 <li>可以手动切换暗亮主题</li>
 </ul>
 <hr>
-<p>在2023年的暑假，之前购买阿里云3年的活动ECS主机到期了，续费价格超级贵<g-emoji class="g-emoji" alias="sob" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f62d.png">😭</g-emoji>，所以打算在github page上面搭建自己的博客。看了很多不同类型的，例如<a href="https://github.com/hexojs/hexo">Hexo</a>、<a href="https://github.com/gohugoio/hugo">Hugo</a>这些比较有名的，也了解了很多在github上的小项目，发现了<a href="https://github.com/yihong0618/gitblog">gitblog</a>，这个博客是用python抓取github issues的内容然后展示在首页<code>readme.md</code>，当即就来了灵感<g-emoji class="g-emoji" alias="clap" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f44f.png">👏</g-emoji>，我可以自己通过Python抓取github issues的内容，生成静态页面，不仅仅包含首页，文章页面也可以生成后存储在github上，而且也可以通过 github Action 来自动执行 Python 文件，完全不需要任何的本地部署和操作。</p>
+<p>在2023年的暑假，之前购买阿里云3年的活动ECS主机到期了，续费价格超级贵<g-emoji class="g-emoji" alias="sob" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f62d.png">😭</g-emoji>，所以打算在github page上面搭建自己的博客。看了很多不同类型的，例如<a href="https://github.com/hexojs/hexo">Hexo</a>、<a href="https://github.com/gohugoio/hugo">Hugo</a>这些比较有名的，也了解了很多在github上的小项目，发现了<a href="https://github.com/yihong0618/gitblog">gitblog</a>，这个博客是用python抓取github issues的内容然后展示在首页<code>readme.md</code>，当即就来了灵感👏，我可以自己通过Python抓取github issues的内容，生成静态页面，不仅仅包含首页，文章页面也可以生成后存储在github上，而且也可以通过 github Action 来自动执行 Python 文件，完全不需要任何的本地部署和操作。</p>
 <p>目前已经实现了抓取文章页面和首页的基础程序，内容展示用了<a href="https://primer.style/css/" rel="nofollow">primer/css</a>，评论直接使用<a href="https://utteranc.es/" rel="nofollow">utteranc.es</a>拉取issues的评论，但是目前还只是一个简单的框架 =&gt;&gt; <a href="https://github.com/Meekdai/Gmeek">Gmeek</a></p>
 <hr>
 <p>TODO:</p>

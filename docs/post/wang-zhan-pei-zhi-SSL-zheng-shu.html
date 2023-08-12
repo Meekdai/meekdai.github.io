@@ -19,13 +19,6 @@ body{
     font-family: sans-serif;
     line-height: 1.25;
 }
-@media (max-width: 767px) {
-    body { padding: 8px;} 
-    .subnav-search form{display:none;}
-    .subnav-search svg{display:none;}
-    .SideNav-item .listLabels{display:none;}
-    #buttonRSS{display:none;}
-}
 
 .avatar {transition: 0.8s;}
 .avatar:hover {transform: scale(1.15) rotate(360deg);}
@@ -42,6 +35,7 @@ h1 a:not([href]){color:inherit;text-decoration:none;vertical-align: bottom;font-
 #postBody hr{height:2px;}
 #cmButton{height:48px;margin-top:48px;}
 #comments{margin-top:64px;}
+@media (max-width: 767px) {body {padding: 8px;}}
 </style>
 
 
@@ -74,7 +68,7 @@ h1 a:not([href]){color:inherit;text-decoration:none;vertical-align: bottom;font-
 </div>
     <div id="content">
 <div class="markdown-body" id="postBody">
-<p>感叹一下，现在给网站添加一个SSL证书已经如此方便了，而且还是免费的，只是需要每年重新申请一下就行。<g-emoji class="g-emoji" alias="100" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4af.png">💯</g-emoji></p>
+<p>感叹一下，现在给网站添加一个SSL证书已经如此方便了，而且还是免费的，只是需要每年重新申请一下就行。💯</p>
 <ol>
 <li>在阿里云的SSL证书页面有个免费证书的选项，0元购买20个单域名DigiCert 免费版 SSL。</li>
 <li>创建一个证书，添加一些基本信息，点击申请后，大约1分钟就申请下来了。</li>
