@@ -1,27 +1,32 @@
 一个博客框架，超轻量级个人博客模板，完全基于`Github Pages `、 `Github Issues` 和 `Github Actions`。不需要本地部署，从搭建到写作，只需要几分钟的时间，3步搭建好博客，第4步就是写作。
 
+#### 20230812（v2.0）
+- 使用jinja2重构生成html的所有代码
+- 通过模板的方式后续可提供不同UI主题
+- 对SEO进行优化
+
 #### 20230804（v1.3）
-- 添加文章置顶功能 :top:
+- 添加文章置顶功能  :top: 
 - 可自定义单篇文章的字体大小
 
-#### 20230801（v1.2）:clinking_glasses:
+#### 20230801（v1.2） :clinking_glasses: 
 - 添加RSS
 - 独立JS文件，使用jsdelivr CDN
 - 添加控制台console版本号输出
 - 把所有配置都统一到了`config.json`文件中，其他地方无需再修改
 
-#### 20230731（v1.1）:poultry_leg:
+#### 20230731（v1.1） :poultry_leg: 
 - 无需自己创建繁琐的secrets，简单3步搭建好，有手就行
 - 搜索框目前指定到Google搜索
 - 评论按钮加载优化，添加loading
-- 支持github Emoji表情 :sparkles:
+- 支持github Emoji表情 :sparkles: 
 
 #### 20230730
 - 文章生成和部署流程合并到一个工作流中
-- 添加简易的i18n，目前支持中文`CN`和英文`EN`，可以在配置文件中配置:wink:
+- 添加简易的i18n，目前支持中文`CN`和英文`EN`，可以在配置文件中配置 :wink: 
 
 #### 20230729
-- 简化搭建流程，无需克隆，只需要创建自己的仓库3步轻松搭建:smile:
+- 简化搭建流程，无需克隆，只需要创建自己的仓库3步轻松搭建 :smile: 
 
 #### 20230728
 - 博客框架更名为Gmeek，源码上传Github
@@ -42,12 +47,12 @@
 - 统一首页和博客页等样式排布
 
 #### 20230711
-- 添加友情链接和关于等独立页面:new:
+- 添加友情链接和关于等独立页面 :new: 
 - 可以手动切换暗亮主题
 
 ---
 
-在2023年的暑假，之前购买阿里云3年的活动ECS主机到期了，续费价格超级贵😭，所以打算在github page上面搭建自己的博客。看了很多不同类型的，例如[Hexo](https://github.com/hexojs/hexo)、[Hugo](https://github.com/gohugoio/hugo)这些比较有名的，也了解了很多在github上的小项目，发现了[gitblog](https://github.com/yihong0618/gitblog)，这个博客是用python抓取github issues的内容然后展示在首页`readme.md`，当即就来了灵感👏，我可以自己通过Python抓取github issues的内容，生成静态页面，不仅仅包含首页，文章页面也可以生成后存储在github上，而且也可以通过 github Action 来自动执行 Python 文件，完全不需要任何的本地部署和操作。
+在2023年的暑假，之前购买阿里云3年的活动ECS主机到期了，续费价格超级贵，所以打算在github page上面搭建自己的博客。看了很多不同类型的，例如[Hexo](https://github.com/hexojs/hexo)、[Hugo](https://github.com/gohugoio/hugo)这些比较有名的，也了解了很多在github上的小项目，发现了[gitblog](https://github.com/yihong0618/gitblog)，这个博客是用python抓取github issues的内容然后展示在首页`readme.md`，当即就来了灵感，我可以自己通过Python抓取github issues的内容，生成静态页面，不仅仅包含首页，文章页面也可以生成后存储在github上，而且也可以通过 github Action 来自动执行 Python 文件，完全不需要任何的本地部署和操作。
 
 目前已经实现了抓取文章页面和首页的基础程序，内容展示用了[primer/css](https://primer.style/css/)，评论直接使用[utteranc.es](https://utteranc.es/)拉取issues的评论，但是目前还只是一个简单的框架 =>> [Gmeek](https://github.com/Meekdai/Gmeek)
 
@@ -55,5 +60,4 @@
 
 TODO:
 - 数学公式目前不支持，考虑是否添加
-- SEO优化，目前数据都通过JS调用貌似对SEO不友好
 
