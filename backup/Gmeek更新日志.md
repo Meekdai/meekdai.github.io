@@ -1,4 +1,4 @@
-一个博客框架，超轻量级个人博客模板，完全基于`Github Pages `、 `Github Issues` 和 `Github Actions`。不需要本地部署，从搭建到写作，只需要几分钟的时间，3步搭建好博客，第4步就是写作。
+[Gmeek](https://github.com/Meekdai/Gmeek) 一个博客框架，超轻量级个人博客模板，完全基于`Github Pages `、 `Github Issues` 和 `Github Actions`。不需要本地部署，从搭建到写作，只需要几分钟的时间，3步搭建好博客，第4步就是写作。
 
 #### 20230812（v2.0）
 - 使用jinja2重构生成html的所有代码
@@ -60,4 +60,5 @@
 
 TODO:
 - 数学公式目前不支持，考虑是否添加
+- 准备写第二个UI主题
 
