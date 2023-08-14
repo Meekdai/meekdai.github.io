@@ -1,5 +1,11 @@
 [Gmeek](https://github.com/Meekdai/Gmeek) 一个博客框架，超轻量级个人博客模板，完全基于`Github Pages `、 `Github Issues` 和 `Github Actions`。不需要本地部署，从搭建到写作，只需要几分钟的时间，3步搭建好博客，第4步就是写作。
 
+#### 20230814（v2.1）
+- 添加自定义文章页`style`和`script`
+- 使用a标签优化圆形按钮
+- 修改切换主题亮暗颜色，更加直观
+- 不再使用`jsdelivr`，精简文件，提升页面加载速度
+
 #### 20230812（v2.0）
 - 使用jinja2重构生成html的所有代码
 - 通过模板的方式后续可提供不同UI主题

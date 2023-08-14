@@ -43,6 +43,8 @@ h1 a:not([href]){color:inherit;text-decoration:none;vertical-align: bottom;font-
 </style>
 
 
+
+
 <body>
     <div id="header">
 <h1>
@@ -73,6 +75,14 @@ h1 a:not([href]){color:inherit;text-decoration:none;vertical-align: bottom;font-
     <div id="content">
 <div class="markdown-body" id="postBody">
 <p><a href="https://github.com/Meekdai/Gmeek">Gmeek</a> 一个博客框架，超轻量级个人博客模板，完全基于<code>Github Pages </code>、 <code>Github Issues</code> 和 <code>Github Actions</code>。不需要本地部署，从搭建到写作，只需要几分钟的时间，3步搭建好博客，第4步就是写作。</p>
+<h4><a id="user-content-20230814v21" class="anchor" aria-hidden="true" href="#20230814v21"><span aria-hidden="true" class="octicon octicon-link"></span></a>20230814（v2.1）</h4>
+<ul>
+<li>添加自定义文章页<code>style</code>和<code>script</code>
+</li>
+<li>使用a标签优化圆形按钮</li>
+<li>修改切换主题亮暗颜色，更加直观</li>
+<li>不再使用<code>jsdelivr</code>，精简文件，提升页面加载速度</li>
+</ul>
 <h4><a id="user-content-20230812v20" class="anchor" aria-hidden="true" href="#20230812v20"><span aria-hidden="true" class="octicon octicon-link"></span></a>20230812（v2.0）</h4>
 <ul>
 <li>使用jinja2重构生成html的所有代码</li>
@@ -81,10 +91,10 @@ h1 a:not([href]){color:inherit;text-decoration:none;vertical-align: bottom;font-
 </ul>
 <h4><a id="user-content-20230804v13" class="anchor" aria-hidden="true" href="#20230804v13"><span aria-hidden="true" class="octicon octicon-link"></span></a>20230804（v1.3）</h4>
 <ul>
-<li>添加文章置顶功能  🔝</li>
+<li>添加文章置顶功能  <g-emoji class="g-emoji" alias="top" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f51d.png">🔝</g-emoji></li>
 <li>可自定义单篇文章的字体大小</li>
 </ul>
-<h4><a id="user-content-20230801v12-clinking_glasses" class="anchor" aria-hidden="true" href="#20230801v12-clinking_glasses"><span aria-hidden="true" class="octicon octicon-link"></span></a>20230801（v1.2） <g-emoji class="g-emoji" alias="clinking_glasses" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f942.png">🥂</g-emoji></h4>
+<h4><a id="user-content-20230801v12-clinking_glasses" class="anchor" aria-hidden="true" href="#20230801v12-clinking_glasses"><span aria-hidden="true" class="octicon octicon-link"></span></a>20230801（v1.2） 🥂</h4>
 <ul>
 <li>添加RSS</li>
 <li>独立JS文件，使用jsdelivr CDN</li>
@@ -105,7 +115,7 @@ h1 a:not([href]){color:inherit;text-decoration:none;vertical-align: bottom;font-
 </ul>
 <h4><a id="user-content-20230729" class="anchor" aria-hidden="true" href="#20230729"><span aria-hidden="true" class="octicon octicon-link"></span></a>20230729</h4>
 <ul>
-<li>简化搭建流程，无需克隆，只需要创建自己的仓库3步轻松搭建 <g-emoji class="g-emoji" alias="smile" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f604.png">😄</g-emoji></li>
+<li>简化搭建流程，无需克隆，只需要创建自己的仓库3步轻松搭建 😄</li>
 </ul>
 <h4><a id="user-content-20230728" class="anchor" aria-hidden="true" href="#20230728"><span aria-hidden="true" class="octicon octicon-link"></span></a>20230728</h4>
 <ul>
@@ -201,8 +211,6 @@ console.log("\n %c Gmeek main %c https://github.com/Meekdai/Gmeek \n\n", "color:
 
 <script>
 
-
-
 cmButton=document.getElementById("cmButton");
     span=document.createElement("span");
     span.setAttribute("class","Counter");
@@ -243,5 +251,8 @@ function iFrameLoading(){
 }
 
 </script>
+
+
+
 
 </html>
