@@ -26,7 +26,7 @@ body{
 .avatar {transition: 0.8s;}
 .avatar:hover {transform: scale(1.15) rotate(360deg);}
 #header{display:flex;padding-bottom:8px;border-bottom: 1px solid var(--borderColor-muted, var(--color-border-muted));margin-bottom: 16px;}
-#footer {margin: 40px auto; text-align: center;font-size: small;}
+#footer {margin-top:64px; text-align: center;font-size: small;}
 
 </style>
 
@@ -41,6 +41,8 @@ h1 a:not([href]){color:inherit;text-decoration:none;vertical-align: bottom;font-
 .g-emoji{font-size:24px;}
 @media (max-width: 767px) {body {padding: 8px;}}
 </style>
+<style>#postBody{font-size:20px}</style>
+
 
 
 <body>
@@ -89,7 +91,8 @@ h1 a:not([href]){color:inherit;text-decoration:none;vertical-align: bottom;font-
 <p><strong>05</strong>
 很久没有骑车出去逛逛了，走起~</p>
 <p><strong>06</strong>
-我骑车回来了，路上都是春天的味道啊，湘湖边柳树已经绿了，樱花、桃花、迎春花都格外的艳丽，只不过空气质量真的不是很好，感觉以后有必要带个口罩呢。</p>
+我骑车回来了，路上都是春天的味道啊，湘湖边柳树已经绿了，樱花、桃花、迎春花都格外的艳丽，只不过空气质量真的不是很好，感觉以后有必要带个口罩呢。 <g-emoji class="g-emoji" alias="mask" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f637.png">😷</g-emoji></p>
+
 
 </div>
 <button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
@@ -149,8 +152,6 @@ console.log("\n %c Gmeek main %c https://github.com/Meekdai/Gmeek \n\n", "color:
 
 <script>
 
-document.getElementById("postBody").setAttribute("style","font-size:20px");
-
 cmButton=document.getElementById("cmButton");
     span=document.createElement("span");
     span.setAttribute("class","Counter");
@@ -191,5 +192,8 @@ function iFrameLoading(){
 }
 
 </script>
+
+
+
 
 </html>
