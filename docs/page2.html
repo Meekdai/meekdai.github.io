@@ -7,8 +7,7 @@
     <link href="https://unpkg.com/@primer/css@21.0.7/dist/primer.css" rel="stylesheet" />
     <link rel="icon" href="https://meekdai.com/favicon.svg">
     
-<title>JS判断评论框是否成功加载的方法</title>
-<link href="https://unpkg.com/@wooorm/starry-night@2.1.1/style/both.css" rel="stylesheet" />
+<title>Meekdai</title>
 
 </head>
 <style>
@@ -31,69 +30,164 @@ body{
 </style>
 
 <style>
-h1 a:not([href]){color:inherit;text-decoration:none;vertical-align: bottom;font-size:40px;}
+h1 a:not([href]){color:inherit;text-decoration:none;vertical-align: bottom;font-size:40px;font-family:Monaco;}
 .title-right{display:flex;margin:auto 0 0 auto;}
-.title-right .circle{padding: 14px 16px;margin-right:8px;}
-#postBody{border-bottom: 1px solid var(--color-border-default);padding-bottom:36px;}
-#postBody hr{height:2px;}
-#cmButton{height:48px;margin-top:48px;}
-#comments{margin-top:64px;}
-.g-emoji{font-size:24px;}
-@media (max-width: 767px) {body {padding: 8px;}}
+.title-right button{margin-right:8px;padding:16px;}
+
+.subnav-search{margin-top:8px;margin-right:8px;}
+.subnav-search-input{width:160px;border-top-right-radius:0px;border-bottom-right-radius:0px;}
+.subnav-search button{padding:5px 8px;border-top-left-radius:0px;border-bottom-left-radius:0px;}
+
+.title-right .circle{padding: 14px 16px;}
+
+.SideNav{min-width: 360px;}
+.SideNav-icon{margin-right: 16px}
+.SideNav-item .Label{color: #fff;margin-left:8px;}
+@media (max-width: 767px) {
+    body { padding: 8px;}
+    h1 a:not([href]){font-size:24px;}
+    .subnav-search form{display:none;}
+    .subnav-search svg{display:none;}
+    #buttonRSS{display:none;}
+    .SideNav-item .listLabels{display:none;}
+}
 </style>
-
-
 
 
 <body>
     <div id="header">
 <h1>
-    <a>JS判断评论框是否成功加载的方法</a>
+    <img src="https://meekdai.com/avatar.svg" size="64" height="64" width="64" class="avatar circle" id="avatarImg">
+    <a>eekdai</a>
 </h1>
 <div class="title-right">
-
-    <a href="/"><button id="buttonHome" class="btn btn-invisible circle" title="首页">
-        <svg class="octicon" width="16" height="16">
-            <path id="pathHome" fill-rule="evenodd" d="M6.906.664a1.749 1.749 0 0 1 2.187 0l5.25 4.2c.415.332.657.835.657 1.367v7.019A1.75 1.75 0 0 1 13.25 15h-3.5a.75.75 0 0 1-.75-.75V9H7v5.25a.75.75 0 0 1-.75.75h-3.5A1.75 1.75 0 0 1 1 13.25V6.23c0-.531.242-1.034.657-1.366l5.25-4.2Zm1.25 1.171a.25.25 0 0 0-.312 0l-5.25 4.2a.25.25 0 0 0-.094.196v7.019c0 .138.112.25.25.25H5.5V8.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v5.25h2.75a.25.25 0 0 0 .25-.25V6.23a.25.25 0 0 0-.094-.195Z"></path>
+    <div class="subnav-search">
+        <form action="https://www.google.com/search" method="get" target="_blank">
+            <input type="hidden" name="q" value="site:https://blog.meekdai.com">
+            <input type="search" name="q" class="form-control subnav-search-input float-left" aria-label="Search site" value="">
+            <button class="btn float-left" type="submit">搜索</button>
+        </form>
+        <svg class="subnav-search-icon octicon octicon-search" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true">
+            <path id="searchSVG" fill-rule="evenodd" d=""></path>
+        </svg>
+    </div>
+    <a href="/link.html"><button class="btn btn-invisible circle" title="友情链接">
+        <svg class="octicon" width="16" height="16" >
+            <path id="友情链接" fill-rule="evenodd"></path>
+        </svg>
+    </button></a><a href="/about.html"><button class="btn btn-invisible circle" title="关于">
+        <svg class="octicon" width="16" height="16" >
+            <path id="关于" fill-rule="evenodd"></path>
         </svg>
     </button></a>
-
-    <a href="https://github.com/Meekdai/meekdai.github.io/issues/20" target="_blank"><button class="btn btn-invisible circle" title="Issue">
-        <svg class="octicon" width="16" height="16">
-            <path id="pathIssue" fill-rule="evenodd" d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path>
+    <a href="/rss.xml" target="_blank"><button id="buttonRSS" class="btn btn-invisible circle" title="RSS">
+        <svg class="octicon" width="16" height="16" >
+            <path id="pathRSS" fill-rule="evenodd"></path>
         </svg>
     </button></a>
-
-    <button class="btn btn-invisible circle" onclick="modeSwitch();" title="切换主题">
+    <button class="btn btn-invisible circle" onclick="modeSwitch()" title="切换主题">
         <svg class="octicon" width="16" height="16" >
             <path id="themeSwitch" fill-rule="evenodd"></path>
         </svg>
     </button>
-
 </div>
 </div>
     <div id="content">
-<div class="markdown-body" id="postBody">
-<p>在给博客添加 <a href="https://utteranc.es/" rel="nofollow">utteranc</a> 评论框的时候，发现添加按钮再加载评论框比较友好。但是发现点击后需要隐藏按钮元素，否则会比较奇怪，这个时候就需要通过JS来判断iframe是否成功加载了。</p>
-<p>在网上找了一圈，发现 <a href="https://humanwhocodes.com/blog/2009/09/15/iframes-onload-and-documentdomain/" rel="nofollow">Iframes, onload, and document.domain</a> 文中给出来比较详细的介绍和方法，但是用在<code>utteranc</code>的时候，出现了问题。</p>
-<p><code>Uncaught TypeError: Cannot read properties of undefined (reading 'attachEvent')</code></p>
-<p>定位发现，是由于<code>iframe</code>标签都还没有的时候，就去判断<code>iframe.attachEvent</code>是不行的。所以我曲线救国，通过定时器读取元素的高度来判断<code>iframe</code>标签是否完成了加载，正常情况下，<code>height</code>值都应该是存在的，所以代码如下：</p>
-<div class="highlight highlight-source-js"><pre><span class="pl-s1">int</span><span class="pl-c1">=</span><span class="pl-s1">self</span><span class="pl-kos">.</span><span class="pl-en">setInterval</span><span class="pl-kos">(</span><span class="pl-s">"iFrameLoading()"</span><span class="pl-kos">,</span><span class="pl-c1">200</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
-
-<span class="pl-k">function</span> <span class="pl-en">iFrameLoading</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">{</span>
-    <span class="pl-k">var</span> <span class="pl-s1">utterances</span><span class="pl-c1">=</span><span class="pl-smi">document</span><span class="pl-kos">.</span><span class="pl-en">getElementsByClassName</span><span class="pl-kos">(</span><span class="pl-s">'utterances'</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
-    <span class="pl-k">if</span><span class="pl-kos">(</span><span class="pl-s1">utterances</span><span class="pl-kos">.</span><span class="pl-c1">length</span><span class="pl-c1">==</span><span class="pl-c1">1</span><span class="pl-kos">)</span><span class="pl-kos">{</span>
-        <span class="pl-k">if</span><span class="pl-kos">(</span><span class="pl-s1">utterances</span><span class="pl-kos">[</span><span class="pl-c1">0</span><span class="pl-kos">]</span><span class="pl-kos">.</span><span class="pl-c1">style</span><span class="pl-kos">.</span><span class="pl-c1">height</span><span class="pl-c1">!=</span><span class="pl-s">""</span><span class="pl-kos">)</span><span class="pl-kos">{</span>
-            <span class="pl-s1">int</span><span class="pl-c1">=</span><span class="pl-smi">window</span><span class="pl-kos">.</span><span class="pl-en">clearInterval</span><span class="pl-kos">(</span><span class="pl-s1">int</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
-            <span class="pl-smi">console</span><span class="pl-kos">.</span><span class="pl-en">log</span><span class="pl-kos">(</span><span class="pl-s">"utterances Load OK"</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
-        <span class="pl-kos">}</span>
-    <span class="pl-kos">}</span>
-<span class="pl-kos">}</span></pre></div>
-<p>另外我还在官方提了个 <a href="https://github.com/utterance/utterances/issues/657">Issue</a>，不知道有没有更好的办法来判断。🤣</p>
-
-</div>
-<button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
-<div class="comments" id="comments"></div>
+<div style="margin-bottom: 16px;">童话是一种生活态度，仅此而已。</div>
+<nav class="SideNav border">
+<a class="SideNav-item d-flex flex-items-center flex-justify-between" href="post/ban-dao-ti-zhi-leng-qi-%28TEC%29-de-qu-dong-yu-kong-zhi.html">
+    <div class="d-flex flex-items-center">
+        <svg class="SideNav-icon octicon" style="witdh:16px;height:16px"><path class="svgTop0" d=""></path>
+        </svg>
+        <span>半导体制冷器(TEC)的驱动与控制</span>
+    </div>
+    <div class="listLabels">
+        
+        <span class="Label" style="background-color:#0E8A16">硬件</span>
+        <span class="Label" style="background-color:#0969da">2017-05-03</span>
+    </div>
+</a><a class="SideNav-item d-flex flex-items-center flex-justify-between" href="post/Allegro-shuang-ji-PCB-wen-jian-bian-xin-jian-de-jie-jue-ban-fa.html">
+    <div class="d-flex flex-items-center">
+        <svg class="SideNav-icon octicon" style="witdh:16px;height:16px"><path class="svgTop0" d=""></path>
+        </svg>
+        <span>Allegro双击PCB文件变新建的解决办法</span>
+    </div>
+    <div class="listLabels">
+        
+        <span class="Label" style="background-color:#0E8A16">硬件</span>
+        <span class="Label" style="background-color:#0969da">2017-04-14</span>
+    </div>
+</a><a class="SideNav-item d-flex flex-items-center flex-justify-between" href="post/%E3%80%8A-gao-xiao-neng-ren-shi-de-qi-ge-xi-guan-%E3%80%8B-du-hou-gan.html">
+    <div class="d-flex flex-items-center">
+        <svg class="SideNav-icon octicon" style="witdh:16px;height:16px"><path class="svgTop0" d=""></path>
+        </svg>
+        <span>《高效能人士的七个习惯》读后感</span>
+    </div>
+    <div class="listLabels">
+        
+        <span class="Label" style="background-color:#4F61FC">日常</span>
+        <span class="Label" style="background-color:#0969da">2017-04-03</span>
+    </div>
+</a><a class="SideNav-item d-flex flex-items-center flex-justify-between" href="post/gai-bian.html">
+    <div class="d-flex flex-items-center">
+        <svg class="SideNav-icon octicon" style="witdh:16px;height:16px"><path class="svgTop0" d=""></path>
+        </svg>
+        <span>改变</span>
+    </div>
+    <div class="listLabels">
+        <span class="Label" style="background-color:#006b75">1</span>
+        <span class="Label" style="background-color:#4F61FC">日常</span>
+        <span class="Label" style="background-color:#0969da">2017-03-29</span>
+    </div>
+</a><a class="SideNav-item d-flex flex-items-center flex-justify-between" href="post/ji-mi-Z4-Air-yu-yin-xiang-gao-yin-la-ba.html">
+    <div class="d-flex flex-items-center">
+        <svg class="SideNav-icon octicon" style="witdh:16px;height:16px"><path class="svgTop0" d=""></path>
+        </svg>
+        <span>极米Z4-Air与音响高音喇叭</span>
+    </div>
+    <div class="listLabels">
+        
+        <span class="Label" style="background-color:#4F61FC">日常</span>
+        <span class="Label" style="background-color:#bc4c00">2016-12-03</span>
+    </div>
+</a><a class="SideNav-item d-flex flex-items-center flex-justify-between" href="post/NodeMcu-xue-xi-bi-ji.html">
+    <div class="d-flex flex-items-center">
+        <svg class="SideNav-icon octicon" style="witdh:16px;height:16px"><path class="svgTop0" d=""></path>
+        </svg>
+        <span>NodeMcu学习笔记</span>
+    </div>
+    <div class="listLabels">
+        
+        <span class="Label" style="background-color:#0E8A16">硬件</span>
+        <span class="Label" style="background-color:#bc4c00">2016-12-03</span>
+    </div>
+</a><a class="SideNav-item d-flex flex-items-center flex-justify-between" href="post/Paddy%20Richter.html">
+    <div class="d-flex flex-items-center">
+        <svg class="SideNav-icon octicon" style="witdh:16px;height:16px"><path class="svgTop0" d=""></path>
+        </svg>
+        <span>Paddy Richter</span>
+    </div>
+    <div class="listLabels">
+        
+        <span class="Label" style="background-color:#4F61FC">日常</span>
+        <span class="Label" style="background-color:#bc4c00">2016-04-25</span>
+    </div>
+</a><a class="SideNav-item d-flex flex-items-center flex-justify-between" href="post/HDMI-xue-xi-zong-jie.html">
+    <div class="d-flex flex-items-center">
+        <svg class="SideNav-icon octicon" style="witdh:16px;height:16px"><path class="svgTop0" d=""></path>
+        </svg>
+        <span>HDMI学习总结</span>
+    </div>
+    <div class="listLabels">
+        <span class="Label" style="background-color:#006b75">1</span>
+        <span class="Label" style="background-color:#0E8A16">硬件</span>
+        <span class="Label" style="background-color:#A333D0">2015-12-26</span>
+    </div>
+</a>
+</nav><nav class="paginate-container" aria-label="Pagination">
+    <div class="pagination"><a class="previous_page" rel="previous" href="/index.html" aria-label="Previous Page">上一页</a><span class="next_page" aria-disabled="true">下一页</span>
+        </div>
+</nav>
 </div>
     <div id="footer">Copyright © <span id="year"></span> <a href="https://blog.meekdai.com"> Meekdai </a><p> 浙ICP备20023628号 <span id="runday"></span>Powered by <a href="https://github.com/Meekdai/Gmeek" target="_blank">Gmeek</a></p>
 
@@ -148,45 +242,19 @@ console.log("\n %c Gmeek main %c https://github.com/Meekdai/Gmeek \n\n", "color:
 </script>
 
 <script>
-
-
-
-function openComments(){
-    cm=document.getElementById("comments");
-    cmButton=document.getElementById("cmButton");
-    cmButton.innerHTML="loading";
-    span=document.createElement("span");
-    span.setAttribute("class","AnimatedEllipsis");
-    cmButton.appendChild(span);
-
-    script=document.createElement("script");
-    script.setAttribute("src","https://utteranc.es/client.js");
-    script.setAttribute("repo","Meekdai/meekdai.github.io");
-    script.setAttribute("issue-term","title");
-    if(localStorage.getItem("meek_theme")=="dark"){script.setAttribute("theme","dark-blue");}
-    else{script.setAttribute("theme","github-light");}
-    script.setAttribute("crossorigin","anonymous");
-    script.setAttribute("async","");
-    cm.appendChild(script);
-
-    int=self.setInterval("iFrameLoading()",200);
+document.getElementById("searchSVG").setAttribute("d",IconList["search"]);
+document.getElementById("pathRSS").setAttribute("d",IconList["rss"]);
+iconTOP=document.getElementsByClassName("svgTop1");
+iconPost=document.getElementsByClassName("svgTop0");
+for(var i=0;i<iconTOP.length;i++){
+    iconTOP[i].setAttribute("d",IconList["upload"]);
+    iconTOP[i].parentNode.style.color="red";
+}
+for(var i=0;i<iconPost.length;i++){
+    iconPost[i].setAttribute("d",IconList["post"]);
 }
 
-function iFrameLoading(){
-    var utterances=document.getElementsByClassName('utterances');
-    if(utterances.length==1){
-        if(utterances[0].style.height!=""){
-            utterancesLoad=1;
-            int=window.clearInterval(int);
-            document.getElementById("cmButton").style.display="none";
-            console.log("utterances Load OK");
-        }
-    }
-}
-
+document.getElementById("友情链接").setAttribute("d",value=IconList["link"]);document.getElementById("关于").setAttribute("d",value=IconList["about"]);
 </script>
-
-
-
 
 </html>
