@@ -1,5 +1,10 @@
 [Gmeek](https://github.com/Meekdai/Gmeek) 一个博客框架，超轻量级个人博客模板，完全基于`Github Pages `、 `Github Issues` 和 `Github Actions`，可以称作`All in Github`。不需要本地部署，从搭建到写作，只需要几分钟的时间，3步搭建好博客，第4步就是写作。
 
+#### 20230905（v2.4）
+- 没有代码高亮需求的文章不加载高亮CSS
+- 添加nightTheme和dayTheme配置，可定义值同github的主题
+- `config.json`配置文件精简
+
 #### 20230829（v2.3）
 - 修复黑色主题下刷新页面有短时白闪的BUG
 
