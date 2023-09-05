@@ -3,7 +3,7 @@ name: build Gmeek
 on:
   workflow_dispatch:
   issues:
-    types: [opened, edited,labeled]
+    types: [opened, edited, labeled]
 
 jobs:
   build:
