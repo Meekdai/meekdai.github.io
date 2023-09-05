@@ -2,7 +2,7 @@
 
 #### 20230905（v2.4）
 - 没有代码高亮需求的文章不加载高亮CSS
-- 添加nightTheme和dayTheme配置，可定义值同github的主题
+- 添加`nightTheme`和`dayTheme`配置，可定义值同github的主题
 - `config.json`配置文件精简
 
 #### 20230829（v2.3）
