@@ -8,7 +8,7 @@
     <link rel="icon" href="https://meekdai.com/favicon.svg">
     <script>
         if(localStorage.getItem("meek_theme")==null){}
-        else if(localStorage.getItem("meek_theme")=="dark"){document.getElementsByTagName("html")[0].attributes.getNamedItem("data-color-mode").value="dark";}
+        else if(localStorage.getItem("meek_theme")=="dark"){document.getElementsByTagName("html")[0].attributes.getNamedItem("data-color-mode").value="dark_colorblind";}
         else if(localStorage.getItem("meek_theme")=="light"){document.getElementsByTagName("html")[0].attributes.getNamedItem("data-color-mode").value="light";}
     </script>
     
@@ -123,7 +123,7 @@ else if(localStorage.getItem("meek_theme")=="dark"){changeDark();}
 else if(localStorage.getItem("meek_theme")=="light"){changeLight();}
 
 function changeDark(){
-    document.getElementsByTagName("html")[0].attributes.getNamedItem("data-color-mode").value="dark";
+    document.getElementsByTagName("html")[0].attributes.getNamedItem("data-color-mode").value="dark_colorblind";
     document.getElementById("themeSwitch").setAttribute("d",value=IconList["moon"]);
     document.getElementById("themeSwitch").parentNode.style.color="#00f0ff";
     if(utterancesLoad==1){utterancesTheme("dark-blue");}
