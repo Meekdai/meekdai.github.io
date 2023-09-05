@@ -80,19 +80,19 @@ h1 a:not([href]){color:inherit;text-decoration:none;vertical-align: bottom;font-
     <div id="content">
 <div class="markdown-body" id="postBody">
 <p>Github地址：<a href="https://github.com/Meekdai/cmder">https://github.com/Meekdai/cmder</a></p>
-<h3><a id="user-content-为什么要使用它" class="anchor" aria-hidden="true" href="#为什么要使用它"><span aria-hidden="true" class="octicon octicon-link"></span></a>为什么要使用它</h3>
+<h3><a id="user-content-为什么要使用它" class="anchor" aria-hidden="true" tabindex="-1" href="#为什么要使用它"><span aria-hidden="true" class="octicon octicon-link"></span></a>为什么要使用它</h3>
 <p>它看起来非常酷</p>
 <p><a target="_blank" rel="noopener noreferrer nofollow" href="https://raw.githubusercontent.com/Meekdai/cmder/master/image/1.jpg"><img src="https://raw.githubusercontent.com/Meekdai/cmder/master/image/1.jpg" alt="2292762868.jpg" style="max-width: 100%;"></a></p>
 <p>Markdown高亮，以及背后实时预览功能，随着光标的移动，自动下拉页面。</p>
 <p><a target="_blank" rel="noopener noreferrer nofollow" href="https://raw.githubusercontent.com/Meekdai/cmder/master/image/2.gif"><img src="https://raw.githubusercontent.com/Meekdai/cmder/master/image/2.gif" alt="748985106.gif" style="max-width: 100%;"></a></p>
 <p>具备常用代码高亮、折叠、编译的能力。(Python/C/C++/...)</p>
 <p><a target="_blank" rel="noopener noreferrer nofollow" href="https://raw.githubusercontent.com/Meekdai/cmder/master/image/3.jpg"><img src="https://raw.githubusercontent.com/Meekdai/cmder/master/image/3.jpg" alt="2439343118.jpg" style="max-width: 100%;"></a></p>
-<h3><a id="user-content-说明" class="anchor" aria-hidden="true" href="#说明"><span aria-hidden="true" class="octicon octicon-link"></span></a>说明</h3>
+<h3><a id="user-content-说明" class="anchor" aria-hidden="true" tabindex="-1" href="#说明"><span aria-hidden="true" class="octicon octicon-link"></span></a>说明</h3>
 <p>Cmder集成强大的命令行工具，可以像用Linux一样使用Windows。</p>
 <blockquote>
 <p>使用该软件需要安装 Python</p>
 </blockquote>
-<h3><a id="user-content-安装" class="anchor" aria-hidden="true" href="#安装"><span aria-hidden="true" class="octicon octicon-link"></span></a>安装</h3>
+<h3><a id="user-content-安装" class="anchor" aria-hidden="true" tabindex="-1" href="#安装"><span aria-hidden="true" class="octicon octicon-link"></span></a>安装</h3>
 <p>1、如果你已经有Git，可以直接通过下面的一条指令安装到你的电脑上。</p>
 <pre><code>$ git clone https://github.com/Meekdai/cmder.git
 </code></pre>
@@ -107,21 +107,21 @@ h1 a:not([href]){color:inherit;text-decoration:none;vertical-align: bottom;font-
 <pre><code>git clone https://github.com/VundleVim/Vundle.vim.git
 </code></pre>
 <p>成功后，在cmder内运行<code>vim</code>指令，进入到<code>vim</code>的普通模式下，输入<code>:PluginInstall</code>来下载所有的插件。</p>
-<h3><a id="user-content-右键设置" class="anchor" aria-hidden="true" href="#右键设置"><span aria-hidden="true" class="octicon octicon-link"></span></a>右键设置</h3>
+<h3><a id="user-content-右键设置" class="anchor" aria-hidden="true" tabindex="-1" href="#右键设置"><span aria-hidden="true" class="octicon octicon-link"></span></a>右键设置</h3>
 <p>可以通过右键，在指定目录打开Cmder。</p>
 <p>首先打开具有管理员权限的，快捷键<code>Ctrl + t</code>勾选<code>Run as current user</code>和<code>Run as administrator</code>这两项，然后点<code>start</code>开启，然后在命令行输入 :</p>
 <pre><code>Cmder.exe /REGISTER ALL 1 Cmder.exe /REGISTER ALL 
 </code></pre>
 <p>现在在文件夹内右键点击<code>Cmder here</code> 就能在<code>cmder</code>里进入该目录。</p>
-<h3><a id="user-content-快捷键设置" class="anchor" aria-hidden="true" href="#快捷键设置"><span aria-hidden="true" class="octicon octicon-link"></span></a>快捷键设置</h3>
+<h3><a id="user-content-快捷键设置" class="anchor" aria-hidden="true" tabindex="-1" href="#快捷键设置"><span aria-hidden="true" class="octicon octicon-link"></span></a>快捷键设置</h3>
 <p>所有的快捷键都放在<code>../cmder/config/user-aliases.cmd</code>里面，你可以通过<code>vim</code>来编辑它，直接在命令行内输入<code>kjj</code>就可以打开编辑它，如果出错了，请参考下文的FAQ。</p>
 <p>例如我设置的<code>gd</code>为进入到桌面，<code>vimrc</code>为打开VIM配置文件，<code>st</code>为用sublime Text打开某文件。你可以通过自己的习惯设置一些快捷键。</p>
-<h3><a id="user-content-faq" class="anchor" aria-hidden="true" href="#faq"><span aria-hidden="true" class="octicon octicon-link"></span></a>FAQ</h3>
+<h3><a id="user-content-faq" class="anchor" aria-hidden="true" tabindex="-1" href="#faq"><span aria-hidden="true" class="octicon octicon-link"></span></a>FAQ</h3>
 <p>Q:输入<code>kjj</code>提示错误，即<code>../cmder/config/user-aliases.cmd</code>内设置的快捷键无效，而<code>ls</code>等指令是有用的。
 A:这是由于Win10 1703 (Build 15063.11)更新导致，解决办法见<a href="https://github.com/cmderdev/cmder/issues/1325">issues #1325</a></p>
 <p>Q:右键配置好后，依旧无法进入指定的目录。
 A:请配置<code>cmder.exe</code>默认为管理员打开。</p>
-<h3><a id="user-content-license" class="anchor" aria-hidden="true" href="#license"><span aria-hidden="true" class="octicon octicon-link"></span></a>License</h3>
+<h3><a id="user-content-license" class="anchor" aria-hidden="true" tabindex="-1" href="#license"><span aria-hidden="true" class="octicon octicon-link"></span></a>License</h3>
 <p>MIT License</p>
 
 </div>
