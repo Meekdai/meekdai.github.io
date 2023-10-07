@@ -59,6 +59,7 @@ CFLAGS += -L/mnt/c/Users/Meekdai/Desktop/v3s/app/jpeg-9d/_install/lib
 
 5. 然后执行`make`编译，结束后拷贝文件到`V3S`中：
 ```
+jpeg-9d/_install 的/lib/下的库文件拷贝到开发板的/lib/目录下
 *.so 文件拷贝到开发板的/lib/目录下
 mjpg_streamer 文件拷贝到开发板的/bin/目录下
 www 文件夹拷贝到/opt/目录下
