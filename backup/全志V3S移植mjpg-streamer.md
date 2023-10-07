@@ -6,16 +6,17 @@ buildroot版本：2018.08.2
 FLASH：32M
 编译环境：WIN10 WSL 和 Github Codepaces
 
-具体参考：[挖坑论坛](https://whycan.com/t_2169.html)
+具体参考：[V3s buildroot 一键生成打包生成32M spi flash 镜像, jffs2 文件系统, 默认启动 Qt 模拟时钟demo,](https://whycan.com/t_2169.html)
 
 ### 开启UVC摄像头
 进入`linux-zero-4.13.y`目录，可通过`make menuconfig`启用，也可以直接编辑`.config`文件，添加：
 ```
 CONFIG_MEDIA_USB_SUPPORT=y
 CONFIG_USB_ANNOUNCE_NEW_DEVICES=y
-```
-具体参考1：[Clair's Blog](https://ccclaire.com/index.php/2021/03/25/camera-driver-in-embbedlinux-and-v4l2/)
-具体参考2：[挖坑论坛](https://whycan.com/t_6234.html)
+```  
+具体参考1：[嵌入式Linux平台下的UVC驱动和V4L2](https://ccclaire.com/index.php/2021/03/25/camera-driver-in-embbedlinux-and-v4l2/)  
+具体参考2：[关于V3S使用usb摄像头的问题](https://whycan.com/t_6234.html)  
+具体参考3：[V3S插入USB设备没有反应](https://whycan.com/t_7459.html)  
 
 ### 交叉编译mjpg-streamer
 #### libjpeg库安装
@@ -64,3 +65,26 @@ CFLAGS += -L/mnt/c/Users/Meekdai/Desktop/v3s/app/jpeg-9d/_install/lib
 mjpg_streamer 文件拷贝到开发板的/bin/目录下
 www 文件夹拷贝到/opt/目录下
 ```
+
+### 运行mjpg-streamer
+
+```
+mjpg_streamer -i "input_uvc.so -d /dev/video0 -n -f 10 -r 1280x720" -o "output_http.so -p 8080 -w /opt/www"
+```
+
+如果报权限的错误，则 `cd` 到 `/bin/` 目录下，执行 `chmod 777 mjpg_streamer`
+
+### 其他
+1. 使能以太网（4.13-y版本）
+
+```
+#打开网络
+ifconfig eth0 up
+#设置ip:
+ifconfig eth0 192.168.10.35
+#设置网关
+route add default gw 192.168.10.1
+```
+
+
+

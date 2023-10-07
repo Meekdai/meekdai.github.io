@@ -85,14 +85,15 @@ h1 a:not([href]){color:inherit;text-decoration:none;vertical-align: bottom;font-
 buildroot版本：2018.08.2
 FLASH：32M
 编译环境：WIN10 WSL 和 Github Codepaces</p>
-<p>具体参考：<a href="https://whycan.com/t_2169.html" rel="nofollow">挖坑论坛</a></p>
+<p>具体参考：<a href="https://whycan.com/t_2169.html" rel="nofollow">V3s buildroot 一键生成打包生成32M spi flash 镜像, jffs2 文件系统, 默认启动 Qt 模拟时钟demo,</a></p>
 <h3 id="user-content-开启uvc摄像头"><a class="heading-link" href="#开启uvc摄像头">开启UVC摄像头<span aria-hidden="true" class="octicon octicon-link"></span></a></h3>
 <p>进入<code>linux-zero-4.13.y</code>目录，可通过<code>make menuconfig</code>启用，也可以直接编辑<code>.config</code>文件，添加：</p>
 <pre><code>CONFIG_MEDIA_USB_SUPPORT=y
 CONFIG_USB_ANNOUNCE_NEW_DEVICES=y
 </code></pre>
-<p>具体参考1：<a href="https://ccclaire.com/index.php/2021/03/25/camera-driver-in-embbedlinux-and-v4l2/" rel="nofollow">Clair's Blog</a>
-具体参考2：<a href="https://whycan.com/t_6234.html" rel="nofollow">挖坑论坛</a></p>
+<p>具体参考1：<a href="https://ccclaire.com/index.php/2021/03/25/camera-driver-in-embbedlinux-and-v4l2/" rel="nofollow">嵌入式Linux平台下的UVC驱动和V4L2</a><br>
+具体参考2：<a href="https://whycan.com/t_6234.html" rel="nofollow">关于V3S使用usb摄像头的问题</a><br>
+具体参考3：<a href="https://whycan.com/t_7459.html" rel="nofollow">V3S插入USB设备没有反应</a></p>
 <h3 id="user-content-交叉编译mjpg-streamer"><a class="heading-link" href="#交叉编译mjpg-streamer">交叉编译mjpg-streamer<span aria-hidden="true" class="octicon octicon-link"></span></a></h3>
 <h4 id="user-content-libjpeg库安装"><a class="heading-link" href="#libjpeg库安装">libjpeg库安装<span aria-hidden="true" class="octicon octicon-link"></span></a></h4>
 <ol>
@@ -142,6 +143,21 @@ CONFIG_USB_ANNOUNCE_NEW_DEVICES=y
 <pre><code>*.so 文件拷贝到开发板的/lib/目录下
 mjpg_streamer 文件拷贝到开发板的/bin/目录下
 www 文件夹拷贝到/opt/目录下
+</code></pre>
+<h3 id="user-content-运行mjpg-streamer"><a class="heading-link" href="#运行mjpg-streamer">运行mjpg-streamer<span aria-hidden="true" class="octicon octicon-link"></span></a></h3>
+<pre><code>mjpg_streamer -i "input_uvc.so -d /dev/video0 -n -f 10 -r 1280x720" -o "output_http.so -p 8080 -w /opt/www"
+</code></pre>
+<p>如果报权限的错误，则 <code>cd</code> 到 <code>/bin/</code> 目录下，执行 <code>chmod 777 mjpg_streamer</code></p>
+<h3 id="user-content-其他"><a class="heading-link" href="#其他">其他<span aria-hidden="true" class="octicon octicon-link"></span></a></h3>
+<ol>
+<li>使能以太网（4.13-y版本）</li>
+</ol>
+<pre><code>#打开网络
+ifconfig eth0 up
+#设置ip:
+ifconfig eth0 192.168.10.35
+#设置网关
+route add default gw 192.168.10.1
 </code></pre>
 
 </div>
