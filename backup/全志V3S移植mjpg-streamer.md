@@ -71,7 +71,7 @@ www 文件夹拷贝到/opt/目录下
 mjpg_streamer -i "input_uvc.so -d /dev/video0 -n -f 10 -r 1280x720" -o "output_http.so -p 8080 -w /opt/www"
 ```
 
-如果报权限的错误，则 `cd` 到 `/bin/` 目录下，执行 `chmod 777 mjpg_streamer`  
+如果报权限的错误，执行 `chmod 777 /bin/mjpg_streamer`  
 然后访问：[http://192.168.10.35:8080](http://192.168.10.35:8080)  
 
 ### 其他
@@ -80,10 +80,11 @@ mjpg_streamer -i "input_uvc.so -d /dev/video0 -n -f 10 -r 1280x720" -o "output_h
 
 ```
 #打开网络
-ifconfig eth0 up
-#设置ip:
-ifconfig eth0 192.168.10.35
+#设置ip
 #设置网关
+
+ifconfig eth0 up
+ifconfig eth0 192.168.10.35
 route add default gw 192.168.10.1
 ```
 

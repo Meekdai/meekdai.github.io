@@ -146,17 +146,18 @@ www 文件夹拷贝到/opt/目录下
 <h3 id="user-content-运行mjpg-streamer"><a class="heading-link" href="#运行mjpg-streamer">运行mjpg-streamer<span aria-hidden="true" class="octicon octicon-link"></span></a></h3>
 <pre><code>mjpg_streamer -i "input_uvc.so -d /dev/video0 -n -f 10 -r 1280x720" -o "output_http.so -p 8080 -w /opt/www"
 </code></pre>
-<p>如果报权限的错误，则 <code>cd</code> 到 <code>/bin/</code> 目录下，执行 <code>chmod 777 mjpg_streamer</code><br>
+<p>如果报权限的错误，执行 <code>chmod 777 /bin/mjpg_streamer</code><br>
 然后访问：<a href="http://192.168.10.35:8080" rel="nofollow">http://192.168.10.35:8080</a></p>
 <h3 id="user-content-其他"><a class="heading-link" href="#其他">其他<span aria-hidden="true" class="octicon octicon-link"></span></a></h3>
 <ol>
 <li>使能以太网（4.13-y版本）</li>
 </ol>
 <pre><code>#打开网络
-ifconfig eth0 up
-#设置ip:
-ifconfig eth0 192.168.10.35
+#设置ip
 #设置网关
+
+ifconfig eth0 up
+ifconfig eth0 192.168.10.35
 route add default gw 192.168.10.1
 </code></pre>
 <ol start="2">
