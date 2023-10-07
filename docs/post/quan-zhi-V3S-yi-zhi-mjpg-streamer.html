@@ -82,18 +82,16 @@ h1 a:not([href]){color:inherit;text-decoration:none;vertical-align: bottom;font-
 <p>上一篇文章在树莓派上简单的测试了一下USB摄像头通过mjpg-streamer推流的步骤，本篇记录使用全志的V3S替代树莓派实现这个功能。由于树莓派上有包管理工具，所以可以直接使用<code>apt-get</code>指令来安装需要的软件脚本，但是V3S没有包管理，需要自己移植并且交叉编译。</p>
 <h3 id="user-content-开发环境"><a class="heading-link" href="#开发环境">开发环境<span aria-hidden="true" class="octicon octicon-link"></span></a></h3>
 <p>开发板：荔枝派zero
-buildroot版本：2018.08.2
+buildroot：2018.08.2
 FLASH：32M
 编译环境：WIN10 WSL 和 Github Codepaces</p>
 <p>具体参考：<a href="https://whycan.com/t_2169.html" rel="nofollow">V3s buildroot 一键生成打包生成32M spi flash 镜像, jffs2 文件系统, 默认启动 Qt 模拟时钟demo,</a></p>
 <h3 id="user-content-开启uvc摄像头"><a class="heading-link" href="#开启uvc摄像头">开启UVC摄像头<span aria-hidden="true" class="octicon octicon-link"></span></a></h3>
-<p>进入<code>linux-zero-4.13.y</code>目录，可通过<code>make menuconfig</code>启用，也可以直接编辑<code>.config</code>文件，添加：</p>
-<pre><code>CONFIG_MEDIA_USB_SUPPORT=y
-CONFIG_USB_ANNOUNCE_NEW_DEVICES=y
-</code></pre>
+<p>进入<code>linux-zero-4.13.y</code>目录，可通过<code>make menuconfig</code>启用，也可以直接编辑<code>.config</code>文件，主要是启用 <code>UVC</code> 和 <code>V4L2</code></p>
 <p>具体参考1：<a href="https://ccclaire.com/index.php/2021/03/25/camera-driver-in-embbedlinux-and-v4l2/" rel="nofollow">嵌入式Linux平台下的UVC驱动和V4L2</a><br>
 具体参考2：<a href="https://whycan.com/t_6234.html" rel="nofollow">关于V3S使用usb摄像头的问题</a><br>
-具体参考3：<a href="https://whycan.com/t_7459.html" rel="nofollow">V3S插入USB设备没有反应</a></p>
+具体参考3：<a href="https://whycan.com/t_7459.html" rel="nofollow">V3S插入USB设备没有反应</a><br>
+具体参考4：<a href="https://cloud.tencent.com/developer/article/2311086" rel="nofollow">荔枝派Zero(全志V3S)驱动开发之USB摄像头</a></p>
 <h3 id="user-content-交叉编译mjpg-streamer"><a class="heading-link" href="#交叉编译mjpg-streamer">交叉编译mjpg-streamer<span aria-hidden="true" class="octicon octicon-link"></span></a></h3>
 <h4 id="user-content-libjpeg库安装"><a class="heading-link" href="#libjpeg库安装">libjpeg库安装<span aria-hidden="true" class="octicon octicon-link"></span></a></h4>
 <ol>
@@ -147,7 +145,8 @@ www 文件夹拷贝到/opt/目录下
 <h3 id="user-content-运行mjpg-streamer"><a class="heading-link" href="#运行mjpg-streamer">运行mjpg-streamer<span aria-hidden="true" class="octicon octicon-link"></span></a></h3>
 <pre><code>mjpg_streamer -i "input_uvc.so -d /dev/video0 -n -f 10 -r 1280x720" -o "output_http.so -p 8080 -w /opt/www"
 </code></pre>
-<p>如果报权限的错误，则 <code>cd</code> 到 <code>/bin/</code> 目录下，执行 <code>chmod 777 mjpg_streamer</code></p>
+<p>如果报权限的错误，则 <code>cd</code> 到 <code>/bin/</code> 目录下，执行 <code>chmod 777 mjpg_streamer</code><br>
+然后访问：<a href="http://192.168.10.35:8080" rel="nofollow">http://192.168.10.35:8080</a></p>
 <h3 id="user-content-其他"><a class="heading-link" href="#其他">其他<span aria-hidden="true" class="octicon octicon-link"></span></a></h3>
 <ol>
 <li>使能以太网（4.13-y版本）</li>
@@ -159,6 +158,16 @@ ifconfig eth0 192.168.10.35
 #设置网关
 route add default gw 192.168.10.1
 </code></pre>
+<ol start="2">
+<li>查看USB设备和摄像头</li>
+</ol>
+<pre><code>lsusb
+ls /dev/video*
+</code></pre>
+<ol start="3">
+<li>报错<code>Unsupported relocation type: R_X86_64_PLT32 (4)</code> 解决方案：<a href="https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=b21ebf2fb4cde1618915a97cc773e287ff49173e" rel="nofollow">x86: Treat R_X86_64_PLT32 as R_X86_64_PC32</a>
+</li>
+</ol>
 
 </div>
 <button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>

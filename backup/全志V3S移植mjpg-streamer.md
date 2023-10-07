@@ -2,21 +2,19 @@
 
 ### 开发环境
 开发板：荔枝派zero
-buildroot版本：2018.08.2
+buildroot：2018.08.2
 FLASH：32M
 编译环境：WIN10 WSL 和 Github Codepaces
 
 具体参考：[V3s buildroot 一键生成打包生成32M spi flash 镜像, jffs2 文件系统, 默认启动 Qt 模拟时钟demo,](https://whycan.com/t_2169.html)
 
 ### 开启UVC摄像头
-进入`linux-zero-4.13.y`目录，可通过`make menuconfig`启用，也可以直接编辑`.config`文件，添加：
-```
-CONFIG_MEDIA_USB_SUPPORT=y
-CONFIG_USB_ANNOUNCE_NEW_DEVICES=y
-```  
+进入`linux-zero-4.13.y`目录，可通过`make menuconfig`启用，也可以直接编辑`.config`文件，主要是启用 `UVC` 和 `V4L2`  
+
 具体参考1：[嵌入式Linux平台下的UVC驱动和V4L2](https://ccclaire.com/index.php/2021/03/25/camera-driver-in-embbedlinux-and-v4l2/)  
 具体参考2：[关于V3S使用usb摄像头的问题](https://whycan.com/t_6234.html)  
 具体参考3：[V3S插入USB设备没有反应](https://whycan.com/t_7459.html)  
+具体参考4：[荔枝派Zero(全志V3S)驱动开发之USB摄像头](https://cloud.tencent.com/developer/article/2311086)  
 
 ### 交叉编译mjpg-streamer
 #### libjpeg库安装
@@ -72,9 +70,11 @@ www 文件夹拷贝到/opt/目录下
 mjpg_streamer -i "input_uvc.so -d /dev/video0 -n -f 10 -r 1280x720" -o "output_http.so -p 8080 -w /opt/www"
 ```
 
-如果报权限的错误，则 `cd` 到 `/bin/` 目录下，执行 `chmod 777 mjpg_streamer`
+如果报权限的错误，则 `cd` 到 `/bin/` 目录下，执行 `chmod 777 mjpg_streamer`  
+然后访问：[http://192.168.10.35:8080](http://192.168.10.35:8080)  
 
 ### 其他
+
 1. 使能以太网（4.13-y版本）
 
 ```
@@ -85,6 +85,16 @@ ifconfig eth0 192.168.10.35
 #设置网关
 route add default gw 192.168.10.1
 ```
+
+2. 查看USB设备和摄像头
+```
+lsusb
+ls /dev/video*
+```
+
+3. 报错`Unsupported relocation type: R_X86_64_PLT32 (4)` 解决方案：[x86: Treat R_X86_64_PLT32 as R_X86_64_PC32](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=b21ebf2fb4cde1618915a97cc773e287ff49173e)
+
+
 
 
 
