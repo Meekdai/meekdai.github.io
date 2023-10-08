@@ -1,6 +1,6 @@
 上一篇文章在树莓派上简单的测试了一下USB摄像头通过mjpg-streamer推流的步骤，本篇记录使用全志的V3S替代树莓派实现这个功能。由于树莓派上有包管理工具，所以可以直接使用`apt-get`指令来安装需要的软件脚本，但是V3S没有包管理，需要自己移植并且交叉编译。
 
-### 开发环境
+### 一、开发环境
 开发板：荔枝派zero
 buildroot：2018.08.2
 FLASH：32M
@@ -8,7 +8,7 @@ FLASH：32M
 
 具体参考：[V3s buildroot 一键生成打包生成32M spi flash 镜像, jffs2 文件系统, 默认启动 Qt 模拟时钟demo,](https://whycan.com/t_2169.html)
 
-### 开启UVC摄像头
+### 二、开启UVC摄像头
 进入`linux-zero-4.13.y`目录，可通过`make menuconfig`启用，也可以直接编辑`.config`文件，主要是启用 `UVC` 和 `V4L2`  
 
 具体参考1：[嵌入式Linux平台下的UVC驱动和V4L2](https://ccclaire.com/index.php/2021/03/25/camera-driver-in-embbedlinux-and-v4l2/)  
@@ -16,7 +16,7 @@ FLASH：32M
 具体参考3：[V3S插入USB设备没有反应](https://whycan.com/t_7459.html)  
 具体参考4：[荔枝派Zero(全志V3S)驱动开发之USB摄像头](https://cloud.tencent.com/developer/article/2311086)  
 
-### 交叉编译mjpg-streamer
+### 三、交叉编译mjpg-streamer
 #### libjpeg库安装
 
 1. 下载 [jpegsrc.v9d.tar.gz](http://www.ijg.org/files/jpegsrc.v9d.tar.gz) 
@@ -65,7 +65,7 @@ mjpg_streamer 文件拷贝到开发板的/bin/目录下
 www 文件夹拷贝到/opt/目录下
 ```
 
-### 运行mjpg-streamer
+### 四、运行mjpg-streamer
 
 ```
 mjpg_streamer -i "input_uvc.so -d /dev/video0 -n -f 10 -r 1280x720" -o "output_http.so -p 8080 -w /opt/www"
@@ -74,7 +74,7 @@ mjpg_streamer -i "input_uvc.so -d /dev/video0 -n -f 10 -r 1280x720" -o "output_h
 如果报权限的错误，执行 `chmod 777 /bin/mjpg_streamer`  
 然后访问：[http://192.168.10.35:8080](http://192.168.10.35:8080)  
 
-### 其他
+### 五、其他
 
 1. 使能以太网（4.13-y版本）
 
