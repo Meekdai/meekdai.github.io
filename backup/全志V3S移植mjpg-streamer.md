@@ -27,7 +27,7 @@ FLASH：32M
 
 #### mjpg-streamer编译
 
-1. 下载[https://sourceforge.net/p/mjpg-streamer/code/HEAD/tree/](https://sourceforge.net/p/mjpg-streamer/code/HEAD/tree/)
+1. 下载 [https://sourceforge.net/p/mjpg-streamer/code/HEAD/tree/](https://sourceforge.net/p/mjpg-streamer/code/HEAD/tree/)
 2. 进入mjpg-streamer目录，修改`makefile`中的`CC=gcc`为自己的编译器地址，包括使用了的`plugins`目录下的所有`makefile`文件。
 ```makefile
 CC=/mnt/d/MICROPYTHON/V3S/gcc-linaro-6.3.1-2017.02-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-gcc
@@ -96,7 +96,22 @@ ls /dev/video*
 
 3. 报错`Unsupported relocation type: R_X86_64_PLT32 (4)` 解决方案：[x86: Treat R_X86_64_PLT32 as R_X86_64_PC32](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=b21ebf2fb4cde1618915a97cc773e287ff49173e)
 
+4. 编译指令
+```
+#解压
+tar xvf  backup_20190220A.tgz
 
+#执行一次 make (约2小时)
+make
+
+#再次解压覆盖文件, 编译(约5分钟)
+sh ./pre_build.sh
+make
+
+#打包
+sh ./pack.sh
+
+```
 
 
 

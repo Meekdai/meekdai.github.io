@@ -109,7 +109,7 @@ FLASH：32M<br>
 </ol>
 <h4 id="user-content-mjpg-streamer编译"><a class="heading-link" href="#mjpg-streamer编译">mjpg-streamer编译<span aria-hidden="true" class="octicon octicon-link"></span></a></h4>
 <ol>
-<li>下载<a href="https://sourceforge.net/p/mjpg-streamer/code/HEAD/tree/" rel="nofollow">https://sourceforge.net/p/mjpg-streamer/code/HEAD/tree/</a>
+<li>下载 <a href="https://sourceforge.net/p/mjpg-streamer/code/HEAD/tree/" rel="nofollow">https://sourceforge.net/p/mjpg-streamer/code/HEAD/tree/</a>
 </li>
 <li>进入mjpg-streamer目录，修改<code>makefile</code>中的<code>CC=gcc</code>为自己的编译器地址，包括使用了的<code>plugins</code>目录下的所有<code>makefile</code>文件。</li>
 </ol>
@@ -168,9 +168,27 @@ route add default gw 192.168.10.1
 ls /dev/video*
 </code></pre>
 <ol start="3">
-<li>报错<code>Unsupported relocation type: R_X86_64_PLT32 (4)</code> 解决方案：<a href="https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=b21ebf2fb4cde1618915a97cc773e287ff49173e" rel="nofollow">x86: Treat R_X86_64_PLT32 as R_X86_64_PC32</a>
+<li>
+<p>报错<code>Unsupported relocation type: R_X86_64_PLT32 (4)</code> 解决方案：<a href="https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=b21ebf2fb4cde1618915a97cc773e287ff49173e" rel="nofollow">x86: Treat R_X86_64_PLT32 as R_X86_64_PC32</a></p>
+</li>
+<li>
+<p>编译指令</p>
 </li>
 </ol>
+<pre><code>#解压
+tar xvf  backup_20190220A.tgz
+
+#执行一次 make (约2小时)
+make
+
+#再次解压覆盖文件, 编译(约5分钟)
+sh ./pre_build.sh
+make
+
+#打包
+sh ./pack.sh
+
+</code></pre>
 
 </div>
 <button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
