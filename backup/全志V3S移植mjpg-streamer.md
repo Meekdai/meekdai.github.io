@@ -15,6 +15,7 @@ FLASH：32M
 具体参考2：[关于V3S使用usb摄像头的问题](https://whycan.com/t_6234.html)  
 具体参考3：[V3S插入USB设备没有反应](https://whycan.com/t_7459.html)  
 具体参考4：[荔枝派Zero(全志V3S)驱动开发之USB摄像头](https://cloud.tencent.com/developer/article/2311086)  
+具体参考5：[Linux UVC driver and tools](http://www.ideasonboard.org/uvc/)
 
 ### 三、交叉编译mjpg-streamer
 #### libjpeg库安装
@@ -65,8 +66,8 @@ mjpg_streamer 文件拷贝到开发板的/bin/目录下
 www 文件夹拷贝到/opt/目录下
 ```
 
-具体参考1：[迅为-iMX6ULL开发板-移植mjpg-streamer实现远程监控](https://www.cnblogs.com/liyue3/p/13914163.html)
-具体参考2：[mjpeg-streamer交叉编译](https://blog.csdn.net/sy84436446/article/details/108627453)
+具体参考1：[迅为-iMX6ULL开发板-移植mjpg-streamer实现远程监控](https://www.cnblogs.com/liyue3/p/13914163.html)  
+具体参考2：[mjpeg-streamer交叉编译](https://blog.csdn.net/sy84436446/article/details/108627453)  
 
 ### 四、运行mjpg-streamer
 
