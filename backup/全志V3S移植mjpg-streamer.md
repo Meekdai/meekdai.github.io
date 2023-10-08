@@ -15,26 +15,35 @@ FLASH：32M
 具体参考2：[关于V3S使用usb摄像头的问题](https://whycan.com/t_6234.html)  
 具体参考3：[V3S插入USB设备没有反应](https://whycan.com/t_7459.html)  
 具体参考4：[荔枝派Zero(全志V3S)驱动开发之USB摄像头](https://cloud.tencent.com/developer/article/2311086)  
-具体参考5：[Linux UVC driver and tools](http://www.ideasonboard.org/uvc/)
+具体参考5：[Linux UVC driver and tools](http://www.ideasonboard.org/uvc/)  
+具体参考6：[荔枝派Zero(全志V3S)驱动开发之USB摄像头 1](https://developer.aliyun.com/article/1337927?spm=a2c6h.12873639.article-detail.21.43c72ffcUlekZP)  
 
 ### 三、交叉编译mjpg-streamer
 #### libjpeg库安装
 
-1. 下载 [jpegsrc.v9d.tar.gz](http://www.ijg.org/files/jpegsrc.v9d.tar.gz) 
-2. 解压 `tar -vxzf jpegsrc.v9d.tar.gz`
-3. 配置 `./configure CC=/mnt/d/MICROPYTHON/V3S/gcc-linaro-6.3.1-2017.02-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-gcc --prefix=$PWD/_install --host=arm-linux-gnueabihf`
+1. 下载 [jpegsrc.v9e.tar.gz](http://www.ijg.org/files/jpegsrc.v9e.tar.gz) 
+2. 解压 `tar -vxzf jpegsrc.v9e.tar.gz`
+3. 配置 `./configure CC=/mnt/d/MICROPYTHON/V3S/gcc-linaro-6.3.1-2017.02-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-gcc --prefix=$PWD/_install --host=arm-linux-gnueabihf --enable-shared --enable-static`
 4. 编译 `make`
 5. 安装 `make install`
 
 #### mjpg-streamer编译
 
 1. 下载 [https://sourceforge.net/p/mjpg-streamer/code/HEAD/tree/](https://sourceforge.net/p/mjpg-streamer/code/HEAD/tree/)
-2. 进入mjpg-streamer目录，修改`makefile`中的`CC=gcc`为自己的编译器地址，包括使用了的`plugins`目录下的所有`makefile`文件。
-```makefile
-CC=/mnt/d/MICROPYTHON/V3S/gcc-linaro-6.3.1-2017.02-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-gcc
+2. 进入mjpg-streamer目录，修改`plugins`目录下的`makefile`文件，指向自己的路径。
+
+```
+# CFLAGS += -O1 -DLINUX -D_GNU_SOURCE -Wall -shared -fPIC
+CFLAGS += -O1 -DLINUX -D_GNU_SOURCE -Wall -shared -fPIC -I /mnt/c/Users/Meekdai/Desktop/v3s/app/tools/jpeg-9e/_install/include
 ```
 
-3. 根据需要编译下面的插件
+```
+input_uvc.so: $(OTHER_HEADERS) input_uvc.c v4l2uvc.lo jpeg_utils.lo dynctrl.lo
+	$(CC) $(CFLAGS) -L /mnt/c/Users/Meekdai/Desktop/v3s/app/tools/jpeg-9e/_install/lib -o $@ input_uvc.c v4l2uvc.lo jpeg_utils.lo dynctrl.lo $(LFLAGS)
+```
+
+3. 根据需要编译下面的插件，内容在主Makefile里。
+
 ```makefile
 # define the names and targets of the plugins
 PLUGINS = input_uvc.so
@@ -52,13 +61,8 @@ PLUGINS += output_rtsp.so
 # PLUGINS += output_viewer.so # commented out because it depends on SDL
 ```
 
-4. UVC模块依赖之前编译的jpeg库，所以在plugins/input_uvc/Makefile中指定之前编译的库和头文件(注意替换路径)：
-```makefile
-CFLAGS += -I/mnt/c/Users/Meekdai/Desktop/v3s/app/jpeg-9d/_install/include
-CFLAGS += -L/mnt/c/Users/Meekdai/Desktop/v3s/app/jpeg-9d/_install/lib
-```
+4. 然后执行`make CC=/mnt/d/MICROPYTHON/V3S/gcc-linaro-6.3.1-2017.02-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-gcc`编译，结束后拷贝文件到`V3S`中：
 
-5. 然后执行`make`编译，结束后拷贝文件到`V3S`中：
 ```
 jpeg-9d/_install 的/lib/下的库文件拷贝到开发板的/lib/目录下
 *.so 文件拷贝到开发板的/lib/目录下
@@ -66,13 +70,14 @@ mjpg_streamer 文件拷贝到开发板的/bin/目录下
 www 文件夹拷贝到/opt/目录下
 ```
 
-具体参考1：[迅为-iMX6ULL开发板-移植mjpg-streamer实现远程监控](https://www.cnblogs.com/liyue3/p/13914163.html)  
-具体参考2：[mjpeg-streamer交叉编译](https://blog.csdn.net/sy84436446/article/details/108627453)  
+具体参考1：[荔枝派Zero(全志V3S)驱动开发之RGB LCD屏幕显示jpg图片](https://blog.csdn.net/qq_41839588/article/details/130598083?spm=a2c6h.12873639.article-detail.7.43c72ffcUlekZP)  
+具体参考2：[荔枝派Zero(全志V3S)驱动开发之USB摄像头 2](https://developer.aliyun.com/article/1337930?spm=a2c6h.12873639.article-detail.20.44d318445QdBXC)  
+具体参考3：[mjpeg-streamer交叉编译](https://blog.csdn.net/sy84436446/article/details/108627453)   
 
 ### 四、运行mjpg-streamer
 
 ```
-mjpg_streamer -i "input_uvc.so -d /dev/video0 -n -f 10 -r 1280x720" -o "output_http.so -p 8080 -w /opt/www"
+mjpg_streamer -i "input_uvc.so -d /dev/video0 -n -f 10 -r 1280x720 -yuv" -o "output_http.so -p 8080 -w /opt/www"
 ```
 
 如果报权限的错误，执行 `chmod 777 /bin/mjpg_streamer`  
