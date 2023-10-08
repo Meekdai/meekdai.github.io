@@ -144,6 +144,8 @@ FLASH：32M<br>
 mjpg_streamer 文件拷贝到开发板的/bin/目录下
 www 文件夹拷贝到/opt/目录下
 </code></pre>
+<p>具体参考1：<a href="https://www.cnblogs.com/liyue3/p/13914163.html" rel="nofollow">迅为-iMX6ULL开发板-移植mjpg-streamer实现远程监控</a>
+具体参考2：<a href="https://blog.csdn.net/sy84436446/article/details/108627453" rel="nofollow">mjpeg-streamer交叉编译</a></p>
 <h3 id="user-content-四运行mjpg-streamer"><a class="heading-link" href="#四运行mjpg-streamer">四、运行mjpg-streamer<span aria-hidden="true" class="octicon octicon-link"></span></a></h3>
 <pre><code>mjpg_streamer -i "input_uvc.so -d /dev/video0 -n -f 10 -r 1280x720" -o "output_http.so -p 8080 -w /opt/www"
 </code></pre>
