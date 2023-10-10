@@ -1,5 +1,11 @@
 上一篇文章在树莓派上简单的测试了一下USB摄像头通过mjpg-streamer推流的步骤，本篇记录使用全志的V3S替代树莓派实现这个功能。由于树莓派上有包管理工具，所以可以直接使用`apt-get`指令来安装需要的软件脚本，但是V3S没有包管理，需要自己移植并且交叉编译。
 
+## 本篇文章是一个巨坑，请谨慎参考
+
+下一篇文章会填坑：[多USB摄像头在同一USB总线上开启](https://blog.meekdai.com/post/duo-USB-she-xiang-tou-zai-tong-yi-USB-zong-xian-shang-kai-qi.html)
+
+---
+
 ### 一、开发环境
 开发板：荔枝派zero  
 buildroot：2018.08.2  
