@@ -34,7 +34,8 @@ sudo rmmod uvcvideo
 sudo modprobe uvcvideo quirks=128
 ```
 
-对于我来说，下面这个实测有效：
+对于我来说，下面这个实测有效：  
+具体参考：[摄像头读取出现VIDIOC_STREAMON: No space left on device 错误](https://www.twblogs.net/a/5db2f553bd9eee310ee6580a/?lang=zh-cn)
 
 ```
 # 修改内核源码，在buildroot的目录下面就是这个路径文件

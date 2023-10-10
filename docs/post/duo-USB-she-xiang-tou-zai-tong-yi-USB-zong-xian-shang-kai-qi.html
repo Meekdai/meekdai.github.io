@@ -102,7 +102,8 @@ BR2_PACKAGE_PROVIDES_JPEG="libjpeg"
 <pre><code>sudo rmmod uvcvideo
 sudo modprobe uvcvideo quirks=128
 </code></pre>
-<p>对于我来说，下面这个实测有效：</p>
+<p>对于我来说，下面这个实测有效：<br>
+具体参考：<a href="https://www.twblogs.net/a/5db2f553bd9eee310ee6580a/?lang=zh-cn" rel="nofollow">摄像头读取出现VIDIOC_STREAMON: No space left on device 错误</a></p>
 <pre><code># 修改内核源码，在buildroot的目录下面就是这个路径文件
 output\build\linux-zero-4.13.y\drivers\media\usb\uvc\uvc_video.c
 
