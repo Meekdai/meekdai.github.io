@@ -94,6 +94,8 @@ a.heading-link{color:inherit;text-decoration:none;}
 <a href="http://limif.cn/" rel="nofollow">妙月弦</a> 空城旧梦，余情未了</li>
 <li>
 <a href="https://myblog.wallleap.cn/" rel="nofollow">wallleap</a> Luwang's blog</li>
+<li>
+<a href="https://blog.xiaohack.org/" rel="nofollow">纯情</a> 专注于前端开发与程序拓展的资源分享平台</li>
 </ul>
 <p>以下是我的友链信息：</p>
 <pre><code>- name: Meekdai
@@ -155,7 +157,11 @@ console.log("\n %c Gmeek main %c https://github.com/Meekdai/Gmeek \n\n", "color:
 
 <script>
 
-
+cmButton=document.getElementById("cmButton");
+    span=document.createElement("span");
+    span.setAttribute("class","Counter");
+    span.innerHTML="2";
+    cmButton.appendChild(span);
 
 function openComments(){
     cm=document.getElementById("comments");
