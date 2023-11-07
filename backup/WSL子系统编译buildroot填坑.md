@@ -15,8 +15,8 @@ getfattr: Removing leading '/' from absolute path names
 # file: opt
 system.wsl_case_sensitive="1"
 ```
-> 参考链接1：[glibc build errors with undefined references in files under elf/ ](https://github.com/riscv-collab/riscv-gnu-toolchain/issues/523)
-> 参考链接2：[Linker error](https://github.com/riscv-collab/riscv-gnu-toolchain/issues/742)
+> 参考链接1：[glibc build errors with undefined references in files under elf/ ](https://github.com/riscv-collab/riscv-gnu-toolchain/issues/523)   
+> 参考链接2：[Linker error](https://github.com/riscv-collab/riscv-gnu-toolchain/issues/742)   
 
 2. 报错 fakeroot
 ```
@@ -32,8 +32,8 @@ sudo apt-get install -y fakeroot
 sudo cp -f /usr/bin/fakeroot-tcp output/host/usr/bin/fakeroot
 ```
 
-> 参考链接1：[Sysvipc message queues and fakeroot](https://github.com/microsoft/WSL/issues/2465)
-> 参考链接2：[Win10 WSL系统下编译buildroot报错不支持SYSV IPC，导致fakeroot无法正常工作](https://whycan.com/t_1004.html)](https://whycan.com/t_1004.html)
+> 参考链接1：[Sysvipc message queues and fakeroot](https://github.com/microsoft/WSL/issues/2465)   
+> 参考链接2：[Win10 WSL系统下编译buildroot报错不支持SYSV IPC，导致fakeroot无法正常工作](https://whycan.com/t_1004.html)   
 
 3. How to remove Windows paths from WSL path
 ```
@@ -67,6 +67,6 @@ wsl --shutdown
 wsl --unregister <DistributionName>
 
 ```
-> 参考链接1：[WSL 的基本命令](https://learn.microsoft.com/zh-cn/windows/wsl/basic-commands)
+> 参考链接1：[WSL 的基本命令](https://learn.microsoft.com/zh-cn/windows/wsl/basic-commands)   
 
 
