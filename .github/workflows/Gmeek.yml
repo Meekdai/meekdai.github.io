@@ -33,9 +33,11 @@ jobs:
 
       - name: Clone source code
         run: |
+          git clone https://github.com/Meekdai/Gmeek.git /opt/Gmeek;
+          cd /opt/Gmeek/
           lastTag=$(git describe --tags `git rev-list --tags --max-count=1`)
           GMEEK_VERSION=$(jq -r ".GMEEK_VERSION" config.json)
-          if [ $GMEEK_VERSION == 'last' ]; then git clone -b $lastTag https://github.com/Meekdai/Gmeek.git /opt/Gmeek; else git clone -b $GMEEK_VERSION https://github.com/Meekdai/Gmeek.git /opt/Gmeek; fi;
+          if [ $GMEEK_VERSION == 'last' ]; then git checkout $lastTag; else git checkout $GMEEK_VERSION; fi;
 
       - name: Install dependencies
         run: |
