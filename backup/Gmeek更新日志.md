@@ -1,4 +1,8 @@
-[Gmeek](https://github.com/Meekdai/Gmeek) 一个博客框架，超轻量级个人博客模板，完全基于`Github Pages `、 `Github Issues` 和 `Github Actions`，可以称作`All in Github`。不需要本地部署，从搭建到写作，只需要几分钟的时间，3步搭建好博客，第4步就是写作。
+[Gmeek](https://github.com/Meekdai/Gmeek) 一个博客框架，超轻量级个人博客模板，完全基于`Github Pages `、 `Github Issues` 和 `Github Actions`，可以称作`All in Github`。不需要本地部署，从搭建到写作，只需要18秒，2步搭建好博客，第3步就是写作。
+
+#### 20231113（v2.6）
+- 再一次简化搭建流程，真18秒搭建完成
+- 通过urlMode配置文章URL模式
 
 #### 20231102（v2.5）
 - 修复h2 h3 h4 标签颜色变化
