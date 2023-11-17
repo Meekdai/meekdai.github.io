@@ -80,14 +80,14 @@ a.heading-link{color:inherit;text-decoration:none;}
 </div>
     <div id="content">
 <div class="markdown-body" id="postBody">
-<p>通过python的 <code>pip install pyopengl</code>指令在win10 64位的系统上安装后，运行官方茶壶的例子，会出现如下报错：</p>
-<div class="highlight highlight-source-python"><pre><span class="pl-v">OpenGL</span>.<span class="pl-s1">error</span>.<span class="pl-v">NullFunctionError</span>: <span class="pl-v">Attempt</span> <span class="pl-s1">to</span> <span class="pl-s1">call</span> <span class="pl-s1">an</span> <span class="pl-s1">undefined</span> <span class="pl-s1">function</span> <span class="pl-s1">glutInitDisplayMode</span>, <span class="pl-s1">check</span> <span class="pl-s1">for</span> <span class="pl-en">bool</span>(<span class="pl-s1">glutInitDisplayMode</span>) <span class="pl-s1">before</span> <span class="pl-s1">calling</span>
+<p>通过python的 <code class="notranslate">pip install pyopengl</code>指令在win10 64位的系统上安装后，运行官方茶壶的例子，会出现如下报错：</p>
+<div class="highlight highlight-source-python"><pre class="notranslate"><span class="pl-v">OpenGL</span>.<span class="pl-s1">error</span>.<span class="pl-v">NullFunctionError</span>: <span class="pl-v">Attempt</span> <span class="pl-s1">to</span> <span class="pl-s1">call</span> <span class="pl-s1">an</span> <span class="pl-s1">undefined</span> <span class="pl-s1">function</span> <span class="pl-s1">glutInitDisplayMode</span>, <span class="pl-s1">check</span> <span class="pl-s1">for</span> <span class="pl-en">bool</span>(<span class="pl-s1">glutInitDisplayMode</span>) <span class="pl-s1">before</span> <span class="pl-s1">calling</span>
 <span class="pl-v">OpenGL</span>.<span class="pl-s1">error</span>.<span class="pl-v">NullFunctionError</span>: <span class="pl-v">Attempt</span> <span class="pl-s1">to</span> <span class="pl-s1">call</span> <span class="pl-s1">an</span> <span class="pl-s1">undefined</span> <span class="pl-s1">function</span></pre></div>
-<p>这些都是因为通过pip安装的版本是32位导致的，我看了很多网上的解决办法说是手动下载64位的包安装即可解决。但是我按要求下载64位的包后，通过 <code>pip install XXX.whl</code>本地安装的方式，却提示我64位的pyopengl已经安装，无需重复安装。让我在这个坑里面跳了好久没跳出来。</p>
-<p>最后的解决办法是，你需要先卸载已经安装好的pyopengl，再手动安装一下才行。所以在这里记录一下，以便有其他人遇到同样的坑。
+<p>这些都是因为通过pip安装的版本是32位导致的，我看了很多网上的解决办法说是手动下载64位的包安装即可解决。但是我按要求下载64位的包后，通过 <code class="notranslate">pip install XXX.whl</code>本地安装的方式，却提示我64位的pyopengl已经安装，无需重复安装。让我在这个坑里面跳了好久没跳出来。</p>
+<p>最后的解决办法是，你需要先卸载已经安装好的pyopengl，再手动安装一下才行。所以在这里记录一下，以便有其他人遇到同样的坑。<br>
 这里给一下手动下载的地址：<a href="https://www.lfd.uci.edu/~gohlke/pythonlibs/#pyopengl" rel="nofollow">pyopengl</a></p>
 <p>也顺便贴一下官方的测试茶壶代码：</p>
-<div class="highlight highlight-source-python"><pre><span class="pl-k">from</span> <span class="pl-v">OpenGL</span>.<span class="pl-v">GL</span> <span class="pl-k">import</span> <span class="pl-c1">*</span>
+<div class="highlight highlight-source-python"><pre class="notranslate"><span class="pl-k">from</span> <span class="pl-v">OpenGL</span>.<span class="pl-v">GL</span> <span class="pl-k">import</span> <span class="pl-c1">*</span>
 <span class="pl-k">from</span> <span class="pl-v">OpenGL</span>.<span class="pl-v">GLU</span> <span class="pl-k">import</span> <span class="pl-c1">*</span>
 <span class="pl-k">from</span> <span class="pl-v">OpenGL</span>.<span class="pl-v">GLUT</span> <span class="pl-k">import</span> <span class="pl-c1">*</span>
  
@@ -114,7 +114,6 @@ a.heading-link{color:inherit;text-decoration:none;}
 <span class="pl-en">glutMainLoop</span>()</pre></div>
 <p>python的pyopengl配合pygame还是很香的，有空多学习学习。下面放一张最近做的一个小东西，具体是干嘛用的，之后应该会有文章详细介绍。@(滑稽)</p>
 <p><a target="_blank" rel="noopener noreferrer" href="https://github.com/Meekdai/meekdai.github.io/assets/11755104/3d227e8c-77ef-4044-9331-e2d7a77af4c2"><img src="https://github.com/Meekdai/meekdai.github.io/assets/11755104/3d227e8c-77ef-4044-9331-e2d7a77af4c2" alt="pyeuler" style="max-width: 100%;"></a></p>
-
 </div>
 <button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
 <div class="comments" id="comments"></div>

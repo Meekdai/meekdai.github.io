@@ -81,50 +81,49 @@ a.heading-link{color:inherit;text-decoration:none;}
     <div id="content">
 <div class="markdown-body" id="postBody">
 <p>Github地址：<a href="https://github.com/Meekdai/cmder">https://github.com/Meekdai/cmder</a></p>
-<h3 id="user-content-为什么要使用它"><a class="heading-link" href="#为什么要使用它">为什么要使用它<span aria-hidden="true" class="octicon octicon-link"></span></a></h3>
+<h3>为什么要使用它</h3>
 <p>它看起来非常酷</p>
 <p><a target="_blank" rel="noopener noreferrer nofollow" href="https://raw.githubusercontent.com/Meekdai/cmder/master/image/1.jpg"><img src="https://raw.githubusercontent.com/Meekdai/cmder/master/image/1.jpg" alt="2292762868.jpg" style="max-width: 100%;"></a></p>
 <p>Markdown高亮，以及背后实时预览功能，随着光标的移动，自动下拉页面。</p>
 <p><a target="_blank" rel="noopener noreferrer nofollow" href="https://raw.githubusercontent.com/Meekdai/cmder/master/image/2.gif"><img src="https://raw.githubusercontent.com/Meekdai/cmder/master/image/2.gif" alt="748985106.gif" style="max-width: 100%;"></a></p>
 <p>具备常用代码高亮、折叠、编译的能力。(Python/C/C++/...)</p>
 <p><a target="_blank" rel="noopener noreferrer nofollow" href="https://raw.githubusercontent.com/Meekdai/cmder/master/image/3.jpg"><img src="https://raw.githubusercontent.com/Meekdai/cmder/master/image/3.jpg" alt="2439343118.jpg" style="max-width: 100%;"></a></p>
-<h3 id="user-content-说明"><a class="heading-link" href="#说明">说明<span aria-hidden="true" class="octicon octicon-link"></span></a></h3>
+<h3>说明</h3>
 <p>Cmder集成强大的命令行工具，可以像用Linux一样使用Windows。</p>
 <blockquote>
 <p>使用该软件需要安装 Python</p>
 </blockquote>
-<h3 id="user-content-安装"><a class="heading-link" href="#安装">安装<span aria-hidden="true" class="octicon octicon-link"></span></a></h3>
+<h3>安装</h3>
 <p>1、如果你已经有Git，可以直接通过下面的一条指令安装到你的电脑上。</p>
-<pre><code>$ git clone https://github.com/Meekdai/cmder.git
+<pre class="notranslate"><code class="notranslate">$ git clone https://github.com/Meekdai/cmder.git
 </code></pre>
-<p>2、如果电脑上没有安装Git，也许你正需要这个cmder来实现这些功能，那么可以直接通过<code>Download ZIP</code>按钮来下载，解压到合适的位置。</p>
+<p>2、如果电脑上没有安装Git，也许你正需要这个cmder来实现这些功能，那么可以直接通过<code class="notranslate">Download ZIP</code>按钮来下载，解压到合适的位置。</p>
 <p>###环境变量</p>
-<p>必须在环境变量的<code>Path</code>中添加<code>cmder.exe</code>所在的目录，以及<code>vim.exe</code>所在的目录。比如我需要添加的两个路径为<code>C:\cmder</code> 和 <code>C:\cmder\vendor\vim</code>。</p>
+<p>必须在环境变量的<code class="notranslate">Path</code>中添加<code class="notranslate">cmder.exe</code>所在的目录，以及<code class="notranslate">vim.exe</code>所在的目录。比如我需要添加的两个路径为<code class="notranslate">C:\cmder</code> 和 <code class="notranslate">C:\cmder\vendor\vim</code>。</p>
 <blockquote>
 <p>注意解压目录不要包含有中文路径，否则会出现意想不到的错误。</p>
 </blockquote>
 <p>###配置Vundle</p>
-<p>在VIM里面，我使用Vundle来管理所有的插件，所以需要先进入到<code>../cmder/vendor/vim/vimfiles/bundle/</code>文件夹内把最新的<code>Vundle</code>下载下来，当然是在当前目录运行下面这句：</p>
-<pre><code>git clone https://github.com/VundleVim/Vundle.vim.git
+<p>在VIM里面，我使用Vundle来管理所有的插件，所以需要先进入到<code class="notranslate">../cmder/vendor/vim/vimfiles/bundle/</code>文件夹内把最新的<code class="notranslate">Vundle</code>下载下来，当然是在当前目录运行下面这句：</p>
+<pre class="notranslate"><code class="notranslate">git clone https://github.com/VundleVim/Vundle.vim.git
 </code></pre>
-<p>成功后，在cmder内运行<code>vim</code>指令，进入到<code>vim</code>的普通模式下，输入<code>:PluginInstall</code>来下载所有的插件。</p>
-<h3 id="user-content-右键设置"><a class="heading-link" href="#右键设置">右键设置<span aria-hidden="true" class="octicon octicon-link"></span></a></h3>
+<p>成功后，在cmder内运行<code class="notranslate">vim</code>指令，进入到<code class="notranslate">vim</code>的普通模式下，输入<code class="notranslate">:PluginInstall</code>来下载所有的插件。</p>
+<h3>右键设置</h3>
 <p>可以通过右键，在指定目录打开Cmder。</p>
-<p>首先打开具有管理员权限的，快捷键<code>Ctrl + t</code>勾选<code>Run as current user</code>和<code>Run as administrator</code>这两项，然后点<code>start</code>开启，然后在命令行输入 :</p>
-<pre><code>Cmder.exe /REGISTER ALL 1 Cmder.exe /REGISTER ALL 
+<p>首先打开具有管理员权限的，快捷键<code class="notranslate">Ctrl + t</code>勾选<code class="notranslate">Run as current user</code>和<code class="notranslate">Run as administrator</code>这两项，然后点<code class="notranslate">start</code>开启，然后在命令行输入 :</p>
+<pre class="notranslate"><code class="notranslate">Cmder.exe /REGISTER ALL 1 Cmder.exe /REGISTER ALL 
 </code></pre>
-<p>现在在文件夹内右键点击<code>Cmder here</code> 就能在<code>cmder</code>里进入该目录。</p>
-<h3 id="user-content-快捷键设置"><a class="heading-link" href="#快捷键设置">快捷键设置<span aria-hidden="true" class="octicon octicon-link"></span></a></h3>
-<p>所有的快捷键都放在<code>../cmder/config/user-aliases.cmd</code>里面，你可以通过<code>vim</code>来编辑它，直接在命令行内输入<code>kjj</code>就可以打开编辑它，如果出错了，请参考下文的FAQ。</p>
-<p>例如我设置的<code>gd</code>为进入到桌面，<code>vimrc</code>为打开VIM配置文件，<code>st</code>为用sublime Text打开某文件。你可以通过自己的习惯设置一些快捷键。</p>
-<h3 id="user-content-faq"><a class="heading-link" href="#faq">FAQ<span aria-hidden="true" class="octicon octicon-link"></span></a></h3>
-<p>Q:输入<code>kjj</code>提示错误，即<code>../cmder/config/user-aliases.cmd</code>内设置的快捷键无效，而<code>ls</code>等指令是有用的。
-A:这是由于Win10 1703 (Build 15063.11)更新导致，解决办法见<a href="https://github.com/cmderdev/cmder/issues/1325">issues #1325</a></p>
-<p>Q:右键配置好后，依旧无法进入指定的目录。
-A:请配置<code>cmder.exe</code>默认为管理员打开。</p>
-<h3 id="user-content-license"><a class="heading-link" href="#license">License<span aria-hidden="true" class="octicon octicon-link"></span></a></h3>
+<p>现在在文件夹内右键点击<code class="notranslate">Cmder here</code> 就能在<code class="notranslate">cmder</code>里进入该目录。</p>
+<h3>快捷键设置</h3>
+<p>所有的快捷键都放在<code class="notranslate">../cmder/config/user-aliases.cmd</code>里面，你可以通过<code class="notranslate">vim</code>来编辑它，直接在命令行内输入<code class="notranslate">kjj</code>就可以打开编辑它，如果出错了，请参考下文的FAQ。</p>
+<p>例如我设置的<code class="notranslate">gd</code>为进入到桌面，<code class="notranslate">vimrc</code>为打开VIM配置文件，<code class="notranslate">st</code>为用sublime Text打开某文件。你可以通过自己的习惯设置一些快捷键。</p>
+<h3>FAQ</h3>
+<p>Q:输入<code class="notranslate">kjj</code>提示错误，即<code class="notranslate">../cmder/config/user-aliases.cmd</code>内设置的快捷键无效，而<code class="notranslate">ls</code>等指令是有用的。<br>
+A:这是由于Win10 1703 (Build 15063.11)更新导致，解决办法见<a href="https://github.com/cmderdev/cmder/issues/1325" data-hovercard-type="issue" data-hovercard-url="/cmderdev/cmder/issues/1325/hovercard">issues #1325</a></p>
+<p>Q:右键配置好后，依旧无法进入指定的目录。<br>
+A:请配置<code class="notranslate">cmder.exe</code>默认为管理员打开。</p>
+<h3>License</h3>
 <p>MIT License</p>
-
 </div>
 <button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
 <div class="comments" id="comments"></div>

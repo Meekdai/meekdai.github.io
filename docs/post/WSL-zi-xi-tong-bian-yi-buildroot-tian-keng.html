@@ -80,13 +80,13 @@ a.heading-link{color:inherit;text-decoration:none;}
 </div>
     <div id="content">
 <div class="markdown-body" id="postBody">
-<p>之前一直用Windows的子系统<code>WSL</code>用来编译<code>micropython</code>的固件，速度很快而且文件交互起来也很方便。<code>buildroot</code>体积比较大，之前一直都是在<code>Github</code>的<a href="https://github.com/codespaces">codespaces</a>上编译，但是<code>codespaces</code>有存储大小限制，所以这里记录一下在<code>WSL</code>中编译<code>buildroot</code>遇到的一些坑。</p>
-<h3 id="user-content-填坑"><a class="heading-link" href="#填坑">填坑<span aria-hidden="true" class="octicon octicon-link"></span></a></h3>
+<p>之前一直用Windows的子系统<code class="notranslate">WSL</code>用来编译<code class="notranslate">micropython</code>的固件，速度很快而且文件交互起来也很方便。<code class="notranslate">buildroot</code>体积比较大，之前一直都是在<code class="notranslate">Github</code>的<a href="https://github.com/codespaces">codespaces</a>上编译，但是<code class="notranslate">codespaces</code>有存储大小限制，所以这里记录一下在<code class="notranslate">WSL</code>中编译<code class="notranslate">buildroot</code>遇到的一些坑。</p>
+<h3>填坑</h3>
 <ol>
-<li>报错 build/elf/librtld.os:raise.c:(.text+0x18bf4): more undefined references to 'rtld_errno' follow
-这个错误是WSL对于挂载的文件，也就是在<code>/mnt/</code>下的所有内容都不区分大小写导致的，所以需要把编译的路径放到<code>/opt</code>下即可。</li>
+<li>报错 build/elf/librtld.os:raise.c:(.text+0x18bf4): more undefined references to 'rtld_errno' follow<br>
+这个错误是WSL对于挂载的文件，也就是在<code class="notranslate">/mnt/</code>下的所有内容都不区分大小写导致的，所以需要把编译的路径放到<code class="notranslate">/opt</code>下即可。</li>
 </ol>
-<pre><code>$ getfattr -n system.wsl_case_sensitive /mnt/d
+<pre class="notranslate"><code class="notranslate">$ getfattr -n system.wsl_case_sensitive /mnt/d
 getfattr: Removing leading '/' from absolute path names
 # file: mnt/d
 system.wsl_case_sensitive="0"
@@ -97,38 +97,38 @@ getfattr: Removing leading '/' from absolute path names
 system.wsl_case_sensitive="1"
 </code></pre>
 <blockquote>
-<p>参考链接1：<a href="https://github.com/riscv-collab/riscv-gnu-toolchain/issues/523">glibc build errors with undefined references in files under elf/ </a><br>
-参考链接2：<a href="https://github.com/riscv-collab/riscv-gnu-toolchain/issues/742">Linker error</a></p>
+<p>参考链接1：<a href="https://github.com/riscv-collab/riscv-gnu-toolchain/issues/523" data-hovercard-type="issue" data-hovercard-url="/riscv-collab/riscv-gnu-toolchain/issues/523/hovercard">glibc build errors with undefined references in files under elf/ </a><br>
+参考链接2：<a href="https://github.com/riscv-collab/riscv-gnu-toolchain/issues/742" data-hovercard-type="issue" data-hovercard-url="/riscv-collab/riscv-gnu-toolchain/issues/742/hovercard">Linker error</a></p>
 </blockquote>
 <ol start="2">
 <li>报错 fakeroot</li>
 </ol>
-<pre><code>fakeroot, while creating message channels: Function not implemented
+<pre class="notranslate"><code class="notranslate">fakeroot, while creating message channels: Function not implemented
 This may be due to a lack of SYSV IPC support.
 fakeroot: error while starting the `faked' daemon.
 kill: usage: kill [-s sigspec | -n signum | -sigspec] pid | jobspec ... or kill -l [sigspec]
 make: *** [fs/common.mk:87: /opt/buildroot/buildroot-2018.08.2/output/build/buildroot-fs/rootfs.common.tar] Error 1
 </code></pre>
-<p>据微软开发人员解释，目前WSL仅仅支持SYSV的信号量，消息队列还没有被实现(fakeroot需要SYSV的消息队列)。所以解决方案是使用<code>fakeroot-tcp</code>替换<code>fakeroot</code></p>
-<pre><code>sudo apt-get install -y fakeroot
+<p>据微软开发人员解释，目前WSL仅仅支持SYSV的信号量，消息队列还没有被实现(fakeroot需要SYSV的消息队列)。所以解决方案是使用<code class="notranslate">fakeroot-tcp</code>替换<code class="notranslate">fakeroot</code></p>
+<pre class="notranslate"><code class="notranslate">sudo apt-get install -y fakeroot
 sudo cp -f /usr/bin/fakeroot-tcp output/host/usr/bin/fakeroot
 </code></pre>
 <blockquote>
-<p>参考链接1：<a href="https://github.com/microsoft/WSL/issues/2465">Sysvipc message queues and fakeroot</a><br>
+<p>参考链接1：<a href="https://github.com/microsoft/WSL/issues/2465" data-hovercard-type="issue" data-hovercard-url="/microsoft/WSL/issues/2465/hovercard">Sysvipc message queues and fakeroot</a><br>
 参考链接2：<a href="https://whycan.com/t_1004.html" rel="nofollow">Win10 WSL系统下编译buildroot报错不支持SYSV IPC，导致fakeroot无法正常工作</a></p>
 </blockquote>
 <ol start="3">
 <li>How to remove Windows paths from WSL path</li>
 </ol>
-<pre><code>echo $PATH
+<pre class="notranslate"><code class="notranslate">echo $PATH
 $ sudo vi /etc/wsl.conf
 
 [interop]
 appendWindowsPath = false
 </code></pre>
 <p>修改后重启WSL，即可删除Windows上的环境变量</p>
-<h3 id="user-content-wsl指令"><a class="heading-link" href="#wsl指令">WSL指令<span aria-hidden="true" class="octicon octicon-link"></span></a></h3>
-<pre><code>重启WSL
+<h3>WSL指令</h3>
+<pre class="notranslate"><code class="notranslate">重启WSL
 Restart-Service LxssManager
 
 转换 WSL 版本2
@@ -150,7 +150,6 @@ wsl --unregister &lt;DistributionName&gt;
 <blockquote>
 <p>参考链接1：<a href="https://learn.microsoft.com/zh-cn/windows/wsl/basic-commands" rel="nofollow">WSL 的基本命令</a></p>
 </blockquote>
-
 </div>
 <button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
 <div class="comments" id="comments"></div>

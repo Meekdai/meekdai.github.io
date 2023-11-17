@@ -80,54 +80,48 @@ a.heading-link{color:inherit;text-decoration:none;}
 </div>
     <div id="content">
 <div class="markdown-body" id="postBody">
-<p>上一篇文章在树莓派上简单的测试了一下USB摄像头通过mjpg-streamer推流的步骤，本篇记录使用全志的V3S替代树莓派实现这个功能。由于树莓派上有包管理工具，所以可以直接使用<code>apt-get</code>指令来安装需要的软件脚本，但是V3S没有包管理，需要自己移植并且交叉编译。</p>
-<h2 id="user-content-本篇文章是一个巨坑请谨慎参考"><a class="heading-link" href="#本篇文章是一个巨坑请谨慎参考">本篇文章是一个巨坑，请谨慎参考<span aria-hidden="true" class="octicon octicon-link"></span></a></h2>
+<p>上一篇文章在树莓派上简单的测试了一下USB摄像头通过mjpg-streamer推流的步骤，本篇记录使用全志的V3S替代树莓派实现这个功能。由于树莓派上有包管理工具，所以可以直接使用<code class="notranslate">apt-get</code>指令来安装需要的软件脚本，但是V3S没有包管理，需要自己移植并且交叉编译。</p>
+<h2>本篇文章是一个巨坑，请谨慎参考</h2>
 <p>下一篇文章会填坑：<a href="https://blog.meekdai.com/post/duo-USB-she-xiang-tou-zai-tong-yi-USB-zong-xian-shang-kai-qi.html" rel="nofollow">多USB摄像头在同一USB总线上开启</a></p>
 <hr>
-<h3 id="user-content-一开发环境"><a class="heading-link" href="#一开发环境">一、开发环境<span aria-hidden="true" class="octicon octicon-link"></span></a></h3>
+<h3>一、开发环境</h3>
 <p>开发板：荔枝派zero<br>
 buildroot：2018.08.2<br>
 FLASH：32M<br>
 编译环境：WIN10 WSL 和 Github Codepaces</p>
 <p>具体参考：<a href="https://whycan.com/t_2169.html" rel="nofollow">V3s buildroot 一键生成打包生成32M spi flash 镜像, jffs2 文件系统, 默认启动 Qt 模拟时钟demo,</a></p>
-<h3 id="user-content-二开启uvc摄像头"><a class="heading-link" href="#二开启uvc摄像头">二、开启UVC摄像头<span aria-hidden="true" class="octicon octicon-link"></span></a></h3>
-<p>进入<code>linux-zero-4.13.y</code>目录，可通过<code>make menuconfig</code>启用，也可以直接编辑<code>.config</code>文件，主要是启用 <code>UVC</code> 和 <code>V4L2</code></p>
+<h3>二、开启UVC摄像头</h3>
+<p>进入<code class="notranslate">linux-zero-4.13.y</code>目录，可通过<code class="notranslate">make menuconfig</code>启用，也可以直接编辑<code class="notranslate">.config</code>文件，主要是启用 <code class="notranslate">UVC</code> 和 <code class="notranslate">V4L2</code></p>
 <p>具体参考1：<a href="https://ccclaire.com/index.php/2021/03/25/camera-driver-in-embbedlinux-and-v4l2/" rel="nofollow">嵌入式Linux平台下的UVC驱动和V4L2</a><br>
 具体参考2：<a href="https://whycan.com/t_6234.html" rel="nofollow">关于V3S使用usb摄像头的问题</a><br>
 具体参考3：<a href="https://whycan.com/t_7459.html" rel="nofollow">V3S插入USB设备没有反应</a><br>
 具体参考4：<a href="https://cloud.tencent.com/developer/article/2311086" rel="nofollow">荔枝派Zero(全志V3S)驱动开发之USB摄像头</a><br>
 具体参考5：<a href="http://www.ideasonboard.org/uvc/" rel="nofollow">Linux UVC driver and tools</a><br>
 具体参考6：<a href="https://developer.aliyun.com/article/1337927?spm=a2c6h.12873639.article-detail.21.43c72ffcUlekZP" rel="nofollow">荔枝派Zero(全志V3S)驱动开发之USB摄像头 1</a></p>
-<h3 id="user-content-三交叉编译mjpg-streamer"><a class="heading-link" href="#三交叉编译mjpg-streamer">三、交叉编译mjpg-streamer<span aria-hidden="true" class="octicon octicon-link"></span></a></h3>
-<h4 id="user-content-libjpeg库安装"><a class="heading-link" href="#libjpeg库安装">libjpeg库安装<span aria-hidden="true" class="octicon octicon-link"></span></a></h4>
+<h3>三、交叉编译mjpg-streamer</h3>
+<h4>libjpeg库安装</h4>
 <ol>
-<li>下载 <a href="http://www.ijg.org/files/jpegsrc.v9e.tar.gz" rel="nofollow">jpegsrc.v9e.tar.gz</a>
-</li>
-<li>解压 <code>tar -vxzf jpegsrc.v9e.tar.gz</code>
-</li>
-<li>配置 <code>./configure CC=/mnt/d/MICROPYTHON/V3S/gcc-linaro-6.3.1-2017.02-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-gcc --prefix=$PWD/_install --host=arm-linux-gnueabihf --enable-shared --enable-static</code>
-</li>
-<li>编译 <code>make</code>
-</li>
-<li>安装 <code>make install</code>
-</li>
+<li>下载 <a href="http://www.ijg.org/files/jpegsrc.v9e.tar.gz" rel="nofollow">jpegsrc.v9e.tar.gz</a></li>
+<li>解压 <code class="notranslate">tar -vxzf jpegsrc.v9e.tar.gz</code></li>
+<li>配置 <code class="notranslate">./configure CC=/mnt/d/MICROPYTHON/V3S/gcc-linaro-6.3.1-2017.02-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-gcc --prefix=$PWD/_install --host=arm-linux-gnueabihf --enable-shared --enable-static</code></li>
+<li>编译 <code class="notranslate">make</code></li>
+<li>安装 <code class="notranslate">make install</code></li>
 </ol>
-<h4 id="user-content-mjpg-streamer编译"><a class="heading-link" href="#mjpg-streamer编译">mjpg-streamer编译<span aria-hidden="true" class="octicon octicon-link"></span></a></h4>
+<h4>mjpg-streamer编译</h4>
 <ol>
-<li>下载 <a href="https://sourceforge.net/p/mjpg-streamer/code/HEAD/tree/" rel="nofollow">https://sourceforge.net/p/mjpg-streamer/code/HEAD/tree/</a>
-</li>
-<li>进入mjpg-streamer目录，修改<code>plugins</code>目录下的<code>makefile</code>文件，指向自己的路径。</li>
+<li>下载 <a href="https://sourceforge.net/p/mjpg-streamer/code/HEAD/tree/" rel="nofollow">https://sourceforge.net/p/mjpg-streamer/code/HEAD/tree/</a></li>
+<li>进入mjpg-streamer目录，修改<code class="notranslate">plugins</code>目录下的<code class="notranslate">makefile</code>文件，指向自己的路径。</li>
 </ol>
-<pre><code># CFLAGS += -O1 -DLINUX -D_GNU_SOURCE -Wall -shared -fPIC
+<pre class="notranslate"><code class="notranslate"># CFLAGS += -O1 -DLINUX -D_GNU_SOURCE -Wall -shared -fPIC
 CFLAGS += -O1 -DLINUX -D_GNU_SOURCE -Wall -shared -fPIC -I /mnt/c/Users/Meekdai/Desktop/v3s/app/tools/jpeg-9e/_install/include
 </code></pre>
-<pre><code>input_uvc.so: $(OTHER_HEADERS) input_uvc.c v4l2uvc.lo jpeg_utils.lo dynctrl.lo
+<pre class="notranslate"><code class="notranslate">input_uvc.so: $(OTHER_HEADERS) input_uvc.c v4l2uvc.lo jpeg_utils.lo dynctrl.lo
 	$(CC) $(CFLAGS) -L /mnt/c/Users/Meekdai/Desktop/v3s/app/tools/jpeg-9e/_install/lib -o $@ input_uvc.c v4l2uvc.lo jpeg_utils.lo dynctrl.lo $(LFLAGS)
 </code></pre>
 <ol start="3">
 <li>根据需要编译下面的插件，内容在主Makefile里。</li>
 </ol>
-<div class="highlight highlight-source-makefile"><pre><span class="pl-c"><span class="pl-c">#</span> define the names and targets of the plugins</span>
+<div class="highlight highlight-source-makefile"><pre class="notranslate"><span class="pl-c"><span class="pl-c">#</span> define the names and targets of the plugins</span>
 <span class="pl-smi">PLUGINS</span> = input_uvc.so
 <span class="pl-smi">PLUGINS</span> += output_file.so
 <span class="pl-smi">PLUGINS</span> += output_udp.so
@@ -142,9 +136,9 @@ CFLAGS += -O1 -DLINUX -D_GNU_SOURCE -Wall -shared -fPIC -I /mnt/c/Users/Meekdai/
 <span class="pl-c"><span class="pl-c">#</span> PLUGINS += input_http.so </span>
 <span class="pl-c"><span class="pl-c">#</span> PLUGINS += output_viewer.so # commented out because it depends on SDL</span></pre></div>
 <ol start="4">
-<li>然后执行<code>make CC=/mnt/d/MICROPYTHON/V3S/gcc-linaro-6.3.1-2017.02-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-gcc</code>编译，结束后拷贝文件到<code>V3S</code>中：</li>
+<li>然后执行<code class="notranslate">make CC=/mnt/d/MICROPYTHON/V3S/gcc-linaro-6.3.1-2017.02-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-gcc</code>编译，结束后拷贝文件到<code class="notranslate">V3S</code>中：</li>
 </ol>
-<pre><code>jpeg-9d/_install 的/lib/下的库文件拷贝到开发板的/lib/目录下
+<pre class="notranslate"><code class="notranslate">jpeg-9d/_install 的/lib/下的库文件拷贝到开发板的/lib/目录下
 *.so 文件拷贝到开发板的/lib/目录下
 mjpg_streamer 文件拷贝到开发板的/bin/目录下
 www 文件夹拷贝到/opt/目录下
@@ -152,16 +146,16 @@ www 文件夹拷贝到/opt/目录下
 <p>具体参考1：<a href="https://blog.csdn.net/qq_41839588/article/details/130598083?spm=a2c6h.12873639.article-detail.7.43c72ffcUlekZP" rel="nofollow">荔枝派Zero(全志V3S)驱动开发之RGB LCD屏幕显示jpg图片</a><br>
 具体参考2：<a href="https://developer.aliyun.com/article/1337930?spm=a2c6h.12873639.article-detail.20.44d318445QdBXC" rel="nofollow">荔枝派Zero(全志V3S)驱动开发之USB摄像头 2</a><br>
 具体参考3：<a href="https://blog.csdn.net/sy84436446/article/details/108627453" rel="nofollow">mjpeg-streamer交叉编译</a></p>
-<h3 id="user-content-四运行mjpg-streamer"><a class="heading-link" href="#四运行mjpg-streamer">四、运行mjpg-streamer<span aria-hidden="true" class="octicon octicon-link"></span></a></h3>
-<pre><code>mjpg_streamer -i "input_uvc.so -d /dev/video0 -n -f 10 -r 1280x720 -yuv" -o "output_http.so -p 8080 -w /opt/www"
+<h3>四、运行mjpg-streamer</h3>
+<pre class="notranslate"><code class="notranslate">mjpg_streamer -i "input_uvc.so -d /dev/video0 -n -f 10 -r 1280x720 -yuv" -o "output_http.so -p 8080 -w /opt/www"
 </code></pre>
-<p>如果报权限的错误，执行 <code>chmod 777 /bin/mjpg_streamer</code><br>
+<p>如果报权限的错误，执行 <code class="notranslate">chmod 777 /bin/mjpg_streamer</code><br>
 然后访问：<a href="http://192.168.10.35:8080" rel="nofollow">http://192.168.10.35:8080</a></p>
-<h3 id="user-content-五其他"><a class="heading-link" href="#五其他">五、其他<span aria-hidden="true" class="octicon octicon-link"></span></a></h3>
+<h3>五、其他</h3>
 <ol>
 <li>使能以太网（4.13-y版本）</li>
 </ol>
-<pre><code>#打开网络
+<pre class="notranslate"><code class="notranslate">#打开网络
 #设置ip
 #设置网关
 
@@ -172,18 +166,18 @@ route add default gw 192.168.10.1
 <ol start="2">
 <li>查看USB设备和摄像头</li>
 </ol>
-<pre><code>lsusb
+<pre class="notranslate"><code class="notranslate">lsusb
 ls /dev/video*
 </code></pre>
 <ol start="3">
 <li>
-<p>报错<code>Unsupported relocation type: R_X86_64_PLT32 (4)</code> 解决方案：<a href="https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=b21ebf2fb4cde1618915a97cc773e287ff49173e" rel="nofollow">x86: Treat R_X86_64_PLT32 as R_X86_64_PC32</a></p>
+<p>报错<code class="notranslate">Unsupported relocation type: R_X86_64_PLT32 (4)</code> 解决方案：<a href="https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=b21ebf2fb4cde1618915a97cc773e287ff49173e" rel="nofollow">x86: Treat R_X86_64_PLT32 as R_X86_64_PC32</a></p>
 </li>
 <li>
 <p>编译指令</p>
 </li>
 </ol>
-<pre><code>#解压
+<pre class="notranslate"><code class="notranslate">#解压
 tar xvf  backup_20190220A.tgz
 
 #执行一次 make (约2小时)
@@ -197,7 +191,6 @@ make
 sh ./pack.sh
 
 </code></pre>
-
 </div>
 <button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
 <div class="comments" id="comments"></div>

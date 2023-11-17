@@ -81,47 +81,46 @@ a.heading-link{color:inherit;text-decoration:none;}
     <div id="content">
 <div class="markdown-body" id="postBody">
 <p>MJPG-streamer是一个优秀的开源项目，它可以通过HTTP的方式访问linux上面的兼容摄像头，从而做到远程视频传输的效果。本文主要记录树莓派4B配置的过程。</p>
-<p>我使用的树莓派是4B 2G内存版本，运行的是<code>Raspberry Pi OS Lite(32-bit) 2023-05-03</code>版本的系统。</p>
-<p>启动树莓派后，插入USB摄像头，可以通过<code>lsusb</code>和<code>ls /dev/video*</code> 查看USB摄像头有没有被正确挂载。</p>
-<h3 id="user-content-安装库"><a class="heading-link" href="#安装库">安装库<span aria-hidden="true" class="octicon octicon-link"></span></a></h3>
-<p>然后是下面必须要安装的库，特别注意<code>libjpeg9-dev</code>，网上的一些教程都是安装<code>libjpeg8-dev</code></p>
-<pre><code>sudo apt-get update
+<p>我使用的树莓派是4B 2G内存版本，运行的是<code class="notranslate">Raspberry Pi OS Lite(32-bit) 2023-05-03</code>版本的系统。</p>
+<p>启动树莓派后，插入USB摄像头，可以通过<code class="notranslate">lsusb</code>和<code class="notranslate">ls /dev/video*</code> 查看USB摄像头有没有被正确挂载。</p>
+<h3>安装库</h3>
+<p>然后是下面必须要安装的库，特别注意<code class="notranslate">libjpeg9-dev</code>，网上的一些教程都是安装<code class="notranslate">libjpeg8-dev</code></p>
+<pre class="notranslate"><code class="notranslate">sudo apt-get update
 sudo apt-get install subversion
 sudo apt-get install libjpeg9-dev
 sudo apt-get install imagemagick
 sudo apt-get install libv4l-dev
 sudo apt-get install cmake
 </code></pre>
-<h3 id="user-content-克隆编译"><a class="heading-link" href="#克隆编译">克隆编译<span aria-hidden="true" class="octicon octicon-link"></span></a></h3>
-<pre><code>sudo git clone https://github.com/jacksonliam/mjpg-streamer.git
+<h3>克隆编译</h3>
+<pre class="notranslate"><code class="notranslate">sudo git clone https://github.com/jacksonliam/mjpg-streamer.git
 cd mjpg-streamer/mjpg-streamer-experimental
 make all
 sudo make install
 </code></pre>
-<p>如果由于网络问题无法克隆的，可以直接下载<code>zip</code>包，然后解压安装</p>
-<pre><code>unzip mjpg-streamer-master.zip
+<p>如果由于网络问题无法克隆的，可以直接下载<code class="notranslate">zip</code>包，然后解压安装</p>
+<pre class="notranslate"><code class="notranslate">unzip mjpg-streamer-master.zip
 cd mjpg-streamer/mjpg-streamer-experimental
 make all
 sudo make install
 </code></pre>
-<h3 id="user-content-运行"><a class="heading-link" href="#运行">运行<span aria-hidden="true" class="octicon octicon-link"></span></a></h3>
-<p>如下指令中<code>/dev/video0</code>是对应的摄像头，<code>8080</code>是网页访问的端口号</p>
-<pre><code>mjpg_streamer -i "input_uvc.so -d /dev/video0 -n -f 10 -r 1280x720" -o "output_http.so -p 8080 -w www"
+<h3>运行</h3>
+<p>如下指令中<code class="notranslate">/dev/video0</code>是对应的摄像头，<code class="notranslate">8080</code>是网页访问的端口号</p>
+<pre class="notranslate"><code class="notranslate">mjpg_streamer -i "input_uvc.so -d /dev/video0 -n -f 10 -r 1280x720" -o "output_http.so -p 8080 -w www"
 </code></pre>
-<p>然后在浏览器中访问<code>http://[树莓派ip]:8080</code>就可以看到摄像头的画面了，里面还有一些配置就不多展开了。</p>
-<h3 id="user-content-配置多摄像头"><a class="heading-link" href="#配置多摄像头">配置多摄像头<span aria-hidden="true" class="octicon octicon-link"></span></a></h3>
-<pre><code>mjpg_streamer -i "input_uvc.so -d /dev/video0 -n -f 10 -r 1280x720" -o "output_http.so -p 8080 -w www" &amp; mjpg_streamer -i "input_uvc.so -d /dev/video2 -n -f 10 -r 1280x720" -o "output_http.so -p 8082 -w www"
+<p>然后在浏览器中访问<code class="notranslate">http://[树莓派ip]:8080</code>就可以看到摄像头的画面了，里面还有一些配置就不多展开了。</p>
+<h3>配置多摄像头</h3>
+<pre class="notranslate"><code class="notranslate">mjpg_streamer -i "input_uvc.so -d /dev/video0 -n -f 10 -r 1280x720" -o "output_http.so -p 8080 -w www" &amp; mjpg_streamer -i "input_uvc.so -d /dev/video2 -n -f 10 -r 1280x720" -o "output_http.so -p 8082 -w www"
 </code></pre>
-<p>如此，访问<code>8080</code>端口和<code>8082</code>端口就是两个不同的摄像头了，增加多个摄像头同理。</p>
-<h3 id="user-content-其他"><a class="heading-link" href="#其他">其他<span aria-hidden="true" class="octicon octicon-link"></span></a></h3>
-<p><em><strong>fswebcam</strong></em>
-通过安装<code>sudo apt-get install fswebcam</code>，然后<code>fswebcam --no-banner -r 640*480 camera.jpg</code> 可以在<code>/home/pi</code>目录下生成一个当前摄像头拍摄到的实时照片。以此证明USB摄像头工作正常。</p>
-<p><em><strong>motion</strong></em>
+<p>如此，访问<code class="notranslate">8080</code>端口和<code class="notranslate">8082</code>端口就是两个不同的摄像头了，增加多个摄像头同理。</p>
+<h3>其他</h3>
+<p><em><strong>fswebcam</strong></em><br>
+通过安装<code class="notranslate">sudo apt-get install fswebcam</code>，然后<code class="notranslate">fswebcam --no-banner -r 640*480 camera.jpg</code> 可以在<code class="notranslate">/home/pi</code>目录下生成一个当前摄像头拍摄到的实时照片。以此证明USB摄像头工作正常。</p>
+<p><em><strong>motion</strong></em><br>
 可参考：<a href="https://bun.plus/posts/monitoring-with-raspberry-pi-and-motion" rel="nofollow">https://bun.plus/posts/monitoring-with-raspberry-pi-and-motion</a></p>
-<p><em><strong>restreamer</strong></em>
+<p><em><strong>restreamer</strong></em><br>
 可参考：<a href="https://docs.datarhei.com/restreamer/getting-started/quick-start" rel="nofollow">https://docs.datarhei.com/restreamer/getting-started/quick-start</a></p>
-<p>试用<code>motion</code>和<code>restreamer</code>都出现视频卡顿的问题，不知道是不是我没有配置对，但是<code>MJPG-streamer</code>是真的开箱即用，很方便。</p>
-
+<p>试用<code class="notranslate">motion</code>和<code class="notranslate">restreamer</code>都出现视频卡顿的问题，不知道是不是我没有配置对，但是<code class="notranslate">MJPG-streamer</code>是真的开箱即用，很方便。</p>
 </div>
 <button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
 <div class="comments" id="comments"></div>

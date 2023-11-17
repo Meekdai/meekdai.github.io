@@ -80,15 +80,15 @@ a.heading-link{color:inherit;text-decoration:none;}
 </div>
     <div id="content">
 <div class="markdown-body" id="postBody">
-<p>当 <code>V3S</code> 以 <code>SPI FLASH</code> 作为存储空间的时候，要调试代码只有串口不是很方便，可以使用 <code>tftp</code> 进行传输，但是总感觉不是特别优雅和直观，所以下面记录一下启用 <code>openssh</code> 的过程。</p>
-<h3 id="user-content-开启"><a class="heading-link" href="#开启">开启<span aria-hidden="true" class="octicon octicon-link"></span></a></h3>
-<p>因为使用buildroot进行构建，所以直接通过 <code>make menuconfig</code> 来启用。</p>
-<pre><code>Target packages  ---&gt; Networking applications  ---&gt; openssh
+<p>当 <code class="notranslate">V3S</code> 以 <code class="notranslate">SPI FLASH</code> 作为存储空间的时候，要调试代码只有串口不是很方便，可以使用 <code class="notranslate">tftp</code> 进行传输，但是总感觉不是特别优雅和直观，所以下面记录一下启用 <code class="notranslate">openssh</code> 的过程。</p>
+<h3>开启</h3>
+<p>因为使用buildroot进行构建，所以直接通过 <code class="notranslate">make menuconfig</code> 来启用。</p>
+<pre class="notranslate"><code class="notranslate">Target packages  ---&gt; Networking applications  ---&gt; openssh
 </code></pre>
 <p>之后编译下载固件。</p>
-<h3 id="user-content-配置"><a class="heading-link" href="#配置">配置<span aria-hidden="true" class="octicon octicon-link"></span></a></h3>
+<h3>配置</h3>
 <p>在配置文件中修改如下</p>
-<pre><code>vi /etc/ssh/sshd_config
+<pre class="notranslate"><code class="notranslate">vi /etc/ssh/sshd_config
 
 # 允许root用户登录
 PermitRootLogin yes
@@ -96,32 +96,31 @@ PermitRootLogin yes
 # 允许空密码登录
 PermitEmptyPasswords yes
 </code></pre>
-<p>这样还不能启动 <code>openssh</code> ，实践中出现了很多奇奇怪怪是错误。</p>
+<p>这样还不能启动 <code class="notranslate">openssh</code> ，实践中出现了很多奇奇怪怪是错误。</p>
 <ol>
 <li>报错 sshd: Privilege separation user sshd does not exist</li>
 </ol>
-<pre><code>vi /etc/passwd
+<pre class="notranslate"><code class="notranslate">vi /etc/passwd
 sshd:x:74:74:Privilege-separated SSH:/var/empty/sshd:/sbin/nologin
 </code></pre>
 <ol start="2">
 <li>报错 /var/empty must be owned by root and not group or world-writable.</li>
 </ol>
-<pre><code>chown -R root.root /var/empty/ &amp; chmod 744 /var/empty/
+<pre class="notranslate"><code class="notranslate">chown -R root.root /var/empty/ &amp; chmod 744 /var/empty/
 </code></pre>
 <ol start="3">
 <li>报错 WARNING: Your password has expired.</li>
 </ol>
-<pre><code>date -s 1801090852
+<pre class="notranslate"><code class="notranslate">date -s 1801090852
 passwd root
 </code></pre>
-<h3 id="user-content-运行"><a class="heading-link" href="#运行">运行<span aria-hidden="true" class="octicon octicon-link"></span></a></h3>
-<pre><code>/usr/sbin/sshd
+<h3>运行</h3>
+<pre class="notranslate"><code class="notranslate">/usr/sbin/sshd
 ps | grep sshd
 </code></pre>
-<p>然后打开 <code>MobaXterm</code> ，选择SSH连接，添加对应的用户名和密码，就成功连接了。</p>
+<p>然后打开 <code class="notranslate">MobaXterm</code> ，选择SSH连接，添加对应的用户名和密码，就成功连接了。</p>
 <p><a target="_blank" rel="noopener noreferrer" href="https://github.com/Meekdai/meekdai.github.io/assets/11755104/44bc625a-d297-42f1-8bef-815227aee492"><img src="https://github.com/Meekdai/meekdai.github.io/assets/11755104/44bc625a-d297-42f1-8bef-815227aee492" alt="image" style="max-width: 100%;"></a></p>
 <p>左边可以进行文件的上传和下载操作，也可以修改对应文件的权限等，非常方便。下面显示CPU已经RAM的使用率还有网速等，也很直观。</p>
-
 </div>
 <button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
 <div class="comments" id="comments"></div>
