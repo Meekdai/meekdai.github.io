@@ -12,7 +12,7 @@
         else if(localStorage.getItem("meek_theme")=="light"){document.getElementsByTagName("html")[0].attributes.getNamedItem("data-color-mode").value="light";}
     </script>
     
-<title>Meekdai</title>
+<title>Meekdai - Tag</title>
 
 </head>
 <style>
@@ -136,7 +136,6 @@ document.getElementById("pathRSS").setAttribute("d",IconList["rss"]);
 
 document.getElementById("友情链接").setAttribute("d",value=IconList["link"]);document.getElementById("关于").setAttribute("d",value=IconList["about"]);
 
-tag=window.location.hash.slice(1);
 tagList=[];
 let requestJson="blogBase.json"
 let request=new XMLHttpRequest();
@@ -146,10 +145,10 @@ request.send();
 request.onload=function(){
     jsonData=JSON.parse(request.response);
     console.log(jsonData);
-    showList(jsonData);
+    showList(jsonData,window.location.hash.slice(1));
 }
 
-function showList(jsonData){
+function showList(jsonData,tag){
     let SideNav=document.getElementsByClassName("SideNav")[0];
     let tagLable=document.getElementById("tagLable");
     for(i in jsonData["postListJson"]){
@@ -160,8 +159,7 @@ function showList(jsonData){
             showLabels.setAttribute("class","Label");
             showLabels.setAttribute("style","background-color:"+jsonData["postListJson"][i]['labelColor']);
             showLabels.innerHTML=jsonData["postListJson"][i]['label'];
-            showLabels.setAttribute("href",'#'+jsonData["postListJson"][i]['label']);
-            showLabels.setAttribute("onclick",'javascript:location.reload();');
+            showLabels.setAttribute("onclick",'javascript:updateShowTag('+jsonData["postListJson"][i]['label']+');');
             tagLable.appendChild(showLabels);
         }
 
@@ -205,6 +203,11 @@ function showList(jsonData){
             SideNav.appendChild(item);
         }
     }
+}
+
+function updateShowTag(label){
+    window.location.hash="#"+(label);
+    showList(jsonData,label);
 }
 
 </script>
