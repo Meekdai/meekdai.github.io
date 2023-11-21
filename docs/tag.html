@@ -137,6 +137,7 @@ document.getElementById("pathRSS").setAttribute("d",IconList["rss"]);
 document.getElementById("友情链接").setAttribute("d",value=IconList["link"]);document.getElementById("关于").setAttribute("d",value=IconList["about"]);
 
 tagList=[];
+jsonData='';
 let requestJson="blogBase.json"
 let request=new XMLHttpRequest();
 request.open("GET",requestJson);
@@ -145,10 +146,10 @@ request.send();
 request.onload=function(){
     jsonData=JSON.parse(request.response);
     console.log(jsonData);
-    showList(jsonData,window.location.hash.slice(1));
+    showList(window.location.hash.slice(1));
 }
 
-function showList(jsonData,tag){
+function showList(tag){
     let SideNav=document.getElementsByClassName("SideNav")[0];
     let tagLable=document.getElementById("tagLable");
     for(i in jsonData["postListJson"]){
@@ -208,9 +209,9 @@ function showList(jsonData,tag){
 function updateShowTag(label){
     if(window.location.hash.slice(1)!=encodeURI(label)){
         window.location.hash="#"+(label);
-        showList(jsonData,label);
+        showList(label);
+        console.log("change to "+label);
     }
-
 }
 
 </script>
