@@ -12,8 +12,7 @@
         else if(localStorage.getItem("meek_theme")=="light"){document.getElementsByTagName("html")[0].attributes.getNamedItem("data-color-mode").value="light";}
     </script>
     
-<title>改变</title>
-
+<title>Meekdai</title>
 
 </head>
 <style>
@@ -26,26 +25,30 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 </style>
 
 <style>
-h1 a:not([href]){color:inherit;text-decoration:none;vertical-align: bottom;font-size:40px;}
-a.heading-link{color:inherit;text-decoration:none;}
+h1 a:not([href]){color:inherit;text-decoration:none;vertical-align: bottom;font-size:40px;font-family:Monaco;}
 .title-right{display:flex;margin:auto 0 0 auto;}
 .title-right .circle{padding: 14px 16px;margin-right:8px;}
-#postBody{border-bottom: 1px solid var(--color-border-default);padding-bottom:36px;}
-#postBody hr{height:2px;}
-#cmButton{height:48px;margin-top:48px;}
-#comments{margin-top:64px;}
-.g-emoji{font-size:24px;}
-@media (max-width: 767px) {body {padding: 8px;}}
-</style>
-<style>#postBody{font-size:20px}</style>
 
+.SideNav-icon{margin-right: 16px}
+.SideNav-item .Label{color: #fff;margin-left:8px;}
+.genTime{float: right;}
+.d-flex{min-width:0;}
+.listTitle{overflow:hidden;white-space:nowrap;text-overflow: ellipsis;max-width: 100%;}
+.listLabels{white-space:nowrap;}
+
+@media (max-width: 767px) {
+    body { padding: 8px;}
+    h1 a{font-size:24px;}
+    .SideNav-item .listLabels{display:none;}
+    .subTitle{display:none;}
+    .genTime{float: none;}
+}
+</style>
 
 
 <body>
     <div id="header">
-<h1>
-    <a>改变</a>
-</h1>
+<h1><a>Tag</a></h1>
 <div class="title-right">
 
     <a href="/"><button id="buttonHome" class="btn btn-invisible circle" title="首页">
@@ -53,45 +56,30 @@ a.heading-link{color:inherit;text-decoration:none;}
             <path id="pathHome" fill-rule="evenodd" d="M6.906.664a1.749 1.749 0 0 1 2.187 0l5.25 4.2c.415.332.657.835.657 1.367v7.019A1.75 1.75 0 0 1 13.25 15h-3.5a.75.75 0 0 1-.75-.75V9H7v5.25a.75.75 0 0 1-.75.75h-3.5A1.75 1.75 0 0 1 1 13.25V6.23c0-.531.242-1.034.657-1.366l5.25-4.2Zm1.25 1.171a.25.25 0 0 0-.312 0l-5.25 4.2a.25.25 0 0 0-.094.196v7.019c0 .138.112.25.25.25H5.5V8.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v5.25h2.75a.25.25 0 0 0 .25-.25V6.23a.25.25 0 0 0-.094-.195Z"></path>
         </svg>
     </button></a>
-
-    <a href="https://github.com/Meekdai/meekdai.github.io/issues/17" target="_blank"><button class="btn btn-invisible circle" title="Issue">
-        <svg class="octicon" width="16" height="16">
-            <path id="pathIssue" fill-rule="evenodd" d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path>
+    <a href="/link.html"><button class="btn btn-invisible circle" title="友情链接">
+        <svg class="octicon" width="16" height="16" >
+            <path id="友情链接" fill-rule="evenodd"></path>
+        </svg>
+    </button></a><a href="/about.html"><button class="btn btn-invisible circle" title="关于">
+        <svg class="octicon" width="16" height="16" >
+            <path id="关于" fill-rule="evenodd"></path>
         </svg>
     </button></a>
-
-    <button class="btn btn-invisible circle" onclick="modeSwitch();" title="切换主题">
+    <a href="/rss.xml" target="_blank"><button id="buttonRSS" class="btn btn-invisible circle" title="RSS">
+        <svg class="octicon" width="16" height="16" >
+            <path id="pathRSS" fill-rule="evenodd"></path>
+        </svg>
+    </button></a>
+    <button class="btn btn-invisible circle" onclick="modeSwitch()" title="切换主题">
         <svg class="octicon" width="16" height="16" >
             <path id="themeSwitch" fill-rule="evenodd"></path>
         </svg>
     </button>
-
 </div>
 </div>
     <div id="content">
-<div class="markdown-body" id="postBody">
-<p>The most powerful thing about time is that it changes.<br>
-是时间改变了我，还是我无法改变的命运？</p>
-<p><strong>01</strong><br>
-当你老了，回顾一生，就会发觉：什么时候出国读书，什么时候决定做第一份职业、何时选定了对象而恋爱、什么时候结婚，其实都是命运的巨变。只是当时站在三岔路口，眼见风云千樯，你作出选择的那一日，在日记上，相当沉闷和平凡，当时还以为是生命中普通的一天。————《杀鹌鹑的少女》</p>
-<p><strong>02</strong><br>
-也许在多年后回顾2017年3月，我应该就是站在这个三岔路口，而且一个接一个，无限延伸下去，就像春天里生长的树苗，瞬间就能长成参天大树。</p>
-<p><a target="_blank" rel="noopener noreferrer" href="https://github.com/Meekdai/meekdai.github.io/assets/11755104/2472fb06-b1e9-4576-ac5e-28b79131f001"><img src="https://github.com/Meekdai/meekdai.github.io/assets/11755104/2472fb06-b1e9-4576-ac5e-28b79131f001" alt="7f3b1e89gy1fzpqgyru5xj20u0140dvl" style="max-width: 100%;"></a></p>
-<p><strong>03</strong><br>
-突然发现从2016年11月11日的亚洲IBIS技术研讨会回来后，就没有再写日记了。</p>
-<p><strong>04</strong></p>
-<blockquote>
-<p>因公司业务调整，非常遗憾的向大家宣布多说项目即将关闭。 我们将于2017年6月1日正式关停服务，在此之前您可以通过后台的数据导出功能导出自己站点的评论数据。 对此给您造成的不便，我们深表歉意，感谢您的一路相伴。</p>
-</blockquote>
-<p>多说最后还是挂了，切回到原始评论框也还不错，就是少了回复邮件提醒功能。<code class="notranslate">CommentToMail</code>貌似也因为主机没有写入权限而不能使用，这个问题好像不容易解决，希望各位大大可以开发一款更加酷炫的评论系统。</p>
-<p><strong>05</strong><br>
-很久没有骑车出去逛逛了，走起~</p>
-<p><strong>06</strong><br>
-我骑车回来了，路上都是春天的味道啊，湘湖边柳树已经绿了，樱花、桃花、迎春花都格外的艳丽，只不过空气质量真的不是很好，感觉以后有必要带个口罩呢。 😷</p>
-
-</div>
-<button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
-<div class="comments" id="comments"></div>
+<div style="margin-bottom: 16px;">童话是一种生活态度，仅此而已。</div>
+<nav class="SideNav border"></nav>
 </div>
     <div id="footer">Copyright © <span id="year"></span><a href="https://blog.meekdai.com"> Meekdai </a>
 <p><a href="https://beian.miit.gov.cn/" target="_blank">浙ICP备20023628号</a>
@@ -144,49 +132,68 @@ console.log("\n %c Gmeek main %c https://github.com/Meekdai/Gmeek \n\n", "color:
 </script>
 
 <script>
+document.getElementById("pathRSS").setAttribute("d",IconList["rss"]);
 
-cmButton=document.getElementById("cmButton");
-    span=document.createElement("span");
-    span.setAttribute("class","Counter");
-    span.innerHTML="1";
-    cmButton.appendChild(span);
+document.getElementById("友情链接").setAttribute("d",value=IconList["link"]);document.getElementById("关于").setAttribute("d",value=IconList["about"]);
 
-function openComments(){
-    cm=document.getElementById("comments");
-    cmButton=document.getElementById("cmButton");
-    cmButton.innerHTML="loading";
-    span=document.createElement("span");
-    span.setAttribute("class","AnimatedEllipsis");
-    cmButton.appendChild(span);
-
-    script=document.createElement("script");
-    script.setAttribute("src","https://utteranc.es/client.js");
-    script.setAttribute("repo","Meekdai/meekdai.github.io");
-    script.setAttribute("issue-term","title");
-    if(localStorage.getItem("meek_theme")=="dark"){script.setAttribute("theme","dark-blue");}
-    else{script.setAttribute("theme","github-light");}
-    script.setAttribute("crossorigin","anonymous");
-    script.setAttribute("async","");
-    cm.appendChild(script);
-
-    int=self.setInterval("iFrameLoading()",200);
+let requestJson="blogBase.json"
+let request=new XMLHttpRequest();
+request.open("GET",requestJson);
+request.responseType='text';
+request.send();
+request.onload=function(){
+    jsonData=JSON.parse(request.response);
+    console.log(jsonData);
+    showList(jsonData);
 }
 
-function iFrameLoading(){
-    var utterances=document.getElementsByClassName('utterances');
-    if(utterances.length==1){
-        if(utterances[0].style.height!=""){
-            utterancesLoad=1;
-            int=window.clearInterval(int);
-            document.getElementById("cmButton").style.display="none";
-            console.log("utterances Load OK");
+tag=window.location.hash.slice(1)
+
+function showList(jsonData){
+    let SideNav=document.getElementsByClassName("SideNav")[0];
+    for(i in jsonData["postListJson"]){
+
+        if(jsonData["postListJson"][i]['label']==tag || tag==''){
+            let item=document.createElement("a");
+            item.setAttribute("class","SideNav-item d-flex flex-items-center flex-justify-between");
+            item.setAttribute("href",jsonData["postListJson"][i]['postUrl']);
+
+            let center=document.createElement("div");
+            center.setAttribute("class","d-flex flex-items-center");
+
+            svg=document.createElementNS('http://www.w3.org/2000/svg','svg');
+            path=document.createElementNS("http://www.w3.org/2000/svg","path"); 
+            span=document.createElement("span");
+            svg.setAttributeNS(null,"class","SideNav-icon octicon");
+            svg.setAttributeNS(null,"style","witdh:16px;height:16px");
+            path.setAttributeNS(null, "d", IconList["post"]);
+            svg.appendChild(path);
+
+            let title=document.createElement("span");
+            title.setAttribute("class","listTitle");
+            title.innerHTML=jsonData["postListJson"][i]['postTitle'];
+            center.appendChild(svg);
+            center.appendChild(title);
+
+            let listLabels=document.createElement("div");
+            listLabels.setAttribute("class","listLabels");
+            let LabelName=document.createElement("span");
+            LabelName.setAttribute("class","Label");
+            LabelName.setAttribute("style","background-color:"+jsonData["postListJson"][i]['labelColor']);
+            LabelName.innerHTML=jsonData["postListJson"][i]['label'];
+            listLabels.appendChild(LabelName);
+            let LabelTime=document.createElement("span");
+            LabelTime.setAttribute("class","Label");
+            LabelTime.setAttribute("style","background-color:"+jsonData["postListJson"][i]['dateLabelColor']);
+            LabelTime.innerHTML=jsonData["postListJson"][i]['createdDate'];
+            listLabels.appendChild(LabelTime);
+
+            item.appendChild(center);
+            item.appendChild(listLabels);
+            SideNav.appendChild(item);
         }
     }
 }
-
 </script>
-
-
-
 
 </html>
