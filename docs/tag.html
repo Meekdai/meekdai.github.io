@@ -124,7 +124,6 @@ console.log("\n %c Gmeek main %c https://github.com/Meekdai/Gmeek \n\n", "color:
 </script>
 
 <script>
-document.getElementById("pathRSS").setAttribute("d",IconList["rss"]);
 
 document.getElementById("友情链接").setAttribute("d",value=IconList["link"]);document.getElementById("关于").setAttribute("d",value=IconList["about"]);
 
@@ -234,8 +233,9 @@ function setClassDisplay(lable){
 
 function searchShow(data){
     let lists = document.getElementsByClassName("lists");
+    let tagTitle = document.getElementsByClassName("tagTitle")[0];
     let searchInput = document.getElementsByClassName("subnav-search-input")[0].value;
-    console.log("123");
+    tagTitle.innerHTML="Search #"+data;
     for(let i = 0; i < lists.length; i++){
         if(lists[i].childNodes[0].childNodes[0].childNodes[1].innerHTML.indexOf(data)==-1){lists[i].style.display='none';}
         else{lists[i].style.display='block';}
