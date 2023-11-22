@@ -95,7 +95,7 @@ a.heading-link{color:inherit;text-decoration:none;}
 <p>下图3为温度闭环原理简图</p>
 <p><a target="_blank" rel="noopener noreferrer" href="https://github.com/Meekdai/meekdai.github.io/assets/11755104/89fe8c59-92fc-44e4-a136-da81254a0bbd"><img src="https://github.com/Meekdai/meekdai.github.io/assets/11755104/89fe8c59-92fc-44e4-a136-da81254a0bbd" alt="7f3b1e89gy1fzpqd9eljog20fj09ygln" style="max-width: 100%;"></a></p>
 <p>图三所示TEC热闭环中为2Hz的交叉补偿的例子。尽量选择高阻值的R3以使积分电容C2尽可能小。然而这种方法也有弊端，它会使得PID的增益变小。因为我们必须在70mHz插入一个零点，我们使用关系：</p>
-<p><math-renderer class="js-display-math" style="display: block" data-static-url="https://github.githubassets.com/static" data-run-id="73b27b3cb380910046a444b357b9720a">$$ 
+<p><math-renderer class="js-display-math" style="display: block" data-static-url="https://github.githubassets.com/static" data-run-id="729a5cf74870768ea73250ef3beb8d11">$$ 
 FZ1 = \frac{1}{2π×C2×R3}
 $$</math-renderer></p>
 <p>前文已经说过，FZ1 = 70mHZ，如果选择R3 =243kΩ，那么C2 就应为9.36μF。我们选择10μF设计。现在我们选择R1 =10kΩ。这使得前端放大器（U2）有足够的增益以减少反射积分器（U1）的错误，同时保持合理的电容器的尺寸。 现在，我们必须插入一个零点以抹去第二个在1Hz的TEC响应曲线极点。因为我们希望得到良好的相位裕度，零插入所需的交叉频率除以至少5或0.4Hz。这给出了一个在交叉频率的一个更好的相位裕度。然后通过放置由R1创建的、至少5倍于交叉频率，或者10Hz的极点终止该零点。这限制了积分器的的增益。 所以，因为： </p>
@@ -104,7 +104,7 @@ FZ1 = \frac{1}{2π×C1×R2}<br>
 $$<br>
  <br>
 并且FZ2 = 0.4Hz和R2 =510KΩ，我们可以算出C1 =0.78μF。我们选择C1为1μF。为了计算出R1的大小，我们使用关系：</p>
-<p><math-renderer class="js-display-math" style="display: block" data-static-url="https://github.githubassets.com/static" data-run-id="73b27b3cb380910046a444b357b9720a">$$
+<p><math-renderer class="js-display-math" style="display: block" data-static-url="https://github.githubassets.com/static" data-run-id="729a5cf74870768ea73250ef3beb8d11">$$
 F3 = \frac{1}{2π×C1×R1}
 $$</math-renderer></p>
 <p>因为F3 = 10HZ，C1 =1μF，这样我们可以知道R1 =15.9kΩ。使用10kΩ就可以提供更好的相位裕度。然后，我们必须设置衰减频率在30Hz。因为R3 =243kΩ，FC = 30Hz，并且：<br>
@@ -119,16 +119,16 @@ XC = \frac{-j}{2π×FC×C1}<br>
 $$<br>
  <br>
 因为C1 = 1μF，FC = 2Hz，那么：</p>
-<p><math-renderer class="js-display-math" style="display: block" data-static-url="https://github.githubassets.com/static" data-run-id="73b27b3cb380910046a444b357b9720a">$$  
+<p><math-renderer class="js-display-math" style="display: block" data-static-url="https://github.githubassets.com/static" data-run-id="729a5cf74870768ea73250ef3beb8d11">$$  
 XC = j79.6kΩ 
 $$</math-renderer></p>
 <p>U1的幅度增益G为： </p>
-<p><math-renderer class="js-display-math" style="display: block" data-static-url="https://github.githubassets.com/static" data-run-id="73b27b3cb380910046a444b357b9720a">$$
+<p><math-renderer class="js-display-math" style="display: block" data-static-url="https://github.githubassets.com/static" data-run-id="729a5cf74870768ea73250ef3beb8d11">$$
 G = | R3 / XC | 
 $$</math-renderer></p>
 <p>由于R3 =243kΩ，XC =j79.6kΩ，G = 3.05或9.7分贝。要想对此增益进行全面的分析，就不应忽视R1、R2、C2和C3，此时G = 3.11或9.8分贝，从而验证了我们的假设。现在，我们必须在前端再提供20.3分贝的增益以完成2Hz处的增益交叉。 <br>
 前端增益部分有两个功能：它减少积分器U1产生的误差，和采集从热敏电阻传来的温度信息。 由R4、R5和U2（图3）所设定的直流增益需要足够高以防止该误差信号被PID补偿电路消除。由于R4 =10kΩ，R5 =100kΩ，那么前端增益是11或20.8分贝，足以压倒9.7分贝的PID补偿部分。从热敏电阻传来的温度读数以误差信号的形式被传递给PID控制部分。该误差信号表示的是实际温度和所需温度（设定值）之间的差异。U2输出的误差信号可以按照下式计算：</p>
-<p><math-renderer class="js-display-math" style="display: block" data-static-url="https://github.githubassets.com/static" data-run-id="73b27b3cb380910046a444b357b9720a">$$
+<p><math-renderer class="js-display-math" style="display: block" data-static-url="https://github.githubassets.com/static" data-run-id="729a5cf74870768ea73250ef3beb8d11">$$
 ERROR=1.5V×( \frac{R_T×(R4+R5)}{R4×(10KΩ+R_T)})×V_{SET}×( \frac{R5}{R4})
 $$</math-renderer></p>
 <p>这里的1.5V是通过10kΩ的电阻器连接到热敏电阻的参考值，$R_T$是电阻 热敏电阻，$V_{SET}$是电压设定点。</p>
