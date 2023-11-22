@@ -18,7 +18,6 @@
 <style>
 body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;padding: 45px;font-size: 16px;font-family: sans-serif;line-height: 1.25;}
 #header{display:flex;padding-bottom:8px;border-bottom: 1px solid var(--borderColor-muted, var(--color-border-muted));margin-bottom: 16px;}
-#content {width:100%;}
 #footer {margin-top:64px; text-align: center;font-size: small;}
 
 </style>
@@ -39,6 +38,10 @@ h1 a:not([href]){color:inherit;text-decoration:none;vertical-align: bottom;font-
 .SideNav{min-width: 360px;}
 .SideNav-icon{margin-right: 16px}
 .SideNav-item .Label{color: #fff;margin-left:8px;}
+.d-flex{min-width:0;}
+.listTitle{overflow:hidden;white-space:nowrap;text-overflow: ellipsis;max-width: 100%;}
+.listLabels{white-space:nowrap;}
+
 @media (max-width: 767px) {
     body { padding: 8px;}
     h1 a:not([href]){font-size:24px;}
@@ -95,7 +98,7 @@ h1 a:not([href]){color:inherit;text-decoration:none;vertical-align: bottom;font-
     <div class="d-flex flex-items-center">
         <svg class="SideNav-icon octicon" style="witdh:16px;height:16px"><path class="svgTop1" d=""></path>
         </svg>
-        <span>Gmeek更新日志</span>
+        <span class="listTitle">Gmeek更新日志</span>
     </div>
     <div class="listLabels">
         <span class="Label" style="background-color:#006b75">5</span>
@@ -106,7 +109,7 @@ h1 a:not([href]){color:inherit;text-decoration:none;vertical-align: bottom;font-
     <div class="d-flex flex-items-center">
         <svg class="SideNav-icon octicon" style="witdh:16px;height:16px"><path class="svgTop0" d=""></path>
         </svg>
-        <span>WSL子系统编译buildroot填坑</span>
+        <span class="listTitle">WSL子系统编译buildroot填坑</span>
     </div>
     <div class="listLabels">
         
@@ -117,7 +120,7 @@ h1 a:not([href]){color:inherit;text-decoration:none;vertical-align: bottom;font-
     <div class="d-flex flex-items-center">
         <svg class="SideNav-icon octicon" style="witdh:16px;height:16px"><path class="svgTop0" d=""></path>
         </svg>
-        <span>全志V3S启用openssh</span>
+        <span class="listTitle">全志V3S启用openssh</span>
     </div>
     <div class="listLabels">
         
@@ -128,7 +131,7 @@ h1 a:not([href]){color:inherit;text-decoration:none;vertical-align: bottom;font-
     <div class="d-flex flex-items-center">
         <svg class="SideNav-icon octicon" style="witdh:16px;height:16px"><path class="svgTop0" d=""></path>
         </svg>
-        <span>多USB摄像头在同一USB总线上开启</span>
+        <span class="listTitle">多USB摄像头在同一USB总线上开启</span>
     </div>
     <div class="listLabels">
         
@@ -139,7 +142,7 @@ h1 a:not([href]){color:inherit;text-decoration:none;vertical-align: bottom;font-
     <div class="d-flex flex-items-center">
         <svg class="SideNav-icon octicon" style="witdh:16px;height:16px"><path class="svgTop0" d=""></path>
         </svg>
-        <span>全志V3S移植mjpg-streamer</span>
+        <span class="listTitle">全志V3S移植mjpg-streamer</span>
     </div>
     <div class="listLabels">
         
@@ -150,7 +153,7 @@ h1 a:not([href]){color:inherit;text-decoration:none;vertical-align: bottom;font-
     <div class="d-flex flex-items-center">
         <svg class="SideNav-icon octicon" style="witdh:16px;height:16px"><path class="svgTop0" d=""></path>
         </svg>
-        <span>树莓派mjpg-streamer启动多个USB摄像头</span>
+        <span class="listTitle">树莓派mjpg-streamer启动多个USB摄像头</span>
     </div>
     <div class="listLabels">
         
@@ -161,7 +164,7 @@ h1 a:not([href]){color:inherit;text-decoration:none;vertical-align: bottom;font-
     <div class="d-flex flex-items-center">
         <svg class="SideNav-icon octicon" style="witdh:16px;height:16px"><path class="svgTop0" d=""></path>
         </svg>
-        <span>ESP32-C3 固件下载小工具</span>
+        <span class="listTitle">ESP32-C3 固件下载小工具</span>
     </div>
     <div class="listLabels">
         
@@ -172,7 +175,7 @@ h1 a:not([href]){color:inherit;text-decoration:none;vertical-align: bottom;font-
     <div class="d-flex flex-items-center">
         <svg class="SideNav-icon octicon" style="witdh:16px;height:16px"><path class="svgTop0" d=""></path>
         </svg>
-        <span>管螺纹尺寸参考</span>
+        <span class="listTitle">管螺纹尺寸参考</span>
     </div>
     <div class="listLabels">
         
@@ -183,7 +186,7 @@ h1 a:not([href]){color:inherit;text-decoration:none;vertical-align: bottom;font-
     <div class="d-flex flex-items-center">
         <svg class="SideNav-icon octicon" style="witdh:16px;height:16px"><path class="svgTop0" d=""></path>
         </svg>
-        <span>favicon和avatar图标使用svg格式</span>
+        <span class="listTitle">favicon和avatar图标使用svg格式</span>
     </div>
     <div class="listLabels">
         
@@ -194,7 +197,7 @@ h1 a:not([href]){color:inherit;text-decoration:none;vertical-align: bottom;font-
     <div class="d-flex flex-items-center">
         <svg class="SideNav-icon octicon" style="witdh:16px;height:16px"><path class="svgTop0" d=""></path>
         </svg>
-        <span>延长WIN自动更新日期</span>
+        <span class="listTitle">延长WIN自动更新日期</span>
     </div>
     <div class="listLabels">
         
@@ -205,7 +208,7 @@ h1 a:not([href]){color:inherit;text-decoration:none;vertical-align: bottom;font-
     <div class="d-flex flex-items-center">
         <svg class="SideNav-icon octicon" style="witdh:16px;height:16px"><path class="svgTop0" d=""></path>
         </svg>
-        <span>网站配置SSL证书</span>
+        <span class="listTitle">网站配置SSL证书</span>
     </div>
     <div class="listLabels">
         <span class="Label" style="background-color:#006b75">2</span>
@@ -216,7 +219,7 @@ h1 a:not([href]){color:inherit;text-decoration:none;vertical-align: bottom;font-
     <div class="d-flex flex-items-center">
         <svg class="SideNav-icon octicon" style="witdh:16px;height:16px"><path class="svgTop0" d=""></path>
         </svg>
-        <span>JS判断评论框是否成功加载的方法</span>
+        <span class="listTitle">JS判断评论框是否成功加载的方法</span>
     </div>
     <div class="listLabels">
         
@@ -227,7 +230,7 @@ h1 a:not([href]){color:inherit;text-decoration:none;vertical-align: bottom;font-
     <div class="d-flex flex-items-center">
         <svg class="SideNav-icon octicon" style="witdh:16px;height:16px"><path class="svgTop0" d=""></path>
         </svg>
-        <span>markdown测试页面</span>
+        <span class="listTitle">markdown测试页面</span>
     </div>
     <div class="listLabels">
         <span class="Label" style="background-color:#006b75">3</span>
@@ -238,7 +241,7 @@ h1 a:not([href]){color:inherit;text-decoration:none;vertical-align: bottom;font-
     <div class="d-flex flex-items-center">
         <svg class="SideNav-icon octicon" style="witdh:16px;height:16px"><path class="svgTop0" d=""></path>
         </svg>
-        <span>WIN10安装pyopengl 64位</span>
+        <span class="listTitle">WIN10安装pyopengl 64位</span>
     </div>
     <div class="listLabels">
         
@@ -249,7 +252,7 @@ h1 a:not([href]){color:inherit;text-decoration:none;vertical-align: bottom;font-
     <div class="d-flex flex-items-center">
         <svg class="SideNav-icon octicon" style="witdh:16px;height:16px"><path class="svgTop0" d=""></path>
         </svg>
-        <span>STM32H7 V版本芯片 Flash擦除出错</span>
+        <span class="listTitle">STM32H7 V版本芯片 Flash擦除出错</span>
     </div>
     <div class="listLabels">
         
