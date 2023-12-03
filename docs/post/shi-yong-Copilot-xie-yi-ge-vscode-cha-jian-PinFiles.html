@@ -73,16 +73,26 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 插件市场：<a href="https://marketplace.visualstudio.com/items?itemName=Meekdai.pinfiles" rel="nofollow">marketplace</a></p>
 <p>事情是这样的，我在用vscdoe的时候，经常需要打开某些固定的文件。例如自己记录的linux常用指令<code class="notranslate">linux.md</code>文件，或者编译<code class="notranslate">micropython</code>固件时候，经常用到的指令记录<code class="notranslate">make.py</code>，等等很多。这样在用<code class="notranslate">vscode</code>打开项目文件夹后，还需要再重新打开这些文件，非常的麻烦。</p>
 <p>所以我在<code class="notranslate">vscode</code>插件中找了一圈没有找到合适的，在<a href="https://www.v2ex.com/t/996615" rel="nofollow">V2EX</a>上提问也没有合适的答案。所以想要自己手搓一个，但是对于没有开发过<code class="notranslate">vscode</code>插件的我来说，可能需要比较长的时间。但是当我用上了<code class="notranslate">Copilot with Bing Chat</code>，哈哈，一问一答的方式，2个小时就完成了，并且发布到了<code class="notranslate">marketplace</code>。</p>
-<p>下面大致记录一下过程：<br>
-1、参考官方文档<a href="https://code.visualstudio.com/api/get-started/your-first-extension" rel="nofollow">Your First Extension</a> 安装<code class="notranslate">nodejs</code>还有一些依赖等，然后运行<code class="notranslate">yo code</code>就可以轻松创建一个插件框架。需要注意的是<code class="notranslate">package.json</code>中的<code class="notranslate">"engines": {"vscode": "^1.30.0"}</code>版本，必须低于你当前使用的版本，不然调试的时候不会正确加载。</p>
-<p>2、使用<code class="notranslate">Copilot with Bing Chat</code> 描述你想要的功能，然后一步一步优化，解决bug等等。</p>
-<p>3、等功能都差不多后，根据<a href="https://zhuanlan.zhihu.com/p/504218497" rel="nofollow">VSCode 插件发布</a> 就可以发布了，这里面会有一些权限等问题，简单google一下就可以解决。</p>
-<p>4、最后我把工程同步到<code class="notranslate">github</code>上，然后用指令<code class="notranslate">vsce publish patch</code> 就会自动升级版本并且上传发布，过几分钟就可以搜索到了。</p>
-<p>后续会使用的链接：</p>
-<blockquote>
-<p>Azure DevOps 组织的<a href="https://dev.azure.com/meekdai/_usersSettings/tokens" rel="nofollow">tokens</a><br>
-上传发布进度查看<a href="https://marketplace.visualstudio.com/manage/publishers/Meekdai?auth_redirect=True" rel="nofollow">marketplace</a></p>
-</blockquote>
+<h3>下面大致记录一下过程：</h3>
+<ol>
+<li>
+<p>参考官方文档<a href="https://code.visualstudio.com/api/get-started/your-first-extension" rel="nofollow">Your First Extension</a> 安装<code class="notranslate">nodejs</code>还有一些依赖等，然后运行<code class="notranslate">yo code</code>就可以轻松创建一个插件框架。需要注意的是<code class="notranslate">package.json</code>中的<code class="notranslate">"engines": {"vscode": "^1.30.0"}</code>版本，必须低于你当前使用的版本，不然调试的时候不会正确加载。</p>
+</li>
+<li>
+<p>使用<code class="notranslate">Copilot with Bing Chat</code> 描述你想要的功能，然后一步一步优化，解决bug等等。</p>
+</li>
+<li>
+<p>等功能都差不多后，根据<a href="https://zhuanlan.zhihu.com/p/504218497" rel="nofollow">VSCode 插件发布</a> 就可以发布了，这里面会有一些权限等问题，简单google一下就可以解决。</p>
+</li>
+<li>
+<p>最后我把工程同步到<code class="notranslate">github</code>上，然后用指令<code class="notranslate">vsce publish patch</code> 就会自动升级版本并且上传发布，过几分钟就可以搜索到了。</p>
+</li>
+</ol>
+<h3>后续会使用的链接：</h3>
+<ol>
+<li>Azure DevOps 组织的<a href="https://dev.azure.com/meekdai/_usersSettings/tokens" rel="nofollow">https://dev.azure.com/meekdai/_usersSettings/tokens</a></li>
+<li>上传发布进度查看<a href="https://marketplace.visualstudio.com/manage/publishers/Meekdai?auth_redirect=True" rel="nofollow">https://marketplace.visualstudio.com/manage/publishers/Meekdai?auth_redirect=True</a></li>
+</ol>
 </div>
 <button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
 <div class="comments" id="comments"></div>
