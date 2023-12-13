@@ -12,7 +12,8 @@
         else if(localStorage.getItem("meek_theme")=="light"){document.getElementsByTagName("html")[0].attributes.getNamedItem("data-color-mode").value="light";}
     </script>
     
-<title>Meekdai</title>
+<title>micropython中SPI总线模式配置</title>
+<link href="//unpkg.com/@wooorm/starry-night@2.1.1/style/both.css" rel="stylesheet" />
 
 </head>
 <style>
@@ -23,103 +24,131 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 </style>
 
 <style>
-.avatar {transition: 0.8s;width:64px;height:64px;}
-.avatar:hover{transform: scale(1.15) rotate(360deg);}
-#header h1 a{color:inherit;text-decoration:none;vertical-align: bottom;font-size:40px;font-family:Monaco;margin-left:8px;}
+.postTitle{margin: auto 0;font-size:40px;font-weight:bold;}
 .title-right{display:flex;margin:auto 0 0 auto;}
-.title-right button{margin-right:8px;padding:16px;}
-.title-right .circle{padding: 14px 16px;}
-
-.SideNav{min-width: 360px;}
-.SideNav-icon{margin-right: 16px}
-.SideNav-item .Label{color: #fff;margin-left:8px;}
-.d-flex{min-width:0;}
-.listTitle{overflow:hidden;white-space:nowrap;text-overflow: ellipsis;max-width: 100%;}
-.listLabels{white-space:nowrap;}
-
+.title-right .circle{padding: 14px 16px;margin-right:8px;}
+#postBody{border-bottom: 1px solid var(--color-border-default);padding-bottom:36px;}
+#postBody hr{height:2px;}
+#cmButton{height:48px;margin-top:48px;}
+#comments{margin-top:64px;}
+.g-emoji{font-size:24px;}
 @media (max-width: 600px) {
     body {padding: 8px;}
-    .avatar {width:40px;height:40px;}
-    .blogTitle{display:none;}
-    #buttonRSS{display:none;}
-    .LabelTime{display:none;}
+    .postTitle{font-size:24px;}
 }
 </style>
 
 
+
+
 <body>
     <div id="header">
-<h1>
-    <img src="https://meekdai.com/avatar.svg" class="avatar circle" id="avatarImg"><a class="blogTitle" href="https://meekdai.com">eekdai</a>
-    </h1>
+<span class="postTitle">micropython中SPI总线模式配置</span>
 <div class="title-right">
-    <a href="/tag.html"><button id="buttonSearch" class="btn btn-invisible circle" title="搜索">
-        <svg class="octicon" width="16" height="16" >
-            <path id="pathSearch" fill-rule="evenodd"></path>
+
+    <a href="/"><button id="buttonHome" class="btn btn-invisible circle" title="首页">
+        <svg class="octicon" width="16" height="16">
+            <path id="pathHome" fill-rule="evenodd" d="M6.906.664a1.749 1.749 0 0 1 2.187 0l5.25 4.2c.415.332.657.835.657 1.367v7.019A1.75 1.75 0 0 1 13.25 15h-3.5a.75.75 0 0 1-.75-.75V9H7v5.25a.75.75 0 0 1-.75.75h-3.5A1.75 1.75 0 0 1 1 13.25V6.23c0-.531.242-1.034.657-1.366l5.25-4.2Zm1.25 1.171a.25.25 0 0 0-.312 0l-5.25 4.2a.25.25 0 0 0-.094.196v7.019c0 .138.112.25.25.25H5.5V8.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v5.25h2.75a.25.25 0 0 0 .25-.25V6.23a.25.25 0 0 0-.094-.195Z"></path>
         </svg>
     </button></a>
-    <a href="/link.html"><button class="btn btn-invisible circle" title="友情链接">
-        <svg class="octicon" width="16" height="16" >
-            <path id="友情链接" fill-rule="evenodd"></path>
-        </svg>
-    </button></a><a href="/about.html"><button class="btn btn-invisible circle" title="关于">
-        <svg class="octicon" width="16" height="16" >
-            <path id="关于" fill-rule="evenodd"></path>
+
+    <a href="https://github.com/Meekdai/meekdai.github.io/issues/38" target="_blank"><button class="btn btn-invisible circle" title="Issue">
+        <svg class="octicon" width="16" height="16">
+            <path id="pathIssue" fill-rule="evenodd" d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path>
         </svg>
     </button></a>
-    <a href="/rss.xml" target="_blank"><button id="buttonRSS" class="btn btn-invisible circle" title="RSS">
-        <svg class="octicon" width="16" height="16" >
-            <path id="pathRSS" fill-rule="evenodd"></path>
-        </svg>
-    </button></a>
-    <button class="btn btn-invisible circle" onclick="modeSwitch()" title="切换主题">
+
+    <button class="btn btn-invisible circle" onclick="modeSwitch();" title="切换主题">
         <svg class="octicon" width="16" height="16" >
             <path id="themeSwitch" fill-rule="evenodd"></path>
         </svg>
     </button>
+
 </div>
 </div>
     <div id="content">
-<div style="margin-bottom: 16px;">童话是一种生活态度，仅此而已。</div>
-<nav class="SideNav border">
-<a class="SideNav-item d-flex flex-items-center flex-justify-between" href="post/NodeMcu-xue-xi-bi-ji.html">
-    <div class="d-flex flex-items-center">
-        <svg class="SideNav-icon octicon" style="witdh:16px;height:16px"><path class="svgTop0" d=""></path>
-        </svg>
-        <span class="listTitle">NodeMcu学习笔记</span>
-    </div>
-    <div class="listLabels">
-        
-        <span class="Label LabelName" style="background-color:#0E8A16"><object><a style="color:#fff" href="/tag.html#硬件">硬件</a></object></span>
-        <span class="Label LabelTime" style="background-color:#bc4c00">2016-12-03</span>
-    </div>
-</a><a class="SideNav-item d-flex flex-items-center flex-justify-between" href="post/Paddy%20Richter.html">
-    <div class="d-flex flex-items-center">
-        <svg class="SideNav-icon octicon" style="witdh:16px;height:16px"><path class="svgTop0" d=""></path>
-        </svg>
-        <span class="listTitle">Paddy Richter</span>
-    </div>
-    <div class="listLabels">
-        
-        <span class="Label LabelName" style="background-color:#4F61FC"><object><a style="color:#fff" href="/tag.html#日常">日常</a></object></span>
-        <span class="Label LabelTime" style="background-color:#bc4c00">2016-04-25</span>
-    </div>
-</a><a class="SideNav-item d-flex flex-items-center flex-justify-between" href="post/HDMI-xue-xi-zong-jie.html">
-    <div class="d-flex flex-items-center">
-        <svg class="SideNav-icon octicon" style="witdh:16px;height:16px"><path class="svgTop0" d=""></path>
-        </svg>
-        <span class="listTitle">HDMI学习总结</span>
-    </div>
-    <div class="listLabels">
-        <span class="Label" style="background-color:#006b75">1</span>
-        <span class="Label LabelName" style="background-color:#0E8A16"><object><a style="color:#fff" href="/tag.html#硬件">硬件</a></object></span>
-        <span class="Label LabelTime" style="background-color:#A333D0">2015-12-26</span>
-    </div>
-</a>
-</nav><nav class="paginate-container" aria-label="Pagination">
-    <div class="pagination"><a class="previous_page" rel="previous" href="/page2.html" aria-label="Previous Page">上一页</a><span class="next_page" aria-disabled="true">下一页</span>
-        </div>
-</nav>
+<div class="markdown-body" id="postBody">
+<p>在嵌入式系统中，很多板载芯片都是采用<code class="notranslate">SPI</code>总线进行通信，同一<code class="notranslate">SPI</code>总线上也运行挂载多个相同或者不同型号的芯片。但是要留意不同型号的芯片的<code class="notranslate">SPI</code>通信的时序图，一般会有4种模式。在<code class="notranslate">micropython</code>中，初始化<code class="notranslate">SPI</code>总线时，通过<code class="notranslate">phase</code>和<code class="notranslate">polarity</code>配置即可实现这4种模式。</p>
+<h3>四种模式</h3>
+<table role="table">
+<thead>
+<tr>
+<th align="center">模式</th>
+<th align="center">CPHA (phase)</th>
+<th align="center">CPLO(polarity)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">MODE0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+</tr>
+<tr>
+<td align="center">MODE1</td>
+<td align="center">1</td>
+<td align="center">0</td>
+</tr>
+<tr>
+<td align="center">MODE2</td>
+<td align="center">0</td>
+<td align="center">1</td>
+</tr>
+<tr>
+<td align="center">MODE3</td>
+<td align="center">1</td>
+<td align="center">1</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>CPHA (phase) <strong>0</strong>--第1时钟边缘采样 <strong>1</strong>--第2时钟边缘采样<br>
+CPLO(polarity) <strong>0</strong>--空闲时钟低电平 <strong>1</strong>--空闲时钟高电平</p>
+</blockquote>
+<h3>常用芯片模式</h3>
+<table role="table">
+<thead>
+<tr>
+<th align="center">芯片</th>
+<th align="center">模式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">TMC5130</td>
+<td align="center">MODE3</td>
+</tr>
+<tr>
+<td align="center">TMC5160</td>
+<td align="center">MODE3</td>
+</tr>
+<tr>
+<td align="center">TMC4671</td>
+<td align="center">MODE3</td>
+</tr>
+<tr>
+<td align="center">MAX31865</td>
+<td align="center">MODE1&amp;MODE3</td>
+</tr>
+<tr>
+<td align="center">ADS1220</td>
+<td align="center">MODE1</td>
+</tr>
+<tr>
+<td align="center">DRV8244</td>
+<td align="center">MODE1</td>
+</tr>
+</tbody>
+</table>
+<h3>示例</h3>
+<p>如下示例配置了<code class="notranslate">MODE3</code>，可以与所有支持<code class="notranslate">MODE3</code>的芯片通信。</p>
+<div class="highlight highlight-source-python"><pre class="notranslate"><span class="pl-k">import</span> <span class="pl-s1">pyb</span>
+<span class="pl-s1">spi</span> <span class="pl-c1">=</span> <span class="pl-s1">pyb</span>.<span class="pl-v">SPI</span>(<span class="pl-c1">1</span>, <span class="pl-s1">pyb</span>.<span class="pl-v">SPI</span>.<span class="pl-v">MASTER</span>,<span class="pl-s1">prescaler</span><span class="pl-c1">=</span><span class="pl-c1">256</span>,<span class="pl-s1">phase</span><span class="pl-c1">=</span><span class="pl-c1">1</span>,<span class="pl-s1">polarity</span><span class="pl-c1">=</span><span class="pl-c1">1</span>)</pre></div>
+<p>下图为具体时序示例图<br>
+<a target="_blank" rel="noopener noreferrer" href="https://github.com/Meekdai/meekdai.github.io/assets/11755104/ed2cda77-af23-40da-ad29-5a41eb5f92e9"><img src="https://github.com/Meekdai/meekdai.github.io/assets/11755104/ed2cda77-af23-40da-ad29-5a41eb5f92e9" alt="image2018-11-8 9_41_16" style="max-width: 100%;"></a></p>
+</div>
+<button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
+<div class="comments" id="comments"></div>
 </div>
     <div id="footer">Copyright © <span id="year"></span><a href="https://blog.meekdai.com"> Meekdai </a>
 <p><a href="https://beian.miit.gov.cn/" target="_blank">浙ICP备20023628号</a>
@@ -172,19 +201,45 @@ console.log("\n %c Gmeek main %c https://github.com/Meekdai/Gmeek \n\n", "color:
 </script>
 
 <script>
-document.getElementById("pathSearch").setAttribute("d",IconList["search"]);
-document.getElementById("pathRSS").setAttribute("d",IconList["rss"]);
-iconTOP=document.getElementsByClassName("svgTop1");
-iconPost=document.getElementsByClassName("svgTop0");
-for(var i=0;i<iconTOP.length;i++){
-    iconTOP[i].setAttribute("d",IconList["upload"]);
-    iconTOP[i].parentNode.style.color="red";
-}
-for(var i=0;i<iconPost.length;i++){
-    iconPost[i].setAttribute("d",IconList["post"]);
+
+
+
+function openComments(){
+    cm=document.getElementById("comments");
+    cmButton=document.getElementById("cmButton");
+    cmButton.innerHTML="loading";
+    span=document.createElement("span");
+    span.setAttribute("class","AnimatedEllipsis");
+    cmButton.appendChild(span);
+
+    script=document.createElement("script");
+    script.setAttribute("src","https://utteranc.es/client.js");
+    script.setAttribute("repo","Meekdai/meekdai.github.io");
+    script.setAttribute("issue-term","title");
+    if(localStorage.getItem("meek_theme")=="dark"){script.setAttribute("theme","dark-blue");}
+    else{script.setAttribute("theme","github-light");}
+    script.setAttribute("crossorigin","anonymous");
+    script.setAttribute("async","");
+    cm.appendChild(script);
+
+    int=self.setInterval("iFrameLoading()",200);
 }
 
-document.getElementById("友情链接").setAttribute("d",value=IconList["link"]);document.getElementById("关于").setAttribute("d",value=IconList["about"]);
+function iFrameLoading(){
+    var utterances=document.getElementsByClassName('utterances');
+    if(utterances.length==1){
+        if(utterances[0].style.height!=""){
+            utterancesLoad=1;
+            int=window.clearInterval(int);
+            document.getElementById("cmButton").style.display="none";
+            console.log("utterances Load OK");
+        }
+    }
+}
+
 </script>
+
+
+
 
 </html>
