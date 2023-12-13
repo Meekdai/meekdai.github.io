@@ -22,11 +22,12 @@ MODE3 | 1 | 1
 | DRV8244 | MODE1 |
 
 ### 示例
-如下示例配置了`MODE3`，可以与所有支持`MODE3`的芯片通信。
+1. 如下示例配置了`MODE3`，可以与所有支持`MODE3`的芯片通信。
 ```python
 import pyb
 spi = pyb.SPI(1, pyb.SPI.MASTER,prescaler=256,phase=1,polarity=1)
 ```
+具体还可参考官方文档 https://docs.micropython.org/en/latest/library/pyb.SPI.html
 
-下图为具体时序示例图
+2. 下图为具体时序示例图
 ![image2018-11-8 9_41_16](https://github.com/Meekdai/meekdai.github.io/assets/11755104/ed2cda77-af23-40da-ad29-5a41eb5f92e9)
