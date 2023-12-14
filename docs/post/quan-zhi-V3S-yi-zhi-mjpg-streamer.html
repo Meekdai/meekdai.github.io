@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html data-color-mode="light" data-dark-theme="dark_colorblind" data-light-theme="light">
+<html data-color-mode="light" data-dark-theme="dark_colorblind" data-light-theme="light" lang="zh-CN">
 <head>
     <meta content="text/html; charset=utf-8" http-equiv="content-type" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="童话是一种生活态度，仅此而已。">
     <link href="//cdn.staticfile.org/Primer/21.0.7/primer.css" rel="stylesheet" />
     <link rel="icon" href="https://meekdai.com/favicon.svg">
     <script>
@@ -110,14 +111,14 @@ CFLAGS += -O1 -DLINUX -D_GNU_SOURCE -Wall -shared -fPIC -I /mnt/c/Users/Meekdai/
 <li>根据需要编译下面的插件，内容在主Makefile里。</li>
 </ol>
 <div class="highlight highlight-source-makefile"><pre class="notranslate"><span class="pl-c"><span class="pl-c">#</span> define the names and targets of the plugins</span>
-<span class="pl-smi">PLUGINS</span> = input_uvc.so
+P<span class="pl-smi">LUGINS</span> = input_uvc.so
 <span class="pl-smi">PLUGINS</span> += output_file.so
 <span class="pl-smi">PLUGINS</span> += output_udp.so
 <span class="pl-smi">PLUGINS</span> += output_http.so
 <span class="pl-smi">PLUGINS</span> += input_testpicture.so
 <span class="pl-c"><span class="pl-c">#</span>PLUGINS += output_autofocus.so</span>
 <span class="pl-c"><span class="pl-c">#</span>PLUGINS += input_gspcav1.so</span>
-<span class="pl-smi">PLUGINS</span> += input_file.so
+P<span class="pl-smi">LUGINS</span> += input_file.so
 <span class="pl-smi">PLUGINS</span> += output_rtsp.so
 <span class="pl-c"><span class="pl-c">#</span> PLUGINS += output_ptp2.so # commented out because it depends on libgphoto</span>
 <span class="pl-c"><span class="pl-c">#</span> PLUGINS += input_control.so # commented out because the output_http does it's job</span>
