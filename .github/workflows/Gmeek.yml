@@ -11,7 +11,7 @@ jobs:
   build:
     name: Generate blog
     runs-on: ubuntu-20.04
-    if: github.event.repository.owner.id == github.event.sender.id
+    if: ${{ github.event.repository.owner.id == github.event.sender.id || github.event_name == 'schedule' }}
     permissions: write-all
     steps:
       - name: Checkout
