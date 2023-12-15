@@ -3,7 +3,9 @@
 ### 安装
 > 安装及其简单，但是也要认真看下面的步骤，一步一步来。
 1. 点击[通过模板创建仓库](https://github.com/new?template_name=Gmeek-template&template_owner=Meekdai)，建议仓库名称为`XXX.github.io`，其中`XXX`为你的github用户名。
+
 2. 在你创建好的仓库的设置`Settings`中`Pages->Build and deployment->Source`下面选择`Github Actions`。
+
 3. 打开一篇issue，开始写作，并且添加一个标签（只添加一个），保存issue后会自动创建博客内容，片刻后可通过https://XXX.github.io 访问
 
 ### 配置文件
@@ -59,7 +61,7 @@
 <!-- ##{"timestamp":1490764800}## -->
 ```
 
-4. 自定义单篇文章页面的`style`和`script`
+6. 自定义单篇文章页面的`style`和`script`
 ```html
 <!-- ##{"style":"<style>#postBody{font-size:20px}</style>"}## -->
 ```
@@ -67,21 +69,21 @@
 <!-- ##{"script":"<script async src='//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js'></script>"}## -->
 ```
 
-5. 可同时一起添加多种自定义参数：  
+7. 可同时一起添加多种自定义参数：  
 ```html
 <!-- ##{"script":"<script async src='//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js'></script>","style":"<style>#postBody{font-size:20px}</style>","timestamp":1490764800}## -->
 ```
 
-6. 添加全局文章页面的`style`和`script`
+8. 添加全局文章页面的`style`和`script`
 > 在config.json文件中添加
 ```javascript
 "style":"<style>#postBody{font-size:20px}</style>",
 "script":"<script async src='//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js'></script>",
 ```
 
-7. 置顶博客文章,只需要`Pin issue`即可。
+9. 置顶博客文章,只需要`Pin issue`即可。
 
-8. 如果在评论里面登录后评论报错，可直接按照提示安装`utteranc app`即可
+10. 如果在评论里面登录后评论报错，可直接按照提示安装`utteranc app`即可
 > Error: utterances is not installed on xxx/xxx.github.io. If you own this repo, install the app. Read more about this change in the PR.
 
 ### 如何魔改

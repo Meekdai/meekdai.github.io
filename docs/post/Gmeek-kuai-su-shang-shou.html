@@ -75,9 +75,15 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 <p>安装及其简单，但是也要认真看下面的步骤，一步一步来。</p>
 </blockquote>
 <ol>
-<li>点击<a href="https://github.com/new?template_name=Gmeek-template&amp;template_owner=Meekdai">通过模板创建仓库</a>，建议仓库名称为<code class="notranslate">XXX.github.io</code>，其中<code class="notranslate">XXX</code>为你的github用户名。</li>
-<li>在你创建好的仓库的设置<code class="notranslate">Settings</code>中<code class="notranslate">Pages-&gt;Build and deployment-&gt;Source</code>下面选择<code class="notranslate">Github Actions</code>。</li>
-<li>打开一篇issue，开始写作，并且添加一个标签（只添加一个），保存issue后会自动创建博客内容，片刻后可通过<a href="https://XXX.github.io" rel="nofollow">https://XXX.github.io</a> 访问</li>
+<li>
+<p>点击<a href="https://github.com/new?template_name=Gmeek-template&amp;template_owner=Meekdai">通过模板创建仓库</a>，建议仓库名称为<code class="notranslate">XXX.github.io</code>，其中<code class="notranslate">XXX</code>为你的github用户名。</p>
+</li>
+<li>
+<p>在你创建好的仓库的设置<code class="notranslate">Settings</code>中<code class="notranslate">Pages-&gt;Build and deployment-&gt;Source</code>下面选择<code class="notranslate">Github Actions</code>。</p>
+</li>
+<li>
+<p>打开一篇issue，开始写作，并且添加一个标签（只添加一个），保存issue后会自动创建博客内容，片刻后可通过<a href="https://XXX.github.io" rel="nofollow">https://XXX.github.io</a> 访问</p>
+</li>
 </ol>
 <h3>配置文件</h3>
 <blockquote>
@@ -134,16 +140,16 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 <p>如需修改发布时间，可以在文章最后一行添加如下代码。里面的时间是采用时间戳的形式，可以用如下<a href="https://tool.lu/timestamp" rel="nofollow">网站</a>转换。</p>
 </blockquote>
 <div class="highlight highlight-text-html-basic"><pre class="notranslate"><span class="pl-c">&lt;!-- ##{"timestamp":1490764800}## --&gt;</span></pre></div>
-<ol start="4">
+<ol start="6">
 <li>自定义单篇文章页面的<code class="notranslate">style</code>和<code class="notranslate">script</code></li>
 </ol>
 <div class="highlight highlight-text-html-basic"><pre class="notranslate"><span class="pl-c">&lt;!-- ##{"style":"&lt;style&gt;#postBody{font-size:20px}&lt;/style&gt;"}## --&gt;</span></pre></div>
 <div class="highlight highlight-text-html-basic"><pre class="notranslate"><span class="pl-c">&lt;!-- ##{"script":"&lt;script async src='//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js'&gt;&lt;/script&gt;"}## --&gt;</span></pre></div>
-<ol start="5">
+<ol start="7">
 <li>可同时一起添加多种自定义参数：</li>
 </ol>
 <div class="highlight highlight-text-html-basic"><pre class="notranslate"><span class="pl-c">&lt;!-- ##{"script":"&lt;script async src='//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js'&gt;&lt;/script&gt;","style":"&lt;style&gt;#postBody{font-size:20px}&lt;/style&gt;","timestamp":1490764800}## --&gt;</span></pre></div>
-<ol start="6">
+<ol start="8">
 <li>添加全局文章页面的<code class="notranslate">style</code>和<code class="notranslate">script</code></li>
 </ol>
 <blockquote>
@@ -151,7 +157,7 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 </blockquote>
 <div class="highlight highlight-source-js"><pre class="notranslate"><span class="pl-s">"style"</span>:<span class="pl-s">"&lt;style&gt;#postBody{font-size:20px}&lt;/style&gt;"</span><span class="pl-kos">,</span>
 <span class="pl-s">"script"</span>:<span class="pl-s">"&lt;script async src='//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js'&gt;&lt;/script&gt;"</span><span class="pl-kos">,</span></pre></div>
-<ol start="7">
+<ol start="9">
 <li>
 <p>置顶博客文章,只需要<code class="notranslate">Pin issue</code>即可。</p>
 </li>
