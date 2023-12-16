@@ -70,11 +70,20 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
     <div id="content">
 <div class="markdown-body" id="postBody">
 <p><a href="https://github.com/Meekdai/Gmeek">Gmeek</a> 一个博客框架，超轻量级个人博客模板，完全基于<code class="notranslate">Github Pages </code>、 <code class="notranslate">Github Issues</code> 和 <code class="notranslate">Github Actions</code>，可以称作<code class="notranslate">All in Github</code>。不需要本地部署，从搭建到写作，只需要18秒，2步搭建好博客，第3步就是写作。</p>
+<h4>20231216（v2.9）</h4>
+<ul>
+<li>修复创建仓库不是<code class="notranslate">XXX.github.io</code>导致的BUG <a class="issue-link js-issue-link" data-error-text="Failed to load title" data-id="2019973471" data-permission-text="Title is private" data-url="https://github.com/Meekdai/Gmeek/issues/11" data-hovercard-type="pull_request" data-hovercard-url="/Meekdai/Gmeek/pull/11/hovercard" href="https://github.com/Meekdai/Gmeek/pull/11">Meekdai/Gmeek#11</a></li>
+<li>修复取消置顶后文章依旧置顶的BUG</li>
+<li>修复CLS布局偏移问题</li>
+<li>解决只有标题没有文章内容抓取失败的BUG</li>
+<li>添加全局文章页script和style</li>
+<li>部分SEO优化</li>
+</ul>
 <h4>20231122（v2.7）</h4>
 <ul>
 <li>添加<code class="notranslate">Tag</code>标签归档功能</li>
 <li>移除临时的Google搜索框，添加页内搜索功能，速度一级棒</li>
-<li><code class="notranslate">markdown</code>渲染使用<code class="notranslate">gfm</code>格式以支持所有<code class="notranslate">github</code>特性</li>
+<li><code class="notranslate">markdown</code>渲染使用<code class="notranslate">gfm</code>格式以支持所有<code class="notranslate">github</code>特性  <a class="issue-link js-issue-link" data-error-text="Failed to load title" data-id="1998489907" data-permission-text="Title is private" data-url="https://github.com/Meekdai/Gmeek/issues/9" data-hovercard-type="pull_request" data-hovercard-url="/Meekdai/Gmeek/pull/9/hovercard" href="https://github.com/Meekdai/Gmeek/pull/9">Meekdai/Gmeek#9</a></li>
 <li>优化手机端排列显示</li>
 </ul>
 <h4>20231113（v2.6）</h4>
@@ -178,6 +187,7 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 <ul class="contains-task-list">
 <li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox"> 数学公式目前不支持，考虑是否添加</li>
 <li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox"> 准备写第二个UI主题</li>
+<li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox"> 优化CSS体积，提升加载速度</li>
 </ul>
 </div>
 <button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
