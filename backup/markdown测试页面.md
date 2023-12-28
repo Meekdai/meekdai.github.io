@@ -71,9 +71,9 @@ print("Hello World")
 
 ## 图片
 ```markdown
-![这是一只猫？](http://placekitten.com/480/400)
+![这是我的头像](https://meekdai.com/avatar.svg)
 ```
-![这是一只猫？](http://placekitten.com/480/400)
+![这是我的头像](https://meekdai.com/avatar.svg)
 
 ## 表格
 ```markdown
