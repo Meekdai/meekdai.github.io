@@ -12,8 +12,9 @@
         else if(localStorage.getItem("meek_theme")=="light"){document.getElementsByTagName("html")[0].attributes.getNamedItem("data-color-mode").value="light";}
     </script>
     
-<meta name="description" content="童话是一种生活态度，仅此而已。">
-<title>Meekdai</title>
+<meta name="description" content="2011款Macbook安装WIN10解决触控板和扬声器声卡驱动问题以及ATLAS系统精简">
+<title>2011款Macbook安装WIN10解决触控板和扬声器声卡驱动问题以及ATLAS系统精简</title>
+
 
 </head>
 <style>
@@ -24,126 +25,71 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 </style>
 
 <style>
-.avatar {transition: 0.8s;width:64px;height:64px;}
-.avatar:hover{transform: scale(1.15) rotate(360deg);}
-#header h1 a{color:inherit;text-decoration:none;vertical-align: bottom;font-size:40px;font-family:Monaco;margin-left:8px;}
+.postTitle{margin: auto 0;font-size:40px;font-weight:bold;}
 .title-right{display:flex;margin:auto 0 0 auto;}
-.title-right button{margin-right:8px;padding:16px;}
-.title-right .circle{padding: 14px 16px;}
-
-.SideNav{min-width: 360px;}
-.SideNav-icon{margin-right: 16px}
-.SideNav-item .Label{color: #fff;margin-left:8px;}
-.d-flex{min-width:0;}
-.listTitle{overflow:hidden;white-space:nowrap;text-overflow: ellipsis;max-width: 100%;}
-.listLabels{white-space:nowrap;}
-.listLabels object{max-height:16px;max-width:24px;}
-
+.title-right .circle{padding: 14px 16px;margin-right:8px;}
+#postBody{border-bottom: 1px solid var(--color-border-default);padding-bottom:36px;}
+#postBody hr{height:2px;}
+#cmButton{height:48px;margin-top:48px;}
+#comments{margin-top:64px;}
+.g-emoji{font-size:24px;}
 @media (max-width: 600px) {
     body {padding: 8px;}
-    .avatar {width:40px;height:40px;}
-    .blogTitle{display:none;}
-    #buttonRSS{display:none;}
-    .LabelTime{display:none;}
+    .postTitle{font-size:24px;}
 }
 </style>
 
 
+
+
 <body>
     <div id="header">
-<h1>
-    <img src="https://meekdai.com/avatar.svg" class="avatar circle" id="avatarImg" alt="avatar"><a class="blogTitle" href="https://meekdai.com">eekdai</a>
-    </h1>
+<h1 class="postTitle">2011款Macbook安装WIN10解决触控板和扬声器声卡驱动问题以及ATLAS系统精简</h1>
 <div class="title-right">
-    <a href="https://blog.meekdai.com/tag.html"><button id="buttonSearch" class="btn btn-invisible circle" title="搜索">
-        <svg class="octicon" width="16" height="16" >
-            <path id="pathSearch" fill-rule="evenodd"></path>
+
+    <a href="https://blog.meekdai.com"><button id="buttonHome" class="btn btn-invisible circle" title="首页">
+        <svg class="octicon" width="16" height="16">
+            <path id="pathHome" fill-rule="evenodd" d="M6.906.664a1.749 1.749 0 0 1 2.187 0l5.25 4.2c.415.332.657.835.657 1.367v7.019A1.75 1.75 0 0 1 13.25 15h-3.5a.75.75 0 0 1-.75-.75V9H7v5.25a.75.75 0 0 1-.75.75h-3.5A1.75 1.75 0 0 1 1 13.25V6.23c0-.531.242-1.034.657-1.366l5.25-4.2Zm1.25 1.171a.25.25 0 0 0-.312 0l-5.25 4.2a.25.25 0 0 0-.094.196v7.019c0 .138.112.25.25.25H5.5V8.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v5.25h2.75a.25.25 0 0 0 .25-.25V6.23a.25.25 0 0 0-.094-.195Z"></path>
         </svg>
     </button></a>
-    <a href="https://blog.meekdai.com/link.html"><button class="btn btn-invisible circle" title="友情链接">
-        <svg class="octicon" width="16" height="16" >
-            <path id="友情链接" fill-rule="evenodd"></path>
-        </svg>
-    </button></a><a href="https://blog.meekdai.com/about.html"><button class="btn btn-invisible circle" title="关于">
-        <svg class="octicon" width="16" height="16" >
-            <path id="关于" fill-rule="evenodd"></path>
+
+    <a href="https://github.com/Meekdai/meekdai.github.io/issues/40" target="_blank"><button class="btn btn-invisible circle" title="Issue">
+        <svg class="octicon" width="16" height="16">
+            <path id="pathIssue" fill-rule="evenodd" d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path>
         </svg>
     </button></a>
-    <a href="https://blog.meekdai.com/rss.xml" target="_blank"><button id="buttonRSS" class="btn btn-invisible circle" title="RSS">
-        <svg class="octicon" width="16" height="16" >
-            <path id="pathRSS" fill-rule="evenodd"></path>
-        </svg>
-    </button></a>
-    <button class="btn btn-invisible circle" onclick="modeSwitch()" title="切换主题">
+
+    <button class="btn btn-invisible circle" onclick="modeSwitch();" title="切换主题">
         <svg class="octicon" width="16" height="16" >
             <path id="themeSwitch" fill-rule="evenodd"></path>
         </svg>
     </button>
+
 </div>
 </div>
     <div id="content">
-<div style="margin-bottom: 16px;">童话是一种生活态度，仅此而已。</div>
-<nav class="SideNav border">
-<a class="SideNav-item d-flex flex-items-center flex-justify-between" href="post/gai-bian.html">
-    <div class="d-flex flex-items-center">
-        <svg class="SideNav-icon octicon" style="witdh:16px;height:16px"><path class="svgTop0" d=""></path>
-        </svg>
-        <span class="listTitle">改变</span>
-    </div>
-    <div class="listLabels">
-        <span class="Label" style="background-color:#006b75">1</span>
-        <span class="Label LabelName" style="background-color:#4F61FC"><object><a style="color:#fff" href="https://blog.meekdai.com/tag.html#日常">日常</a></object></span>
-        <span class="Label LabelTime" style="background-color:#0969da">2017-03-29</span>
-    </div>
-</a><a class="SideNav-item d-flex flex-items-center flex-justify-between" href="post/ji-mi-Z4-Air-yu-yin-xiang-gao-yin-la-ba.html">
-    <div class="d-flex flex-items-center">
-        <svg class="SideNav-icon octicon" style="witdh:16px;height:16px"><path class="svgTop0" d=""></path>
-        </svg>
-        <span class="listTitle">极米Z4-Air与音响高音喇叭</span>
-    </div>
-    <div class="listLabels">
-        
-        <span class="Label LabelName" style="background-color:#4F61FC"><object><a style="color:#fff" href="https://blog.meekdai.com/tag.html#日常">日常</a></object></span>
-        <span class="Label LabelTime" style="background-color:#bc4c00">2016-12-03</span>
-    </div>
-</a><a class="SideNav-item d-flex flex-items-center flex-justify-between" href="post/NodeMcu-xue-xi-bi-ji.html">
-    <div class="d-flex flex-items-center">
-        <svg class="SideNav-icon octicon" style="witdh:16px;height:16px"><path class="svgTop0" d=""></path>
-        </svg>
-        <span class="listTitle">NodeMcu学习笔记</span>
-    </div>
-    <div class="listLabels">
-        
-        <span class="Label LabelName" style="background-color:#0E8A16"><object><a style="color:#fff" href="https://blog.meekdai.com/tag.html#硬件">硬件</a></object></span>
-        <span class="Label LabelTime" style="background-color:#bc4c00">2016-12-03</span>
-    </div>
-</a><a class="SideNav-item d-flex flex-items-center flex-justify-between" href="post/Paddy%20Richter.html">
-    <div class="d-flex flex-items-center">
-        <svg class="SideNav-icon octicon" style="witdh:16px;height:16px"><path class="svgTop0" d=""></path>
-        </svg>
-        <span class="listTitle">Paddy Richter</span>
-    </div>
-    <div class="listLabels">
-        
-        <span class="Label LabelName" style="background-color:#4F61FC"><object><a style="color:#fff" href="https://blog.meekdai.com/tag.html#日常">日常</a></object></span>
-        <span class="Label LabelTime" style="background-color:#bc4c00">2016-04-25</span>
-    </div>
-</a><a class="SideNav-item d-flex flex-items-center flex-justify-between" href="post/HDMI-xue-xi-zong-jie.html">
-    <div class="d-flex flex-items-center">
-        <svg class="SideNav-icon octicon" style="witdh:16px;height:16px"><path class="svgTop0" d=""></path>
-        </svg>
-        <span class="listTitle">HDMI学习总结</span>
-    </div>
-    <div class="listLabels">
-        <span class="Label" style="background-color:#006b75">1</span>
-        <span class="Label LabelName" style="background-color:#0E8A16"><object><a style="color:#fff" href="https://blog.meekdai.com/tag.html#硬件">硬件</a></object></span>
-        <span class="Label LabelTime" style="background-color:#A333D0">2015-12-26</span>
-    </div>
-</a>
-</nav><nav class="paginate-container" aria-label="Pagination">
-    <div class="pagination"><a class="previous_page" rel="previous" href="https://blog.meekdai.com/page2.html" aria-label="Previous Page">上一页</a><span class="next_page" aria-disabled="true">下一页</span>
-        </div>
-</nav>
+<div class="markdown-body" id="postBody">
+<p>最近搬出了读大学的时候斥巨资买的<code class="notranslate">Macbook Pro</code>，当时买来差不多要1万元。刚刚在闲鱼看了一下，同款机器有人挂368元 😭  。这么多年过去了，其实这个台电脑刷刷网页，看看视频应该问题不大。所以打算给它折腾起来，焕发第二春。</p>
+<p>正好有之前台式机淘汰下来的<code class="notranslate">128G</code>的SSD，更换掉原来的机械硬盘应该还可以快不少。本来的意图是安装双系统的，但是当我换上SSD开机后，居然直接进入<code class="notranslate">WIN10</code>的系统了。想着还是<code class="notranslate">WIN10</code>用的多，<code class="notranslate">macOS</code>也好多年没有用了，单系统就单系统吧。这样就变成了一台只有<code class="notranslate">WIN10</code>系统的<code class="notranslate">Macbook Pro</code>。</p>
+<p>由于SSD里面都是台式机上的东西，安装了不少东西，开机运行的东西非常多，所以一不做二不休，直接重置系统，然后通过<code class="notranslate">windows update</code>更新到<code class="notranslate">WIN10 22H2</code>的版本。发现触控板和扬声器不能正常使用，于是网上找了一些教程，下面记录一下解决的过程。</p>
+<h3>触控板驱动</h3>
+<p>触控板很简单，在<code class="notranslate">github</code>上有大神做了开源的驱动代码，在<code class="notranslate">github上</code>的<code class="notranslate">Release</code>页面下载驱动，安装一下就可以了。具体就是解压安装包<code class="notranslate">Drivers-amd64-ReleaseMSSigned.zip</code>，找到<code class="notranslate">AmtPtpDevice.inf</code>文件，然后右键安装即可。</p>
+<p>参考链接：<a href="https://github.com/imbushuo/mac-precision-touchpad">https://github.com/imbushuo/mac-precision-touchpad</a></p>
+<h3>声卡驱动</h3>
+<p>发现声卡驱动有一个打了叹号的，错误代码10。网上的教程五花八门，我也捣鼓了很久，最后通过安装<code class="notranslate">BootCamp</code>解决了。原文说的是安装<code class="notranslate">BootCamp6.0</code>，但是我用的是<code class="notranslate">BootCamp5.1</code>同样解决了问题。具体就是通过下面的参考链接2，下载<code class="notranslate">BootCamp5.1.5769</code>，解压后在<code class="notranslate">Drivers-&gt;Apple</code>里面找到<code class="notranslate">BootCamp.msi</code>，然后在此文件夹运行CMD指令，通过CMD指令运行<code class="notranslate">BootCamp.msi</code>文件即可。</p>
+<p>参考链接1：<a href="https://www.feng.com/post/10799869" rel="nofollow">https://www.feng.com/post/10799869</a><br>
+参考链接2：<a href="https://support.apple.com/kb/DL1837?locale=zh_CN" rel="nofollow">https://support.apple.com/kb/DL1837?locale=zh_CN</a></p>
+<h3>系统精简</h3>
+<p>最近又发现了<code class="notranslate">ATLASOS</code>这个开源项目，它可以极致精简系统，删除一些不必要的东西，让老旧电脑CPU可以流畅运行<code class="notranslate">WIN10</code>，所以也直接用在了我的<code class="notranslate">Macbook</code>中。</p>
+<p>要通过<code class="notranslate">ATLASOS</code>精简系统，必须满足2个条件，第一个是系统已激活，第二个是系统已经升级到<code class="notranslate">22H2</code>版本。下面的链接可以找到这些工具。然后通过<code class="notranslate">ATLAS</code>官网下载<code class="notranslate">AME Wizard</code>和<code class="notranslate">Playbook</code>，把<code class="notranslate">Playbook</code>中后缀名为<code class="notranslate">.apbx</code>的文件拉进<code class="notranslate">AME Wizard</code>，然后按步骤禁用一些系统工具后就可开始自动安装<code class="notranslate">ATLAS</code>了。</p>
+<p>ATLAS官网：<a href="https://atlasos.net/" rel="nofollow">https://atlasos.net/</a><br>
+AME Wizard：<a href="https://ameliorated.io/" rel="nofollow">https://ameliorated.io/</a><br>
+云萌激活工具：<a href="https://cmwtat.cloudmoe.com/cn.html" rel="nofollow">https://cmwtat.cloudmoe.com/cn.html</a><br>
+云萌开源地址：<a href="https://github.com/TGSAN/CMWTAT_Digital_Edition">https://github.com/TGSAN/CMWTAT_Digital_Edition</a><br>
+mbp技术规格：<a href="https://support.apple.com/zh-cn/HT201300" rel="nofollow">https://support.apple.com/zh-cn/HT201300</a></p>
+</div>
+<button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
+<div class="comments" id="comments"></div>
 </div>
     <div id="footer">Copyright © <span id="year"></span><a href="https://blog.meekdai.com"> Meekdai </a>
 <p><a href="https://beian.miit.gov.cn/" target="_blank">浙ICP备20023628号</a>
@@ -196,19 +142,45 @@ console.log("\n %c Gmeek main %c https://github.com/Meekdai/Gmeek \n\n", "color:
 </script>
 
 <script>
-document.getElementById("pathSearch").setAttribute("d",IconList["search"]);
-document.getElementById("pathRSS").setAttribute("d",IconList["rss"]);
-iconTOP=document.getElementsByClassName("svgTop1");
-iconPost=document.getElementsByClassName("svgTop0");
-for(var i=0;i<iconTOP.length;i++){
-    iconTOP[i].setAttribute("d",IconList["upload"]);
-    iconTOP[i].parentNode.style.color="red";
-}
-for(var i=0;i<iconPost.length;i++){
-    iconPost[i].setAttribute("d",IconList["post"]);
+
+
+
+function openComments(){
+    cm=document.getElementById("comments");
+    cmButton=document.getElementById("cmButton");
+    cmButton.innerHTML="loading";
+    span=document.createElement("span");
+    span.setAttribute("class","AnimatedEllipsis");
+    cmButton.appendChild(span);
+
+    script=document.createElement("script");
+    script.setAttribute("src","https://utteranc.es/client.js");
+    script.setAttribute("repo","Meekdai/meekdai.github.io");
+    script.setAttribute("issue-term","title");
+    if(localStorage.getItem("meek_theme")=="dark"){script.setAttribute("theme","dark-blue");}
+    else{script.setAttribute("theme","github-light");}
+    script.setAttribute("crossorigin","anonymous");
+    script.setAttribute("async","");
+    cm.appendChild(script);
+
+    int=self.setInterval("iFrameLoading()",200);
 }
 
-document.getElementById("友情链接").setAttribute("d",value=IconList["link"]);document.getElementById("关于").setAttribute("d",value=IconList["about"]);
+function iFrameLoading(){
+    var utterances=document.getElementsByClassName('utterances');
+    if(utterances.length==1){
+        if(utterances[0].style.height!=""){
+            utterancesLoad=1;
+            int=window.clearInterval(int);
+            document.getElementById("cmButton").style.display="none";
+            console.log("utterances Load OK");
+        }
+    }
+}
+
 </script>
+
+
+
 
 </html>
