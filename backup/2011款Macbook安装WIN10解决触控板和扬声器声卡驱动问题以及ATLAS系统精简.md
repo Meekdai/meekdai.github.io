@@ -20,6 +20,10 @@
 
 参考链接：[https://support.apple.com/kb/DL1720](https://support.apple.com/kb/DL1720)
 
+> WIFI驱动 Broadcom (BCM43XX) Net  (11/21/2016 7.35.118.68)
+> 键盘驱动 Apple Inc. Apple Keyboard (01/10/2014 5.0.8.0)
+> 声卡驱动 Cirrus Logic CS4206B (AB 28)
+
 ### 系统精简
 最近又发现了`ATLASOS`这个开源项目，它可以极致精简系统，删除一些不必要的东西，让老旧电脑CPU可以流畅运行`WIN10`，所以也直接用在了我的`Macbook`中。
 
