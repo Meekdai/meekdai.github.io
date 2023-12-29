@@ -13,11 +13,13 @@
 发现声卡驱动有一个打了叹号的，错误代码10。网上的教程五花八门，我也捣鼓了很久，最后通过安装`BootCamp`解决了。原文说的是安装`BootCamp6.0`，但是我用的是`BootCamp5.1`同样解决了问题。具体就是通过下面的参考链接2，下载`BootCamp5.1.5769`，解压后在`Drivers->Apple`里面找到`BootCamp.msi`，然后在此文件夹运行CMD指令，通过CMD指令运行`BootCamp.msi`文件即可。
 
 参考链接1：[https://www.feng.com/post/10799869](https://www.feng.com/post/10799869)
-参考链接2：[https://support.apple.com/kb/DL1837?locale=zh_CN](https://support.apple.com/kb/DL1837?locale=zh_CN)
+参考链接2：[https://support.apple.com/kb/DL1837](https://support.apple.com/kb/DL1837)
 
 ### 键盘驱动
 本来键盘驱动是正常的，但是使用了一天后发现`fn`的功能键不起作用，怀疑驱动有问题，果然用的是`HID`的通用驱动代码。这里用`BootCamp5.1.5769`里的`AppleKeyboardInstaller64.exe`安装失败，所以找了更老一点的驱动，用的`BootCamp5.1.5.1.5621`里面的驱动成功解决，可以通过`fn+F11`调节音量了。
-参考链接：[https://support.apple.com/kb/DL1720?locale=en_US](https://support.apple.com/kb/DL1720?locale=en_US)
+
+参考链接：[https://support.apple.com/kb/DL1720](https://support.apple.com/kb/DL1720)
+
 ### 系统精简
 最近又发现了`ATLASOS`这个开源项目，它可以极致精简系统，删除一些不必要的东西，让老旧电脑CPU可以流畅运行`WIN10`，所以也直接用在了我的`Macbook`中。
 
