@@ -173,6 +173,95 @@ print("Hello World")<br>
 <blockquote>
 <p>落霞与孤鹜齐飞，秋水共长天一色。《滕王阁序》--王勃</p>
 </blockquote>
+<h2>对比</h2>
+<div class="highlight highlight-source-diff"><pre class="notranslate"><span class="pl-mi1"><span class="pl-mi1">+</span> this text is highlighted in green</span>
+<span class="pl-md"><span class="pl-md">-</span> this text is highlighted in red</span></pre></div>
+<pre class="notranslate">```diff
++ this text is highlighted in green
+- this text is highlighted in red
+```
+</pre>
+<h2>字体颜色</h2>
+<div class="highlight highlight-source-css"><pre class="notranslate"><span class="pl-ent">Some</span> <span class="pl-ent">text</span> <span class="pl-ent">in</span> <span class="pl-ent">green</span>! 123</pre></div>
+<pre class="notranslate">```CSS
+Some text in green! 123
+```
+</pre>
+<div class="highlight highlight-source-p4"><pre class="notranslate"><span class="pl-c1">Some</span> <span class="pl-c1">text</span> <span class="pl-c1">in</span> <span class="pl-c1">blue</span>! <span class="pl-c1">123</span></pre></div>
+<div class="highlight highlight-source-mint"><pre class="notranslate"><span class="pl-en">Some</span> <span class="pl-c1">text</span> <span class="pl-c1">in</span> <span class="pl-c1">blue</span> <span class="pl-k">with</span> <span class="pl-c1">additional</span> <span class="pl-c1">keyword</span> <span class="pl-c1">highlighting</span>! <span class="pl-c1">123</span></pre></div>
+<pre class="notranslate">```P4
+Some text in blue! 123
+```
+
+```Mint
+Some text in blue with additional keyword highlighting! 123
+```
+</pre>
+<div class="highlight highlight-source-json"><pre class="notranslate"><span class="pl-ii">Some text highlighted in red! 123</span></pre></div>
+<pre class="notranslate">```JSON
+Some text highlighted in red! 123
+```
+</pre>
+<h2>HTML tricks</h2>
+<p><samp>Monospaced text</samp></p>
+<pre class="notranslate"><code class="notranslate">&lt;samp&gt;Monospaced text&lt;/samp&gt;
+</code></pre>
+<hr>
+<p><ins>Underlined text</ins></p>
+<pre class="notranslate"><code class="notranslate">&lt;ins&gt;Underlined text&lt;/ins&gt;
+</code></pre>
+<hr>
+<table role="table"><tbody><tr><td>Boxed text</td></tr></tbody></table>
+<pre class="notranslate"><code class="notranslate">&lt;table&gt;&lt;tr&gt;&lt;td&gt;Boxed text&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+</code></pre>
+<hr>
+<details>
+<summary>Item summary with dropdown</summary>
+<p>Dropdown content (supports <strong>markdown</strong> <del>yay!</del>)</p>
+<div class="highlight highlight-source-json"><pre class="notranslate">{
+  <span class="pl-ii">awesome: "true"</span>
+}</pre></div>
+</details>
+<pre class="notranslate">&lt;details&gt;
+&lt;summary&gt;Item summary with dropdown&lt;/summary&gt;
+
+Dropdown content (supports **markdown** ~~yay!~~)
+
+```json
+{
+  awesome: "true"
+}
+```
+&lt;/details&gt;
+</pre>
+<hr>
+<p><strong><em>Italic-bold</em></strong></p>
+<pre class="notranslate"><code class="notranslate">__*Italic-bold*__
+</code></pre>
+<hr>
+<p>Superscript<sup>TM</sup></p>
+<pre class="notranslate"><code class="notranslate">Superscript&lt;sup&gt;TM&lt;/sup&gt;
+</code></pre>
+<hr>
+<p>Superscript-italic<sup><em>tm</em></sup></p>
+<pre class="notranslate"><code class="notranslate">Superscript-italic&lt;sup&gt;*tm*&lt;/sup&gt;
+</code></pre>
+<hr>
+<p>Subscript<sub>x</sub></p>
+<pre class="notranslate"><code class="notranslate">Subscript&lt;sub&gt;x&lt;/sub&gt;
+</code></pre>
+<hr>
+<p>Subscript-bold<sub><strong>min</strong></sub></p>
+<pre class="notranslate"><code class="notranslate">Subscript-bold&lt;sub&gt;**min**&lt;/sub&gt;
+</code></pre>
+<hr>
+<p><del><strong><em>Italic-bold-strikethrough</em></strong></del></p>
+<pre class="notranslate"><code class="notranslate">~~__*Italic-bold-strikethrough*__~~
+</code></pre>
+<h2>参考</h2>
+<blockquote>
+<p>更多GitHub Markdown 语法参考：<a href="https://github.com/Olwiba/Kickass-markdown/">https://github.com/Olwiba/Kickass-markdown/</a></p>
+</blockquote>
 </div>
 <button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
 <div class="comments" id="comments"></div>

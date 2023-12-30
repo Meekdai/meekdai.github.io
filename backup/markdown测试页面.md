@@ -105,3 +105,158 @@ print("Hello World")
 > 落霞与孤鹜齐飞，秋水共长天一色。《滕王阁序》--王勃 
 ```
 > 落霞与孤鹜齐飞，秋水共长天一色。《滕王阁序》--王勃 
+
+## 对比
+```diff
++ this text is highlighted in green
+- this text is highlighted in red
+```
+
+<pre>
+```diff
++ this text is highlighted in green
+- this text is highlighted in red
+```
+</pre>
+
+## 字体颜色
+```CSS
+Some text in green! 123
+```
+
+<pre>
+```CSS
+Some text in green! 123
+```
+</pre>
+
+```P4
+Some text in blue! 123
+```
+
+```Mint
+Some text in blue with additional keyword highlighting! 123
+```
+
+<pre>
+```P4
+Some text in blue! 123
+```
+
+```Mint
+Some text in blue with additional keyword highlighting! 123
+```
+</pre>
+
+```JSON
+Some text highlighted in red! 123
+```
+
+<pre>
+```JSON
+Some text highlighted in red! 123
+```
+</pre>
+
+## HTML tricks
+
+<samp>Monospaced text</samp>
+
+```
+<samp>Monospaced text</samp>
+```
+
+---
+
+<ins>Underlined text</ins>
+
+```
+<ins>Underlined text</ins>
+```
+
+---
+
+<table><tr><td>Boxed text</td></tr></table>
+
+```
+<table><tr><td>Boxed text</td></tr></table>
+```
+
+---
+
+<details>
+<summary>Item summary with dropdown</summary>
+
+Dropdown content (supports **markdown** ~~yay!~~)
+
+```json
+{
+  awesome: "true"
+}
+```
+</details>
+
+<pre>
+&lt;details>
+&lt;summary>Item summary with dropdown&lt;/summary>
+
+Dropdown content (supports **markdown** ~~yay!~~)
+
+```json
+{
+  awesome: "true"
+}
+```
+&lt;/details>
+</pre>
+
+---
+
+__*Italic-bold*__
+
+```
+__*Italic-bold*__
+```
+
+---
+
+Superscript<sup>TM</sup>
+
+```
+Superscript<sup>TM</sup>
+```
+
+---
+
+Superscript-italic<sup>*tm*</sup>
+
+```
+Superscript-italic<sup>*tm*</sup>
+```
+
+---
+
+Subscript<sub>x</sub>
+
+```
+Subscript<sub>x</sub>
+```
+
+---
+
+Subscript-bold<sub>**min**</sub>
+
+```
+Subscript-bold<sub>**min**</sub>
+```
+
+---
+
+~~__*Italic-bold-strikethrough*__~~
+
+```
+~~__*Italic-bold-strikethrough*__~~
+```
+
+## 参考
+> 更多GitHub Markdown 语法参考：https://github.com/Olwiba/Kickass-markdown/
