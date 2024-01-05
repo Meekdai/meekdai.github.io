@@ -262,4 +262,7 @@ Subscript-bold<sub>**min**</sub>
 ```
 
 ## 参考
-> 更多GitHub Markdown 语法参考：https://github.com/Olwiba/Kickass-markdown/
+更多GitHub Markdown 语法参考：
+
+1.  https://github.com/Olwiba/Kickass-markdown/
+2.  https://docs.github.com/zh/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax
