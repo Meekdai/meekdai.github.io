@@ -71,9 +71,12 @@ print("Hello World")
 
 ## 图片
 ```markdown
-![这是我的头像](https://meekdai.com/avatar.svg)
+![这是我的头像PNG](https://github.com/Meekdai/meekdai.github.io/assets/11755104/e4da3470-d4b1-4cc7-9d84-f7da69f90a76)
+![这是我的头像SVG](https://meekdai.com/avatar.svg)
 ```
-![这是我的头像](https://meekdai.com/avatar.svg)
+![这是我的头像PNG](https://github.com/Meekdai/meekdai.github.io/assets/11755104/e4da3470-d4b1-4cc7-9d84-f7da69f90a76)
+
+![这是我的头像SVG](https://meekdai.com/avatar.svg)
 
 ## 表格
 ```markdown
