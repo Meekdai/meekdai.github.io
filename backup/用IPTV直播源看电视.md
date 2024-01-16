@@ -26,4 +26,13 @@ http://iptv.meekdai.com
 2. 后续如果有找到更好的，或者有`IPV4`的直播源，也会在本篇文章里面添加。
 3. 另外我也在我的iPhone上测试了一下，下载`APTV`这个软件，然后添加上面的源，一样可以愉快的看电视。
 
+### 参考链接：
+https://github.com/Meroser/IPTV
+https://github.com/skysolf/iptv
+https://github.com/fanmingming/live
+https://github.com/Moexin/IPTV
+https://www.znds.com/tv-1236500-1-1.html
+
+
+
 
