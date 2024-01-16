@@ -12,8 +12,9 @@
         else if(localStorage.getItem("meek_theme")=="light"){document.getElementsByTagName("html")[0].attributes.getNamedItem("data-color-mode").value="light";}
     </script>
     
-<meta name="description" content="童话是一种生活态度，仅此而已。">
-<title>Meekdai</title>
+<meta name="description" content="用IPTV直播源看电视">
+<title>用IPTV直播源看电视</title>
+
 
 </head>
 <style>
@@ -24,148 +25,75 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 </style>
 
 <style>
-.avatar {transition: 0.8s;width:64px;height:64px;}
-.avatar:hover{transform: scale(1.15) rotate(360deg);}
-#header h1 a{color:inherit;text-decoration:none;vertical-align: bottom;font-size:40px;font-family:Monaco;margin-left:8px;}
+.postTitle{margin: auto 0;font-size:40px;font-weight:bold;}
 .title-right{display:flex;margin:auto 0 0 auto;}
-.title-right button{margin-right:8px;padding:16px;}
-.title-right .circle{padding: 14px 16px;}
-
-.SideNav{min-width: 360px;}
-.SideNav-icon{margin-right: 16px}
-.SideNav-item .Label{color: #fff;margin-left:8px;}
-.d-flex{min-width:0;}
-.listTitle{overflow:hidden;white-space:nowrap;text-overflow: ellipsis;max-width: 100%;}
-.listLabels{white-space:nowrap;}
-.listLabels object{max-height:16px;max-width:24px;}
-
+.title-right .circle{padding: 14px 16px;margin-right:8px;}
+#postBody{border-bottom: 1px solid var(--color-border-default);padding-bottom:36px;}
+#postBody hr{height:2px;}
+#cmButton{height:48px;margin-top:48px;}
+#comments{margin-top:64px;}
+.g-emoji{font-size:24px;}
 @media (max-width: 600px) {
     body {padding: 8px;}
-    .avatar {width:40px;height:40px;}
-    .blogTitle{display:none;}
-    #buttonRSS{display:none;}
-    .LabelTime{display:none;}
+    .postTitle{font-size:24px;}
 }
 </style>
 
 
+
+
 <body>
     <div id="header">
-<h1>
-    <img src="https://meekdai.com/avatar.svg" class="avatar circle" id="avatarImg" alt="avatar"><a class="blogTitle" href="https://meekdai.com">eekdai</a>
-    </h1>
+<h1 class="postTitle">用IPTV直播源看电视</h1>
 <div class="title-right">
-    <a href="https://blog.meekdai.com/tag.html"><button id="buttonSearch" class="btn btn-invisible circle" title="搜索">
-        <svg class="octicon" width="16" height="16" >
-            <path id="pathSearch" fill-rule="evenodd"></path>
+
+    <a href="https://blog.meekdai.com"><button id="buttonHome" class="btn btn-invisible circle" title="首页">
+        <svg class="octicon" width="16" height="16">
+            <path id="pathHome" fill-rule="evenodd" d="M6.906.664a1.749 1.749 0 0 1 2.187 0l5.25 4.2c.415.332.657.835.657 1.367v7.019A1.75 1.75 0 0 1 13.25 15h-3.5a.75.75 0 0 1-.75-.75V9H7v5.25a.75.75 0 0 1-.75.75h-3.5A1.75 1.75 0 0 1 1 13.25V6.23c0-.531.242-1.034.657-1.366l5.25-4.2Zm1.25 1.171a.25.25 0 0 0-.312 0l-5.25 4.2a.25.25 0 0 0-.094.196v7.019c0 .138.112.25.25.25H5.5V8.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v5.25h2.75a.25.25 0 0 0 .25-.25V6.23a.25.25 0 0 0-.094-.195Z"></path>
         </svg>
     </button></a>
-    <a href="https://blog.meekdai.com/link.html"><button class="btn btn-invisible circle" title="友情链接">
-        <svg class="octicon" width="16" height="16" >
-            <path id="友情链接" fill-rule="evenodd"></path>
-        </svg>
-    </button></a><a href="https://blog.meekdai.com/about.html"><button class="btn btn-invisible circle" title="关于">
-        <svg class="octicon" width="16" height="16" >
-            <path id="关于" fill-rule="evenodd"></path>
+
+    <a href="https://github.com/Meekdai/meekdai.github.io/issues/42" target="_blank"><button class="btn btn-invisible circle" title="Issue">
+        <svg class="octicon" width="16" height="16">
+            <path id="pathIssue" fill-rule="evenodd" d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path>
         </svg>
     </button></a>
-    <a href="https://blog.meekdai.com/rss.xml" target="_blank"><button id="buttonRSS" class="btn btn-invisible circle" title="RSS">
-        <svg class="octicon" width="16" height="16" >
-            <path id="pathRSS" fill-rule="evenodd"></path>
-        </svg>
-    </button></a>
-    <button class="btn btn-invisible circle" onclick="modeSwitch()" title="切换主题">
+
+    <button class="btn btn-invisible circle" onclick="modeSwitch();" title="切换主题">
         <svg class="octicon" width="16" height="16" >
             <path id="themeSwitch" fill-rule="evenodd"></path>
         </svg>
     </button>
+
 </div>
 </div>
     <div id="content">
-<div style="margin-bottom: 16px;">童话是一种生活态度，仅此而已。</div>
-<nav class="SideNav border">
-<a class="SideNav-item d-flex flex-items-center flex-justify-between" href="post/Allegro-shuang-ji-PCB-wen-jian-bian-xin-jian-de-jie-jue-ban-fa.html">
-    <div class="d-flex flex-items-center">
-        <svg class="SideNav-icon octicon" style="witdh:16px;height:16px"><path class="svgTop0" d=""></path>
-        </svg>
-        <span class="listTitle">Allegro双击PCB文件变新建的解决办法</span>
-    </div>
-    <div class="listLabels">
-        
-        <span class="Label LabelName" style="background-color:#0E8A16"><object><a style="color:#fff" href="https://blog.meekdai.com/tag.html#硬件">硬件</a></object></span>
-        <span class="Label LabelTime" style="background-color:#0969da">2017-04-14</span>
-    </div>
-</a><a class="SideNav-item d-flex flex-items-center flex-justify-between" href="post/%E3%80%8A-gao-xiao-neng-ren-shi-de-qi-ge-xi-guan-%E3%80%8B-du-hou-gan.html">
-    <div class="d-flex flex-items-center">
-        <svg class="SideNav-icon octicon" style="witdh:16px;height:16px"><path class="svgTop0" d=""></path>
-        </svg>
-        <span class="listTitle">《高效能人士的七个习惯》读后感</span>
-    </div>
-    <div class="listLabels">
-        
-        <span class="Label LabelName" style="background-color:#4F61FC"><object><a style="color:#fff" href="https://blog.meekdai.com/tag.html#日常">日常</a></object></span>
-        <span class="Label LabelTime" style="background-color:#0969da">2017-04-03</span>
-    </div>
-</a><a class="SideNav-item d-flex flex-items-center flex-justify-between" href="post/gai-bian.html">
-    <div class="d-flex flex-items-center">
-        <svg class="SideNav-icon octicon" style="witdh:16px;height:16px"><path class="svgTop0" d=""></path>
-        </svg>
-        <span class="listTitle">改变</span>
-    </div>
-    <div class="listLabels">
-        <span class="Label" style="background-color:#006b75">1</span>
-        <span class="Label LabelName" style="background-color:#4F61FC"><object><a style="color:#fff" href="https://blog.meekdai.com/tag.html#日常">日常</a></object></span>
-        <span class="Label LabelTime" style="background-color:#0969da">2017-03-29</span>
-    </div>
-</a><a class="SideNav-item d-flex flex-items-center flex-justify-between" href="post/ji-mi-Z4-Air-yu-yin-xiang-gao-yin-la-ba.html">
-    <div class="d-flex flex-items-center">
-        <svg class="SideNav-icon octicon" style="witdh:16px;height:16px"><path class="svgTop0" d=""></path>
-        </svg>
-        <span class="listTitle">极米Z4-Air与音响高音喇叭</span>
-    </div>
-    <div class="listLabels">
-        
-        <span class="Label LabelName" style="background-color:#4F61FC"><object><a style="color:#fff" href="https://blog.meekdai.com/tag.html#日常">日常</a></object></span>
-        <span class="Label LabelTime" style="background-color:#bc4c00">2016-12-03</span>
-    </div>
-</a><a class="SideNav-item d-flex flex-items-center flex-justify-between" href="post/NodeMcu-xue-xi-bi-ji.html">
-    <div class="d-flex flex-items-center">
-        <svg class="SideNav-icon octicon" style="witdh:16px;height:16px"><path class="svgTop0" d=""></path>
-        </svg>
-        <span class="listTitle">NodeMcu学习笔记</span>
-    </div>
-    <div class="listLabels">
-        
-        <span class="Label LabelName" style="background-color:#0E8A16"><object><a style="color:#fff" href="https://blog.meekdai.com/tag.html#硬件">硬件</a></object></span>
-        <span class="Label LabelTime" style="background-color:#bc4c00">2016-12-03</span>
-    </div>
-</a><a class="SideNav-item d-flex flex-items-center flex-justify-between" href="post/Paddy%20Richter.html">
-    <div class="d-flex flex-items-center">
-        <svg class="SideNav-icon octicon" style="witdh:16px;height:16px"><path class="svgTop0" d=""></path>
-        </svg>
-        <span class="listTitle">Paddy Richter</span>
-    </div>
-    <div class="listLabels">
-        
-        <span class="Label LabelName" style="background-color:#4F61FC"><object><a style="color:#fff" href="https://blog.meekdai.com/tag.html#日常">日常</a></object></span>
-        <span class="Label LabelTime" style="background-color:#bc4c00">2016-04-25</span>
-    </div>
-</a><a class="SideNav-item d-flex flex-items-center flex-justify-between" href="post/HDMI-xue-xi-zong-jie.html">
-    <div class="d-flex flex-items-center">
-        <svg class="SideNav-icon octicon" style="witdh:16px;height:16px"><path class="svgTop0" d=""></path>
-        </svg>
-        <span class="listTitle">HDMI学习总结</span>
-    </div>
-    <div class="listLabels">
-        <span class="Label" style="background-color:#006b75">1</span>
-        <span class="Label LabelName" style="background-color:#0E8A16"><object><a style="color:#fff" href="https://blog.meekdai.com/tag.html#硬件">硬件</a></object></span>
-        <span class="Label LabelTime" style="background-color:#A333D0">2015-12-26</span>
-    </div>
-</a>
-</nav><nav class="paginate-container" aria-label="Pagination">
-    <div class="pagination"><a class="previous_page" rel="previous" href="https://blog.meekdai.com/page2.html" aria-label="Previous Page">上一页</a><span class="next_page" aria-disabled="true">下一页</span>
-        </div>
-</nav>
+<div class="markdown-body" id="postBody">
+<p>电视家下线有一段时间了，我基本不看直播电视无所谓，但是家里长辈要看，所以一直想找个方便可靠的给家里的电视装上。今天在<code class="notranslate">github</code>上发现了一个非常不错的项目，下面分享一下使用的方法。</p>
+<h3>下载Tivimate</h3>
+<p>有能力的可以通过google商店安装正版软件，如果是测试学习一下，可以点击下载<a href="https://github.com/skysolf/iptv/blob/main/TiviMate%20%202.1.5%20-%20Premium%E4%BB%98%E8%B4%B9%E7%A0%B4%E8%A7%A3%E7%89%88.apk">TiviMate-2.1.5_付费破解版.apk</a></p>
+<h3>安装Tivimate</h3>
+<p>我家里是小米电视，一般如果是安卓电视应该都可以安装。</p>
+<ol>
+<li>有U盘还有电脑的可以直接拷贝上面下载的<code class="notranslate">apk</code>文件到U盘，然后把U盘插到电视上直接安装。</li>
+<li>如果是远程给别人安装，建议把apk文件上传到迅雷云盘中，然后在电视上安装迅雷云盘，通过迅雷云盘下载安装。</li>
+<li>其实还有很多种安装方式，但是目的都是把apk文件上传到电视，只要目的达到就行。</li>
+</ol>
+<h3>添加直播源</h3>
+<p>安装好<code class="notranslate">Tivimate</code>后，直接打开，然后往里面添加一个源地址就行。我之前说的非常不错的开源项目就是一个直播源<a href="https://github.com/Meroser/IPTV">IPTV</a>。因为github有些时候没有科学上网的话会无法访问，所以这个开源项目里面的订阅地址用了镜像源，这导致了需要输入的地址就非常非常长，如下：</p>
+<pre class="notranslate"><code class="notranslate">https://mirror.ghproxy.com/https://raw.githubusercontent.com/Meroser/IPTV/main/IPTV.m3u
+</code></pre>
+<p>因为在电视上输入这一段实在太~~，所以我用我的二级域名做了一个显性重定向，所以只需要添加源地址的时候输入下面这个就可以了：</p>
+<pre class="notranslate"><code class="notranslate">http://iptv.meekdai.com
+</code></pre>
+<h3>其他</h3>
+<ol>
+<li>需要注意的是，这个直播源目前是IPV6的，如果你的宽带不支持，或者路由器光猫还没有开启IPV6，则需要先解决IPV6的问题。</li>
+<li>后续如果有找到更好的，或者有IPV4的直播源，也会在本篇文章里面添加。</li>
+</ol>
+</div>
+<button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
+<div class="comments" id="comments"></div>
 </div>
     <div id="footer">Copyright © <span id="year"></span><a href="https://blog.meekdai.com"> Meekdai </a>
 <p><a href="https://beian.miit.gov.cn/" target="_blank">浙ICP备20023628号</a>
@@ -218,19 +146,45 @@ console.log("\n %c Gmeek main %c https://github.com/Meekdai/Gmeek \n\n", "color:
 </script>
 
 <script>
-document.getElementById("pathSearch").setAttribute("d",IconList["search"]);
-document.getElementById("pathRSS").setAttribute("d",IconList["rss"]);
-iconTOP=document.getElementsByClassName("svgTop1");
-iconPost=document.getElementsByClassName("svgTop0");
-for(var i=0;i<iconTOP.length;i++){
-    iconTOP[i].setAttribute("d",IconList["upload"]);
-    iconTOP[i].parentNode.style.color="red";
-}
-for(var i=0;i<iconPost.length;i++){
-    iconPost[i].setAttribute("d",IconList["post"]);
+
+
+
+function openComments(){
+    cm=document.getElementById("comments");
+    cmButton=document.getElementById("cmButton");
+    cmButton.innerHTML="loading";
+    span=document.createElement("span");
+    span.setAttribute("class","AnimatedEllipsis");
+    cmButton.appendChild(span);
+
+    script=document.createElement("script");
+    script.setAttribute("src","https://utteranc.es/client.js");
+    script.setAttribute("repo","Meekdai/meekdai.github.io");
+    script.setAttribute("issue-term","title");
+    if(localStorage.getItem("meek_theme")=="dark"){script.setAttribute("theme","dark-blue");}
+    else{script.setAttribute("theme","github-light");}
+    script.setAttribute("crossorigin","anonymous");
+    script.setAttribute("async","");
+    cm.appendChild(script);
+
+    int=self.setInterval("iFrameLoading()",200);
 }
 
-document.getElementById("友情链接").setAttribute("d",value=IconList["link"]);document.getElementById("关于").setAttribute("d",value=IconList["about"]);
+function iFrameLoading(){
+    var utterances=document.getElementsByClassName('utterances');
+    if(utterances.length==1){
+        if(utterances[0].style.height!=""){
+            utterancesLoad=1;
+            int=window.clearInterval(int);
+            document.getElementById("cmButton").style.display="none";
+            console.log("utterances Load OK");
+        }
+    }
+}
+
 </script>
+
+
+
 
 </html>
