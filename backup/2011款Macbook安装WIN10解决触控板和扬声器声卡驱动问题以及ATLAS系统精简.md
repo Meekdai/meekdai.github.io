@@ -34,3 +34,7 @@ AME Wizard：[https://ameliorated.io/](https://ameliorated.io/)
 云萌激活工具：[https://cmwtat.cloudmoe.com/cn.html](https://cmwtat.cloudmoe.com/cn.html)
 云萌开源地址：[https://github.com/TGSAN/CMWTAT_Digital_Edition](https://github.com/TGSAN/CMWTAT_Digital_Edition)
 mbp技术规格：[https://support.apple.com/zh-cn/HT201300](https://support.apple.com/zh-cn/HT201300)
+开源WIN激活工具：[https://github.com/massgravel/Microsoft-Activation-Scripts](https://github.com/massgravel/Microsoft-Activation-Scripts)
+
+
+
