@@ -68,8 +68,7 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 </div>
 </div>
     <div id="content">
-<div class="markdown-body" id="postBody">
-<p>半导体致冷器(Thermo Electric Cooler)是利用半导体材料的珀尔帖（Peltier）效应制成的。所谓珀尔帖效应，是指当直流电流通过两种半导体材料组成的电偶时，其一端吸热，一端放热的现象。重掺杂的N型和P型的碲化铋主要用作TEC的半导体材料，碲化铋元件采用电串联，并且是并行发热。TEC包括一些P型和N型对（组），它们通过电极连在一起，并且夹在两个陶瓷电极之间；当有电流从TEC流过时，电流产生的热量会从TEC的一侧传到另一侧，在TEC上产生″热″侧和″冷″侧，这就是TEC的加热与致冷原理。</p>
+<div class="markdown-body" id="postBody"><p>半导体致冷器(Thermo Electric Cooler)是利用半导体材料的珀尔帖（Peltier）效应制成的。所谓珀尔帖效应，是指当直流电流通过两种半导体材料组成的电偶时，其一端吸热，一端放热的现象。重掺杂的N型和P型的碲化铋主要用作TEC的半导体材料，碲化铋元件采用电串联，并且是并行发热。TEC包括一些P型和N型对（组），它们通过电极连在一起，并且夹在两个陶瓷电极之间；当有电流从TEC流过时，电流产生的热量会从TEC的一侧传到另一侧，在TEC上产生″热″侧和″冷″侧，这就是TEC的加热与致冷原理。</p>
 <p>上面是它不容易弄懂的定义，无所谓啦，学会如何使用才是关键。其实它内部就是PN半导体，把它当做二极管来看待就行。想来二极管嘛，应该用恒流源来供电，但是由于选择的TEC功率比较大，然后电流源没有怎么用过，在网上找了很多资料，研究了很久，所以在这里做一个整理。</p>
 <p><a target="_blank" rel="noopener noreferrer" href="https://github.com/Meekdai/meekdai.github.io/assets/11755104/3ed75050-3da6-4497-a253-6d49aa7c632d"><img src="https://github.com/Meekdai/meekdai.github.io/assets/11755104/3ed75050-3da6-4497-a253-6d49aa7c632d" alt="7f3b1e89gy1fzpqbuxbm7j20cf060jry" style="max-width: 100%;"></a></p>
 <h3>简介</h3>
@@ -148,8 +147,8 @@ $$</p>
 <blockquote>
 <p>TEC驱动的源不一定需要直流，只要驱动TEC的PWM信号频率大于TEC热时间常数，TEC就可以非常好的工作。当然需要注意的是PWM信号的电压和电流冲击不能超过TEC数据手册上的范围。</p>
 </blockquote>
-<p>后续如果测试通过后，会贴上我的驱动电路图。</p>
-</div>
+<p>后续如果测试通过后，会贴上我的驱动电路图。</p></div>
+<div style="font-size:small;margin-top:8px;float:right;">转载文章请注明出处，谢谢！:heart:</div>
 <button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
 <div class="comments" id="comments"></div>
 </div>

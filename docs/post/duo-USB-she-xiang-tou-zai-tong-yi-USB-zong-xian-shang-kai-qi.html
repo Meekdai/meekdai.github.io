@@ -68,8 +68,7 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 </div>
 </div>
     <div id="content">
-<div class="markdown-body" id="postBody">
-<p>USB摄像头有一个全平台统一的BUG，就是2个或者多个USB摄像头插在同一个USB总线上，即使用USB-HUB扩展的口，会出现第二个摄像头无法打开的情况。目前一个项目需要在V3S上启用2个USB摄像头，就遇到了麻烦，同时也解决了上一篇文章只有<code class="notranslate">YUV</code>格式才能输出 <code class="notranslate">mjpg-streamer</code> 的BUG。</p>
+<div class="markdown-body" id="postBody"><p>USB摄像头有一个全平台统一的BUG，就是2个或者多个USB摄像头插在同一个USB总线上，即使用USB-HUB扩展的口，会出现第二个摄像头无法打开的情况。目前一个项目需要在V3S上启用2个USB摄像头，就遇到了麻烦，同时也解决了上一篇文章只有<code class="notranslate">YUV</code>格式才能输出 <code class="notranslate">mjpg-streamer</code> 的BUG。</p>
 <h3>填坑</h3>
 <p>先把上一篇文章的坑先解决了，由于之前很少搞<code class="notranslate">buildroot</code>相关的东西，所以开始的时候就在谷歌上查阅了很多资料，正是这些资料让我进入了这么一个大坑（不过也学到了很多）。坑：<code class="notranslate">mjpg-streamer</code> 需要单独交叉编译然后拷贝进嵌入式板子是唯一的解决办法。</p>
 <p>其实使用 <code class="notranslate">buildroot</code> 根本不需要再单独下载源代码/配置/编译等，直接 <code class="notranslate">make menuconfig</code> 在里面启用 <code class="notranslate">mjpg-streamer</code> 和 <code class="notranslate">libjpeg</code> 就可以了（Target packages &gt; Networking applications）~~~我真是个大冤种。</p>
@@ -183,8 +182,8 @@ if(format-&gt;flags &amp; UVC_FMT_FLAG_COMPRESSED){ctrl-&gt;dwMaxPayloadTransfer
 </code></pre>
 <p>重新编译好代码下载固件后，执行下面的代码就可以用2个摄像头以MJPEG格式推流了。</p>
 <pre class="notranslate"><code class="notranslate">mjpg_streamer -i "input_uvc.so -d /dev/video0 -f 10 -n -r 1920x1080" -o "output_http.so -p 8080 -w /usr/www" &amp; mjpg_streamer -i "input_uvc.so -d /dev/video1 -f 10 -n -r 1920x1080" -o "output_http.so -p 8081 -w /usr/www"
-</code></pre>
-</div>
+</code></pre></div>
+<div style="font-size:small;margin-top:8px;float:right;">转载文章请注明出处，谢谢！:heart:</div>
 <button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
 <div class="comments" id="comments"></div>
 </div>

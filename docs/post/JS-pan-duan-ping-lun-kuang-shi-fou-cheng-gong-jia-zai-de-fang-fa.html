@@ -68,8 +68,7 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 </div>
 </div>
     <div id="content">
-<div class="markdown-body" id="postBody">
-<p>在给博客添加 <a href="https://utteranc.es/" rel="nofollow">utteranc</a> 评论框的时候，发现添加按钮再加载评论框比较友好。但是发现点击后需要隐藏按钮元素，否则会比较奇怪，这个时候就需要通过JS来判断iframe是否成功加载了。</p>
+<div class="markdown-body" id="postBody"><p>在给博客添加 <a href="https://utteranc.es/" rel="nofollow">utteranc</a> 评论框的时候，发现添加按钮再加载评论框比较友好。但是发现点击后需要隐藏按钮元素，否则会比较奇怪，这个时候就需要通过JS来判断iframe是否成功加载了。</p>
 <p>在网上找了一圈，发现 <a href="https://humanwhocodes.com/blog/2009/09/15/iframes-onload-and-documentdomain/" rel="nofollow">Iframes, onload, and document.domain</a> 文中给出来比较详细的介绍和方法，但是用在<code class="notranslate">utteranc</code>的时候，出现了问题。</p>
 <p><code class="notranslate">Uncaught TypeError: Cannot read properties of undefined (reading 'attachEvent')</code></p>
 <p>定位发现，是由于<code class="notranslate">iframe</code>标签都还没有的时候，就去判断<code class="notranslate">iframe.attachEvent</code>是不行的。所以我曲线救国，通过定时器读取元素的高度来判断<code class="notranslate">iframe</code>标签是否完成了加载，正常情况下，<code class="notranslate">height</code>值都应该是存在的，所以代码如下：</p>
@@ -84,8 +83,8 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
         <span class="pl-kos">}</span>
     <span class="pl-kos">}</span>
 <span class="pl-kos">}</span></pre></div>
-<p>另外我还在官方提了个 <a href="https://github.com/utterance/utterances/issues/657" data-hovercard-type="issue" data-hovercard-url="/utterance/utterances/issues/657/hovercard">Issue</a>，不知道有没有更好的办法来判断。:rofl:</p>
-</div>
+<p>另外我还在官方提了个 <a href="https://github.com/utterance/utterances/issues/657" data-hovercard-type="issue" data-hovercard-url="/utterance/utterances/issues/657/hovercard">Issue</a>，不知道有没有更好的办法来判断。:rofl:</p></div>
+<div style="font-size:small;margin-top:8px;float:right;">转载文章请注明出处，谢谢！:heart:</div>
 <button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
 <div class="comments" id="comments"></div>
 </div>

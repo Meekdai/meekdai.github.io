@@ -68,8 +68,7 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 </div>
 </div>
     <div id="content">
-<div class="markdown-body" id="postBody">
-<p>之前一直用Windows的子系统<code class="notranslate">WSL</code>用来编译<code class="notranslate">micropython</code>的固件，速度很快而且文件交互起来也很方便。<code class="notranslate">buildroot</code>体积比较大，之前一直都是在<code class="notranslate">Github</code>的<a href="https://github.com/codespaces">codespaces</a>上编译，但是<code class="notranslate">codespaces</code>有存储大小限制，所以这里记录一下在<code class="notranslate">WSL</code>中编译<code class="notranslate">buildroot</code>遇到的一些坑。</p>
+<div class="markdown-body" id="postBody"><p>之前一直用Windows的子系统<code class="notranslate">WSL</code>用来编译<code class="notranslate">micropython</code>的固件，速度很快而且文件交互起来也很方便。<code class="notranslate">buildroot</code>体积比较大，之前一直都是在<code class="notranslate">Github</code>的<a href="https://github.com/codespaces">codespaces</a>上编译，但是<code class="notranslate">codespaces</code>有存储大小限制，所以这里记录一下在<code class="notranslate">WSL</code>中编译<code class="notranslate">buildroot</code>遇到的一些坑。</p>
 <h3>填坑</h3>
 <ol>
 <li>报错 build/elf/librtld.os:raise.c:(.text+0x18bf4): more undefined references to 'rtld_errno' follow<br>
@@ -138,8 +137,8 @@ wsl --unregister &lt;DistributionName&gt;
 </code></pre>
 <blockquote>
 <p>参考链接1：<a href="https://learn.microsoft.com/zh-cn/windows/wsl/basic-commands" rel="nofollow">WSL 的基本命令</a></p>
-</blockquote>
-</div>
+</blockquote></div>
+<div style="font-size:small;margin-top:8px;float:right;">转载文章请注明出处，谢谢！:heart:</div>
 <button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
 <div class="comments" id="comments"></div>
 </div>
