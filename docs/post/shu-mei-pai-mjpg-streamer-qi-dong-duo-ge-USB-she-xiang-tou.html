@@ -68,8 +68,7 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 </div>
 </div>
     <div id="content">
-<div class="markdown-body" id="postBody">
-<p>MJPG-streamer是一个优秀的开源项目，它可以通过HTTP的方式访问linux上面的兼容摄像头，从而做到远程视频传输的效果。本文主要记录树莓派4B配置的过程。</p>
+<div class="markdown-body" id="postBody"><p>MJPG-streamer是一个优秀的开源项目，它可以通过HTTP的方式访问linux上面的兼容摄像头，从而做到远程视频传输的效果。本文主要记录树莓派4B配置的过程。</p>
 <p>我使用的树莓派是4B 2G内存版本，运行的是<code class="notranslate">Raspberry Pi OS Lite(32-bit) 2023-05-03</code>版本的系统。</p>
 <p>启动树莓派后，插入USB摄像头，可以通过<code class="notranslate">lsusb</code>和<code class="notranslate">ls /dev/video*</code> 查看USB摄像头有没有被正确挂载。</p>
 <h3>安装库</h3>
@@ -109,8 +108,8 @@ sudo make install
 可参考：<a href="https://bun.plus/posts/monitoring-with-raspberry-pi-and-motion" rel="nofollow">https://bun.plus/posts/monitoring-with-raspberry-pi-and-motion</a></p>
 <p><em><strong>restreamer</strong></em><br>
 可参考：<a href="https://docs.datarhei.com/restreamer/getting-started/quick-start" rel="nofollow">https://docs.datarhei.com/restreamer/getting-started/quick-start</a></p>
-<p>试用<code class="notranslate">motion</code>和<code class="notranslate">restreamer</code>都出现视频卡顿的问题，不知道是不是我没有配置对，但是<code class="notranslate">MJPG-streamer</code>是真的开箱即用，很方便。</p>
-</div>
+<p>试用<code class="notranslate">motion</code>和<code class="notranslate">restreamer</code>都出现视频卡顿的问题，不知道是不是我没有配置对，但是<code class="notranslate">MJPG-streamer</code>是真的开箱即用，很方便。</p></div>
+<div style="font-size:small;margin-top:8px;float:right;">转载文章请注明出处，谢谢！:heart:</div>
 <button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
 <div class="comments" id="comments"></div>
 </div>

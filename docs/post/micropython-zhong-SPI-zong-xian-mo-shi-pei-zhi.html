@@ -68,8 +68,7 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 </div>
 </div>
     <div id="content">
-<div class="markdown-body" id="postBody">
-<p>在嵌入式系统中，很多板载芯片都是采用<code class="notranslate">SPI</code>总线进行通信，同一<code class="notranslate">SPI</code>总线上也运行挂载多个相同或者不同型号的芯片。但是要留意不同型号的芯片的<code class="notranslate">SPI</code>通信的时序图，一般会有4种模式。在<code class="notranslate">micropython</code>中，初始化<code class="notranslate">SPI</code>总线时，通过<code class="notranslate">phase</code>和<code class="notranslate">polarity</code>配置即可实现这4种模式。</p>
+<div class="markdown-body" id="postBody"><p>在嵌入式系统中，很多板载芯片都是采用<code class="notranslate">SPI</code>总线进行通信，同一<code class="notranslate">SPI</code>总线上也运行挂载多个相同或者不同型号的芯片。但是要留意不同型号的芯片的<code class="notranslate">SPI</code>通信的时序图，一般会有4种模式。在<code class="notranslate">micropython</code>中，初始化<code class="notranslate">SPI</code>总线时，通过<code class="notranslate">phase</code>和<code class="notranslate">polarity</code>配置即可实现这4种模式。</p>
 <h3>四种模式</h3>
 <table role="table">
 <thead>
@@ -151,8 +150,8 @@ CPLO(polarity) <strong>0</strong>--空闲时钟低电平 <strong>1</strong>--空
 <ol start="2">
 <li>下图为具体时序示例图<br>
 <a target="_blank" rel="noopener noreferrer" href="https://github.com/Meekdai/meekdai.github.io/assets/11755104/ed2cda77-af23-40da-ad29-5a41eb5f92e9"><img src="https://github.com/Meekdai/meekdai.github.io/assets/11755104/ed2cda77-af23-40da-ad29-5a41eb5f92e9" alt="image2018-11-8 9_41_16" style="max-width: 100%;"></a></li>
-</ol>
-</div>
+</ol></div>
+<div style="font-size:small;margin-top:8px;float:right;">转载文章请注明出处，谢谢！:heart:</div>
 <button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
 <div class="comments" id="comments"></div>
 </div>
