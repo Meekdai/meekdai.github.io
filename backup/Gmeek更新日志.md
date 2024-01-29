@@ -1,5 +1,12 @@
 [Gmeek](https://github.com/Meekdai/Gmeek) 一个博客框架，超轻量级个人博客模板，完全基于`Github Pages `、 `Github Issues` 和 `Github Actions`，可以称作`All in Github`。不需要本地部署，从搭建到写作，只需要18秒，2步搭建好博客，第3步就是写作。
 
+#### 20240129（v2.10）
+- 添加`mathjax`数学公式支持
+- 更新RSS文件生成策略
+- 通过`bottomText`可配置文章底部信息，例如`转载请注明出处`
+- 通过`showPostSource`来配置是否显示github源链接 https://github.com/Meekdai/Gmeek/issues/30
+- 迁移node16到20版本，原因是node16已达到其[生命周期的终点](https://github.com/nodejs/Release/#end-of-life-releases)，需要手动修改`Gmeek.yml`文件。
+
 #### 20231216（v2.9）
 - 修复创建仓库不是`XXX.github.io`导致的BUG https://github.com/Meekdai/Gmeek/pull/11
 - 修复取消置顶后文章依旧置顶的BUG
@@ -100,6 +107,6 @@
 ---
 
 TODO:
-- [ ] 数学公式目前不支持，考虑是否添加
+- [x] 数学公式目前不支持，考虑是否添加
 - [ ] 准备写第二个UI主题
 - [ ] 优化CSS体积，提升加载速度
