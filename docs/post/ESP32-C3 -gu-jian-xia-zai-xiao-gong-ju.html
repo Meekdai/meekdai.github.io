@@ -14,7 +14,7 @@
     
 <meta name="description" content="ESP32-C3 固件下载小工具">
 <title>ESP32-C3 固件下载小工具</title>
-<link href="//unpkg.com/@wooorm/starry-night@2.1.1/style/both.css" rel="stylesheet" />
+
 
 </head>
 <style>
@@ -72,21 +72,23 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
     <div id="content">
 <div class="markdown-body" id="postBody"><p>ESP32-C3内置了USB，可以使用USB进行下载，但是每次通过命令行敲指令进行下载不是很方便，所以写了几句<code class="notranslate">bat</code>代码，方便下载和擦除芯片。</p>
 <h3>esp32-c3-download.bat</h3>
-<div class="highlight highlight-source-batchfile"><pre class="notranslate"><span class="pl-k">@</span><span class="pl-k">echo</span> <span class="pl-k">off</span>
-<span class="pl-k">echo</span> ============================================
-<span class="pl-k">wmic</span> <span class="pl-k">path</span> win32_pnpentity get caption /format:table<span class="pl-k">|</span> <span class="pl-k">find</span> <span class="pl-s"><span class="pl-pds">"</span>COM<span class="pl-pds">"</span></span> 
-<span class="pl-k">echo</span> ============================================
-<span class="pl-k">set</span> /p <span class="pl-smi">COM_NUM</span><span class="pl-k">=</span>input COM number:
-esptool.py --chip esp32c3 --port COM<span class="pl-smi">%COM_NUM%</span> --baud <span class="pl-c1">460800</span> write_flash -z <span class="pl-c1">0x0</span> firmware.bin
-<span class="pl-k">pause</span></pre></div>
+<pre lang="bat" class="notranslate"><code class="notranslate">@echo off
+echo ============================================
+wmic path win32_pnpentity get caption /format:table| find "COM" 
+echo ============================================
+set /p COM_NUM=input COM number:
+esptool.py --chip esp32c3 --port COM%COM_NUM% --baud 460800 write_flash -z 0x0 firmware.bin
+pause
+</code></pre>
 <h3>esp32-c3-erase_flash.bat</h3>
-<div class="highlight highlight-source-batchfile"><pre class="notranslate"><span class="pl-k">@</span><span class="pl-k">echo</span> <span class="pl-k">off</span>
-<span class="pl-k">echo</span> ============================================
-<span class="pl-k">wmic</span> <span class="pl-k">path</span> win32_pnpentity get caption /format:table<span class="pl-k">|</span> <span class="pl-k">find</span> <span class="pl-s"><span class="pl-pds">"</span>COM<span class="pl-pds">"</span></span> 
-<span class="pl-k">echo</span> ============================================
-<span class="pl-k">set</span> /p <span class="pl-smi">COM_NUM</span><span class="pl-k">=</span>input COM number:
-esptool.py --chip esp32c3 --port COM<span class="pl-smi">%COM_NUM%</span> erase_flash
-<span class="pl-k">pause</span></pre></div>
+<pre lang="bat" class="notranslate"><code class="notranslate">@echo off
+echo ============================================
+wmic path win32_pnpentity get caption /format:table| find "COM" 
+echo ============================================
+set /p COM_NUM=input COM number:
+esptool.py --chip esp32c3 --port COM%COM_NUM% erase_flash
+pause
+</code></pre>
 <h3>前置条件：</h3>
 <ul>
 <li>需要安装<code class="notranslate">esptool.py</code></li>
