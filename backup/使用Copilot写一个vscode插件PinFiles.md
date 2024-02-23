@@ -13,7 +13,9 @@
 
 3. 等功能都差不多后，根据[VSCode 插件发布](https://zhuanlan.zhihu.com/p/504218497) 就可以发布了，这里面会有一些权限等问题，简单google一下就可以解决。
 
-4. 最后我把工程同步到`github`上，然后用指令`vsce publish patch` 就会自动升级版本并且上传发布，过几分钟就可以搜索到了。
+4. 用指令`vsce login Meekdai` 登录自己的账号，需要用到一个`token`。
+
+5. 最后我把工程同步到`github`上，然后用指令`vsce publish patch` 就会自动升级版本并且上传发布，过几分钟就可以搜索到了。
 
 ### 后续会使用的链接：  
 1. Azure DevOps 组织的[https://dev.azure.com/meekdai/_usersSettings/tokens](https://dev.azure.com/meekdai/_usersSettings/tokens)  
