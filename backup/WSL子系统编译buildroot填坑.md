@@ -69,6 +69,9 @@ wsl --unregister <DistributionName>
 安装指定 Linux 发行版
 wsl --install --distribution Ubuntu-22.04
 
+运行指定 Linux 发行版
+wsl --distribution Ubuntu-22.04
+
 ```
 > 参考链接1：[WSL 的基本命令](https://learn.microsoft.com/zh-cn/windows/wsl/basic-commands)   
 
