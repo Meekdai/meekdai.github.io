@@ -32,6 +32,19 @@ sudo apt-get install -y fakeroot
 sudo cp -f /usr/bin/fakeroot-tcp output/host/usr/bin/fakeroot
 ```
 
+如果是编译luckfox-pico项目，目前的V1.2版本需要修改文件`luckfox-pico\sysdrv\tools\pc\mtd-utils\mkfs_ubi.sh`，把两处的`which fakeroot`修改为`which fakeroot-tcp`，具体如下。
+
+```
+if which fakeroot-tcp; then
+	FAKEROOT_TOOL="`which fakeroot-tcp`"
+	echo "chown -h -R 0:0 $ROOTFS_SRC_DIR" >> $ROOTFS_IMAGE_FAKEROOT_UBI
+else
+	msg_warn "Install fakeroot First."
+	msg_warn "   sudo apt-get install fakeroot"
+	FAKEROOT_TOOL="NO_FOUND"
+fi
+```
+
 > 参考链接1：[Sysvipc message queues and fakeroot](https://github.com/microsoft/WSL/issues/2465)   
 > 参考链接2：[Win10 WSL系统下编译buildroot报错不支持SYSV IPC，导致fakeroot无法正常工作](https://whycan.com/t_1004.html)   
 
