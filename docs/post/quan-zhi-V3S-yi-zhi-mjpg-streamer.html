@@ -112,14 +112,14 @@ CFLAGS += -O1 -DLINUX -D_GNU_SOURCE -Wall -shared -fPIC -I /mnt/c/Users/Meekdai/
 <li>根据需要编译下面的插件，内容在主Makefile里。</li>
 </ol>
 <div class="highlight highlight-source-makefile"><pre class="notranslate"><span class="pl-c"><span class="pl-c">#</span> define the names and targets of the plugins</span>
-P<span class="pl-smi">LUGINS</span> = input_uvc.so
+<span class="pl-smi">PLUGINS</span> = input_uvc.so
 <span class="pl-smi">PLUGINS</span> += output_file.so
 <span class="pl-smi">PLUGINS</span> += output_udp.so
 <span class="pl-smi">PLUGINS</span> += output_http.so
 <span class="pl-smi">PLUGINS</span> += input_testpicture.so
 <span class="pl-c"><span class="pl-c">#</span>PLUGINS += output_autofocus.so</span>
 <span class="pl-c"><span class="pl-c">#</span>PLUGINS += input_gspcav1.so</span>
-P<span class="pl-smi">LUGINS</span> += input_file.so
+<span class="pl-smi">PLUGINS</span> += input_file.so
 <span class="pl-smi">PLUGINS</span> += output_rtsp.so
 <span class="pl-c"><span class="pl-c">#</span> PLUGINS += output_ptp2.so # commented out because it depends on libgphoto</span>
 <span class="pl-c"><span class="pl-c">#</span> PLUGINS += input_control.so # commented out because the output_http does it's job</span>
