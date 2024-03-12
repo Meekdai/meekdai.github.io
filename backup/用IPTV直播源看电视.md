@@ -18,7 +18,7 @@ https://mirror.ghproxy.com/https://raw.githubusercontent.com/Meroser/IPTV/main/I
 ````
 因为在电视上输入这一段实在太~~，所以我用我的二级域名做了一个显性重定向，所以只需要添加源地址的时候输入下面这个就可以了：
 ```
-http://iptv.meekdai.com
+http://iptvs.meekdai.com
 ```
 
 ### 其他
