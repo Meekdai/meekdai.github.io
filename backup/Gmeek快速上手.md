@@ -12,26 +12,26 @@
 > 按照安装步骤成功搭建好后，就可以阅读下面的内容修改配置文件啦。
 > 注意修改配置文件后一定要手动全局生成一次，不然会报错。
 
-`config.json` 文件就是配置文件，在创建的仓库内可以找到，默认填写的是我的信息，对应修改为自己的即可。
+`config.json` 文件就是配置文件，在创建的仓库内可以找到，对应修改为自己的即可。
 ```javascript
 {
     "title":"Meekdai",
-    "displayTitle":"eekdai",
     "subTitle":"童话是一种生活态度，仅此而已。",
-    "homeUrl":"http://blog.meekdai.com",
-    "avatarUrl":"http://meekdai.com/avatar.jpg",
-    "faviconUrl":"http://meekdai.com/favicon.ico",
-    "singlePage":[],
+    "avatarUrl":"https://github.githubassets.com/favicons/favicon.svg",
     "GMEEK_VERSION":"last"
 }
 ```
 以上是必须的字段，下面是可以自定义字段的描述，可以选择加入到`config.json`中。
 
 ```javascript
+"displayTitle":"Meekdai",
+"homeUrl":"http://blog.meekdai.com",
+"faviconUrl":"https://github.githubassets.com/favicons/favicon.svg",
 "email":"meekdai@163.com",
 "startSite":"02/16/2015",
 "filingNum":"浙ICP备20023628号",
 "onePageListNum":15,
+"singlePage":[],
 "commentLabelColor":"#006b75",
 "yearColorList":["#bc4c00", "#0969da", "#1f883d", "#A333D0"],
 "i18n":"CN",
