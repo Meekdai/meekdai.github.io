@@ -1,2 +1,3 @@
-
-### 本博客由[Gmeek](https://github.com/Meekdai/Gmeek)强力驱动，开源、免费、简单。
+# Meekdai
+### Blog Home :link: https://blog.meekdai.com
+### Powered by :heart: [Gmeek](https://github.com/Meekdai/Gmeek)
