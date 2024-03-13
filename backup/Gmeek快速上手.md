@@ -1,6 +1,6 @@
 [Gmeek](https://github.com/Meekdai/Gmeek) 一个博客框架，超轻量级个人博客模板，完全基于`Github Pages `、 `Github Issues` 和 `Github Actions`，可以称作`All in Github`。不需要本地部署，从搭建到写作，只需要18秒，2步搭建好博客，第3步就是写作。
 
-### 安装
+### 一、安装
 > 安装及其简单，但是也要认真看下面的步骤，一步一步来。
 1. 点击[通过模板创建仓库](https://github.com/new?template_name=Gmeek-template&template_owner=Meekdai)，建议仓库名称为`XXX.github.io`，其中`XXX`为你的github用户名。
 
@@ -8,9 +8,10 @@
 
 3. 打开一篇issue，开始写作，并且添加一个标签（只添加一个），保存issue后会自动创建博客内容，片刻后可通过https://XXX.github.io 访问
 
-### 配置文件
+### 二、配置文件
 > 按照安装步骤成功搭建好后，就可以阅读下面的内容修改配置文件啦。
 > 注意修改配置文件后一定要手动全局生成一次，不然会报错。
+> 如果对`json`格式不熟悉，建议先简单学习一下。
 
 `config.json` 文件就是配置文件，在创建的仓库内可以找到，对应修改为自己的即可。
 ```javascript
@@ -41,9 +42,31 @@
 "style":"",
 "script":"",
 ```
-另有不清楚的也可以参考 https://github.com/Meekdai/meekdai.github.io/blob/main/config.json
 
-### 常见问题
+| **配置参数**       | **说明** | 
+|----------------|----------------|
+| title | 【必填】博客标题 |
+| subTitle | 【必填】博客描述&自述 |
+| avatarUrl | 【必填】博客头像 |
+| GMEEK_VERSION | 【必填】Gmeek版本，一般写`last`也可以用具体tag版本 |
+| displayTitle | 用于头像后面的标题展示，如果和`title`一致则不用添加 |
+| homeUrl | 博客的主页地址，自定义域名时需要配置 |
+| faviconUrl | 页面的favicon地址，如果和avatarUrl一致则不用添加 |
+| email | 用于自动提交仓库时用，不添加也可以 |
+| startSite | 用于页面底部显示网站运行天数 |
+| filingNum | 用于页面底部显示备案信息 |
+| onePageListNum | 用于首页每页展示的文章数量 |
+| singlePage | 自定义独立页面，例如`about`或者`link` |
+| commentLabelColor | 用于自定义显示评论数量标签的颜色 |
+| yearColorList | 用于自定义显示不同年份标签的颜色 |
+| i18n | 用于定义博客语言，目前支持`EN`/`CN`/`RU` |
+| dayTheme | 用于定义亮主题 |
+| nightTheme | 用于定义暗主题 |
+| urlMode | 用于定义文章链接生成模式，目前支持`pinyin`/`issue`/`ru_translit` |
+| style | 用于自定义文章页全局CSS |
+| script | 用于自定义文章页全局JavaScript |
+
+### 三、常见问题
 1. 搭建不成功
 > 多半是没有按照安装步骤来，其实搭建就这2步，不要自己乱点乱设置，就不会有问题。
 > 案例一：https://github.com/Meekdai/Gmeek/issues/14 

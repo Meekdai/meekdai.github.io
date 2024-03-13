@@ -71,7 +71,7 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 </div>
     <div id="content">
 <div class="markdown-body" id="postBody"><p><a href="https://github.com/Meekdai/Gmeek">Gmeek</a> 一个博客框架，超轻量级个人博客模板，完全基于<code class="notranslate">Github Pages </code>、 <code class="notranslate">Github Issues</code> 和 <code class="notranslate">Github Actions</code>，可以称作<code class="notranslate">All in Github</code>。不需要本地部署，从搭建到写作，只需要18秒，2步搭建好博客，第3步就是写作。</p>
-<h3>安装</h3>
+<h3>一、安装</h3>
 <blockquote>
 <p>安装及其简单，但是也要认真看下面的步骤，一步一步来。</p>
 </blockquote>
@@ -86,10 +86,11 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 <p>打开一篇issue，开始写作，并且添加一个标签（只添加一个），保存issue后会自动创建博客内容，片刻后可通过<a href="https://XXX.github.io" rel="nofollow">https://XXX.github.io</a> 访问</p>
 </li>
 </ol>
-<h3>配置文件</h3>
+<h3>二、配置文件</h3>
 <blockquote>
 <p>按照安装步骤成功搭建好后，就可以阅读下面的内容修改配置文件啦。<br>
-注意修改配置文件后一定要手动全局生成一次，不然会报错。</p>
+注意修改配置文件后一定要手动全局生成一次，不然会报错。<br>
+如果对<code class="notranslate">json</code>格式不熟悉，建议先简单学习一下。</p>
 </blockquote>
 <p><code class="notranslate">config.json</code> 文件就是配置文件，在创建的仓库内可以找到，对应修改为自己的即可。</p>
 <div class="highlight highlight-source-js"><pre class="notranslate"><span class="pl-kos">{</span>
@@ -115,8 +116,97 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 <span class="pl-s">"urlMode"</span>:<span class="pl-s">"pinyin"</span><span class="pl-kos">,</span>
 <span class="pl-s">"style"</span>:<span class="pl-s">""</span><span class="pl-kos">,</span>
 <span class="pl-s">"script"</span>:<span class="pl-s">""</span><span class="pl-kos">,</span></pre></div>
-<p>另有不清楚的也可以参考 <a href="https://github.com/Meekdai/meekdai.github.io/blob/main/config.json">https://github.com/Meekdai/meekdai.github.io/blob/main/config.json</a></p>
-<h3>常见问题</h3>
+<table role="table">
+<thead>
+<tr>
+<th><strong>配置参数</strong></th>
+<th><strong>说明</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>title</td>
+<td>【必填】博客标题</td>
+</tr>
+<tr>
+<td>subTitle</td>
+<td>【必填】博客描述&amp;自述</td>
+</tr>
+<tr>
+<td>avatarUrl</td>
+<td>【必填】博客头像</td>
+</tr>
+<tr>
+<td>GMEEK_VERSION</td>
+<td>【必填】Gmeek版本，一般写<code class="notranslate">last</code>也可以用具体tag版本</td>
+</tr>
+<tr>
+<td>displayTitle</td>
+<td>用于头像后面的标题展示，如果和<code class="notranslate">title</code>一致则不用添加</td>
+</tr>
+<tr>
+<td>homeUrl</td>
+<td>博客的主页地址，自定义域名时需要配置</td>
+</tr>
+<tr>
+<td>faviconUrl</td>
+<td>页面的favicon地址，如果和avatarUrl一致则不用添加</td>
+</tr>
+<tr>
+<td>email</td>
+<td>用于自动提交仓库时用，不添加也可以</td>
+</tr>
+<tr>
+<td>startSite</td>
+<td>用于页面底部显示网站运行天数</td>
+</tr>
+<tr>
+<td>filingNum</td>
+<td>用于页面底部显示备案信息</td>
+</tr>
+<tr>
+<td>onePageListNum</td>
+<td>用于首页每页展示的文章数量</td>
+</tr>
+<tr>
+<td>singlePage</td>
+<td>自定义独立页面，例如<code class="notranslate">about</code>或者<code class="notranslate">link</code></td>
+</tr>
+<tr>
+<td>commentLabelColor</td>
+<td>用于自定义显示评论数量标签的颜色</td>
+</tr>
+<tr>
+<td>yearColorList</td>
+<td>用于自定义显示不同年份标签的颜色</td>
+</tr>
+<tr>
+<td>i18n</td>
+<td>用于定义博客语言，目前支持<code class="notranslate">EN</code>/<code class="notranslate">CN</code>/<code class="notranslate">RU</code></td>
+</tr>
+<tr>
+<td>dayTheme</td>
+<td>用于定义亮主题</td>
+</tr>
+<tr>
+<td>nightTheme</td>
+<td>用于定义暗主题</td>
+</tr>
+<tr>
+<td>urlMode</td>
+<td>用于定义文章链接生成模式，目前支持<code class="notranslate">pinyin</code>/<code class="notranslate">issue</code>/<code class="notranslate">ru_translit</code></td>
+</tr>
+<tr>
+<td>style</td>
+<td>用于自定义文章页全局CSS</td>
+</tr>
+<tr>
+<td>script</td>
+<td>用于自定义文章页全局JavaScript</td>
+</tr>
+</tbody>
+</table>
+<h3>三、常见问题</h3>
 <ol>
 <li>搭建不成功</li>
 </ol>
