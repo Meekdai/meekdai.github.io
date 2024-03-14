@@ -36,6 +36,7 @@
 "commentLabelColor":"#006b75",
 "yearColorList":["#bc4c00", "#0969da", "#1f883d", "#A333D0"],
 "i18n":"CN",
+"UTC":+8,
 "dayTheme":"light",
 "nightTheme":"dark_colorblind",
 "urlMode":"pinyin",
@@ -60,8 +61,9 @@
 | commentLabelColor | 用于自定义显示评论数量标签的颜色 |
 | yearColorList | 用于自定义显示不同年份标签的颜色 |
 | i18n | 用于定义博客语言，目前支持`EN`/`CN`/`RU` |
-| dayTheme | 用于定义亮主题 |
-| nightTheme | 用于定义暗主题 |
+| UTC | 用于定义[时区](https://en.wikipedia.org/wiki/List_of_UTC_offsets) |
+| dayTheme | 用于定义[亮主题](https://github.com/settings/appearance) |
+| nightTheme | 用于定义[暗主题](https://github.com/settings/appearance) |
 | urlMode | 用于定义文章链接生成模式，目前支持`pinyin`/`issue`/`ru_translit` |
 | style | 用于自定义文章页全局CSS |
 | script | 用于自定义文章页全局JavaScript |
