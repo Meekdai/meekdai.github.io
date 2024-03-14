@@ -1,4 +1,4 @@
 # Meekdai
 ### Blog Home :link: https://blog.meekdai.com
-### Statistics :monocle_face: Article: 41 Comment: 50 WordCount: 0
+### Statistics :eyeglasses: - Article: 41 :page_facing_up: - Comment: 50 :speech_balloon: - WordCount: 100094 :star: -
 ### Powered by :heart: [Gmeek](https://github.com/Meekdai/Gmeek)
