@@ -71,7 +71,7 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 </div>
     <div id="content">
 <div class="markdown-body" id="postBody"><p>这几天在论坛里面看到一个免费10年的虚拟主机<a href="https://www.serv00.com/" rel="nofollow">serv00</a>。简单注册了一下就可以使用了，账号和密码会直接发到注册的邮箱里，我这里使用了Gmail的邮箱。下面就是记录一下自己搭建的东西。</p>
-<h3>配置</h3>
+<h2>配置</h2>
 <ol>
 <li>【开启权限】第一步需要做的就是开启可以运行自己应用的权限。<code class="notranslate">Additional services -&gt; Run your own applications -&gt; Enabled</code> 如果不开启这一项，自己的用户目录下的所有文件都无法添加可执行权限。</li>
 <li>【进入SSH】通过注册邮箱里收到的信息，用<code class="notranslate">MobaXterm</code>登录，就可以看到下面的信息。</li>
@@ -88,7 +88,7 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
              Plan: FREE
   Expiration date: 2034-03-13 02:18:41
 </code></pre>
-<h3>安装PM2</h3>
+<h2>安装PM2</h2>
 <p><a href="https://pm2.io/" rel="nofollow">PM2</a> 是一款非常优秀的<code class="notranslate">node.js</code>进程管理工具。可以通过SSH用下面的指令一键安装。</p>
 <pre class="notranslate"><code class="notranslate">bash &lt;(curl -s https://raw.githubusercontent.com/k0baya/alist_repl/main/serv00/install-pm2.sh)
 </code></pre>
@@ -96,8 +96,10 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 <p>另外，在<code class="notranslate">SSH</code>中通过下面的指令就可以开启页面监控功能。</p>
 <pre class="notranslate"><code class="notranslate">~/.npm-global/bin/pm2 monitor
 </code></pre>
-<p>如果没有账号可以按照提示创建就可以，然后会给出登录页面的<code class="notranslate">URL</code>，用浏览器登录就可以看到了，非常的方便。</p>
-<h3>安装Vless</h3>
+<p>如果没有账号可以按照提示创建就可以，然后会给出登录页面的地址。<br>
+<a href="https://app.pm2.io/#/bucket/65f3be6efe520b3f5503d9aa" rel="nofollow">https://app.pm2.io/#/bucket/65f3be6efe520b3f5503d9aa</a><br>
+用浏览器登录就可以看到了，非常的方便。</p>
+<h2>安装Vless</h2>
 <p>Vless是一个代理节点应用，可以通过SSH用下面的指令一键安装。</p>
 <pre class="notranslate"><code class="notranslate">cd ~/domains &amp;&amp; git clone https://github.com/qwer-search/serv00-vless &amp;&amp; mv -f serv00-vless vless &amp;&amp; cd vless &amp;&amp; rm -f README.md
 </code></pre>
@@ -106,7 +108,6 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 </code></pre>
 <p>安装依赖</p>
 <pre class="notranslate"><code class="notranslate">npm install
-
 </code></pre>
 <p>安装完毕后，使用<code class="notranslate">PM2</code>启动并守护vless进程：</p>
 <pre class="notranslate"><code class="notranslate">~/.npm-global/bin/pm2 start app.js --name vless
@@ -148,10 +149,10 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 </table>
 <p>上表没有给出的可以不填。</p>
 <p>我用的客户端是<a href="https://v2raya.org/docs/prologue/quick-start/" rel="nofollow">v2rayA</a>，按照这个配置就行。目前测试下来连接不是很稳定，延迟比较高，有<code class="notranslate">1000ms</code>以上。</p>
-<h3>自动化</h3>
+<h2>自动化</h2>
 <p>听说<code class="notranslate">serv00</code>会不定时重启机器，所以我们把<code class="notranslate">PM2</code>添加开机自启。而且<code class="notranslate">serv00</code>每三个月内必须要有一次登录面板或者<code class="notranslate">SSH</code>连接，不然会删号，也可以通过一个脚本解决问题，接下来我会详细说明。</p>
-<p>####【自动续期】<br>
-新建 auto-renew.sh 脚本：</p>
+<h3>自动续期</h3>
+<p>新建 auto-renew.sh 脚本：</p>
 <pre class="notranslate"><code class="notranslate">cat &gt; auto-renew.sh &lt;&lt; EOF
 #!/bin/bash
 
@@ -169,7 +170,7 @@ EOF
 <pre class="notranslate"><code class="notranslate">~/.npm-global/bin/pm2 start ./auto-renew.sh
 </code></pre>
 <p>这样就会每隔一个月自动执行一次<code class="notranslate">SSH</code>连接，自己<code class="notranslate">SSH</code>自己进行续期。</p>
-<p>####【自动启动】</p>
+<h3>自动启动</h3>
 <p>在serv00的管理页面上找到<code class="notranslate">Cron jobs</code>选项卡，使用<code class="notranslate">Add cron job</code>功能添加任务，<code class="notranslate">Specify time</code>选择<code class="notranslate">After reboot</code>，即为重启后运行。<code class="notranslate">Form type</code>选择<code class="notranslate">Advanced</code>，<code class="notranslate">Command</code>写：</p>
 <pre class="notranslate"><code class="notranslate">/home/你的用户名/.npm-global/bin/pm2 resurrect
 </code></pre>
