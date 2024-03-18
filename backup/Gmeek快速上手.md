@@ -36,7 +36,7 @@
 "commentLabelColor":"#006b75",
 "yearColorList":["#bc4c00", "#0969da", "#1f883d", "#A333D0"],
 "i18n":"CN",
-"UTC":+8,
+"UTC":8,
 "dayTheme":"light",
 "nightTheme":"dark_colorblind",
 "urlMode":"pinyin",
