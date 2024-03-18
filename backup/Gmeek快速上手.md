@@ -8,6 +8,11 @@
 
 3. 【开始写作】打开一篇issue，开始写作，并且添加一个标签（只添加一个），保存issue后会自动创建博客内容，片刻后可通过https://XXX.github.io 访问
 
+4. 【手动全局生成】这个步骤只有在修改`config.json` 文件或者出现奇怪问题的时候，需要执行。
+```P4
+通过Actions->build Gmeek->Run workflow->里面的按钮全局重新生成一次
+```
+
 ### 二、配置文件
 > 按照安装步骤成功搭建好后，就可以阅读下面的内容修改配置文件啦。
 > 注意修改配置文件后一定要手动全局生成一次，不然会报错。
@@ -95,21 +100,21 @@
 <!-- ##{"script":"<script async src='//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js'></script>"}## -->
 ```
 
-5. 可同时一起添加多种自定义参数：  
+6. 可同时一起添加多种自定义参数：  
 ```html
 <!-- ##{"script":"<script async src='//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js'></script>","style":"<style>#postBody{font-size:20px}</style>","timestamp":1490764800}## -->
 ```
 
-6. 添加全局文章页面的`style`和`script`
+7. 添加全局文章页面的`style`和`script`
 > 在config.json文件中添加
 ```javascript
 "style":"<style>#postBody{font-size:20px}</style>",
 "script":"<script async src='//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js'></script>",
 ```
 
-7. 置顶博客文章,只需要`Pin issue`即可。
+8. 置顶博客文章,只需要`Pin issue`即可。
 
-8. 如果在评论里面登录后评论报错，可直接按照提示安装`utteranc app`即可
+9. 如果在评论里面登录后评论报错，可直接按照提示安装`utteranc app`即可
 > Error: utterances is not installed on xxx/xxx.github.io. If you own this repo, install the app. Read more about this change in the PR.
 
 ### 如何魔改

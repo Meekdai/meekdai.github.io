@@ -85,7 +85,11 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 <li>
 <p>【开始写作】打开一篇issue，开始写作，并且添加一个标签（只添加一个），保存issue后会自动创建博客内容，片刻后可通过<a href="https://XXX.github.io" rel="nofollow">https://XXX.github.io</a> 访问</p>
 </li>
+<li>
+<p>【手动全局生成】这个步骤只有在修改<code class="notranslate">config.json</code> 文件或者出现奇怪问题的时候，需要执行。</p>
+</li>
 </ol>
+<div class="highlight highlight-source-p4"><pre class="notranslate">通过<span class="pl-c1">Actions</span>-&gt;<span class="pl-c1">build</span> <span class="pl-c1">Gmeek</span>-&gt;<span class="pl-c1">Run</span> <span class="pl-c1">workflow</span>-&gt;里面的按钮全局重新生成一次</pre></div>
 <h3>二、配置文件</h3>
 <blockquote>
 <p>按照安装步骤成功搭建好后，就可以阅读下面的内容修改配置文件啦。<br>
@@ -242,11 +246,11 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 </ol>
 <div class="highlight highlight-text-html-basic"><pre class="notranslate"><span class="pl-c">&lt;!-- ##{"style":"&lt;style&gt;#postBody{font-size:20px}&lt;/style&gt;"}## --&gt;</span></pre></div>
 <div class="highlight highlight-text-html-basic"><pre class="notranslate"><span class="pl-c">&lt;!-- ##{"script":"&lt;script async src='//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js'&gt;&lt;/script&gt;"}## --&gt;</span></pre></div>
-<ol start="5">
+<ol start="6">
 <li>可同时一起添加多种自定义参数：</li>
 </ol>
 <div class="highlight highlight-text-html-basic"><pre class="notranslate"><span class="pl-c">&lt;!-- ##{"script":"&lt;script async src='//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js'&gt;&lt;/script&gt;","style":"&lt;style&gt;#postBody{font-size:20px}&lt;/style&gt;","timestamp":1490764800}## --&gt;</span></pre></div>
-<ol start="6">
+<ol start="7">
 <li>添加全局文章页面的<code class="notranslate">style</code>和<code class="notranslate">script</code></li>
 </ol>
 <blockquote>
@@ -254,7 +258,7 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 </blockquote>
 <div class="highlight highlight-source-js"><pre class="notranslate"><span class="pl-s">"style"</span>:<span class="pl-s">"&lt;style&gt;#postBody{font-size:20px}&lt;/style&gt;"</span><span class="pl-kos">,</span>
 <span class="pl-s">"script"</span>:<span class="pl-s">"&lt;script async src='//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js'&gt;&lt;/script&gt;"</span><span class="pl-kos">,</span></pre></div>
-<ol start="7">
+<ol start="8">
 <li>
 <p>置顶博客文章,只需要<code class="notranslate">Pin issue</code>即可。</p>
 </li>
