@@ -2,11 +2,11 @@
 
 ### 一、安装
 > 安装及其简单，但是也要认真看下面的步骤，一步一步来。
-1. 点击[通过模板创建仓库](https://github.com/new?template_name=Gmeek-template&template_owner=Meekdai)，建议仓库名称为`XXX.github.io`，其中`XXX`为你的github用户名。
+1. 【创建仓库】点击[通过模板创建仓库](https://github.com/new?template_name=Gmeek-template&template_owner=Meekdai)，建议仓库名称为`XXX.github.io`，其中`XXX`为你的github用户名。
 
-2. 在你创建好的仓库的设置`Settings`中`Pages->Build and deployment->Source`下面选择`Github Actions`。
+2. 【启用Pages】在你创建好的仓库的设置`Settings`中`Pages->Build and deployment->Source`下面选择`Github Actions`。
 
-3. 打开一篇issue，开始写作，并且添加一个标签（只添加一个），保存issue后会自动创建博客内容，片刻后可通过https://XXX.github.io 访问
+3. 【开始写作】打开一篇issue，开始写作，并且添加一个标签（只添加一个），保存issue后会自动创建博客内容，片刻后可通过https://XXX.github.io 访问
 
 ### 二、配置文件
 > 按照安装步骤成功搭建好后，就可以阅读下面的内容修改配置文件啦。
