@@ -1,6 +1,6 @@
 [Gmeek](https://github.com/Meekdai/Gmeek) 一个博客框架，超轻量级个人博客模板，完全基于`Github Pages `、 `Github Issues` 和 `Github Actions`，可以称作`All in Github`。不需要本地部署，从搭建到写作，只需要18秒，2步搭建好博客，第3步就是写作。
 
-### 一、安装
+## 一、安装
 > 安装及其简单，但是也要认真看下面的步骤，一步一步来。
 1. 【创建仓库】点击[通过模板创建仓库](https://github.com/new?template_name=Gmeek-template&template_owner=Meekdai)，建议仓库名称为`XXX.github.io`，其中`XXX`为你的github用户名。
 
@@ -13,7 +13,7 @@
 通过Actions->build Gmeek->Run workflow->里面的按钮全局重新生成一次
 ```
 
-### 二、配置文件
+## 二、配置文件
 > 按照安装步骤成功搭建好后，就可以阅读下面的内容修改配置文件啦。
 > 注意修改配置文件后一定要手动全局生成一次，不然会报错。
 > 如果对`json`格式不熟悉，建议先简单学习一下。
@@ -73,7 +73,7 @@
 | style | 用于自定义文章页全局CSS |
 | script | 用于自定义文章页全局JavaScript |
 
-### 三、常见问题
+## 三、常见问题
 1. 搭建不成功
 > 多半是没有按照安装步骤来，其实搭建就这2步，不要自己乱点乱设置，就不会有问题。
 > 案例一：https://github.com/Meekdai/Gmeek/issues/14 
@@ -117,7 +117,7 @@
 9. 如果在评论里面登录后评论报错，可直接按照提示安装`utteranc app`即可
 > Error: utterances is not installed on xxx/xxx.github.io. If you own this repo, install the app. Read more about this change in the PR.
 
-### 如何魔改
+## 如何魔改
 如果有朋友想修改博客的主题，或者添加一些东西，这个框架是支持魔改的。所有的UI都在[templates](https://github.com/Meekdai/Gmeek/tree/main/templates)文件中，可进行修改，如果合适，我会合并到主线，通过配置文件让用户选择哪个主题。
 
 
