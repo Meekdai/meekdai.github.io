@@ -34,6 +34,7 @@ https://github.com/Moexin/IPTV
 https://www.znds.com/tv-1236500-1-1.html
 https://github.com/ssili126/tv (IPV4)
 https://github.com/Ftindy/IPTV-URL
+https://github.com/mlvjfchen/zby
 
 ```
 目前有些IPTV仓库的作者有删库跑路的情况，所以上面的参考链接可以多去看看，有一些还是可以用的。
