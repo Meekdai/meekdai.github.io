@@ -74,25 +74,25 @@
 | script | 用于自定义文章页全局JavaScript |
 
 ## 三、常见问题
-1. 搭建不成功
+### 1. 搭建不成功
 > 多半是没有按照安装步骤来，其实搭建就这2步，不要自己乱点乱设置，就不会有问题。
 > 案例一：https://github.com/Meekdai/Gmeek/issues/14 
 > 案例二：https://github.com/Meekdai/Gmeek/issues/18
 > 案例二：https://github.com/Meekdai/Gmeek/issues/20
 
-2. Actions执行失败
+### 2. Actions执行失败
 > 修改了config.json配置文件后，需要全局生成。另外label标签没有打，或者多打也会出现这个问题。
 > 建议通过Actions->build Gmeek->Run workflow->里面的按钮全局重新生成一次
 > 案例一：https://github.com/Meekdai/Gmeek/issues/1
 > 案例二：https://github.com/Meekdai/Gmeek/issues/10
 
-3. 如果要导入以前的文章，如何设置发布时间呢？ 
+### 3. 如果要导入以前的文章，如何设置发布时间呢？ 
 > 如需修改发布时间，可以在文章最后一行添加如下代码。里面的时间是采用时间戳的形式，可以用如下[网站](https://tool.lu/timestamp)转换。  
 ```html
 <!-- ##{"timestamp":1490764800}## -->
 ```
 
-4. 自定义单篇文章页面的`style`和`script`
+### 4. 自定义单篇文章页面的`style`和`script`
 ```html
 <!-- ##{"style":"<style>#postBody{font-size:20px}</style>"}## -->
 ```
@@ -100,21 +100,21 @@
 <!-- ##{"script":"<script async src='//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js'></script>"}## -->
 ```
 
-6. 可同时一起添加多种自定义参数：  
+### 5. 可同时一起添加多种自定义参数：  
 ```html
 <!-- ##{"script":"<script async src='//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js'></script>","style":"<style>#postBody{font-size:20px}</style>","timestamp":1490764800}## -->
 ```
 
-7. 添加全局文章页面的`style`和`script`
+### 6. 添加全局文章页面的`style`和`script`
 > 在config.json文件中添加
 ```javascript
 "style":"<style>#postBody{font-size:20px}</style>",
 "script":"<script async src='//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js'></script>",
 ```
 
-8. 置顶博客文章,只需要`Pin issue`即可。
+### 7. 置顶博客文章,只需要`Pin issue`即可。
 
-9. 如果在评论里面登录后评论报错，可直接按照提示安装`utteranc app`即可
+### 8. 如果在评论里面登录后评论报错，可直接按照提示安装`utteranc app`即可
 > Error: utterances is not installed on xxx/xxx.github.io. If you own this repo, install the app. Read more about this change in the PR.
 
 ## 如何魔改
