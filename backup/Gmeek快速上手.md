@@ -64,7 +64,7 @@
 | filingNum | 用于页面底部显示备案信息 |
 | onePageListNum | 用于首页每页展示的文章数量 |
 | singlePage | 自定义独立页面，例如`about`或者`link`等 |
-| iconList | 用于定义singlePage按钮展示的[SVG图标](https://primer.style/foundations/icons/#16px) |
+| iconList | 用于定义singlePage按钮展示的[SVG图标](https://primer.style/foundations/icons/#16px) (16px) |
 | commentLabelColor | 用于自定义显示评论数量标签的颜色 |
 | yearColorList | 用于自定义显示不同年份标签的颜色 |
 | i18n | 用于定义博客语言，目前支持`EN`/`CN`/`RU` |
