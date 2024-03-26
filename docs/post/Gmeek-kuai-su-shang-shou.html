@@ -80,7 +80,7 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 <p>【创建仓库】点击<a href="https://github.com/new?template_name=Gmeek-template&amp;template_owner=Meekdai">通过模板创建仓库</a>，建议仓库名称为<code class="notranslate">XXX.github.io</code>，其中<code class="notranslate">XXX</code>为你的github用户名。</p>
 </li>
 <li>
-<p>【启用Pages】在你创建好的仓库的设置<code class="notranslate">Settings</code>中<code class="notranslate">Pages-&gt;Build and deployment-&gt;Source</code>下面选择<code class="notranslate">Github Actions</code>。</p>
+<p>【启用Pages】在仓库的设置<code class="notranslate">Settings</code>中<code class="notranslate">Pages-&gt;Build and deployment-&gt;Source</code>下面选择<code class="notranslate">Github Actions</code>。</p>
 </li>
 <li>
 <p>【开始写作】打开一篇issue，开始写作，并且<strong>必须</strong>添加一个<code class="notranslate">标签Label</code>（只添加一个），再保存issue后会自动创建博客内容，片刻后可通过<a href="https://XXX.github.io" rel="nofollow">https://XXX.github.io</a> 访问。</p>
@@ -111,7 +111,8 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 <span class="pl-s">"startSite"</span>:<span class="pl-s">"02/16/2015"</span><span class="pl-kos">,</span>
 <span class="pl-s">"filingNum"</span>:<span class="pl-s">"浙ICP备20023628号"</span><span class="pl-kos">,</span>
 <span class="pl-s">"onePageListNum"</span>:<span class="pl-c1">15</span><span class="pl-kos">,</span>
-<span class="pl-s">"singlePage"</span>:<span class="pl-kos">[</span><span class="pl-kos">]</span><span class="pl-kos">,</span>
+<span class="pl-s">"singlePage"</span>:<span class="pl-kos">[</span><span class="pl-s">"about"</span><span class="pl-kos">]</span><span class="pl-kos">,</span>
+<span class="pl-s">"iconList"</span>:<span class="pl-kos">{</span><span class="pl-s">"about"</span>:<span class="pl-s">"M10.561 8.073a6.005 6.005 0 0 1 3.432 5.142.75.75 0 1 1-1.498.07 4.5 4.5 0 0 0-8.99 0 .75.75 0 0 1-1.498-.07 6.004 6.004 0 0 1 3.431-5.142 3.999 3.999 0 1 1 5.123 0ZM10.5 5a2.5 2.5 0 1 0-5 0 2.5 2.5 0 0 0 5 0Z"</span><span class="pl-kos">}</span><span class="pl-kos">,</span>
 <span class="pl-s">"commentLabelColor"</span>:<span class="pl-s">"#006b75"</span><span class="pl-kos">,</span>
 <span class="pl-s">"yearColorList"</span>:<span class="pl-kos">[</span><span class="pl-s">"#bc4c00"</span><span class="pl-kos">,</span> <span class="pl-s">"#0969da"</span><span class="pl-kos">,</span> <span class="pl-s">"#1f883d"</span><span class="pl-kos">,</span> <span class="pl-s">"#A333D0"</span><span class="pl-kos">]</span><span class="pl-kos">,</span>
 <span class="pl-s">"i18n"</span>:<span class="pl-s">"CN"</span><span class="pl-kos">,</span>
@@ -175,7 +176,11 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 </tr>
 <tr>
 <td>singlePage</td>
-<td>自定义独立页面，例如<code class="notranslate">about</code>或者<code class="notranslate">link</code></td>
+<td>自定义独立页面，例如<code class="notranslate">about</code>或者<code class="notranslate">link</code>等</td>
+</tr>
+<tr>
+<td>iconList</td>
+<td>用于定义singlePage按钮展示的<a href="https://primer.style/foundations/icons/#16px" rel="nofollow">SVG图标</a></td>
 </tr>
 <tr>
 <td>commentLabelColor</td>

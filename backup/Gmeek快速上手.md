@@ -4,7 +4,7 @@
 > 安装及其简单，但是也要认真看下面的步骤，一步一步来。
 1. 【创建仓库】点击[通过模板创建仓库](https://github.com/new?template_name=Gmeek-template&template_owner=Meekdai)，建议仓库名称为`XXX.github.io`，其中`XXX`为你的github用户名。
 
-2. 【启用Pages】在你创建好的仓库的设置`Settings`中`Pages->Build and deployment->Source`下面选择`Github Actions`。
+2. 【启用Pages】在仓库的设置`Settings`中`Pages->Build and deployment->Source`下面选择`Github Actions`。
 
 3. 【开始写作】打开一篇issue，开始写作，并且**必须**添加一个`标签Label`（只添加一个），再保存issue后会自动创建博客内容，片刻后可通过https://XXX.github.io 访问。
 
@@ -37,7 +37,8 @@
 "startSite":"02/16/2015",
 "filingNum":"浙ICP备20023628号",
 "onePageListNum":15,
-"singlePage":[],
+"singlePage":["about"],
+"iconList":{"about":"M10.561 8.073a6.005 6.005 0 0 1 3.432 5.142.75.75 0 1 1-1.498.07 4.5 4.5 0 0 0-8.99 0 .75.75 0 0 1-1.498-.07 6.004 6.004 0 0 1 3.431-5.142 3.999 3.999 0 1 1 5.123 0ZM10.5 5a2.5 2.5 0 1 0-5 0 2.5 2.5 0 0 0 5 0Z"},
 "commentLabelColor":"#006b75",
 "yearColorList":["#bc4c00", "#0969da", "#1f883d", "#A333D0"],
 "i18n":"CN",
@@ -62,7 +63,8 @@
 | startSite | 用于页面底部显示网站运行天数 |
 | filingNum | 用于页面底部显示备案信息 |
 | onePageListNum | 用于首页每页展示的文章数量 |
-| singlePage | 自定义独立页面，例如`about`或者`link` |
+| singlePage | 自定义独立页面，例如`about`或者`link`等 |
+| iconList | 用于定义singlePage按钮展示的[SVG图标](https://primer.style/foundations/icons/#16px) |
 | commentLabelColor | 用于自定义显示评论数量标签的颜色 |
 | yearColorList | 用于自定义显示不同年份标签的颜色 |
 | i18n | 用于定义博客语言，目前支持`EN`/`CN`/`RU` |
