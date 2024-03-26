@@ -1,5 +1,10 @@
 [Gmeek](https://github.com/Meekdai/Gmeek) 一个博客框架，超轻量级个人博客模板，完全基于`Github Pages `、 `Github Issues` 和 `Github Actions`，可以称作`All in Github`。不需要本地部署，从搭建到写作，只需要18秒，2步搭建好博客，第3步就是写作。
 
+#### 20240326（v2.14）
+- 修复全局`script`配置会在文章页出现2次的BUG https://github.com/Meekdai/Gmeek/issues/46
+- 删除冗余`icon`地址，添加自定义`icon`功能 https://github.com/Meekdai/Gmeek/issues/40
+- 修改CDN地址为[staticfile.net](https://staticfile.net/)
+
 #### 20240314（v2.13）
 - README.md文件添加统计信息以及生成时间等
 - 修复时区不同导致的日期显示错误问题
