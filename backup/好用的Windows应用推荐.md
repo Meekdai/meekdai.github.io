@@ -7,7 +7,7 @@
 - :memo: [PDFgear](https://www.pdfgear.com/) - 免费的PDF查看&编辑器
 - :memo: [PDF24](https://tools.pdf24.org/) - 免费的在线PDF查看&编辑器
 - :film_projector: [PotPlayer](http://potplayer.daum.net/) - 多媒体播放器，具有广泛的编解码器集合
-- :electron: [GEEK UNINSTALLER](https://geekuninstaller.com/) - 好用的软件卸载工具
+- :green_circle: [GEEK UNINSTALLER](https://geekuninstaller.com/) - 好用的软件卸载工具
 - :mag: [Everything](http://www.voidtools.com/) - 最快的文件/文件夹搜索工具， 通过名称搜索
 - :keyboard: [MobaXterm](http://mobaxterm.mobatek.net/) - Xserver 和标签式 SSH 客户端
 - :keyboard: [Tera Term](https://teratermproject.github.io/index-en.html) - 好用的串口调试助手
