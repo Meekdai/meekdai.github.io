@@ -48,6 +48,7 @@
 "urlMode":"pinyin",
 "style":"",
 "script":"",
+"showPostSource":"1",
 ```
 
 | **配置参数**       | **说明** | 
@@ -74,6 +75,7 @@
 | urlMode | 用于定义文章链接生成模式，目前支持`pinyin`/`issue`/`ru_translit` |
 | style | 用于自定义文章页全局CSS |
 | script | 用于自定义文章页全局JavaScript |
+| showPostSource | 设置为1则在文章页显示issue链接按钮，设置为0则不显示 |
 
 ## 三、常见问题
 ### 1. 搭建不成功

@@ -121,7 +121,8 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 <span class="pl-s">"nightTheme"</span>:<span class="pl-s">"dark_colorblind"</span><span class="pl-kos">,</span>
 <span class="pl-s">"urlMode"</span>:<span class="pl-s">"pinyin"</span><span class="pl-kos">,</span>
 <span class="pl-s">"style"</span>:<span class="pl-s">""</span><span class="pl-kos">,</span>
-<span class="pl-s">"script"</span>:<span class="pl-s">""</span><span class="pl-kos">,</span></pre></div>
+<span class="pl-s">"script"</span>:<span class="pl-s">""</span><span class="pl-kos">,</span>
+<span class="pl-s">"showPostSource"</span>:<span class="pl-s">"1"</span><span class="pl-kos">,</span></pre></div>
 <table role="table">
 <thead>
 <tr>
@@ -218,6 +219,10 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 <td>script</td>
 <td>用于自定义文章页全局JavaScript</td>
 </tr>
+<tr>
+<td>showPostSource</td>
+<td>设置为1则在文章页显示issue链接按钮，设置为0则不显示</td>
+</tr>
 </tbody>
 </table>
 <h2>三、常见问题</h2>
@@ -313,7 +318,7 @@ document.getElementById("pathIssue").setAttribute("d",IconList["github"]);
 cmButton=document.getElementById("cmButton");
     span=document.createElement("span");
     span.setAttribute("class","Counter");
-    span.innerHTML="19";
+    span.innerHTML="21";
     cmButton.appendChild(span);
 
 function openComments(){
