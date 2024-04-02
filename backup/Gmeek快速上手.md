@@ -6,7 +6,7 @@
 
 2. 【启用Pages】在仓库的设置`Settings`中`Pages->Build and deployment->Source`下面选择`Github Actions`。
 
-3. 【开始写作】打开一篇issue，开始写作，并且**必须**添加一个`标签Label`（只添加一个），再保存issue后会自动创建博客内容，片刻后可通过https://XXX.github.io 访问。
+3. 【开始写作】打开一篇issue，开始写作，并且**必须**添加一个`标签Label`（至少添加一个），再保存issue后会自动创建博客内容，片刻后可通过https://XXX.github.io 访问。
 
 5. 【手动全局生成】这个步骤只有在修改`config.json` 文件或者出现奇怪问题的时候，需要执行。
 ```P4
@@ -43,12 +43,14 @@
 "yearColorList":["#bc4c00", "#0969da", "#1f883d", "#A333D0"],
 "i18n":"CN",
 "UTC":8,
+"themeMode":"manual",
 "dayTheme":"light",
 "nightTheme":"dark_colorblind",
 "urlMode":"pinyin",
 "style":"",
 "script":"",
 "showPostSource":"1",
+"rssSplit":"sentence",
 ```
 
 | **配置参数**       | **说明** | 
@@ -70,12 +72,14 @@
 | yearColorList | 用于自定义显示不同年份标签的颜色 |
 | i18n | 用于定义博客语言，目前支持`EN`/`CN`/`RU` |
 | UTC | 用于定义[时区](https://en.wikipedia.org/wiki/List_of_UTC_offsets) |
+| themeMode| 用于定义主题模式，默认为`manual`，也可选择`fix` |
 | dayTheme | 用于定义[亮主题](https://github.com/settings/appearance) |
 | nightTheme | 用于定义[暗主题](https://github.com/settings/appearance) |
 | urlMode | 用于定义文章链接生成模式，目前支持`pinyin`/`issue`/`ru_translit` |
 | style | 用于自定义文章页全局CSS |
 | script | 用于自定义文章页全局JavaScript |
 | showPostSource | 设置为1则在文章页显示issue链接按钮，设置为0则不显示 |
+| rssSplit| 设置RSS输出的截断符号，默认`sentence`为第一句话，可配置其他特殊符号 |
 
 ## 三、常见问题
 ### 1. 搭建不成功

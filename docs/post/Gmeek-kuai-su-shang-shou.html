@@ -80,7 +80,7 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 <p>【启用Pages】在仓库的设置<code class="notranslate">Settings</code>中<code class="notranslate">Pages-&gt;Build and deployment-&gt;Source</code>下面选择<code class="notranslate">Github Actions</code>。</p>
 </li>
 <li>
-<p>【开始写作】打开一篇issue，开始写作，并且<strong>必须</strong>添加一个<code class="notranslate">标签Label</code>（只添加一个），再保存issue后会自动创建博客内容，片刻后可通过<a href="https://XXX.github.io" rel="nofollow">https://XXX.github.io</a> 访问。</p>
+<p>【开始写作】打开一篇issue，开始写作，并且<strong>必须</strong>添加一个<code class="notranslate">标签Label</code>（至少添加一个），再保存issue后会自动创建博客内容，片刻后可通过<a href="https://XXX.github.io" rel="nofollow">https://XXX.github.io</a> 访问。</p>
 </li>
 <li>
 <p>【手动全局生成】这个步骤只有在修改<code class="notranslate">config.json</code> 文件或者出现奇怪问题的时候，需要执行。</p>
@@ -114,12 +114,14 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 <span class="pl-s">"yearColorList"</span>:<span class="pl-kos">[</span><span class="pl-s">"#bc4c00"</span><span class="pl-kos">,</span> <span class="pl-s">"#0969da"</span><span class="pl-kos">,</span> <span class="pl-s">"#1f883d"</span><span class="pl-kos">,</span> <span class="pl-s">"#A333D0"</span><span class="pl-kos">]</span><span class="pl-kos">,</span>
 <span class="pl-s">"i18n"</span>:<span class="pl-s">"CN"</span><span class="pl-kos">,</span>
 <span class="pl-s">"UTC"</span>:<span class="pl-c1">8</span><span class="pl-kos">,</span>
+<span class="pl-s">"themeMode"</span>:<span class="pl-s">"manual"</span><span class="pl-kos">,</span>
 <span class="pl-s">"dayTheme"</span>:<span class="pl-s">"light"</span><span class="pl-kos">,</span>
 <span class="pl-s">"nightTheme"</span>:<span class="pl-s">"dark_colorblind"</span><span class="pl-kos">,</span>
 <span class="pl-s">"urlMode"</span>:<span class="pl-s">"pinyin"</span><span class="pl-kos">,</span>
 <span class="pl-s">"style"</span>:<span class="pl-s">""</span><span class="pl-kos">,</span>
 <span class="pl-s">"script"</span>:<span class="pl-s">""</span><span class="pl-kos">,</span>
-<span class="pl-s">"showPostSource"</span>:<span class="pl-s">"1"</span><span class="pl-kos">,</span></pre></div>
+<span class="pl-s">"showPostSource"</span>:<span class="pl-s">"1"</span><span class="pl-kos">,</span>
+<span class="pl-s">"rssSplit"</span>:<span class="pl-s">"sentence"</span><span class="pl-kos">,</span></pre></div>
 <table role="table">
 <thead>
 <tr>
@@ -197,6 +199,10 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 <td>用于定义<a href="https://en.wikipedia.org/wiki/List_of_UTC_offsets" rel="nofollow">时区</a></td>
 </tr>
 <tr>
+<td>themeMode</td>
+<td>用于定义主题模式，默认为<code class="notranslate">manual</code>，也可选择<code class="notranslate">fix</code></td>
+</tr>
+<tr>
 <td>dayTheme</td>
 <td>用于定义<a href="https://github.com/settings/appearance">亮主题</a></td>
 </tr>
@@ -219,6 +225,10 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 <tr>
 <td>showPostSource</td>
 <td>设置为1则在文章页显示issue链接按钮，设置为0则不显示</td>
+</tr>
+<tr>
+<td>rssSplit</td>
+<td>设置RSS输出的截断符号，默认<code class="notranslate">sentence</code>为第一句话，可配置其他特殊符号</td>
 </tr>
 </tbody>
 </table>
