@@ -1,5 +1,13 @@
 [Gmeek](https://github.com/Meekdai/Gmeek) 一个博客框架，超轻量级个人博客模板，完全基于`Github Pages `、 `Github Issues` 和 `Github Actions`，可以称作`All in Github`。不需要本地部署，从搭建到写作，只需要18秒，2步搭建好博客，第3步就是写作。
 
+#### 20240402（v2.15）
+- 修复MathJax行内公式显示不正常的BUG https://github.com/Meekdai/Gmeek/issues/51
+- 修复由于修改文章标题导致旧文章依旧存在的BUG https://github.com/Meekdai/Gmeek/issues/49
+- 标题带有不合法符号修复 https://github.com/Meekdai/Gmeek/issues/39
+- 采用rssSplit用来自定义截取RSS输出 https://github.com/Meekdai/Gmeek/issues/52
+- 通过themeMode配置主题模式，默认新增跟随系统
+- 添加多label支持 https://github.com/Meekdai/Gmeek/issues/56 https://github.com/Meekdai/Gmeek/issues/22
+
 #### 20240326（v2.14）
 - 修复全局`script`配置会在文章页出现2次的BUG https://github.com/Meekdai/Gmeek/issues/46
 - 删除冗余`icon`地址，添加自定义`icon`功能 https://github.com/Meekdai/Gmeek/issues/40
