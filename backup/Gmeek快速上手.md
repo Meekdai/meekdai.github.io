@@ -51,6 +51,7 @@
 "script":"",
 "showPostSource":"1",
 "rssSplit":"sentence",
+"bottomText":"转载请注明出处",
 ```
 
 | **配置参数**       | **说明** | 
@@ -79,7 +80,8 @@
 | style | 用于自定义文章页全局CSS |
 | script | 用于自定义文章页全局JavaScript |
 | showPostSource | 设置为1则在文章页显示issue链接按钮，设置为0则不显示 |
-| rssSplit| 设置RSS输出的截断符号，默认`sentence`为第一句话，可配置其他特殊符号 |
+| rssSplit | 设置RSS输出的截断符号，默认`sentence`为第一句话，可配置其他特殊符号 |
+| bottomText | 用于设置文章页面右下角显示的内容 |
 
 ## 三、常见问题
 ### 1. 搭建不成功

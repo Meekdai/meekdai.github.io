@@ -121,7 +121,8 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 <span class="pl-s">"style"</span>:<span class="pl-s">""</span><span class="pl-kos">,</span>
 <span class="pl-s">"script"</span>:<span class="pl-s">""</span><span class="pl-kos">,</span>
 <span class="pl-s">"showPostSource"</span>:<span class="pl-s">"1"</span><span class="pl-kos">,</span>
-<span class="pl-s">"rssSplit"</span>:<span class="pl-s">"sentence"</span><span class="pl-kos">,</span></pre></div>
+<span class="pl-s">"rssSplit"</span>:<span class="pl-s">"sentence"</span><span class="pl-kos">,</span>
+<span class="pl-s">"bottomText"</span>:<span class="pl-s">"转载请注明出处"</span><span class="pl-kos">,</span></pre></div>
 <table role="table">
 <thead>
 <tr>
@@ -230,6 +231,10 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 <td>rssSplit</td>
 <td>设置RSS输出的截断符号，默认<code class="notranslate">sentence</code>为第一句话，可配置其他特殊符号</td>
 </tr>
+<tr>
+<td>bottomText</td>
+<td>用于设置文章页面右下角显示的内容</td>
+</tr>
 </tbody>
 </table>
 <h2>三、常见问题</h2>
@@ -325,7 +330,7 @@ document.getElementById("pathIssue").setAttribute("d",IconList["github"]);
 cmButton=document.getElementById("cmButton");
     span=document.createElement("span");
     span.setAttribute("class","Counter");
-    span.innerHTML="22";
+    span.innerHTML="23";
     cmButton.appendChild(span);
 function openComments(){
     cm=document.getElementById("comments");
