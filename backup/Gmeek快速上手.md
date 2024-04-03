@@ -89,7 +89,7 @@
 - 案例二：https://github.com/Meekdai/Gmeek/issues/20
 
 ### 2. Actions执行失败
-修改了`config.json`配置文件后，需要全局生成。另外`label`标签没有打，或者多打也会出现这个问题。
+修改了`config.json`配置文件后，需要全局生成。另外`label`标签没有打会出现这个问题。
 建议通过Actions->build Gmeek->Run workflow->里面的按钮全局重新生成一次
 - 案例一：https://github.com/Meekdai/Gmeek/issues/1
 - 案例二：https://github.com/Meekdai/Gmeek/issues/10
