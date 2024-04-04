@@ -73,7 +73,7 @@
 | yearColorList | 用于自定义显示不同年份标签的颜色 |
 | i18n | 用于定义博客语言，目前支持`EN`/`CN`/`RU` |
 | UTC | 用于定义[时区](https://en.wikipedia.org/wiki/List_of_UTC_offsets) |
-| themeMode| 用于定义主题模式，默认为`manual`，也可选择`fix` |
+| themeMode| 用于定义主题模式，默认为`manual`，也可选择`fix`[详细说明](https://blog.meekdai.com/post/Gmeek-liang-an-zhu-ti-pei-zhi-fang-shi.html) |
 | dayTheme | 用于定义[亮主题](https://github.com/settings/appearance) |
 | nightTheme | 用于定义[暗主题](https://github.com/settings/appearance) |
 | urlMode | 用于定义文章链接生成模式，目前支持`pinyin`/`issue`/`ru_translit` |
@@ -131,7 +131,3 @@ Error: utterances is not installed on xxx/xxx.github.io. If you own this repo, i
 
 ## 如何魔改
 如果有朋友想修改博客的主题，或者添加一些东西，这个框架是支持魔改的。所有的UI都在[templates](https://github.com/Meekdai/Gmeek/tree/main/templates)文件中，可进行修改，如果合适，我会合并到主线，通过配置文件让用户选择哪个主题。
-
-
-
-
