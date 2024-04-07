@@ -1,5 +1,13 @@
 [Gmeek](https://github.com/Meekdai/Gmeek) 一个博客框架，超轻量级个人博客模板，完全基于`Github Pages `、 `Github Issues` 和 `Github Actions`，可以称作`All in Github`。不需要本地部署，从搭建到写作，只需要18秒，2步搭建好博客，第3步就是写作。
 
+#### 20240407（v2.16）
+- 修复MathJax行内公式括号误判的BUG https://github.com/Meekdai/Gmeek/issues/59
+- 修复readme显示文章数量不对的BUG
+- Tag页面标签显示文章数量，并且以多到少排列
+- 修复页面右上角圆形按钮超出边界还能点击的BUG
+- 通过exlink自定义外部链接按钮 https://github.com/Meekdai/Gmeek/issues/64
+- 调整多label标签间距
+
 #### 20240402（v2.15）
 - 修复MathJax行内公式显示不正常的BUG https://github.com/Meekdai/Gmeek/issues/51
 - 修复由于修改文章标题导致旧文章依旧存在的BUG https://github.com/Meekdai/Gmeek/issues/49
