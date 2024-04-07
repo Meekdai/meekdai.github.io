@@ -38,7 +38,8 @@
 "filingNum":"浙ICP备20023628号",
 "onePageListNum":15,
 "singlePage":["about"],
-"iconList":{"circle":"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13Z"},
+"iconList":{"music":"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13Z"},
+"exlink":{"music":"https://music.meekdai.com"},
 "commentLabelColor":"#006b75",
 "yearColorList":["#bc4c00", "#0969da", "#1f883d", "#A333D0"],
 "i18n":"CN",
@@ -69,6 +70,7 @@
 | onePageListNum | 用于首页每页展示的文章数量 |
 | singlePage | 自定义独立页面，例如`about`或者`link`等 |
 | iconList | 用于定义singlePage按钮展示的[SVG图标](https://primer.style/foundations/icons/#16px) (16px)，`about`和`link`内置无需定义 |
+| exlink | 用于自定义首页右上角圆形按钮到外部链接功能 |
 | commentLabelColor | 用于自定义显示评论数量标签的颜色 |
 | yearColorList | 用于自定义显示不同年份标签的颜色 |
 | i18n | 用于定义博客语言，目前支持`EN`/`CN`/`RU` |
