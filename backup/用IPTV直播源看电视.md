@@ -1,5 +1,6 @@
 电视家下线有一段时间了，我基本不看直播电视无所谓，但是家里长辈要看，所以一直想找个方便可靠的给家里的电视装上。今天在`github`上发现了一个非常不错的项目，下面分享一下使用的方法。
 
+目前比较推荐 https://github.com/lizongying/my-tv
 
 ### 下载Tivimate
 有能力的可以通过google商店安装正版软件，如果是测试学习一下，可以点击下载[TiviMate-2.1.5_付费破解版.apk](https://github.com/skysolf/iptv/blob/main/TiviMate%20%202.1.5%20-%20Premium%E4%BB%98%E8%B4%B9%E7%A0%B4%E8%A7%A3%E7%89%88.apk)

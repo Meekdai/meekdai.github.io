@@ -57,6 +57,11 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
             <path id="pathSearch" fill-rule="evenodd"></path>
         </svg>
     </a>
+    <a href="https://music.meekdai.com" class="btn btn-invisible circle" title="music" target="_blank">
+        <svg class="octicon" width="16" height="16" >
+            <path id="music" fill-rule="evenodd"></path>
+        </svg>
+    </a>
     <a href="https://blog.meekdai.com/link.html" class="btn btn-invisible circle" title="友情链接">
         <svg class="octicon" width="16" height="16" >
             <path id="友情链接" fill-rule="evenodd"></path>
@@ -314,6 +319,9 @@ for(var i=0;i<iconTOP.length;i++){
 for(var i=0;i<iconPost.length;i++){
     iconPost[i].setAttribute("d",IconList["post"]);
 }
+
+
+document.getElementById("music").setAttribute("d",value=IconList["music"]);
 
 document.getElementById("友情链接").setAttribute("d",value=IconList["link"]);document.getElementById("关于").setAttribute("d",value=IconList["about"]);
 </script>
