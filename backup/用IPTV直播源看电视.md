@@ -17,10 +17,6 @@
 ````
 https://mirror.ghproxy.com/https://raw.githubusercontent.com/Meroser/IPTV/main/IPTV.m3u
 ````
-因为在电视上输入这一段实在太~~，所以我用我的二级域名做了一个显性重定向，所以只需要添加源地址的时候输入下面这个就可以了：
-```
-http://iptvs.meekdai.com
-```
 
 ### 其他
 1. 需要注意的是，这个直播源目前是`IPV6`的，如果你的宽带不支持，或者路由器光猫还没有开启`IPV6`，则需要先解决`IPV6`的问题。
