@@ -47,4 +47,4 @@ Paddy音阶将第三孔的吹气音G改为了A。
 
 提醒：如果发现频率对了，但是不稳定的话，是因为簧片的边上有毛刺，用砂纸打磨一下就行了。
 
-<!-- ##{"timestamp":1461596880,"script":"<script src='https://cdn.jsdelivr.net/npm/medium-zoom@1.1.0/dist/medium-zoom.min.js'></script><script>mediumZoom('img');</script>"}## -->
+<!-- ##{"timestamp":1461596880,"script":"<script src='https://cdn.jsdelivr.net/npm/medium-zoom@1.1.0/dist/medium-zoom.min.js'></script><script>var imgLinks = document.querySelectorAll('a > img');imgLinks.forEach(function(imgLink){var parentLink = imgLink.parentElement;parentLink.parentNode.insertBefore(parentLink.removeChild(imgLink), parentLink);parentLink.parentNode.removeChild(parentLink);});mediumZoom('img');</script>"}## -->
