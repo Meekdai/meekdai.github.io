@@ -50,7 +50,7 @@
 "urlMode":"pinyin",
 "style":"",
 "script":"",
-"showPostSource":"1",
+"showPostSource":1,
 "rssSplit":"sentence",
 "bottomText":"转载请注明出处",
 ```
