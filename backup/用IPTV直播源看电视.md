@@ -34,6 +34,7 @@ https://github.com/Ftindy/IPTV-URL
 https://github.com/mlvjfchen/zby
 https://gyssi.link/login.html (酒店直播源)
 https://github.com/ssili126/tv
+https://github.com/skddyj/iptv
 
 ```
 目前有些IPTV仓库的作者有删库跑路的情况，所以上面的参考链接可以多去看看，有一些还是可以用的。
