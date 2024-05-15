@@ -16,7 +16,7 @@
 <meta property="og:url" content="https://blog.meekdai.com/post/Gmeek-kuai-su-shang-shou.html">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/Meekdai/meekdai.github.io/logo64.jpg">
 <title>Gmeek快速上手</title>
-
+<link href="//unpkg.com/@wooorm/starry-night@2.1.1/style/both.css" rel="stylesheet" />
 
 </head>
 <style>
@@ -89,8 +89,7 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 <p>【手动全局生成】这个步骤只有在修改<code class="notranslate">config.json</code> 文件或者出现奇怪问题的时候，需要执行。</p>
 </li>
 </ol>
-<pre lang="P4" class="notranslate"><code class="notranslate">通过Actions-&gt;build Gmeek-&gt;Run workflow-&gt;里面的按钮全局重新生成一次
-</code></pre>
+<div class="highlight highlight-source-p4"><pre class="notranslate">通过<span class="pl-c1">Actions</span>-&gt;<span class="pl-c1">build</span> <span class="pl-c1">Gmeek</span>-&gt;<span class="pl-c1">Run</span> <span class="pl-c1">workflow</span>-&gt;里面的按钮全局重新生成一次</pre></div>
 <h2>二、配置文件</h2>
 <blockquote>
 <p>按照安装步骤成功搭建好后，就可以阅读下面的内容修改配置文件啦。<br>
@@ -98,39 +97,37 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 如果对<code class="notranslate">json</code>格式不熟悉，建议先简单学习一下。</p>
 </blockquote>
 <p><code class="notranslate">config.json</code> 文件就是配置文件，在创建的仓库内可以找到，对应修改为自己的即可。</p>
-<pre lang="javascript" class="notranslate"><code class="notranslate">{
-    "title":"Meekdai",
-    "subTitle":"童话是一种生活态度，仅此而已。",
-    "avatarUrl":"https://github.githubassets.com/favicons/favicon.svg",
-    "GMEEK_VERSION":"last"
-}
-</code></pre>
+<div class="highlight highlight-source-js"><pre class="notranslate"><span class="pl-kos">{</span>
+    <span class="pl-s">"title"</span>:<span class="pl-s">"Meekdai"</span><span class="pl-kos">,</span>
+    <span class="pl-s">"subTitle"</span>:<span class="pl-s">"童话是一种生活态度，仅此而已。"</span><span class="pl-kos">,</span>
+    <span class="pl-s">"avatarUrl"</span>:<span class="pl-s">"https://github.githubassets.com/favicons/favicon.svg"</span><span class="pl-kos">,</span>
+    <span class="pl-s">"GMEEK_VERSION"</span>:<span class="pl-s">"last"</span>
+<span class="pl-kos">}</span></pre></div>
 <p>以上是必须的字段，下面是可以自定义字段的描述，可以选择加入到<code class="notranslate">config.json</code>中。</p>
-<pre lang="javascript" class="notranslate"><code class="notranslate">"displayTitle":"Meekdai",
-"homeUrl":"http://blog.meekdai.com",
-"faviconUrl":"https://github.githubassets.com/favicons/favicon.svg",
-"email":"meekdai@163.com",
-"startSite":"02/16/2015",
-"filingNum":"浙ICP备20023628号",
-"onePageListNum":15,
-"singlePage":["about"],
-"iconList":{"music":"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13Z"},
-"exlink":{"music":"https://music.meekdai.com"},
-"commentLabelColor":"#006b75",
-"yearColorList":["#bc4c00", "#0969da", "#1f883d", "#A333D0"],
-"i18n":"CN",
-"UTC":8,
-"themeMode":"manual",
-"dayTheme":"light",
-"nightTheme":"dark_colorblind",
-"urlMode":"pinyin",
-"style":"",
-"script":"",
-"showPostSource":1,
-"rssSplit":"sentence",
-"bottomText":"转载请注明出处",
-"ogImage":"https://cdn.jsdelivr.net/gh/Meekdai/meekdai.github.io/logo64.jpg",
-</code></pre>
+<div class="highlight highlight-source-js"><pre class="notranslate"><span class="pl-s">"displayTitle"</span>:<span class="pl-s">"Meekdai"</span><span class="pl-kos">,</span>
+<span class="pl-s">"homeUrl"</span>:<span class="pl-s">"http://blog.meekdai.com"</span><span class="pl-kos">,</span>
+<span class="pl-s">"faviconUrl"</span>:<span class="pl-s">"https://github.githubassets.com/favicons/favicon.svg"</span><span class="pl-kos">,</span>
+<span class="pl-s">"email"</span>:<span class="pl-s">"meekdai@163.com"</span><span class="pl-kos">,</span>
+<span class="pl-s">"startSite"</span>:<span class="pl-s">"02/16/2015"</span><span class="pl-kos">,</span>
+<span class="pl-s">"filingNum"</span>:<span class="pl-s">"浙ICP备20023628号"</span><span class="pl-kos">,</span>
+<span class="pl-s">"onePageListNum"</span>:<span class="pl-c1">15</span><span class="pl-kos">,</span>
+<span class="pl-s">"singlePage"</span>:<span class="pl-kos">[</span><span class="pl-s">"about"</span><span class="pl-kos">]</span><span class="pl-kos">,</span>
+<span class="pl-s">"iconList"</span>:<span class="pl-kos">{</span><span class="pl-s">"music"</span>:<span class="pl-s">"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13Z"</span><span class="pl-kos">}</span><span class="pl-kos">,</span>
+<span class="pl-s">"exlink"</span>:<span class="pl-kos">{</span><span class="pl-s">"music"</span>:<span class="pl-s">"https://music.meekdai.com"</span><span class="pl-kos">}</span><span class="pl-kos">,</span>
+<span class="pl-s">"commentLabelColor"</span>:<span class="pl-s">"#006b75"</span><span class="pl-kos">,</span>
+<span class="pl-s">"yearColorList"</span>:<span class="pl-kos">[</span><span class="pl-s">"#bc4c00"</span><span class="pl-kos">,</span> <span class="pl-s">"#0969da"</span><span class="pl-kos">,</span> <span class="pl-s">"#1f883d"</span><span class="pl-kos">,</span> <span class="pl-s">"#A333D0"</span><span class="pl-kos">]</span><span class="pl-kos">,</span>
+<span class="pl-s">"i18n"</span>:<span class="pl-s">"CN"</span><span class="pl-kos">,</span>
+<span class="pl-s">"UTC"</span>:<span class="pl-c1">8</span><span class="pl-kos">,</span>
+<span class="pl-s">"themeMode"</span>:<span class="pl-s">"manual"</span><span class="pl-kos">,</span>
+<span class="pl-s">"dayTheme"</span>:<span class="pl-s">"light"</span><span class="pl-kos">,</span>
+<span class="pl-s">"nightTheme"</span>:<span class="pl-s">"dark_colorblind"</span><span class="pl-kos">,</span>
+<span class="pl-s">"urlMode"</span>:<span class="pl-s">"pinyin"</span><span class="pl-kos">,</span>
+<span class="pl-s">"style"</span>:<span class="pl-s">""</span><span class="pl-kos">,</span>
+<span class="pl-s">"script"</span>:<span class="pl-s">""</span><span class="pl-kos">,</span>
+<span class="pl-s">"showPostSource"</span>:<span class="pl-c1">1</span><span class="pl-kos">,</span>
+<span class="pl-s">"rssSplit"</span>:<span class="pl-s">"sentence"</span><span class="pl-kos">,</span>
+<span class="pl-s">"bottomText"</span>:<span class="pl-s">"转载请注明出处"</span><span class="pl-kos">,</span>
+<span class="pl-s">"ogImage"</span>:<span class="pl-s">"https://cdn.jsdelivr.net/gh/Meekdai/meekdai.github.io/logo64.jpg"</span><span class="pl-kos">,</span></pre></div>
 <table role="table">
 <thead>
 <tr>
@@ -270,21 +267,16 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 </ul>
 <h3>3. 如果要导入以前的文章，如何设置发布时间呢？</h3>
 <p>如需修改发布时间，可以在文章最后一行添加如下代码。里面的时间是采用时间戳的形式，可以用如下<a href="https://tool.lu/timestamp" rel="nofollow">网站</a>转换。</p>
-<pre lang="html" class="notranslate"><code class="notranslate">&lt;!-- ##{"timestamp":1490764800}## --&gt;
-</code></pre>
+<div class="highlight highlight-text-html-basic"><pre class="notranslate"><span class="pl-c">&lt;!-- ##{"timestamp":1490764800}## --&gt;</span></pre></div>
 <h3>4. 自定义单篇文章页面的<code class="notranslate">style</code>和<code class="notranslate">script</code></h3>
-<pre lang="html" class="notranslate"><code class="notranslate">&lt;!-- ##{"style":"&lt;style&gt;#postBody{font-size:20px}&lt;/style&gt;"}## --&gt;
-</code></pre>
-<pre lang="html" class="notranslate"><code class="notranslate">&lt;!-- ##{"script":"&lt;script async src='//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js'&gt;&lt;/script&gt;"}## --&gt;
-</code></pre>
+<div class="highlight highlight-text-html-basic"><pre class="notranslate"><span class="pl-c">&lt;!-- ##{"style":"&lt;style&gt;#postBody{font-size:20px}&lt;/style&gt;"}## --&gt;</span></pre></div>
+<div class="highlight highlight-text-html-basic"><pre class="notranslate"><span class="pl-c">&lt;!-- ##{"script":"&lt;script async src='//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js'&gt;&lt;/script&gt;"}## --&gt;</span></pre></div>
 <h3>5. 可同时一起添加多种自定义参数：</h3>
-<pre lang="html" class="notranslate"><code class="notranslate">&lt;!-- ##{"script":"&lt;script async src='//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js'&gt;&lt;/script&gt;","style":"&lt;style&gt;#postBody{font-size:20px}&lt;/style&gt;","timestamp":1490764800}## --&gt;
-</code></pre>
+<div class="highlight highlight-text-html-basic"><pre class="notranslate"><span class="pl-c">&lt;!-- ##{"script":"&lt;script async src='//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js'&gt;&lt;/script&gt;","style":"&lt;style&gt;#postBody{font-size:20px}&lt;/style&gt;","timestamp":1490764800}## --&gt;</span></pre></div>
 <h3>6. 添加全局文章页面的<code class="notranslate">style</code>和<code class="notranslate">script</code></h3>
 <p>在<code class="notranslate">config.json</code>文件中添加</p>
-<pre lang="javascript" class="notranslate"><code class="notranslate">"style":"&lt;style&gt;#postBody{font-size:20px}&lt;/style&gt;",
-"script":"&lt;script async src='//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js'&gt;&lt;/script&gt;",
-</code></pre>
+<div class="highlight highlight-source-js"><pre class="notranslate"><span class="pl-s">"style"</span>:<span class="pl-s">"&lt;style&gt;#postBody{font-size:20px}&lt;/style&gt;"</span><span class="pl-kos">,</span>
+<span class="pl-s">"script"</span>:<span class="pl-s">"&lt;script async src='//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js'&gt;&lt;/script&gt;"</span><span class="pl-kos">,</span></pre></div>
 <h3>7. 置顶博客文章,只需要<code class="notranslate">Pin issue</code>即可。</h3>
 <h3>8. 如果在评论里面登录后评论报错，可直接按照提示安装<code class="notranslate">utteranc app</code>即可</h3>
 <pre class="notranslate"><code class="notranslate">Error: utterances is not installed on xxx/xxx.github.io. If you own this repo, install the app. Read more about this change in the PR.
