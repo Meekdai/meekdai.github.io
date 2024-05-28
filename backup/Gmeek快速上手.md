@@ -50,6 +50,8 @@
 "urlMode":"pinyin",
 "style":"",
 "script":"",
+"indexStyle":"",
+"indexScript":"",
 "showPostSource":1,
 "rssSplit":"sentence",
 "bottomText":"转载请注明出处",
@@ -82,6 +84,8 @@
 | urlMode | 用于定义文章链接生成模式，目前支持`pinyin`/`issue`/`ru_translit` |
 | style | 用于自定义文章页全局CSS |
 | script | 用于自定义文章页全局JavaScript |
+| indexStyle | 用于自定义首页CSS |
+| indexScript | 用于自定义首页JavaScript |
 | showPostSource | 设置为1则在文章页显示issue链接按钮，设置为0则不显示 |
 | rssSplit | 设置RSS输出的截断符号，默认`sentence`为第一句话，可配置其他特殊符号 |
 | bottomText | 用于设置文章页面右下角显示的内容 |
