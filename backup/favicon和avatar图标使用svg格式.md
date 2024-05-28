@@ -14,7 +14,7 @@ favicon.svg  418B
 
 ## 示例
 
-`Gmeek-html<img src='https://picsum.photos/200'>`
+`Gmeek-html<img src='https://picsum.photos/300'>`
 
 ## 制作
 那么如何优雅的把我们的`png`和`jpg`的图片转换为`svg`格式尤其重要。
