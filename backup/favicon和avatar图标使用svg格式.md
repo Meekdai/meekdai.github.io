@@ -13,7 +13,9 @@ favicon.svg  418B
 另外得益于`矢量化`，即使图标放大到屏幕这么大也不会有任何模糊。  
 
 ## 示例
-##{"html":"<img src="https://static.meekdai.com/avatar.svg" alt="logo">"}##
+我的logo图标
+
+##{"html":"<img src='https://static.meekdai.com/avatar.svg' alt='logo'>"}##
 
 ## 制作
 那么如何优雅的把我们的`png`和`jpg`的图片转换为`svg`格式尤其重要。
