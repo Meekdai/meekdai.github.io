@@ -1,5 +1,10 @@
 [Gmeek](https://github.com/Meekdai/Gmeek) 一个博客框架，超轻量级个人博客模板，完全基于`Github Pages `、 `Github Issues` 和 `Github Actions`，可以称作`All in Github`。不需要本地部署，从搭建到写作，只需要18秒，2步搭建好博客，第3步就是写作。
 
+#### 20240515（v2.18）
+- 添加首页script和style自定义功能 https://github.com/Meekdai/Gmeek/issues/88
+- 修复文章description里包含双引号导致的BUG https://github.com/Meekdai/Gmeek/issues/85
+- 添加赞赏码（如果本项目对你有帮助，可以用微信赞赏一下作者，二维码在项目Readme页面最后）
+
 #### 20240515（v2.17）
 - 添加Open Graph协议内容，让分享博客链接有预览
 - 修复仓库名称大小写敏感的BUG
