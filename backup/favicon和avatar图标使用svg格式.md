@@ -13,7 +13,7 @@ favicon.svg  418B
 另外得益于`矢量化`，即使图标放大到屏幕这么大也不会有任何模糊。  
 
 ## 示例
-我的LOGO
+
 `Gmeek-html<img src='https://picsum.photos/200'>`
 
 ## 制作
