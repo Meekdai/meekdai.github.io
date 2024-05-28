@@ -1,7 +1,9 @@
 [Gmeek](https://github.com/Meekdai/Gmeek) 一个博客框架，超轻量级个人博客模板，完全基于`Github Pages `、 `Github Issues` 和 `Github Actions`，可以称作`All in Github`。不需要本地部署，从搭建到写作，只需要18秒，2步搭建好博客，第3步就是写作。
 
 ## 一、安装
+> [!CAUTION]
 > 安装及其简单，但是也要认真看下面的步骤，一步一步来。
+
 1. 【创建仓库】点击[通过模板创建仓库](https://github.com/new?template_name=Gmeek-template&template_owner=Meekdai)，建议仓库名称为`XXX.github.io`，其中`XXX`为你的github用户名。
 
 2. 【启用Pages】在仓库的设置`Settings`中`Pages->Build and deployment->Source`下面选择`Github Actions`。
@@ -14,6 +16,7 @@
 ```
 
 ## 二、配置文件
+> [!TIP]
 > 按照安装步骤成功搭建好后，就可以阅读下面的内容修改配置文件啦。
 > 注意修改配置文件后一定要手动全局生成一次，不然会报错。
 > 如果对`json`格式不熟悉，建议先简单学习一下。
