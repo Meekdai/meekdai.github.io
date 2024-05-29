@@ -16,7 +16,7 @@
 <meta property="og:url" content="https://blog.meekdai.com/post/favicon-he-avatar-tu-biao-shi-yong-svg-ge-shi.html">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/Meekdai/meekdai.github.io/logo64.jpg">
 <title>favicon和avatar图标使用svg格式</title>
-
+<link href="//unpkg.com/@wooorm/starry-night@2.1.1/style/both.css" rel="stylesheet" />
 
 </head>
 <style>
@@ -80,29 +80,30 @@ favicon.svg  418B
 </code></pre>
 <p>另外得益于<code class="notranslate">矢量化</code>，即使图标放大到屏幕这么大也不会有任何模糊。</p>
 <h2>示例</h2>
-<p>&lt;img src='https://picsum.photos/300'&gt;</p>
+<p>我的logo图标</p>
+<p><img src='https://picsum.photos/300'></p>
 <h2>制作</h2>
 <p>那么如何优雅的把我们的<code class="notranslate">png</code>和<code class="notranslate">jpg</code>的图片转换为<code class="notranslate">svg</code>格式尤其重要。</p>
 <ol>
 <li>
-<p>使用免费在线转换网站，上传我们的图片进行转换。特别注意需要转换后以<code class="notranslate">path</code>形式绘制的才行。如下2个网站都是可以的：<br/>
+<p>使用免费在线转换网站，上传我们的图片进行转换。特别注意需要转换后以<code class="notranslate">path</code>形式绘制的才行。如下2个网站都是可以的：<br>
 <a href="https://svgcreator.com/" rel="nofollow">svgcreator</a> 和 <a href="https://svgtrace.com/png-to-svg" rel="nofollow">svgtrace</a></p>
 </li>
 <li>
-<p>在转换完成后，即可下载svg文件，这时候已经可以使用。不过我们最好还是进行压缩，极致的做法还需要手动删减小数点后的值。<br/>
+<p>在转换完成后，即可下载svg文件，这时候已经可以使用。不过我们最好还是进行压缩，极致的做法还需要手动删减小数点后的值。<br>
 <a href="https://www.zhangxinxu.com/sp/svgo/" rel="nofollow">SVG在线压缩合并工具</a></p>
 </li>
 <li>
 <p>最后就可以直接在html标签内使用了。</p>
 </li>
 </ol>
-<div class="highlight highlight-text-html-basic"><pre class="notranslate"><span class="pl-kos">&lt;</span><span class="pl-ent">link</span> <span class="pl-c1">rel</span>="<span class="pl-s">icon</span>" <span class="pl-c1">href</span>="<span class="pl-s">https://static.meekdai.com/favicon.svg</span>" <span class="pl-c1">type</span>="<span class="pl-s">image/svg+xml</span>" /&gt;
-<span class="pl-kos">&lt;</span><span class="pl-ent">img</span> <span class="pl-c1">src</span>="<span class="pl-s">https://static.meekdai.com/avatar.svg</span>"<span class="pl-kos">&gt;</span></pre></div>
+<div class="highlight highlight-text-html-basic"><pre class="notranslate"><span class="pl-kos"><</span><span class="pl-ent">link</span> <span class="pl-c1">rel</span>="<span class="pl-s">icon</span>" <span class="pl-c1">href</span>="<span class="pl-s">https://static.meekdai.com/favicon.svg</span>" <span class="pl-c1">type</span>="<span class="pl-s">image/svg+xml</span>" />
+<span class="pl-kos"><</span><span class="pl-ent">img</span> <span class="pl-c1">src</span>="<span class="pl-s">https://static.meekdai.com/avatar.svg</span>"<span class="pl-kos">></span></pre></div>
 <p>当然，如果你的<code class="notranslate">favicon</code>和<code class="notranslate">avatar</code>使用同一个<code class="notranslate">svg</code>那就更好了。另外，图标甚至还能直接使用<code class="notranslate">svg</code>设计，可以在<a href="https://www.runoob.com/svg/svg-tutorial.html" rel="nofollow">runoob</a>学习用法。</p>
 <h2>其他</h2>
-<p>Github 官方图标库 <a href="https://primer.style/foundations/icons/" rel="nofollow">Octicons</a><br/>
-Bootstrap官方图标库<a href="https://icons.bootcss.com/" rel="nofollow">Bootstrap Icon</a><br/>
-阿里巴巴矢量图标库<a href="https://www.iconfont.cn/" rel="nofollow">iconfont</a><br/>
+<p>Github 官方图标库 <a href="https://primer.style/foundations/icons/" rel="nofollow">Octicons</a><br>
+Bootstrap官方图标库<a href="https://icons.bootcss.com/" rel="nofollow">Bootstrap Icon</a><br>
+阿里巴巴矢量图标库<a href="https://www.iconfont.cn/" rel="nofollow">iconfont</a><br>
 SVG查看编辑器<a href="https://www.svgviewer.dev/" rel="nofollow">SVG Viewer</a></p></div>
 <div style="font-size:small;margin-top:8px;float:right;">❤️ 转载文章请注明出处，谢谢！❤️</div>
 <button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
