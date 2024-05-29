@@ -15,7 +15,7 @@ favicon.svg  418B
 ## 示例
 我的logo图标
 
-`Gmeek-html<img src='https://picsum.photos/300'>`
+`Gmeek-html<img src="https://static.meekdai.com/avatar.svg">`
 
 ## 制作
 那么如何优雅的把我们的`png`和`jpg`的图片转换为`svg`格式尤其重要。
