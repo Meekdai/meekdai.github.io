@@ -6,7 +6,7 @@ Github由于安全考虑，是不允许使用`iframe`等标签的，而且在iss
 
 ### 图片img
 ```
-`Gmeek-html<img src="https://picsum.photos/200">`
+`<img src="https://picsum.photos/200">`
 ```
 
 `Gmeek-html<img src="https://picsum.photos/200">`
