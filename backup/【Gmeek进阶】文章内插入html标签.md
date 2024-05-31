@@ -5,10 +5,13 @@ Github由于安全考虑，是不允许使用`iframe`等标签的，而且在iss
 在需要添加html标签的位置使用`code`方式，并且后面紧跟着`Gmeek-html`，然后才是html标签。
 
 ### 图片img
+```Gmeek-html
+`<img src="https://picsum.photos/200">`
+```
 
-\`Gmeek-html\<img src="https://picsum.photos/200">`
-
-`Gmeek-html<img src="https://picsum.photos/200">`
+```Gmeek-html
+<img src="https://picsum.photos/200">
+```
 
 ### 内嵌框架iframe-网站
 ```
