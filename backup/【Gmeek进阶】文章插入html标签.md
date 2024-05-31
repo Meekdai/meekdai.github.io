@@ -2,7 +2,7 @@ Github由于安全考虑，是不允许使用`iframe`等标签的，而且在iss
 
 ## 使用方式
 
-在需要添加html标签的位置使用`code`方式，并且后面紧跟着`Gmeek-html`，然后才是html标签。
+在需要添加html标签的位置使用`code`方式，并且后面紧跟着Gmeek-html，然后才是html标签。
 
 ### 图片img
 ```
