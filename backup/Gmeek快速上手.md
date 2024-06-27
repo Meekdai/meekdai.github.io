@@ -15,6 +15,9 @@
 通过Actions->build Gmeek->Run workflow->里面的按钮全局重新生成一次
 ```
 
+> [!NOTE]
+> 网友制作的视频教程：https://www.bilibili.com/video/BV1GM4m1m7ZD/
+
 ## 二、配置文件
 > [!TIP]
 > 按照安装步骤成功搭建好后，就可以阅读下面的内容修改配置文件啦。
