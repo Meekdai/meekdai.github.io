@@ -64,6 +64,9 @@
 "ogImage":"https://cdn.jsdelivr.net/gh/Meekdai/meekdai.github.io/logo64.jpg",
 ```
 
+> [!CAUTION]
+> 最后一行配置末尾不需要逗号，其他行末尾都需要逗号（英文逗号）
+
 | **配置参数**       | **说明** | 
 |----------------|----------------|
 | title | 【必填】博客标题 |
