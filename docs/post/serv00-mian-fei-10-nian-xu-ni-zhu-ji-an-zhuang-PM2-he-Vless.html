@@ -4,7 +4,7 @@
     <meta content="text/html; charset=utf-8" http-equiv="content-type" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link href="//cdn.staticfile.net/Primer/21.0.7/primer.css" rel="stylesheet" />
+    
     <link rel="icon" href="https://static.meekdai.com/favicon.svg"><script>
         let theme = localStorage.getItem("meek_theme") || "light";
         document.documentElement.setAttribute("data-color-mode", theme);
@@ -237,7 +237,11 @@ console.log("\n %c Gmeek main https://github.com/Meekdai/Gmeek \n\n","padding:5p
 <script>
 document.getElementById("pathHome").setAttribute("d",IconList["home"]);
 document.getElementById("pathIssue").setAttribute("d",IconList["github"]);
-
+cmButton=document.getElementById("cmButton");
+    span=document.createElement("span");
+    span.setAttribute("class","Counter");
+    span.innerHTML="1";
+    cmButton.appendChild(span);
 function openComments(){
     cm=document.getElementById("comments");
     cmButton=document.getElementById("cmButton");
