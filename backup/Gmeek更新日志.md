@@ -1,5 +1,8 @@
 [Gmeek](https://github.com/Meekdai/Gmeek) 一个博客框架，超轻量级个人博客模板，完全基于`Github Pages `、 `Github Issues` 和 `Github Actions`，可以称作`All in Github`。不需要本地部署，从搭建到写作，只需要18秒，2步搭建好博客，第3步就是写作。
 
+#### 20240701（v2.21）
+- 修改static文件拷贝策略，可以实现拷贝文件到根目录，比如robots.txt文件。
+
 #### 20240701（v2.20）
 - 通过primerCSS自定义CDN的地址 https://github.com/Meekdai/Gmeek/issues/121
 - 添加static文件夹，用于存放用户自定义文件 https://github.com/Meekdai/Gmeek/issues/101
