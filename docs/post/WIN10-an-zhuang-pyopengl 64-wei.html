@@ -28,7 +28,7 @@ OpenGL.error.NullFunctionError: Attempt to call an undefined function
 这些都是因为通过pip安装的版本是32位导致的，我看了很多网上的解决办法说是手动下载64位的包安装即可解决。">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://blog.meekdai.com/post/WIN10-an-zhuang-pyopengl%2064-wei.html">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Meekdai/meekdai.github.io/logo64.jpg">
+<meta property="og:image" content="static/logo64.jpg">
 <title>WIN10安装pyopengl 64位</title>
 <link href="//unpkg.com/@wooorm/starry-night@2.1.1/style/both.css" rel="stylesheet" />
 
@@ -119,8 +119,10 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 <p>python的pyopengl配合pygame还是很香的，有空多学习学习。下面放一张最近做的一个小东西，具体是干嘛用的，之后应该会有文章详细介绍。@(滑稽)</p>
 <p><a target="_blank" rel="noopener noreferrer" href="https://github.com/Meekdai/meekdai.github.io/assets/11755104/3d227e8c-77ef-4044-9331-e2d7a77af4c2"><img src="https://github.com/Meekdai/meekdai.github.io/assets/11755104/3d227e8c-77ef-4044-9331-e2d7a77af4c2" alt="pyeuler" style="max-width: 100%;"></a></p></div>
 <div style="font-size:small;margin-top:8px;float:right;">❤️ 转载文章请注明出处，谢谢！❤️</div>
+
 <button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
 <div class="comments" id="comments"></div>
+
 </div>
     <div id="footer">Copyright © <span id="year"></span><a href="https://blog.meekdai.com"> Meekdai </a>
 <p><a href="https://beian.miit.gov.cn/" target="_blank">浙ICP备20023628号</a>
@@ -175,6 +177,8 @@ console.log("\n %c Gmeek main https://github.com/Meekdai/Gmeek \n\n","padding:5p
 <script>
 document.getElementById("pathHome").setAttribute("d",IconList["home"]);
 document.getElementById("pathIssue").setAttribute("d",IconList["github"]);
+
+
 
 function openComments(){
     cm=document.getElementById("comments");

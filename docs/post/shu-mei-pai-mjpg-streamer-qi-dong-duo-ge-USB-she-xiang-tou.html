@@ -14,7 +14,7 @@
 <meta property="og:description" content="MJPG-streamer是一个优秀的开源项目，它可以通过HTTP的方式访问linux上面的兼容摄像头，从而做到远程视频传输的效果。">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://blog.meekdai.com/post/shu-mei-pai-mjpg-streamer-qi-dong-duo-ge-USB-she-xiang-tou.html">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Meekdai/meekdai.github.io/logo64.jpg">
+<meta property="og:image" content="static/logo64.jpg">
 <title>树莓派mjpg-streamer启动多个USB摄像头</title>
 
 
@@ -112,8 +112,10 @@ sudo make install
 可参考：<a href="https://docs.datarhei.com/restreamer/getting-started/quick-start" rel="nofollow">https://docs.datarhei.com/restreamer/getting-started/quick-start</a></p>
 <p>试用<code class="notranslate">motion</code>和<code class="notranslate">restreamer</code>都出现视频卡顿的问题，不知道是不是我没有配置对，但是<code class="notranslate">MJPG-streamer</code>是真的开箱即用，很方便。</p></div>
 <div style="font-size:small;margin-top:8px;float:right;">❤️ 转载文章请注明出处，谢谢！❤️</div>
+
 <button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
 <div class="comments" id="comments"></div>
+
 </div>
     <div id="footer">Copyright © <span id="year"></span><a href="https://blog.meekdai.com"> Meekdai </a>
 <p><a href="https://beian.miit.gov.cn/" target="_blank">浙ICP备20023628号</a>
@@ -168,6 +170,8 @@ console.log("\n %c Gmeek main https://github.com/Meekdai/Gmeek \n\n","padding:5p
 <script>
 document.getElementById("pathHome").setAttribute("d",IconList["home"]);
 document.getElementById("pathIssue").setAttribute("d",IconList["github"]);
+
+
 
 function openComments(){
     cm=document.getElementById("comments");

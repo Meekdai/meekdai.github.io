@@ -14,7 +14,7 @@
 <meta property="og:description" content="当 `V3S` 以 `SPI FLASH` 作为存储空间的时候，要调试代码只有串口不是很方便，可以使用 `tftp` 进行传输，但是总感觉不是特别优雅和直观，所以下面记录一下启用 `openssh` 的过程。">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://blog.meekdai.com/post/quan-zhi-V3S-qi-yong-openssh.html">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Meekdai/meekdai.github.io/logo64.jpg">
+<meta property="og:image" content="static/logo64.jpg">
 <title>全志V3S启用openssh</title>
 
 
@@ -112,8 +112,10 @@ ps | grep sshd
 <p><a target="_blank" rel="noopener noreferrer" href="https://github.com/Meekdai/meekdai.github.io/assets/11755104/44bc625a-d297-42f1-8bef-815227aee492"><img src="https://github.com/Meekdai/meekdai.github.io/assets/11755104/44bc625a-d297-42f1-8bef-815227aee492" alt="image" style="max-width: 100%;"></a></p>
 <p>左边可以进行文件的上传和下载操作，也可以修改对应文件的权限等，非常方便。下面显示CPU已经RAM的使用率还有网速等，也很直观。</p></div>
 <div style="font-size:small;margin-top:8px;float:right;">❤️ 转载文章请注明出处，谢谢！❤️</div>
+
 <button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
 <div class="comments" id="comments"></div>
+
 </div>
     <div id="footer">Copyright © <span id="year"></span><a href="https://blog.meekdai.com"> Meekdai </a>
 <p><a href="https://beian.miit.gov.cn/" target="_blank">浙ICP备20023628号</a>
@@ -168,6 +170,8 @@ console.log("\n %c Gmeek main https://github.com/Meekdai/Gmeek \n\n","padding:5p
 <script>
 document.getElementById("pathHome").setAttribute("d",IconList["home"]);
 document.getElementById("pathIssue").setAttribute("d",IconList["github"]);
+
+
 
 function openComments(){
     cm=document.getElementById("comments");

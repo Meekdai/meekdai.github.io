@@ -14,7 +14,7 @@
 <meta property="og:description" content="这篇文章详细说一下目前Gmeek支持的亮暗主题配置方式，以及后续待改进之处。">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://blog.meekdai.com/post/%E3%80%90Gmeek-jin-jie-%E3%80%91-liang-an-zhu-ti-pei-zhi-fang-shi.html">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Meekdai/meekdai.github.io/logo64.jpg">
+<meta property="og:image" content="static/logo64.jpg">
 <title>【Gmeek进阶】亮暗主题配置方式</title>
 
 
@@ -110,8 +110,10 @@ gruvbox-dark
 <p>1、固定跟随系统切换目前还没有实现<br>
 2、手动模式目前访问者第一次打开页面是亮主题，是否需要实现第一次打开是暗主题或者是跟随系统？</p></div>
 <div style="font-size:small;margin-top:8px;float:right;">❤️ 转载文章请注明出处，谢谢！❤️</div>
+
 <button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
 <div class="comments" id="comments"></div>
+
 </div>
     <div id="footer">Copyright © <span id="year"></span><a href="https://blog.meekdai.com"> Meekdai </a>
 <p><a href="https://beian.miit.gov.cn/" target="_blank">浙ICP备20023628号</a>
@@ -166,6 +168,8 @@ console.log("\n %c Gmeek main https://github.com/Meekdai/Gmeek \n\n","padding:5p
 <script>
 document.getElementById("pathHome").setAttribute("d",IconList["home"]);
 document.getElementById("pathIssue").setAttribute("d",IconList["github"]);
+
+
 
 function openComments(){
     cm=document.getElementById("comments");

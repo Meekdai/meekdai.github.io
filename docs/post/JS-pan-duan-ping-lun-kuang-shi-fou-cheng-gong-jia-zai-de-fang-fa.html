@@ -14,7 +14,7 @@
 <meta property="og:description" content="在给博客添加 [utteranc](https://utteranc.es/) 评论框的时候，发现添加按钮再加载评论框比较友好。">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://blog.meekdai.com/post/JS-pan-duan-ping-lun-kuang-shi-fou-cheng-gong-jia-zai-de-fang-fa.html">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Meekdai/meekdai.github.io/logo64.jpg">
+<meta property="og:image" content="static/logo64.jpg">
 <title>JS判断评论框是否成功加载的方法</title>
 <link href="//unpkg.com/@wooorm/starry-night@2.1.1/style/both.css" rel="stylesheet" />
 
@@ -87,8 +87,10 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 <span class="pl-kos">}</span></pre></div>
 <p>另外我还在官方提了个 <a href="https://github.com/utterance/utterances/issues/657" data-hovercard-type="issue" data-hovercard-url="/utterance/utterances/issues/657/hovercard">Issue</a>，不知道有没有更好的办法来判断。:rofl:</p></div>
 <div style="font-size:small;margin-top:8px;float:right;">❤️ 转载文章请注明出处，谢谢！❤️</div>
+
 <button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
 <div class="comments" id="comments"></div>
+
 </div>
     <div id="footer">Copyright © <span id="year"></span><a href="https://blog.meekdai.com"> Meekdai </a>
 <p><a href="https://beian.miit.gov.cn/" target="_blank">浙ICP备20023628号</a>
@@ -143,6 +145,8 @@ console.log("\n %c Gmeek main https://github.com/Meekdai/Gmeek \n\n","padding:5p
 <script>
 document.getElementById("pathHome").setAttribute("d",IconList["home"]);
 document.getElementById("pathIssue").setAttribute("d",IconList["github"]);
+
+
 
 function openComments(){
     cm=document.getElementById("comments");

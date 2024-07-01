@@ -14,7 +14,7 @@
 <meta property="og:description" content="STM32H7系列单片机主频已经高达480MHz，甚至有的已经标550MHz，通过LTDC和DMA2D控制800*480分辨率的屏幕以及很轻松了。">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://blog.meekdai.com/post/STM32H7%20V-ban-ben-xin-pian-%20Flash-ca-chu-chu-cuo.html">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Meekdai/meekdai.github.io/logo64.jpg">
+<meta property="og:image" content="static/logo64.jpg">
 <title>STM32H7 V版本芯片 Flash擦除出错</title>
 
 
@@ -75,8 +75,10 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 <p>dfu-util的Tickets里面已经记录了这个BUG，但是目前没有解决。官方的DfuSeDemo没有做修复，但是新的下载工具<a href="https://www.st.com/content/st_com/en/products/development-tools/software-development-tools/stm32-software-development-tools/stm32-programmers/stm32cubeprog.html" rel="nofollow">STM32CubeProgrammer</a>，记录了更新修复<a href="https://www.st.com/resource/en/release_note/dm00441049-stm32cubeprogrammer-release-v240-stmicroelectronics.pdf" rel="nofollow">STM32CubeProgrammer release v2.6.0</a></p>
 <p>所以我们目前只能通过V2.6版本及以上的STM32CubeProgrammer程序给STM32H7的V版本芯片下载固件。</p></div>
 <div style="font-size:small;margin-top:8px;float:right;">❤️ 转载文章请注明出处，谢谢！❤️</div>
+
 <button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
 <div class="comments" id="comments"></div>
+
 </div>
     <div id="footer">Copyright © <span id="year"></span><a href="https://blog.meekdai.com"> Meekdai </a>
 <p><a href="https://beian.miit.gov.cn/" target="_blank">浙ICP备20023628号</a>
@@ -131,6 +133,8 @@ console.log("\n %c Gmeek main https://github.com/Meekdai/Gmeek \n\n","padding:5p
 <script>
 document.getElementById("pathHome").setAttribute("d",IconList["home"]);
 document.getElementById("pathIssue").setAttribute("d",IconList["github"]);
+
+
 
 function openComments(){
     cm=document.getElementById("comments");

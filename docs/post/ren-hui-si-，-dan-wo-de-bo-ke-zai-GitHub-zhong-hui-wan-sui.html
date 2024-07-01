@@ -14,7 +14,7 @@
 <meta property="og:description" content="当人类面对时间的无情流逝，我们总是渴望留下一些痕迹，一些思想，一些记忆。">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://blog.meekdai.com/post/ren-hui-si-%EF%BC%8C-dan-wo-de-bo-ke-zai-GitHub-zhong-hui-wan-sui.html">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Meekdai/meekdai.github.io/logo64.jpg">
+<meta property="og:image" content="static/logo64.jpg">
 <title>人会死，但我的博客在GitHub中会万岁</title>
 
 
@@ -85,8 +85,10 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 <h3>四、博客的未来</h3>
 <p>虽然没有什么东西是真正永恒的，但我们可以尽力让自己的博客在这个数字时代中存活更久，成为我们留给世界的一份礼物。让我们珍惜这个数字化的痕迹，让它们在 GitHub 中长寿不衰。</p></div>
 <div style="font-size:small;margin-top:8px;float:right;">❤️ 转载文章请注明出处，谢谢！❤️</div>
+
 <button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
 <div class="comments" id="comments"></div>
+
 </div>
     <div id="footer">Copyright © <span id="year"></span><a href="https://blog.meekdai.com"> Meekdai </a>
 <p><a href="https://beian.miit.gov.cn/" target="_blank">浙ICP备20023628号</a>
@@ -146,6 +148,8 @@ cmButton=document.getElementById("cmButton");
     span.setAttribute("class","Counter");
     span.innerHTML="4";
     cmButton.appendChild(span);
+
+
 function openComments(){
     cm=document.getElementById("comments");
     cmButton=document.getElementById("cmButton");

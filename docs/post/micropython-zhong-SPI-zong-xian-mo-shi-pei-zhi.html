@@ -14,7 +14,7 @@
 <meta property="og:description" content="在嵌入式系统中，很多板载芯片都是采用`SPI`总线进行通信，同一`SPI`总线上也运行挂载多个相同或者不同型号的芯片。">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://blog.meekdai.com/post/micropython-zhong-SPI-zong-xian-mo-shi-pei-zhi.html">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Meekdai/meekdai.github.io/logo64.jpg">
+<meta property="og:image" content="static/logo64.jpg">
 <title>micropython中SPI总线模式配置</title>
 <link href="//unpkg.com/@wooorm/starry-night@2.1.1/style/both.css" rel="stylesheet" />
 
@@ -154,8 +154,10 @@ CPLO(polarity) <strong>0</strong>--空闲时钟低电平 <strong>1</strong>--空
 <a target="_blank" rel="noopener noreferrer" href="https://github.com/Meekdai/meekdai.github.io/assets/11755104/ed2cda77-af23-40da-ad29-5a41eb5f92e9"><img src="https://github.com/Meekdai/meekdai.github.io/assets/11755104/ed2cda77-af23-40da-ad29-5a41eb5f92e9" alt="image2018-11-8 9_41_16" style="max-width: 100%;"></a></li>
 </ol></div>
 <div style="font-size:small;margin-top:8px;float:right;">❤️ 转载文章请注明出处，谢谢！❤️</div>
+
 <button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
 <div class="comments" id="comments"></div>
+
 </div>
     <div id="footer">Copyright © <span id="year"></span><a href="https://blog.meekdai.com"> Meekdai </a>
 <p><a href="https://beian.miit.gov.cn/" target="_blank">浙ICP备20023628号</a>
@@ -210,6 +212,8 @@ console.log("\n %c Gmeek main https://github.com/Meekdai/Gmeek \n\n","padding:5p
 <script>
 document.getElementById("pathHome").setAttribute("d",IconList["home"]);
 document.getElementById("pathIssue").setAttribute("d",IconList["github"]);
+
+
 
 function openComments(){
     cm=document.getElementById("comments");

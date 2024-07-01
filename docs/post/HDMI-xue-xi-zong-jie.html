@@ -16,7 +16,7 @@
 因为需要计算HDMI的差分线传输速率，把HDMI相关的知识都看了一下，做如下记录，方便以后回顾。">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://blog.meekdai.com/post/HDMI-xue-xi-zong-jie.html">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Meekdai/meekdai.github.io/logo64.jpg">
+<meta property="og:image" content="static/logo64.jpg">
 <title>HDMI学习总结</title>
 
 
@@ -101,8 +101,10 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 <p>HDMI 1.4已经可以支持4K了，但是受制于带宽，最高只能达到<code class="notranslate">3840*2160</code>分辨率和30FPS帧率，HDMI 2.0则将带宽扩充到了18Gbps，可以支持<code class="notranslate">3840*2160</code>分辨率和50FPS、60FPS帧率。HDMI 2.0 最大每路的速率为6Gbps，而根据上述计算，估计HDMI 2.0 的4K 60FPS只能输出24bit的色彩深度。</p>
 <p>PS：最后由于有朋友问起带宽和下载速度的关系，这里说明一下。假如你办的电信宽带为10M，即给你的带宽为10Mbps，注意这里是小b，而我们的下载速度一般说500KB/S，这里是大B。所以理论上10M的下载速度为10Mbps/8=1.25MB/S，也就是说，你下载的最快速度可以达到1.25MB/S。但是由于传输线损耗，已经其他方面的原因，一般是达不到理论速度的。</p></div>
 <div style="font-size:small;margin-top:8px;float:right;">❤️ 转载文章请注明出处，谢谢！❤️</div>
+
 <button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
 <div class="comments" id="comments"></div>
+
 </div>
     <div id="footer">Copyright © <span id="year"></span><a href="https://blog.meekdai.com"> Meekdai </a>
 <p><a href="https://beian.miit.gov.cn/" target="_blank">浙ICP备20023628号</a>
@@ -162,6 +164,8 @@ cmButton=document.getElementById("cmButton");
     span.setAttribute("class","Counter");
     span.innerHTML="1";
     cmButton.appendChild(span);
+
+
 function openComments(){
     cm=document.getElementById("comments");
     cmButton=document.getElementById("cmButton");

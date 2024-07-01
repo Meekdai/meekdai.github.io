@@ -14,7 +14,7 @@
 <meta property="og:description" content="作为半个程序员，写文档从来不用Word，不知道是不是我不会用，感觉它的操作简直是SHIT，Markdown很好的解决了这个问题。">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://blog.meekdai.com/post/ni-shi-fou-huan-zai-shi-yong-PPT.html">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Meekdai/meekdai.github.io/logo64.jpg">
+<meta property="og:image" content="static/logo64.jpg">
 <title>你是否还在使用PPT</title>
 
 
@@ -81,8 +81,10 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 <p>这个是一个开源项目，github地址：<a href="https://github.com/impress/impress.js">https://github.com/impress/impress.js</a></p>
 <p><a target="_blank" rel="noopener noreferrer" href="https://github.com/Meekdai/meekdai.github.io/assets/11755104/7dd99037-5695-4c49-a9c7-791dbcec69f7"><img src="https://github.com/Meekdai/meekdai.github.io/assets/11755104/7dd99037-5695-4c49-a9c7-791dbcec69f7" alt="7f3b1e89gy1fzpoo5qfp8j21hc0padi0" style="max-width: 100%;"></a></p></div>
 <div style="font-size:small;margin-top:8px;float:right;">❤️ 转载文章请注明出处，谢谢！❤️</div>
+
 <button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
 <div class="comments" id="comments"></div>
+
 </div>
     <div id="footer">Copyright © <span id="year"></span><a href="https://blog.meekdai.com"> Meekdai </a>
 <p><a href="https://beian.miit.gov.cn/" target="_blank">浙ICP备20023628号</a>
@@ -137,6 +139,8 @@ console.log("\n %c Gmeek main https://github.com/Meekdai/Gmeek \n\n","padding:5p
 <script>
 document.getElementById("pathHome").setAttribute("d",IconList["home"]);
 document.getElementById("pathIssue").setAttribute("d",IconList["github"]);
+
+
 
 function openComments(){
     cm=document.getElementById("comments");

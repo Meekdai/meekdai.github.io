@@ -14,7 +14,7 @@
 <meta property="og:description" content="在进行allegro封装建库的时候，我通常会使用FPM这个软件，因为通过这个软件，我就可以用代码来建立PCB封装。">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://blog.meekdai.com/post/Allegro-feng-zhuang-jian-ku-cheng-xu-hua.html">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Meekdai/meekdai.github.io/logo64.jpg">
+<meta property="og:image" content="static/logo64.jpg">
 <title>Allegro封装建库程序化</title>
 
 
@@ -116,8 +116,10 @@ _Layer(lPkgGeoSilkT) _Line(list(2.5:2.5 -2.5:2.5))
 <pre class="notranslate"><code class="notranslate">_SaveDesign(pName)
 </code></pre></div>
 <div style="font-size:small;margin-top:8px;float:right;">❤️ 转载文章请注明出处，谢谢！❤️</div>
+
 <button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
 <div class="comments" id="comments"></div>
+
 </div>
     <div id="footer">Copyright © <span id="year"></span><a href="https://blog.meekdai.com"> Meekdai </a>
 <p><a href="https://beian.miit.gov.cn/" target="_blank">浙ICP备20023628号</a>
@@ -172,6 +174,8 @@ console.log("\n %c Gmeek main https://github.com/Meekdai/Gmeek \n\n","padding:5p
 <script>
 document.getElementById("pathHome").setAttribute("d",IconList["home"]);
 document.getElementById("pathIssue").setAttribute("d",IconList["github"]);
+
+
 
 function openComments(){
     cm=document.getElementById("comments");

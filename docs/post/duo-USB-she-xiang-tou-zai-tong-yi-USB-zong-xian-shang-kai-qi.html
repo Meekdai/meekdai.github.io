@@ -14,7 +14,7 @@
 <meta property="og:description" content="USB摄像头有一个全平台统一的BUG，就是2个或者多个USB摄像头插在同一个USB总线上，即使用USB-HUB扩展的口，会出现第二个摄像头无法打开的情况。">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://blog.meekdai.com/post/duo-USB-she-xiang-tou-zai-tong-yi-USB-zong-xian-shang-kai-qi.html">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Meekdai/meekdai.github.io/logo64.jpg">
+<meta property="og:image" content="static/logo64.jpg">
 <title>多USB摄像头在同一USB总线上开启</title>
 
 
@@ -186,8 +186,10 @@ if(format-&gt;flags &amp; UVC_FMT_FLAG_COMPRESSED){ctrl-&gt;dwMaxPayloadTransfer
 <pre class="notranslate"><code class="notranslate">mjpg_streamer -i "input_uvc.so -d /dev/video0 -f 10 -n -r 1920x1080" -o "output_http.so -p 8080 -w /usr/www" &amp; mjpg_streamer -i "input_uvc.so -d /dev/video1 -f 10 -n -r 1920x1080" -o "output_http.so -p 8081 -w /usr/www"
 </code></pre></div>
 <div style="font-size:small;margin-top:8px;float:right;">❤️ 转载文章请注明出处，谢谢！❤️</div>
+
 <button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
 <div class="comments" id="comments"></div>
+
 </div>
     <div id="footer">Copyright © <span id="year"></span><a href="https://blog.meekdai.com"> Meekdai </a>
 <p><a href="https://beian.miit.gov.cn/" target="_blank">浙ICP备20023628号</a>
@@ -242,6 +244,8 @@ console.log("\n %c Gmeek main https://github.com/Meekdai/Gmeek \n\n","padding:5p
 <script>
 document.getElementById("pathHome").setAttribute("d",IconList["home"]);
 document.getElementById("pathIssue").setAttribute("d",IconList["github"]);
+
+
 
 function openComments(){
     cm=document.getElementById("comments");

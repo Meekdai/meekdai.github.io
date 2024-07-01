@@ -14,7 +14,7 @@
 <meta property="og:description" content="那些我必安装的Awesome Windows App推荐。">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://blog.meekdai.com/post/hao-yong-de-Windows-ying-yong-tui-jian.html">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Meekdai/meekdai.github.io/logo64.jpg">
+<meta property="og:image" content="static/logo64.jpg">
 <title>好用的Windows应用推荐</title>
 
 
@@ -90,8 +90,10 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 <li>💾 <a href="https://www.diskgenius.cn/" rel="nofollow">DiskGenius</a> - 老牌国产软件，专注数据恢复与磁盘管理，中文界面</li>
 </ul></div>
 <div style="font-size:small;margin-top:8px;float:right;">❤️ 转载文章请注明出处，谢谢！❤️</div>
+
 <button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
 <div class="comments" id="comments"></div>
+
 </div>
     <div id="footer">Copyright © <span id="year"></span><a href="https://blog.meekdai.com"> Meekdai </a>
 <p><a href="https://beian.miit.gov.cn/" target="_blank">浙ICP备20023628号</a>
@@ -151,6 +153,8 @@ cmButton=document.getElementById("cmButton");
     span.setAttribute("class","Counter");
     span.innerHTML="2";
     cmButton.appendChild(span);
+
+
 function openComments(){
     cm=document.getElementById("comments");
     cmButton=document.getElementById("cmButton");

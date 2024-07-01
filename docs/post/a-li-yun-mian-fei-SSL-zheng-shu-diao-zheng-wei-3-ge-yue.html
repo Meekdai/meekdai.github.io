@@ -14,7 +14,7 @@
 <meta property="og:description" content="在2023年11月14号开始生效，阿里云这是要开始割韭菜了。">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://blog.meekdai.com/post/a-li-yun-mian-fei-SSL-zheng-shu-diao-zheng-wei-3-ge-yue.html">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Meekdai/meekdai.github.io/logo64.jpg">
+<meta property="og:image" content="static/logo64.jpg">
 <title>阿里云免费SSL证书调整为3个月</title>
 
 
@@ -78,8 +78,10 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 <p>从这两个通知中可以看出，之后要么寻找其他的免费证书，要么老老实实的买68一年的付费证书。目前还是等到期了再看看阿里云有没有提前邮件通知，以及续签的方便程度来决定是否需要折腾一下其他免费证书。</p>
 <p>后续如果有推荐的免费证书或者有啥自动续签的方式，再来记录了。</p></div>
 <div style="font-size:small;margin-top:8px;float:right;">❤️ 转载文章请注明出处，谢谢！❤️</div>
+
 <button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
 <div class="comments" id="comments"></div>
+
 </div>
     <div id="footer">Copyright © <span id="year"></span><a href="https://blog.meekdai.com"> Meekdai </a>
 <p><a href="https://beian.miit.gov.cn/" target="_blank">浙ICP备20023628号</a>
@@ -139,6 +141,8 @@ cmButton=document.getElementById("cmButton");
     span.setAttribute("class","Counter");
     span.innerHTML="2";
     cmButton.appendChild(span);
+
+
 function openComments(){
     cm=document.getElementById("comments");
     cmButton=document.getElementById("cmButton");
