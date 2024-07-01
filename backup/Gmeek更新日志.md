@@ -1,5 +1,11 @@
 [Gmeek](https://github.com/Meekdai/Gmeek) 一个博客框架，超轻量级个人博客模板，完全基于`Github Pages `、 `Github Issues` 和 `Github Actions`，可以称作`All in Github`。不需要本地部署，从搭建到写作，只需要18秒，2步搭建好博客，第3步就是写作。
 
+#### 20240701（v2.20）
+- 通过primerCSS自定义CDN的地址 https://github.com/Meekdai/Gmeek/issues/121
+- 添加static文件夹，用于存放用户自定义文件 https://github.com/Meekdai/Gmeek/issues/101
+- 添加needComment用于配置是否需要评论功能 https://github.com/Meekdai/Gmeek/issues/102
+- 添加MIT License https://github.com/Meekdai/Gmeek/issues/123
+
 #### 20240531（v2.19）
 - 添加5种`alerts`功能样式 [使用说明](https://blog.meekdai.com/post/%E3%80%90Gmeek-jin-jie-%E3%80%91-qiang-diao-guan-jian-xin-xi-shi-yong.html)
 - 添加文章页自定义html标签功能 [使用说明](https://blog.meekdai.com/post/%E3%80%90Gmeek-jin-jie-%E3%80%91-wen-zhang-cha-ru-html-biao-qian.html)
