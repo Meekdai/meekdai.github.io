@@ -36,7 +36,7 @@ Github的语法里面有5中警报强调信息，分别是`NOTE` `TIP` `IMPORTAN
 > [!CAUTION]
 > Advises about risks or negative outcomes of certain actions.
 
-# 其他
+## 其他
 由于[primer.style](https://primer.style/css)没有对`alerts`标签进行颜色处理，所以在Gmeek的`v2.19`版本添加了颜色的支持，效果还是不错的，同时切换亮暗主题也有对应的变化。
 
 参考链接：https://docs.github.com/zh/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#alerts
