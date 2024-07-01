@@ -62,6 +62,8 @@
 "rssSplit":"sentence",
 "bottomText":"转载请注明出处",
 "ogImage":"https://cdn.jsdelivr.net/gh/Meekdai/meekdai.github.io/logo64.jpg",
+"primerCSS":"<link href='https://mirrors.sustech.edu.cn/cdnjs/ajax/libs/Primer/21.0.7/primer.css' rel='stylesheet' />",
+"needComment":0,
 ```
 
 > [!CAUTION]
@@ -99,6 +101,8 @@
 | rssSplit | 设置RSS输出的截断符号，默认`sentence`为第一句话，可配置其他特殊符号 |
 | bottomText | 用于设置文章页面右下角显示的内容 |
 | ogImage | 用于设置Open Graph协议展示的图片 |
+| primerCSS | 用于设置primer.css的CDN地址，默认使用[南科大](https://mirrors.sustech.edu.cn/cdnjs/ajax/libs/Primer/21.0.7/primer.css) |
+| needComment | 用于设置是否需要评论功能，1开启评论，0关闭 |
 
 ## 三、常见问题
 ### 1. 搭建不成功
