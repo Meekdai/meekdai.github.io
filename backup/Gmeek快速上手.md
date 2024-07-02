@@ -153,5 +153,11 @@ Error: utterances is not installed on xxx/xxx.github.io. If you own this repo, i
 ### 9. 如何删除一篇文章呢？
 只需要`Close issue`或者`Delete issue`后，再手动全局生成一次即可。
 
-## 四、如何魔改
-如果有朋友想修改博客的主题，或者添加一些东西，这个框架是支持魔改的。所有的UI都在[templates](https://github.com/Meekdai/Gmeek/tree/main/templates)文件中，可进行修改，如果合适，我会合并到主线，通过配置文件让用户选择哪个主题。
+## 四、进阶教程
+
+Gmeek的可定制化功能非常高，下面的链接是一些更加高级的设置教程，还有插件的使用等。
+https://blog.meekdai.com/tag.html#Gmeek
+
+
+
+
