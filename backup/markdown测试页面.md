@@ -2,8 +2,6 @@
 
 这是一个markdown格式的测试页面，也是个人经常会使用的格式记录。
 
-<a href="#user-content-字体颜色">字体颜色</a>
-
 ## Static Badge
 ```markdown
 ![](https://img.shields.io/badge/参考页面-orange)
@@ -124,7 +122,7 @@ print("Hello World")
 ```
 </pre>
 
-<h2 id="字体颜色">字体颜色</h2>
+## 字体颜色
 ```CSS
 Some text in green! 123
 ```
@@ -268,3 +266,5 @@ Subscript-bold<sub>**min**</sub>
 
 1.  https://github.com/Olwiba/Kickass-markdown/
 2.  https://docs.github.com/zh/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax
+
+<!-- ##{"script":"<script src='https://blog.meekdai.com/assets/GmeekTOC.js'></script>"}## -->
