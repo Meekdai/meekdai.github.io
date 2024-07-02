@@ -58,3 +58,5 @@ mjpg_streamer -i "input_uvc.so -d /dev/video0 -n -f 10 -r 1280x720" -o "output_h
 可参考：https://docs.datarhei.com/restreamer/getting-started/quick-start
 
 试用`motion`和`restreamer`都出现视频卡顿的问题，不知道是不是我没有配置对，但是`MJPG-streamer`是真的开箱即用，很方便。
+
+<!-- ##{"script":"<script src='https://meekdai.com/GmeekTOC.js'></script>"}## -->
