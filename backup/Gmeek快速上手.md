@@ -156,7 +156,7 @@ Error: utterances is not installed on xxx/xxx.github.io. If you own this repo, i
 ## 四、进阶教程
 
 Gmeek的可定制化功能非常高，下面的链接是一些更加高级的设置教程，还有插件的使用等。
-https://blog.meekdai.com/tag.html#Gmeek
+https://meekdai.github.io/tag.html#Gmeek
 
 
 
