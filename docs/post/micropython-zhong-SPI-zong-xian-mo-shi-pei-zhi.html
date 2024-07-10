@@ -72,7 +72,7 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
     <div id="content">
 <div class="markdown-body" id="postBody"><p>在嵌入式系统中，很多板载芯片都是采用<code class="notranslate">SPI</code>总线进行通信，同一<code class="notranslate">SPI</code>总线上也运行挂载多个相同或者不同型号的芯片。但是要留意不同型号的芯片的<code class="notranslate">SPI</code>通信的时序图，一般会有4种模式。在<code class="notranslate">micropython</code>中，初始化<code class="notranslate">SPI</code>总线时，通过<code class="notranslate">phase</code>和<code class="notranslate">polarity</code>配置即可实现这4种模式。</p>
 <h3>四种模式</h3>
-<table role="table">
+<markdown-accessiblity-table><table role="table">
 <thead>
 <tr>
 <th align="center">模式</th>
@@ -102,13 +102,13 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 <td align="center">1</td>
 </tr>
 </tbody>
-</table>
+</table></markdown-accessiblity-table>
 <blockquote>
 <p>CPHA (phase) <strong>0</strong>--第1时钟边缘采样 <strong>1</strong>--第2时钟边缘采样<br>
 CPLO(polarity) <strong>0</strong>--空闲时钟低电平 <strong>1</strong>--空闲时钟高电平</p>
 </blockquote>
 <h3>常用芯片模式</h3>
-<table role="table">
+<markdown-accessiblity-table><table role="table">
 <thead>
 <tr>
 <th align="center">芯片</th>
@@ -141,7 +141,7 @@ CPLO(polarity) <strong>0</strong>--空闲时钟低电平 <strong>1</strong>--空
 <td align="center">MODE1</td>
 </tr>
 </tbody>
-</table>
+</table></markdown-accessiblity-table>
 <h3>示例</h3>
 <ol>
 <li>如下示例配置了<code class="notranslate">MODE3</code>，可以与所有支持<code class="notranslate">MODE3</code>的芯片通信。</li>
