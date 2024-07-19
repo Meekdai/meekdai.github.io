@@ -10,7 +10,7 @@ function createBSZ() {
 document.addEventListener("DOMContentLoaded", function() {
     createBSZ();
     var element = document.createElement('script');
-    element.src = 'https://cn.vercount.one/js';
+    element.src = 'https://vercount.one/js';
     document.head.appendChild(element);
     console.log("\n %c GmeekBSZ Plugins https://github.com/Meekdai/Gmeek \n","padding:5px 0;background:#bc4c00;color:#fff");
 });
