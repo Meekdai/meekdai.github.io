@@ -85,6 +85,9 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 </ol>
 <pre class="notranslate"><code class="notranslate">&lt;!-- ##{"script":"&lt;script src='https://blog.meekdai.com/assets/GmeekBSZ.js'&gt;&lt;/script&gt;"}## --&gt;
 </code></pre>
+<p>目前发现了不蒜子官方有一个BUG，就是Safari浏览器统计的pv数据不准确，具体可见文章<a href="https://jdhao.github.io/2020/10/31/busuanzi_pv_count_error/" rel="nofollow">解决不蒜子 (busuanzi) 文章计数出错问题</a>。所以找了一个可以兼容不蒜子的计数工具 <a href="https://github.com/EvanNotFound/vercount">Vercount</a>。只需要修改上面的配置中的<code class="notranslate">GmeekBSZ.js</code>为<code class="notranslate">GmeekVercount.js</code>即可，原先在不蒜子中的数据都会自动同步过来，非常方便。</p>
+<pre class="notranslate"><code class="notranslate">"allHead":"&lt;script src='https://blog.meekdai.com/assets/GmeekVercount.js'&gt;&lt;/script&gt;",
+</code></pre>
 <h2>TOC目录</h2>
 <p>如果某些文章比较长，里面有很多h1、h2、h3、h4等标题，就可以在右边显示TOC目录，方便导航到对应位置。例如：<a href="https://meekdai.github.io/post/markdown-ce-shi-ye-mian.html" rel="nofollow">markdown测试页面</a></p>
 <ol>

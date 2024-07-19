@@ -13,6 +13,12 @@
 <!-- ##{"script":"<script src='https://blog.meekdai.com/assets/GmeekBSZ.js'></script>"}## -->
 ```
 
+目前发现了不蒜子官方有一个BUG，就是Safari浏览器统计的pv数据不准确，具体可见文章[解决不蒜子 (busuanzi) 文章计数出错问题](https://jdhao.github.io/2020/10/31/busuanzi_pv_count_error/)。所以找了一个可以兼容不蒜子的计数工具 [Vercount](https://github.com/EvanNotFound/vercount)。只需要修改上面的配置中的`GmeekBSZ.js`为`GmeekVercount.js`即可，原先在不蒜子中的数据都会自动同步过来，非常方便。
+
+```
+"allHead":"<script src='https://blog.meekdai.com/assets/GmeekVercount.js'></script>",
+```
+
 ## TOC目录
 如果某些文章比较长，里面有很多h1、h2、h3、h4等标题，就可以在右边显示TOC目录，方便导航到对应位置。例如：[markdown测试页面](https://meekdai.github.io/post/markdown-ce-shi-ye-mian.html)
 
