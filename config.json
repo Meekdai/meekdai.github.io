@@ -19,5 +19,7 @@
     "exlink":{"music":"https://music.meekdai.com"},
     "ogImage":"https://blog.meekdai.com/avatar.svg",
     "primerCSS":"<link href='https://mirrors.sustech.edu.cn/cdnjs/ajax/libs/Primer/21.0.7/primer.css' rel='stylesheet' />",
+    "script":"<script src='https://blog.meekdai.com/assets/GmeekBSZ.js'></script>",
+    "indexScript":"<script src='https://blog.meekdai.com/assets/GmeekBSZ.js'></script>",
     "GMEEK_VERSION":"main"
 }
