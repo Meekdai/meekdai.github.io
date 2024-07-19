@@ -1,4 +1,4 @@
-为了使得Gmeek的功能更加的丰富，我添加了插件的功能，目前已经有2个插件可以使用。
+为了使得Gmeek的功能更加的丰富，我添加了插件的功能，目前已经有几个插件可以使用。
 
 ## 不蒜子
 [不蒜子](https://busuanzi.ibruce.info/)是一个极简网页计数器，很多同学都希望有这个功能，所以这个插件就来了。
@@ -13,10 +13,17 @@
 <!-- ##{"script":"<script src='https://blog.meekdai.com/assets/GmeekBSZ.js'></script>"}## -->
 ```
 
-目前发现了不蒜子官方有一个BUG，就是Safari浏览器统计的pv数据不准确，具体可见文章[解决不蒜子 (busuanzi) 文章计数出错问题](https://jdhao.github.io/2020/10/31/busuanzi_pv_count_error/)。所以找了一个可以兼容不蒜子的计数工具 [Vercount](https://github.com/EvanNotFound/vercount)。只需要修改上面的配置中的`GmeekBSZ.js`为`GmeekVercount.js`即可，原先在不蒜子中的数据都会自动同步过来，非常方便。
+## Vercount
+目前发现了不蒜子官方有一个BUG，就是Safari浏览器统计的pv数据不准确，具体可见文章[解决不蒜子 (busuanzi) 文章计数出错问题](https://jdhao.github.io/2020/10/31/busuanzi_pv_count_error/)。所以找了一个可以兼容不蒜子的计数工具 [Vercount](https://github.com/EvanNotFound/vercount)。不蒜子中的数据都会自动同步过来，非常方便。
 
+1. 全站添加Vercount，只需要在config.json文件内添加配置
 ```
 "allHead":"<script src='https://blog.meekdai.com/assets/GmeekVercount.js'></script>",
+```
+
+2. 单个文章页添加不蒜子，只需要在文章最后一行添加如下
+```
+<!-- ##{"script":"<script src='https://blog.meekdai.com/assets/GmeekVercount.js'></script>"}## -->
 ```
 
 ## TOC目录

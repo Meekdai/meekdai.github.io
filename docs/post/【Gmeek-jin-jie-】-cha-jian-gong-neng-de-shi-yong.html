@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link href='https://mirrors.sustech.edu.cn/cdnjs/ajax/libs/Primer/21.0.7/primer.css' rel='stylesheet' />
-    <script src='https://blog.meekdai.com/assets/GmeekBSZ.js'></script>
+    <script src='https://blog.meekdai.com/assets/GmeekVercount.js'></script>
     <link rel="icon" href="https://blog.meekdai.com/favicon.svg"><script>
         let theme = localStorage.getItem("meek_theme") || "light";
         document.documentElement.setAttribute("data-color-mode", theme);
     </script>
-<meta name="description" content="为了使得Gmeek的功能更加的丰富，我添加了插件的功能，目前已经有2个插件可以使用。">
+<meta name="description" content="为了使得Gmeek的功能更加的丰富，我添加了插件的功能，目前已经有几个插件可以使用。">
 <meta property="og:title" content="【Gmeek进阶】插件功能的使用">
-<meta property="og:description" content="为了使得Gmeek的功能更加的丰富，我添加了插件的功能，目前已经有2个插件可以使用。">
+<meta property="og:description" content="为了使得Gmeek的功能更加的丰富，我添加了插件的功能，目前已经有几个插件可以使用。">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://blog.meekdai.com/post/%E3%80%90Gmeek-jin-jie-%E3%80%91-cha-jian-gong-neng-de-shi-yong.html">
 <meta property="og:image" content="https://blog.meekdai.com/avatar.svg">
@@ -72,7 +72,7 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 </div>
 </div>
     <div id="content">
-<div class="markdown-body" id="postBody"><p>为了使得Gmeek的功能更加的丰富，我添加了插件的功能，目前已经有2个插件可以使用。</p>
+<div class="markdown-body" id="postBody"><p>为了使得Gmeek的功能更加的丰富，我添加了插件的功能，目前已经有几个插件可以使用。</p>
 <h2>不蒜子</h2>
 <p><a href="https://busuanzi.ibruce.info/" rel="nofollow">不蒜子</a>是一个极简网页计数器，很多同学都希望有这个功能，所以这个插件就来了。</p>
 <ol>
@@ -85,8 +85,17 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 </ol>
 <pre class="notranslate"><code class="notranslate">&lt;!-- ##{"script":"&lt;script src='https://blog.meekdai.com/assets/GmeekBSZ.js'&gt;&lt;/script&gt;"}## --&gt;
 </code></pre>
-<p>目前发现了不蒜子官方有一个BUG，就是Safari浏览器统计的pv数据不准确，具体可见文章<a href="https://jdhao.github.io/2020/10/31/busuanzi_pv_count_error/" rel="nofollow">解决不蒜子 (busuanzi) 文章计数出错问题</a>。所以找了一个可以兼容不蒜子的计数工具 <a href="https://github.com/EvanNotFound/vercount">Vercount</a>。只需要修改上面的配置中的<code class="notranslate">GmeekBSZ.js</code>为<code class="notranslate">GmeekVercount.js</code>即可，原先在不蒜子中的数据都会自动同步过来，非常方便。</p>
+<h2>Vercount</h2>
+<p>目前发现了不蒜子官方有一个BUG，就是Safari浏览器统计的pv数据不准确，具体可见文章<a href="https://jdhao.github.io/2020/10/31/busuanzi_pv_count_error/" rel="nofollow">解决不蒜子 (busuanzi) 文章计数出错问题</a>。所以找了一个可以兼容不蒜子的计数工具 <a href="https://github.com/EvanNotFound/vercount">Vercount</a>。不蒜子中的数据都会自动同步过来，非常方便。</p>
+<ol>
+<li>全站添加Vercount，只需要在config.json文件内添加配置</li>
+</ol>
 <pre class="notranslate"><code class="notranslate">"allHead":"&lt;script src='https://blog.meekdai.com/assets/GmeekVercount.js'&gt;&lt;/script&gt;",
+</code></pre>
+<ol start="2">
+<li>单个文章页添加不蒜子，只需要在文章最后一行添加如下</li>
+</ol>
+<pre class="notranslate"><code class="notranslate">&lt;!-- ##{"script":"&lt;script src='https://blog.meekdai.com/assets/GmeekVercount.js'&gt;&lt;/script&gt;"}## --&gt;
 </code></pre>
 <h2>TOC目录</h2>
 <p>如果某些文章比较长，里面有很多h1、h2、h3、h4等标题，就可以在右边显示TOC目录，方便导航到对应位置。例如：<a href="https://meekdai.github.io/post/markdown-ce-shi-ye-mian.html" rel="nofollow">markdown测试页面</a></p>
