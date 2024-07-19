@@ -1,5 +1,11 @@
 [Gmeek](https://github.com/Meekdai/Gmeek) 一个博客框架，超轻量级个人博客模板，完全基于`Github Pages `、 `Github Issues` 和 `Github Actions`，可以称作`All in Github`。不需要本地部署，从搭建到写作，只需要18秒，2步搭建好博客，第3步就是写作。
 
+#### 20240719（v2.22）
+- 添加插件功能，目前有2个插件可用。
+- 修复只有标题没有文章内容导致的获取字数失败的BUG https://github.com/Meekdai/Gmeek/issues/136
+- 添加allHead配置，用于自定义所有页面的head内容 
+- 添加head配置，用于配置自定义文章页head内容 https://github.com/Meekdai/Gmeek/issues/135
+
 #### 20240701（v2.21）
 - 修改static文件拷贝策略，可以实现拷贝文件到根目录，比如robots.txt文件。
 
