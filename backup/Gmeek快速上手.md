@@ -56,6 +56,8 @@
 "urlMode":"pinyin",
 "style":"",
 "script":"",
+"head":"",
+"allHead":"",
 "indexStyle":"",
 "indexScript":"",
 "showPostSource":1,
@@ -93,8 +95,10 @@
 | dayTheme | 用于定义[亮主题](https://github.com/settings/appearance) |
 | nightTheme | 用于定义[暗主题](https://github.com/settings/appearance) |
 | urlMode | 用于定义文章链接生成模式，目前支持`pinyin`/`issue`/`ru_translit` |
-| style | 用于自定义文章页全局CSS |
-| script | 用于自定义文章页全局JavaScript |
+| style | 用于自定义文章页CSS |
+| script | 用于自定义文章页JavaScript |
+| head | 用于自定义文章页head内容 |
+| allHead | 用于自定义所有页面head内容 |
 | indexStyle | 用于自定义首页CSS |
 | indexScript | 用于自定义首页JavaScript |
 | showPostSource | 设置为1则在文章页显示issue链接按钮，设置为0则不显示 |
