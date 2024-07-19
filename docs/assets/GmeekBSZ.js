@@ -23,12 +23,13 @@ function createBSZ() {
     var bszElement = document.createElement('div');
     bszElement.id = 'busuanzi';
     bszElement.innerHTML = "本文浏览量 ";
-    // bszElement.style.display='none';
+    bszElement.style.display='none';
     bszElement.style.float="left";
-    bszElement.style.margin="8px";
+    bszElement.style.marginTop="8px";
+    bszElement.style.fontSize="small";
 
     var sitePV = document.createElement('span');
-    sitePV.id = 'busuanzi_value_site_pv';
+    sitePV.id = 'busuanzi_value_page_pv';
 
     bszElement.appendChild(sitePV);
     parent.insertBefore(bszElement, postBody.nextSibling);
