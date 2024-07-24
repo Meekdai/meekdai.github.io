@@ -5,12 +5,12 @@
 
 1. 全站添加不蒜子，只需要在config.json文件内添加配置
 ```
-"allHead":"<script src='https://blog.meekdai.com/assets/GmeekBSZ.js'></script>",
+"allHead":"<script src='https://blog.meekdai.com/Gmeek/plugins/GmeekBSZ.js'></script>",
 ```
 
 2. 单个文章页添加不蒜子，只需要在文章最后一行添加如下
 ```
-<!-- ##{"script":"<script src='https://blog.meekdai.com/assets/GmeekBSZ.js'></script>"}## -->
+<!-- ##{"script":"<script src='https://blog.meekdai.com/Gmeek/plugins/GmeekBSZ.js'></script>"}## -->
 ```
 
 ## Vercount
@@ -18,12 +18,12 @@
 
 1. 全站添加Vercount，只需要在config.json文件内添加配置
 ```
-"allHead":"<script src='https://blog.meekdai.com/assets/GmeekVercount.js'></script>",
+"allHead":"<script src='https://blog.meekdai.com/Gmeek/plugins/GmeekVercount.js'></script>",
 ```
 
 2. 单个文章页添加不蒜子，只需要在文章最后一行添加如下
 ```
-<!-- ##{"script":"<script src='https://blog.meekdai.com/assets/GmeekVercount.js'></script>"}## -->
+<!-- ##{"script":"<script src='https://blog.meekdai.com/Gmeek/plugins/GmeekVercount.js'></script>"}## -->
 ```
 
 ## TOC目录
@@ -31,21 +31,21 @@
 
 1. 所有文章页添加TOC目录，只需要在config.json文件内添加配置
 ```
-"script":"<script src='https://blog.meekdai.com/assets/GmeekTOC.js'></script>",
+"script":"<script src='https://blog.meekdai.com/Gmeek/plugins/GmeekTOC.js'></script>",
 ```
 
 2. 单个文章页添加TOC目录，只需要在文章最后一行添加如下
 ```
-<!-- ##{"script":"<script src='https://blog.meekdai.com/assets/GmeekTOC.js'></script>"}## -->
+<!-- ##{"script":"<script src='https://blog.meekdai.com/Gmeek/plugins/GmeekTOC.js'></script>"}## -->
 ```
 
 ## ArticleToc
 本插件由[Tiengming](https://code.buxiantang.top/)编写，也是一个非常不错的TOC目录插件。配置方式和上面一样，只需要替换地址为如下地址即可。
 ```
-https://code.buxiantang.top/assets/articletoc.js
+https://blog.meekdai.com/Gmeek/plugins/articletoc.js
 ```
 
 ## 其他
 有了插件就可以在基础版的Gmeek框架上玩出很多很多定制化的功能，简单的UI修改也可以通过插件实现，只需要学习一点点前端知识，另外非常欢迎大家一起完善Gmeek，开发出更多的插件。
 
-<!-- ##{"script":"<script src='https://blog.meekdai.com/assets/GmeekTOC.js'></script>"}## -->
+<!-- ##{"script":"<script src='https://blog.meekdai.com/Gmeek/plugins/GmeekTOC.js'></script>"}## -->
