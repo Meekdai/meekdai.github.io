@@ -71,6 +71,8 @@ document.addEventListener("DOMContentLoaded", function() {
             transform:none;
             padding:10px;
             margin-bottom:20px;
+            max-height: 40vh;
+            width:60%;
         }
     }`;
 
