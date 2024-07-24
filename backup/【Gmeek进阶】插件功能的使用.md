@@ -45,6 +45,19 @@
 https://blog.meekdai.com/Gmeek/plugins/articletoc.js
 ```
 
+## 灯箱插件
+本插件由[Tiengming](https://code.buxiantang.top/)编写，可以放大浏览文章中的图片，适合一些图片较多的文章。
+
+1. 所有文章页添加lightbox，只需要在config.json文件内添加配置
+```
+"script":"<script src='https://blog.meekdai.com/Gmeek/plugins/lightbox.js'></script>",
+```
+
+2. 单个文章页添加lightbox，只需要在文章最后一行添加如下
+```
+<!-- ##{"script":"<script src='https://blog.meekdai.com/Gmeek/plugins/lightbox.js'></script>"}## -->
+```
+
 ## 其他
 有了插件就可以在基础版的Gmeek框架上玩出很多很多定制化的功能，简单的UI修改也可以通过插件实现，只需要学习一点点前端知识，另外非常欢迎大家一起完善Gmeek，开发出更多的插件。
 
