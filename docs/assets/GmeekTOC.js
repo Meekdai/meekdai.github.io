@@ -16,7 +16,7 @@ function createTOC() {
         link.style.paddingLeft = `${(parseInt(heading.tagName.charAt(1)) - 1) * 10}px`;
         tocElement.appendChild(link);
     });
-    tocElement.insertAdjacentHTML('beforeend', '<a href="#" class="toc-end" onclick="window.scrollTo({top:0,behavior: \'smooth\'});">Top</a>');
+    tocElement.insertAdjacentHTML('beforeend', '<a class="toc-end" onclick="window.scrollTo({top:0,behavior: \'smooth\'});">Top</a>');
 }
 
 document.addEventListener("DOMContentLoaded", function() {
