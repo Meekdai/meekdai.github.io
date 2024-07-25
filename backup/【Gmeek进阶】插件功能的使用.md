@@ -72,10 +72,19 @@ https://blog.meekdai.com/Gmeek/plugins/articletoc.js
 ```
 
 ## 多插件使用
-比如我需要同时在所有文章页使用`TOC目录`和`灯箱插件`，需要这样添加配置文件：
+
+同时在所有文章页使用`TOC目录`和`灯箱插件`，需要这样添加配置文件：
 ```
 "script":"<script src='https://blog.meekdai.com/Gmeek/plugins/GmeekTOC.js'></script><script src='https://blog.meekdai.com/Gmeek/plugins/lightbox.js'></script>",
 ```
+同时在一篇文章页使用`TOC目录`和`灯箱插件`，需要这样添加配置文件：
+```
+<!-- ##{"script":"<script src='https://blog.meekdai.com/Gmeek/plugins/GmeekTOC.js'></script><script src='https://blog.meekdai.com/Gmeek/plugins/lightbox.js'></script>"}## -->
+```
+
+> [!CAUTION]
+> 需要特别注意区分`script` `head` `allHead` 等这些键的用途，详细请参考 [Gmeek快速上手](https://blog.meekdai.com/post/Gmeek-kuai-su-shang-shou.html#%E4%BA%8C%E3%80%81%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6)
+
 
 ## 其他
 有了插件就可以在基础版的Gmeek框架上玩出很多很多定制化的功能，简单的UI修改也可以通过插件实现，只需要学习一点点前端知识，另外非常欢迎大家一起完善Gmeek，开发出更多的插件。
