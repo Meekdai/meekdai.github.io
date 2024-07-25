@@ -45,7 +45,7 @@
 <!-- ##{"script":"<script src='https://blog.meekdai.com/Gmeek/plugins/GmeekTOC.js'></script>"}## -->
 ```
 
-## ArticleToc
+## articletoc
 
 > [!TIP]
 > 效果预览：[Markdown语法总览](https://code.buxiantang.top/post/Markdown-yu-fa-zong-lan.html) 在右下角有个圆形按钮。
@@ -69,6 +69,12 @@ https://blog.meekdai.com/Gmeek/plugins/articletoc.js
 2. 单个文章页添加lightbox，只需要在文章最后一行添加如下
 ```
 <!-- ##{"script":"<script src='https://blog.meekdai.com/Gmeek/plugins/lightbox.js'></script>"}## -->
+```
+
+## 多插件使用
+比如我需要同时在所有文章页使用`TOC目录`和`灯箱插件`，需要这样添加配置文件：
+```
+"script":"<script src='https://blog.meekdai.com/Gmeek/plugins/GmeekTOC.js'></script><script src='https://blog.meekdai.com/Gmeek/plugins/lightbox.js'></script>",
 ```
 
 ## 其他
