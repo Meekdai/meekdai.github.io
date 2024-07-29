@@ -77,8 +77,8 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 <p>可以直接通过阿里云等服务商申请免费的SSL证书。如果有宝塔也可以使用宝塔自带的<code class="notranslate">Let's Encrypt</code>申请。成功后可以得到<code class="notranslate">密钥(KEY)</code>和<code class="notranslate">证书(PEM格式)</code>两个文件。需要存放到一个合适的位置。</p>
 <h2>配置证书</h2>
 <p>在<code class="notranslate">coder/.config/code-server/config.yaml</code>中把配置<code class="notranslate">cert: false</code>修改如下，下面这两个文件对应上面申请的2个文件的路径，特别注意文件的权限问题。</p>
-<pre class="notranslate"><code class="notranslate">cert: /home/coder/.local/share/code-server/cert/xxx_public.crt
-cert-key: /home/coder/.local/share/code-server/cert/xxx.key
+<pre class="notranslate"><code class="notranslate">cert: /home/docker/cert/xxx_public.crt
+cert-key: /home/docker/cert/xxx.key
 </code></pre>
 <p>然后重启Code-Server服务就可以通过https来访问了。</p>
 <h2>其他</h2>

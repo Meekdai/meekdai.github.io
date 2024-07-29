@@ -7,8 +7,8 @@ Code-Server是一款网页版的IDE，相当于VSCode网页版，搭建完成后
 在`coder/.config/code-server/config.yaml`中把配置`cert: false`修改如下，下面这两个文件对应上面申请的2个文件的路径，特别注意文件的权限问题。
 
 ```
-cert: /home/coder/.local/share/code-server/cert/xxx_public.crt
-cert-key: /home/coder/.local/share/code-server/cert/xxx.key
+cert: /home/docker/cert/xxx_public.crt
+cert-key: /home/docker/cert/xxx.key
 ```
 然后重启Code-Server服务就可以通过https来访问了。
 
