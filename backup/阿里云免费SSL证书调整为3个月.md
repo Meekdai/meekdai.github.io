@@ -10,3 +10,16 @@ https://help.aliyun.com/zh/cdn/product-overview/terminate-automatic-renewal-of-f
 
 后续如果有推荐的免费证书或者有啥自动续签的方式，再来记录了。
 
+### 20240729更新
+
+突然发现解析到Github的二级域名，只需要在仓库的设置里面勾选`Enforce HTTPS`后，会自动申请[Let's Encrypt](https://letsencrypt.org/)证书，非常方便。
+
+然后也试用了一下[certd](https://github.com/certd/certd)这个开源项目，可以直接通过docker部署，自动申请证书以及上传证书到阿里云。
+
+不过目前也就只有 https://meekdai.com/ 这一个顶级域名需要每过3个月重新申请一下，目前来说还是很方便的，只需要2个步骤如下。
+
+> [!TIP]
+> 1. SSL证书管理页面申请新的证书
+> 2. 通过后，点击部署，直接部署到对应的OSS即可
+
+

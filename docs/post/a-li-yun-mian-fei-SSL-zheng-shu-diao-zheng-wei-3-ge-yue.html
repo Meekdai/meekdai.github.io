@@ -42,7 +42,7 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
     .postTitle{font-size:24px;}
 }
 </style>
-
+<style>.markdown-alert{padding:0.5rem 1rem;margin-bottom:1rem;border-left:.25em solid var(--borderColor-default,var(--color-border-default));}.markdown-alert .markdown-alert-title {display:flex;font-weight:var(--base-text-weight-medium,500);align-items:center;line-height:1;}.markdown-alert>:first-child {margin-top:0;}.markdown-alert>:last-child {margin-bottom:0;}</style><style>.markdown-alert.markdown-alert-tip {border-left-color:var(--borderColor-success-emphasis, var(--color-success-emphasis));background-color:var(--color-success-subtle);}.markdown-alert.markdown-alert-tip .markdown-alert-title {color: var(--fgColor-success,var(--color-success-fg));}</style>
 
 
 
@@ -78,7 +78,17 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 <p>关于HTTPS免费证书停止自动续签的公告<br>
 <a href="https://help.aliyun.com/zh/cdn/product-overview/terminate-automatic-renewal-of-free-ssl-certificates" rel="nofollow">https://help.aliyun.com/zh/cdn/product-overview/terminate-automatic-renewal-of-free-ssl-certificates</a></p>
 <p>从这两个通知中可以看出，之后要么寻找其他的免费证书，要么老老实实的买68一年的付费证书。目前还是等到期了再看看阿里云有没有提前邮件通知，以及续签的方便程度来决定是否需要折腾一下其他免费证书。</p>
-<p>后续如果有推荐的免费证书或者有啥自动续签的方式，再来记录了。</p></div>
+<p>后续如果有推荐的免费证书或者有啥自动续签的方式，再来记录了。</p>
+<h3>20240729更新</h3>
+<p>突然发现解析到Github的二级域名，只需要在仓库的设置里面勾选<code class="notranslate">Enforce HTTPS</code>后，会自动申请<a href="https://letsencrypt.org/" rel="nofollow">Let's Encrypt</a>证书，非常方便。</p>
+<p>然后也试用了一下<a href="https://github.com/certd/certd">certd</a>这个开源项目，可以直接通过docker部署，自动申请证书以及上传证书到阿里云。</p>
+<p>不过目前也就只有 <a href="https://meekdai.com/" rel="nofollow">https://meekdai.com/</a> 这一个顶级域名需要每过3个月重新申请一下，目前来说还是很方便的，只需要2个步骤如下。</p>
+<div class="markdown-alert markdown-alert-tip"><p class="markdown-alert-title"><svg class="octicon octicon-light-bulb mr-2" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M8 1.5c-2.363 0-4 1.69-4 3.75 0 .984.424 1.625.984 2.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621 1.49a.75.75 0 0 1-1.484.211c-.04-.282-.163-.547-.37-.847a8.456 8.456 0 0 0-.542-.68c-.084-.1-.173-.205-.268-.32C3.201 7.75 2.5 6.766 2.5 5.25 2.5 2.31 4.863 0 8 0s5.5 2.31 5.5 5.25c0 1.516-.701 2.5-1.328 3.259-.095.115-.184.22-.268.319-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.751.751 0 0 1-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848.075-.088.147-.173.213-.253.561-.679.985-1.32.985-2.304 0-2.06-1.637-3.75-4-3.75ZM5.75 12h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM6 15.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75Z"></path></svg>Tip</p>
+<ol>
+<li>SSL证书管理页面申请新的证书</li>
+<li>通过后，点击部署，直接部署到对应的OSS即可</li>
+</ol>
+</div></div>
 <div style="font-size:small;margin-top:8px;float:right;">❤️ 转载文章请注明出处，谢谢！❤️</div>
 
 <button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
