@@ -163,7 +163,7 @@ Some text highlighted in red! 123
 
 <samp>Monospaced text</samp>
 
-```
+```html
 <samp>Monospaced text</samp>
 ```
 
@@ -171,7 +171,7 @@ Some text highlighted in red! 123
 
 <ins>Underlined text</ins>
 
-```
+```html
 <ins>Underlined text</ins>
 ```
 
@@ -179,7 +179,7 @@ Some text highlighted in red! 123
 
 <table><tr><td>Boxed text</td></tr></table>
 
-```
+```html
 <table><tr><td>Boxed text</td></tr></table>
 ```
 
