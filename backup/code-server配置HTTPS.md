@@ -21,7 +21,4 @@ cert-key: /home/docker/cert/xxx.key
 2. Delete domain security policies 一栏里面填写这个域名点击`Delete`按钮即可
 3. 这个方法是一次性的
 
-参考链接：[centos搭建code-server及配置HTTPS、登录页自定义](https://juejin.cn/post/7230335974085525541)
-
-
-
+参考链接：<a href="https://juejin.cn/post/7230335974085525541" rel="nofollow">centos搭建code-server及配置HTTPS、登录页自定义</a>
