@@ -3,6 +3,7 @@
 #### 20240811（v2.24）
 - 添加几个插件，并且自动部署，保存在[plugins](https://github.com/Meekdai/Gmeek/tree/main/plugins)
 - 添加代码复制按钮
+- 修复新增label无颜色的BUG https://github.com/Meekdai/Gmeek/issues/153
 
 #### 20240719（v2.22）
 - 添加插件功能，目前有2个插件可用。 [【Gmeek进阶】插件功能的使用](https://meekdai.github.io/post/%E3%80%90Gmeek-jin-jie-%E3%80%91-cha-jian-gong-neng-de-shi-yong.html)
