@@ -17,7 +17,7 @@
 <meta property="og:url" content="https://blog.meekdai.com/post/markdown-ce-shi-ye-mian.html">
 <meta property="og:image" content="https://blog.meekdai.com/avatar.svg">
 <title>markdown测试页面</title>
-<link href="//unpkg.com/@wooorm/starry-night@2.1.1/style/both.css" rel="stylesheet" />
+
 
 
 </head>
@@ -85,27 +85,32 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
     <div id="content">
 <div class="markdown-body" id="postBody"><p>这是一个markdown格式的测试页面，也是个人经常会使用的格式记录。</p>
 <h2>Static Badge</h2>
-<div class="highlight highlight-text-md"><pre class="notranslate"><span class="pl-s">![</span><span class="pl-s">]</span><span class="pl-s">(</span><span class="pl-corl">https://img.shields.io/badge/参考页面-orange</span><span class="pl-s">)</span></pre></div>
+<pre lang="markdown" class="notranslate"><code class="notranslate">![](https://img.shields.io/badge/参考页面-orange)
+</code></pre>
 <p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/d807703912e2569aebe8076458386a85b94e6d197e973b1326b2084f4d51c249/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f2545352538462538322545382538302538332545392541312542352545392539442541322d6f72616e6765"><img src="https://camo.githubusercontent.com/d807703912e2569aebe8076458386a85b94e6d197e973b1326b2084f4d51c249/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f2545352538462538322545382538302538332545392541312542352545392539442541322d6f72616e6765" alt="" data-canonical-src="https://img.shields.io/badge/%E5%8F%82%E8%80%83%E9%A1%B5%E9%9D%A2-orange" style="max-width: 100%;"></a></p>
 <h2>标题</h2>
-<div class="highlight highlight-text-md"><pre class="notranslate"><span class="pl-mh"># <span class="pl-en">H1</span></span>
-<span class="pl-mh">## <span class="pl-en">H2</span></span>
-<span class="pl-mh">### <span class="pl-en">H3</span></span>
-<span class="pl-mh">#### <span class="pl-en">H4</span></span></pre></div>
+<pre lang="markdown" class="notranslate"><code class="notranslate"># H1
+## H2
+### H3
+#### H4
+</code></pre>
 <h2>强调</h2>
-<div class="highlight highlight-text-md"><pre class="notranslate">今天的天气真好啊，可以吃<span class="pl-s">**</span>冰激凌<span class="pl-s">**</span>吗？</pre></div>
+<pre lang="markdown" class="notranslate"><code class="notranslate">今天的天气真好啊，可以吃**冰激凌**吗？
+</code></pre>
 <p>今天的天气真好啊，可以吃<strong>冰激凌</strong>吗？</p>
 <h2>删除横线</h2>
-<div class="highlight highlight-text-md"><pre class="notranslate">今天的天气真好啊，可以吃<span class="pl-s">~~</span>冰激凌<span class="pl-s">~~</span>吗？</pre></div>
+<pre lang="markdown" class="notranslate"><code class="notranslate">今天的天气真好啊，可以吃~~冰激凌~~吗？
+</code></pre>
 <p>今天的天气真好啊，可以吃<del>冰激凌</del>吗？</p>
 <h2>列表</h2>
-<div class="highlight highlight-text-md"><pre class="notranslate"><span class="pl-s">1</span><span class="pl-v">.</span> 看电视
-<span class="pl-s">2</span><span class="pl-v">.</span> 吃饭
-<span class="pl-s">3</span><span class="pl-v">.</span> 睡觉
+<pre lang="markdown" class="notranslate"><code class="notranslate">1. 看电视
+2. 吃饭
+3. 睡觉
 
-<span class="pl-v">-</span> 乒乓球
-<span class="pl-v">-</span> 篮球
-<span class="pl-v">-</span> 羽毛球</pre></div>
+- 乒乓球
+- 篮球
+- 羽毛球
+</code></pre>
 <ol>
 <li>看电视</li>
 <li>吃饭</li>
@@ -123,25 +128,29 @@ import time</p>
 <p>time.sleep_ms(1000)<br>
 print("Hello World")<br>
 ```</p>
-<div class="highlight highlight-source-python"><pre class="notranslate"><span class="pl-k">import</span> <span class="pl-s1">request</span>
-<span class="pl-k">import</span> <span class="pl-s1">time</span>
+<pre lang="python" class="notranslate"><code class="notranslate">import request
+import time
 
-<span class="pl-s1">time</span>.<span class="pl-en">sleep_ms</span>(<span class="pl-c1">1000</span>)
-<span class="pl-en">print</span>(<span class="pl-s">"Hello World"</span>)</pre></div>
+time.sleep_ms(1000)
+print("Hello World")
+</code></pre>
 <h2>链接</h2>
-<div class="highlight highlight-text-md"><pre class="notranslate"><span class="pl-s">[</span>我的博客<span class="pl-s">]</span><span class="pl-s">(</span><span class="pl-corl">https://meekdai.github.io</span><span class="pl-s">)</span></pre></div>
+<pre lang="markdown" class="notranslate"><code class="notranslate">[我的博客](https://meekdai.github.io)
+</code></pre>
 <p><a href="https://meekdai.github.io" rel="nofollow">我的博客</a></p>
 <h2>图片</h2>
-<div class="highlight highlight-text-md"><pre class="notranslate"><span class="pl-s">![</span>这是我的头像PNG<span class="pl-s">]</span><span class="pl-s">(</span><span class="pl-corl">https://github.com/Meekdai/meekdai.github.io/assets/11755104/e4da3470-d4b1-4cc7-9d84-f7da69f90a76</span><span class="pl-s">)</span>
-<span class="pl-s">![</span>这是我的头像SVG<span class="pl-s">]</span><span class="pl-s">(</span><span class="pl-corl">https://blog.meekdai.com/avatar.svg</span><span class="pl-s">)</span></pre></div>
+<pre lang="markdown" class="notranslate"><code class="notranslate">![这是我的头像PNG](https://github.com/Meekdai/meekdai.github.io/assets/11755104/e4da3470-d4b1-4cc7-9d84-f7da69f90a76)
+![这是我的头像SVG](https://blog.meekdai.com/avatar.svg)
+</code></pre>
 <p><a target="_blank" rel="noopener noreferrer" href="https://github.com/Meekdai/meekdai.github.io/assets/11755104/e4da3470-d4b1-4cc7-9d84-f7da69f90a76"><img src="https://github.com/Meekdai/meekdai.github.io/assets/11755104/e4da3470-d4b1-4cc7-9d84-f7da69f90a76" alt="这是我的头像PNG" style="max-width: 100%;"></a></p>
 <p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/18745789fceeb9c56af5f0a23bc9b6f81b4c882f7964ef8b0b01f8b2dc9ea815/68747470733a2f2f626c6f672e6d65656b6461692e636f6d2f6176617461722e737667"><img src="https://camo.githubusercontent.com/18745789fceeb9c56af5f0a23bc9b6f81b4c882f7964ef8b0b01f8b2dc9ea815/68747470733a2f2f626c6f672e6d65656b6461692e636f6d2f6176617461722e737667" alt="这是我的头像SVG" data-canonical-src="https://blog.meekdai.com/avatar.svg" style="max-width: 100%;"></a></p>
 <h2>表格</h2>
-<div class="highlight highlight-text-md"><pre class="notranslate"><span class="pl-ml">|</span> Table Heading 1 <span class="pl-ml">|</span> Table Heading 2 <span class="pl-ml">|</span> Center align    <span class="pl-ml">|</span> Right align     <span class="pl-ml">|</span> Table Heading 5 <span class="pl-ml">|</span>
-<span class="pl-ml">|</span> :-------------- <span class="pl-ml">|</span> :-------------- <span class="pl-ml">|</span> :-------------: <span class="pl-ml">|</span> --------------: <span class="pl-ml">|</span> :-------------- <span class="pl-ml">|</span>
-<span class="pl-ml">|</span> Item 1          <span class="pl-ml">|</span> Item 2          <span class="pl-ml">|</span> Item 3          <span class="pl-ml">|</span> Item 4          <span class="pl-ml">|</span> Item 5          <span class="pl-ml">|</span>
-<span class="pl-ml">|</span> Item 1          <span class="pl-ml">|</span> Item 2          <span class="pl-ml">|</span> Item 3          <span class="pl-ml">|</span> Item 4          <span class="pl-ml">|</span> Item 5          <span class="pl-ml">|</span>
-<span class="pl-ml">|</span> Item 1          <span class="pl-ml">|</span> Item 2          <span class="pl-ml">|</span> Item 3          <span class="pl-ml">|</span> Item 4          <span class="pl-ml">|</span> Item 5          <span class="pl-ml">|</span></pre></div>
+<pre lang="markdown" class="notranslate"><code class="notranslate">| Table Heading 1 | Table Heading 2 | Center align    | Right align     | Table Heading 5 |
+| :-------------- | :-------------- | :-------------: | --------------: | :-------------- |
+| Item 1          | Item 2          | Item 3          | Item 4          | Item 5          |
+| Item 1          | Item 2          | Item 3          | Item 4          | Item 5          |
+| Item 1          | Item 2          | Item 3          | Item 4          | Item 5          |
+</code></pre>
 <markdown-accessiblity-table><table role="table">
 <thead>
 <tr>
@@ -177,33 +186,39 @@ print("Hello World")<br>
 </tbody>
 </table></markdown-accessiblity-table>
 <h2>水平线</h2>
-<div class="highlight highlight-text-md"><pre class="notranslate"><span class="pl-s">---</span>
-<span class="pl-s">我在2个水平线中间</span>
-<span class="pl-s">***</span></pre></div>
+<pre lang="markdown" class="notranslate"><code class="notranslate">---
+我在2个水平线中间
+***
+</code></pre>
 <hr>
 <p>我在2个水平线中间</p>
 <hr>
 <h2>引用</h2>
-<div class="highlight highlight-text-md"><pre class="notranslate"><span class="pl-ent"><span class="pl-ent">&gt; </span>落霞与孤鹜齐飞，秋水共长天一色。《滕王阁序》--王勃 </span></pre></div>
+<pre lang="markdown" class="notranslate"><code class="notranslate">&gt; 落霞与孤鹜齐飞，秋水共长天一色。《滕王阁序》--王勃 
+</code></pre>
 <blockquote>
 <p>落霞与孤鹜齐飞，秋水共长天一色。《滕王阁序》--王勃</p>
 </blockquote>
 <h2>对比</h2>
-<div class="highlight highlight-source-diff"><pre class="notranslate"><span class="pl-mi1"><span class="pl-mi1">+</span> this text is highlighted in green</span>
-<span class="pl-md"><span class="pl-md">-</span> this text is highlighted in red</span></pre></div>
+<pre lang="diff" class="notranslate"><code class="notranslate">+ this text is highlighted in green
+- this text is highlighted in red
+</code></pre>
 <pre class="notranslate">```diff
 + this text is highlighted in green
 - this text is highlighted in red
 ```
 </pre>
 <h2>字体颜色</h2>
-<div class="highlight highlight-source-css"><pre class="notranslate"><span class="pl-ent">Some</span> <span class="pl-ent">text</span> <span class="pl-ent">in</span> <span class="pl-ent">green</span>! 123</pre></div>
+<pre lang="CSS" class="notranslate"><code class="notranslate">Some text in green! 123
+</code></pre>
 <pre class="notranslate">```CSS
 Some text in green! 123
 ```
 </pre>
-<div class="highlight highlight-source-p4"><pre class="notranslate"><span class="pl-c1">Some</span> <span class="pl-c1">text</span> <span class="pl-c1">in</span> <span class="pl-c1">blue</span>! <span class="pl-c1">123</span></pre></div>
-<div class="highlight highlight-source-mint"><pre class="notranslate"><span class="pl-en">Some</span> <span class="pl-c1">text</span> <span class="pl-c1">in</span> <span class="pl-c1">blue</span> <span class="pl-k">with</span> <span class="pl-c1">additional</span> <span class="pl-c1">keyword</span> <span class="pl-c1">highlighting</span>! <span class="pl-c1">123</span></pre></div>
+<pre lang="P4" class="notranslate"><code class="notranslate">Some text in blue! 123
+</code></pre>
+<pre lang="Mint" class="notranslate"><code class="notranslate">Some text in blue with additional keyword highlighting! 123
+</code></pre>
 <pre class="notranslate">```P4
 Some text in blue! 123
 ```
@@ -212,27 +227,32 @@ Some text in blue! 123
 Some text in blue with additional keyword highlighting! 123
 ```
 </pre>
-<div class="highlight highlight-source-json"><pre class="notranslate"><span class="pl-ii">Some text highlighted in red! 123</span></pre></div>
+<pre lang="JSON" class="notranslate"><code class="notranslate">Some text highlighted in red! 123
+</code></pre>
 <pre class="notranslate">```JSON
 Some text highlighted in red! 123
 ```
 </pre>
 <h2>HTML tricks</h2>
 <p><samp>Monospaced text</samp></p>
-<div class="highlight highlight-text-html-basic"><pre class="notranslate"><span class="pl-kos">&lt;</span><span class="pl-ent">samp</span><span class="pl-kos">&gt;</span>Monospaced text<span class="pl-kos">&lt;/</span><span class="pl-ent">samp</span><span class="pl-kos">&gt;</span></pre></div>
+<pre lang="html" class="notranslate"><code class="notranslate">&lt;samp&gt;Monospaced text&lt;/samp&gt;
+</code></pre>
 <hr>
 <p><ins>Underlined text</ins></p>
-<div class="highlight highlight-text-html-basic"><pre class="notranslate"><span class="pl-kos">&lt;</span><span class="pl-ent">ins</span><span class="pl-kos">&gt;</span>Underlined text<span class="pl-kos">&lt;/</span><span class="pl-ent">ins</span><span class="pl-kos">&gt;</span></pre></div>
+<pre lang="html" class="notranslate"><code class="notranslate">&lt;ins&gt;Underlined text&lt;/ins&gt;
+</code></pre>
 <hr>
 <markdown-accessiblity-table><table role="table"><tbody><tr><td>Boxed text</td></tr></tbody></table></markdown-accessiblity-table>
-<div class="highlight highlight-text-html-basic"><pre class="notranslate"><span class="pl-kos">&lt;</span><span class="pl-ent">table</span><span class="pl-kos">&gt;</span><span class="pl-kos">&lt;</span><span class="pl-ent">tr</span><span class="pl-kos">&gt;</span><span class="pl-kos">&lt;</span><span class="pl-ent">td</span><span class="pl-kos">&gt;</span>Boxed text<span class="pl-kos">&lt;/</span><span class="pl-ent">td</span><span class="pl-kos">&gt;</span><span class="pl-kos">&lt;/</span><span class="pl-ent">tr</span><span class="pl-kos">&gt;</span><span class="pl-kos">&lt;/</span><span class="pl-ent">table</span><span class="pl-kos">&gt;</span></pre></div>
+<pre lang="html" class="notranslate"><code class="notranslate">&lt;table&gt;&lt;tr&gt;&lt;td&gt;Boxed text&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+</code></pre>
 <hr>
 <details>
 <summary>Item summary with dropdown</summary>
 <p>Dropdown content (supports <strong>markdown</strong> <del>yay!</del>)</p>
-<div class="highlight highlight-source-json"><pre class="notranslate">{
-  <span class="pl-ii">awesome: "true"</span>
-}</pre></div>
+<pre lang="json" class="notranslate"><code class="notranslate">{
+  awesome: "true"
+}
+</code></pre>
 </details>
 <pre class="notranslate">&lt;details&gt;
 &lt;summary&gt;Item summary with dropdown&lt;/summary&gt;
