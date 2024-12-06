@@ -86,10 +86,10 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 <div class="markdown-body" id="postBody"><p>在树莓派4之前，都是一个HDMI接口，所以没有这个问题。而树莓派4B有2个HDMI接口，可以输出双4K。</p>
 <p>在树莓派根目录下有一个文件<code class="notranslate">config.txt</code>,我们需要修改里面的参数。</p>
 <p>下面的配置为HDMI0输出<code class="notranslate">1080P 60Hz</code>，HDMI1输出<code class="notranslate">1024*768 60Hz</code>。</p>
-<div class="highlight highlight-source-python"><pre class="notranslate">[<span class="pl-v">HDMI</span>:<span class="pl-c1">0</span>]
+<div class="highlight highlight-source-python"><pre class="notranslate">[<span class="pl-c1">HDMI</span>:<span class="pl-c1">0</span>]
   <span class="pl-s1">hdmi_group</span><span class="pl-c1">=</span><span class="pl-c1">2</span>
   <span class="pl-s1">hdmi_mode</span><span class="pl-c1">=</span><span class="pl-c1">82</span>
-[<span class="pl-v">HDMI</span>:<span class="pl-c1">1</span>]
+[<span class="pl-c1">HDMI</span>:<span class="pl-c1">1</span>]
   <span class="pl-s1">hdmi_group</span><span class="pl-c1">=</span><span class="pl-c1">2</span>
   <span class="pl-s1">hdmi_mode</span><span class="pl-c1">=</span><span class="pl-c1">16</span></pre></div>
 <p><code class="notranslate">hdmi_group=1</code>代表<code class="notranslate">CEA</code>模式（电视规格分辨率，不包含音频，通常使用DVI接口）</p>

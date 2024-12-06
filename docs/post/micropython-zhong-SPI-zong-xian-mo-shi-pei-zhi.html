@@ -160,7 +160,7 @@ CPLO(polarity) <strong>0</strong>--空闲时钟低电平 <strong>1</strong>--空
 <li>如下示例配置了<code class="notranslate">MODE3</code>，可以与所有支持<code class="notranslate">MODE3</code>的芯片通信。</li>
 </ol>
 <div class="highlight highlight-source-python"><pre class="notranslate"><span class="pl-k">import</span> <span class="pl-s1">pyb</span>
-<span class="pl-s1">spi</span> <span class="pl-c1">=</span> <span class="pl-s1">pyb</span>.<span class="pl-v">SPI</span>(<span class="pl-c1">1</span>, <span class="pl-s1">pyb</span>.<span class="pl-v">SPI</span>.<span class="pl-v">MASTER</span>,<span class="pl-s1">prescaler</span><span class="pl-c1">=</span><span class="pl-c1">256</span>,<span class="pl-s1">phase</span><span class="pl-c1">=</span><span class="pl-c1">1</span>,<span class="pl-s1">polarity</span><span class="pl-c1">=</span><span class="pl-c1">1</span>)</pre></div>
+<span class="pl-s1">spi</span> <span class="pl-c1">=</span> <span class="pl-s1">pyb</span>.<span class="pl-c1">SPI</span>(<span class="pl-c1">1</span>, <span class="pl-s1">pyb</span>.<span class="pl-c1">SPI</span>.<span class="pl-c1">MASTER</span>,<span class="pl-s1">prescaler</span><span class="pl-c1">=</span><span class="pl-c1">256</span>,<span class="pl-s1">phase</span><span class="pl-c1">=</span><span class="pl-c1">1</span>,<span class="pl-s1">polarity</span><span class="pl-c1">=</span><span class="pl-c1">1</span>)</pre></div>
 <p>具体还可参考官方文档 <a href="https://docs.micropython.org/en/latest/library/pyb.SPI.html" rel="nofollow">https://docs.micropython.org/en/latest/library/pyb.SPI.html</a></p>
 <ol start="2">
 <li>下图为具体时序示例图<br>
