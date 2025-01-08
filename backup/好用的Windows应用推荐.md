@@ -16,6 +16,6 @@
 - :desktop_computer: [CPU-Z](http://www.cpuid.com/softwares/cpu-z.html) - 免费且功能齐全的 CPU 监控工具
 - :desktop_computer: [GPU-Z](http://www.techpowerup.com/gpuz/) - 免费且功能齐全的 GPU 监控工具
 - :floppy_disk: [DiskGenius](https://www.diskgenius.cn/) - 老牌国产软件，专注数据恢复与磁盘管理，中文界面
-
+- :floppy_disk: [LocalSend](https://localsend.org/) - 将iPhone文件分享到附近的PC设备。
 
 
