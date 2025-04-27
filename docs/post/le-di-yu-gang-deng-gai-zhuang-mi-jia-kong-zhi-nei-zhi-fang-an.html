@@ -77,7 +77,91 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 <p>过程说难也不难，但是需要注意的是因为这个拆机的控制器是ESP32，启动电流相对较大，而且对电源纹波也有要求，所以需要在适当的位置加上一些电容。目前是通过<code class="notranslate">PWM</code>调光，用示波器查看是<code class="notranslate">3KHz</code>的方波，90%之后功率其实已经达到最大了。后续如果有时间可以再画一个小板子，集成一下恒流源调光效果应该会更好。</p>
 <p>这种内置的方案相比于去买现成的米家控制模块的外置方案要更加简约，不需要电源后面再接一个米家控制器。而且因为乐迪内置有风扇，当温度过高时会自动开启散热，所以我的控制器同样也能有风扇散热。</p>
 <p>通过米家APP不仅可以远程控制，还能定时开关和调节亮度，非常的方便。</p>
-<h2>测试数据</h2>
+<h2>未改装之前数据</h2>
+<markdown-accessiblity-table><table role="table">
+<thead>
+<tr>
+<th align="center">亮度(%)</th>
+<th align="center">电流(A)</th>
+<th align="center">功率(W)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">1%</td>
+<td align="center">0.02</td>
+<td align="center">0.48</td>
+</tr>
+<tr>
+<td align="center">2%</td>
+<td align="center">0.09</td>
+<td align="center">2.16</td>
+</tr>
+<tr>
+<td align="center">5%</td>
+<td align="center">0.15</td>
+<td align="center">3.60</td>
+</tr>
+<tr>
+<td align="center">10%</td>
+<td align="center">0.25</td>
+<td align="center">6.00</td>
+</tr>
+<tr>
+<td align="center">15%</td>
+<td align="center">0.38</td>
+<td align="center">9.12</td>
+</tr>
+<tr>
+<td align="center">20%</td>
+<td align="center">0.53</td>
+<td align="center">12.72</td>
+</tr>
+<tr>
+<td align="center">30%</td>
+<td align="center">0.84</td>
+<td align="center">20.16</td>
+</tr>
+<tr>
+<td align="center">40%</td>
+<td align="center">1.12</td>
+<td align="center">26.88</td>
+</tr>
+<tr>
+<td align="center">50%</td>
+<td align="center">1.46</td>
+<td align="center">35.04</td>
+</tr>
+<tr>
+<td align="center">60%</td>
+<td align="center">1.74</td>
+<td align="center">41.76</td>
+</tr>
+<tr>
+<td align="center">70%</td>
+<td align="center">2.08</td>
+<td align="center">49.92</td>
+</tr>
+<tr>
+<td align="center">80%</td>
+<td align="center">2.38</td>
+<td align="center">57.12</td>
+</tr>
+<tr>
+<td align="center">90%</td>
+<td align="center">2.7</td>
+<td align="center">64.80</td>
+</tr>
+<tr>
+<td align="center">100%</td>
+<td align="center">3.0</td>
+<td align="center">72.00</td>
+</tr>
+</tbody>
+</table></markdown-accessiblity-table>
+<h2>原始曲线图</h2>
+<p><a target="_blank" rel="noopener noreferrer" href="https://github.com/user-attachments/assets/27855612-4eba-4103-b190-4fb66f84d16c"><img src="https://github.com/user-attachments/assets/27855612-4eba-4103-b190-4fb66f84d16c" alt="Image" style="max-width: 100%;"></a></p>
+<h2>改装之后测试数据</h2>
 <markdown-accessiblity-table><table role="table">
 <thead>
 <tr>
@@ -144,7 +228,7 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 </tr>
 </tbody>
 </table></markdown-accessiblity-table>
-<h2>曲线图</h2>
+<h2>改装之后曲线图</h2>
 <p><a target="_blank" rel="noopener noreferrer" href="https://github.com/user-attachments/assets/e7e924de-b274-4683-b99d-8cc89f1a55bb"><img src="https://github.com/user-attachments/assets/e7e924de-b274-4683-b99d-8cc89f1a55bb" alt="Image" style="max-width: 100%;"></a></p>
 <h2>拟合出的二次多项式</h2>
 $$\text{Power (W)} = -0.0023 \cdot \text{Percent}^2 + 1.0736 \cdot \text{Percent} + 6.9286$$</div>
