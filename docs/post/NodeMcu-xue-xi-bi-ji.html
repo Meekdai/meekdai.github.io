@@ -99,7 +99,7 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 </ul>
 <p>基于乐鑫 ESP8266 的 NodeMCU 开发板，具有 GPIO、PWM、I2C、1-Wire、ADC 等功能，结合 NodeMCU 固件为您的原型开发提供最快速的途径。</p>
 <p>NodeMCU 最新版为 1.0，如下图：</p>
-<p><a target="_blank" rel="noopener noreferrer" href="https://github.com/Meekdai/meekdai.github.io/assets/11755104/b4c8e6c7-0be7-4488-8517-3034592ad1ba"><img src="https://github.com/Meekdai/meekdai.github.io/assets/11755104/b4c8e6c7-0be7-4488-8517-3034592ad1ba" alt="4004543695.jpg" style="max-width: 100%;"></a></p>
+<p><a target="_blank" rel="noopener noreferrer" href="https://github.com/Meekdai/meekdai.github.io/assets/11755104/b4c8e6c7-0be7-4488-8517-3034592ad1ba"><img src="https://github.com/Meekdai/meekdai.github.io/assets/11755104/b4c8e6c7-0be7-4488-8517-3034592ad1ba" alt="4004543695.jpg" style="max-width: 100%; height: auto;"></a></p>
 <p>其硬件详细配置如下：</p>
 <p>核心模组为 ESP8266</p>
 <blockquote>
@@ -114,7 +114,7 @@ FCC 认证的 WIFI 模块，内置 PCB 天线，可作为 AP
 <p>##选择开发系统</p>
 <p>NodeMCU 目前支持的开发主机系统类型涵盖 Windows，Linux 和 Mac OS X，也支持通过 VMware 虚拟机搭建的 Linux 环境。<br>
 我用的是Windows，并且用了<a href="http://cmder.net/" rel="nofollow">cmder</a>来优化命令行的用户体验。有关cmder的使用笔记，后面会有文章详细记录。</p>
-<p><a target="_blank" rel="noopener noreferrer" href="https://github.com/Meekdai/meekdai.github.io/assets/11755104/73a4b628-c0f3-49a9-8fea-baa57e855dff"><img src="https://github.com/Meekdai/meekdai.github.io/assets/11755104/73a4b628-c0f3-49a9-8fea-baa57e855dff" alt="1384392589.jpg" style="max-width: 100%;"></a></p>
+<p><a target="_blank" rel="noopener noreferrer" href="https://github.com/Meekdai/meekdai.github.io/assets/11755104/73a4b628-c0f3-49a9-8fea-baa57e855dff"><img src="https://github.com/Meekdai/meekdai.github.io/assets/11755104/73a4b628-c0f3-49a9-8fea-baa57e855dff" alt="1384392589.jpg" style="max-width: 100%; height: auto;"></a></p>
 <p>##安装串口驱动</p>
 <p>在选定开发系统后，接下来就是要安装串口驱动，打通开发主机与 NodeMCU 板子的通信，以便烧录固件、执行命令或者上传 Lua 程序。</p>
 <p>因为 NodeMCU 1.0 采用了 cp2102 USB 串口，其驱动完美支持 Windows，Linux，OS X 和 VMWare，所以各个平台下载 <a href="http://www.silabs.com/products/mcu/Pages/USBtoUARTBridgeVCPDrivers.aspx" rel="nofollow">CP210x</a> 安装上即可。</p>
@@ -159,15 +159,15 @@ $ python setup.py install
 <p>固件下载地址：<a href="https://github.com/nodemcu/nodemcu-firmware/releases/">NodeMCU Firmware Release</a><br>
 一键烧录软件下载地址：<a href="https://github.com/nodemcu/nodemcu-flasher">nodemcu-flasher</a></p>
 <p>打开一键烧录软件，设置固件所在目录</p>
-<p><a target="_blank" rel="noopener noreferrer" href="https://github.com/Meekdai/meekdai.github.io/assets/11755104/144b7448-49ed-4a51-9324-9591f2228cdf"><img src="https://github.com/Meekdai/meekdai.github.io/assets/11755104/144b7448-49ed-4a51-9324-9591f2228cdf" alt="2682123040.jpg" style="max-width: 100%;"></a></p>
+<p><a target="_blank" rel="noopener noreferrer" href="https://github.com/Meekdai/meekdai.github.io/assets/11755104/144b7448-49ed-4a51-9324-9591f2228cdf"><img src="https://github.com/Meekdai/meekdai.github.io/assets/11755104/144b7448-49ed-4a51-9324-9591f2228cdf" alt="2682123040.jpg" style="max-width: 100%; height: auto;"></a></p>
 <p>设置ESP8266 FLASH信息，波特率可以自己设定，9600应该会有点慢。</p>
-<p><a target="_blank" rel="noopener noreferrer" href="https://github.com/Meekdai/meekdai.github.io"><img src="https://github.com/Meekdai/meekdai.github.io" alt="1498565922.jpg" style="max-width: 100%;"></a></p>
+<p><a target="_blank" rel="noopener noreferrer" href="https://github.com/Meekdai/meekdai.github.io"><img src="https://github.com/Meekdai/meekdai.github.io" alt="1498565922.jpg" style="max-width: 100%; height: auto;"></a></p>
 <p>选择串口，开始烧录，有些文档说需要GPIO0拉低后上电，但是我不需要拉低也可以烧写。</p>
-<p><a target="_blank" rel="noopener noreferrer" href="https://github.com/Meekdai/meekdai.github.io/assets/11755104/47b2cd88-787f-471b-8247-9450d334b047"><img src="https://github.com/Meekdai/meekdai.github.io/assets/11755104/47b2cd88-787f-471b-8247-9450d334b047" alt="2891132200.jpg" style="max-width: 100%;"></a></p>
+<p><a target="_blank" rel="noopener noreferrer" href="https://github.com/Meekdai/meekdai.github.io/assets/11755104/47b2cd88-787f-471b-8247-9450d334b047"><img src="https://github.com/Meekdai/meekdai.github.io/assets/11755104/47b2cd88-787f-471b-8247-9450d334b047" alt="2891132200.jpg" style="max-width: 100%; height: auto;"></a></p>
 <p>烧录完成</p>
-<p><a target="_blank" rel="noopener noreferrer" href="https://github.com/Meekdai/meekdai.github.io/assets/11755104/f56ae279-c339-4ca6-a0f3-18dc0f05390d"><img src="https://github.com/Meekdai/meekdai.github.io/assets/11755104/f56ae279-c339-4ca6-a0f3-18dc0f05390d" alt="1930085769.jpg" style="max-width: 100%;"></a></p>
+<p><a target="_blank" rel="noopener noreferrer" href="https://github.com/Meekdai/meekdai.github.io/assets/11755104/f56ae279-c339-4ca6-a0f3-18dc0f05390d"><img src="https://github.com/Meekdai/meekdai.github.io/assets/11755104/f56ae279-c339-4ca6-a0f3-18dc0f05390d" alt="1930085769.jpg" style="max-width: 100%; height: auto;"></a></p>
 <p>上电后ESP8266从FLASH正常启动。串口波特率设置为9600，就可以和nodemcu交互了，但是复位后前面会有一段乱码有待解决。</p>
-<p><a target="_blank" rel="noopener noreferrer" href="https://github.com/Meekdai/meekdai.github.io/assets/11755104/4ee9e4dd-c028-4e56-a9a2-ec6d1a79a327"><img src="https://github.com/Meekdai/meekdai.github.io/assets/11755104/4ee9e4dd-c028-4e56-a9a2-ec6d1a79a327" alt="424483076.jpg" style="max-width: 100%;"></a></p>
+<p><a target="_blank" rel="noopener noreferrer" href="https://github.com/Meekdai/meekdai.github.io/assets/11755104/4ee9e4dd-c028-4e56-a9a2-ec6d1a79a327"><img src="https://github.com/Meekdai/meekdai.github.io/assets/11755104/4ee9e4dd-c028-4e56-a9a2-ec6d1a79a327" alt="424483076.jpg" style="max-width: 100%; height: auto;"></a></p>
 <p>另外，最新的NodeMCU 版本貌似没有bin文件下载，需要自己编译，这个后面再来解决。</p>
 <p>##基本操作演示</p>
 <p>烧录完以后按下 RST 按钮重启 NodeMCU，再启动串口工具就可以进入 Lua 交互式命令行：<br>
@@ -404,7 +404,7 @@ end)
 192.168.0.128   255.255.255.0   192.168.0.1
 </code></pre>
 <p>然后在浏览器中输入192.168.0.128，可以看到如下界面，点击ON为打开LED灯，点击OFF为关闭。</p>
-<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/0badbb69db40b98c65c96a180c1b9c0da75f3db4e910fc41681965c0f837950f/687474703a2f2f6d65656b6461692e636f6d2f696d672f3766336231653839677931667a707179633078756b6a32306e773067716a73742e6a7067"><img src="https://camo.githubusercontent.com/0badbb69db40b98c65c96a180c1b9c0da75f3db4e910fc41681965c0f837950f/687474703a2f2f6d65656b6461692e636f6d2f696d672f3766336231653839677931667a707179633078756b6a32306e773067716a73742e6a7067" alt="3634745125.jpg" data-canonical-src="http://meekdai.com/img/7f3b1e89gy1fzpqyc0xukj20nw0gqjst.jpg" style="max-width: 100%;"></a></p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/0badbb69db40b98c65c96a180c1b9c0da75f3db4e910fc41681965c0f837950f/687474703a2f2f6d65656b6461692e636f6d2f696d672f3766336231653839677931667a707179633078756b6a32306e773067716a73742e6a7067"><img src="https://camo.githubusercontent.com/0badbb69db40b98c65c96a180c1b9c0da75f3db4e910fc41681965c0f837950f/687474703a2f2f6d65656b6461692e636f6d2f696d672f3766336231653839677931667a707179633078756b6a32306e773067716a73742e6a7067" alt="3634745125.jpg" data-canonical-src="http://meekdai.com/img/7f3b1e89gy1fzpqyc0xukj20nw0gqjst.jpg" style="max-width: 100%; height: auto;"></a></p>
 <p>###开启一个 Telnet 服务</p>
 <p>先从 NodeMCU.com 下载该例子，<code class="notranslate">telnet.lua</code>：</p>
 <pre class="notranslate"><code class="notranslate">-- a simple telnet server
