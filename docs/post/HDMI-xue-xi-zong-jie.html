@@ -79,10 +79,10 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 因为需要计算HDMI的差分线传输速率，把HDMI相关的知识都看了一下，做如下记录，方便以后回顾。</p>
 <h4>1.TMDS是什么？</h4>
 <p>HDMI 有4对差分线，一对时钟线，三对数据线，其中三对数据线分别传输RGB信号。</p>
-<p><a target="_blank" rel="noopener noreferrer" href="https://github.com/Meekdai/meekdai.github.io/assets/11755104/a5daf32d-cc0e-477f-b786-e7e76fcd0e67"><img src="https://github.com/Meekdai/meekdai.github.io/assets/11755104/a5daf32d-cc0e-477f-b786-e7e76fcd0e67" alt="a15b4afegw1ezdeq0r7cjj20h006474l" style="max-width: 100%; height: auto;"></a></p>
+<p><a target="_blank" rel="noopener noreferrer" href="https://github.com/Meekdai/meekdai.github.io/assets/11755104/a5daf32d-cc0e-477f-b786-e7e76fcd0e67"><img src="https://github.com/Meekdai/meekdai.github.io/assets/11755104/a5daf32d-cc0e-477f-b786-e7e76fcd0e67" alt="a15b4afegw1ezdeq0r7cjj20h006474l" style="max-width: 100%;"></a></p>
 <p>HDMI标准继续沿用了和DVI相同的，由Silicon Image公司发明的TMDS(Time Minimized Differential Signal)最小化传输差分信号传输技术。TMDS是一种微分信号机制，采用的是差分传动方式。这不仅是DVI技术的基础，也是HDMI技术的基础原理。</p>
 <p>一般来说，HDMI传输的编码格式中要包含视频数据（HDMI1.3版本前每个像素采用24bit）、控制数据和数据包（数据包中包含音频数据和附加信息数据，例如纠错码等）。TMDS每个通道在传输时要包含一个2bit的控制数据、8bit的视频数据或者4bit的数据包即可。在HDMI信息传输过程中，可以分为三个阶段：视频数据传输周期、控制传输周期和数据岛传输周期，分别对应上述的三种数据类型。</p>
-<p><a target="_blank" rel="noopener noreferrer" href="https://github.com/Meekdai/meekdai.github.io/assets/11755104/bb31ab5b-3c9b-4c30-b177-41e7132150d1"><img src="https://github.com/Meekdai/meekdai.github.io/assets/11755104/bb31ab5b-3c9b-4c30-b177-41e7132150d1" alt="a15b4afegw1ezdeqxlxvij20t30drjt6" style="max-width: 100%; height: auto;"></a></p>
+<p><a target="_blank" rel="noopener noreferrer" href="https://github.com/Meekdai/meekdai.github.io/assets/11755104/bb31ab5b-3c9b-4c30-b177-41e7132150d1"><img src="https://github.com/Meekdai/meekdai.github.io/assets/11755104/bb31ab5b-3c9b-4c30-b177-41e7132150d1" alt="a15b4afegw1ezdeqxlxvij20t30drjt6" style="max-width: 100%;"></a></p>
 <h4>2.HDMI带宽和TMDS的关系</h4>
 <p>在HDMI标准中所规定的带宽，在1.0版本就设定为最高4.96Gbps。那么这一数值是怎么的来的呢？和TMDS又有什么关系呢？我们看下面的公式：</p>
 <p><code class="notranslate">串行接口带宽 = 系统时钟频率 X 数据量</code></p>
