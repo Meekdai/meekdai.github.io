@@ -17,7 +17,7 @@
 <meta property="og:url" content="https://blog.meekdai.com/post/websocket-tong-xin-cai-keng-ji.html">
 <meta property="og:image" content="https://blog.meekdai.com/avatar.svg">
 <title>websocket通信踩坑记</title>
-<link href="//unpkg.com/@wooorm/starry-night@2.1.1/style/both.css" rel="stylesheet" />
+
 
 
 </head>
@@ -86,12 +86,14 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 <div class="markdown-body" id="postBody"><p>什么是websocket？网上有很多的介绍，比如<a href="https://www.infoq.cn/article/deep-in-websocket-protocol" rel="nofollow">这里</a>。</p>
 <p>如果在电脑端配置websocket服务器，python直接pip现成的模块就行，然后简单配置一下就可以运行了。但是目前我需要这个服务器运行在单片机上，这下就没有现成的轮子使了。所以就有了这篇踩坑记。</p>
 <p>1、在websocket握手前，需要先起一个http服务器，用来监听网络端是否有request过来。</p>
-<div class="highlight highlight-source-python"><pre class="notranslate"><span class="pl-s1">self</span>.<span class="pl-c1">_listen_s</span> <span class="pl-c1">=</span> <span class="pl-s1">socket</span>.<span class="pl-c1">socket</span>(<span class="pl-s1">socket</span>.<span class="pl-c1">AF_INET</span>, <span class="pl-s1">socket</span>.<span class="pl-c1">SOCK_STREAM</span>)
-<span class="pl-s1">self</span>.<span class="pl-c1">_listen_s</span>.<span class="pl-c1">setsockopt</span>(<span class="pl-s1">socket</span>.<span class="pl-c1">SOL_SOCKET</span>, <span class="pl-s1">socket</span>.<span class="pl-c1">SO_REUSEADDR</span>, <span class="pl-c1">1</span>)
-<span class="pl-s1">addr</span> <span class="pl-c1">=</span> <span class="pl-s1">socket</span>.<span class="pl-c1">getaddrinfo</span>(<span class="pl-s">"0.0.0.0"</span>, <span class="pl-s1">port</span>)[<span class="pl-c1">0</span>][<span class="pl-c1">4</span>]
-<span class="pl-s1">self</span>.<span class="pl-c1">_listen_s</span>.<span class="pl-c1">bind</span>(<span class="pl-s1">addr</span>)
-<span class="pl-s1">self</span>.<span class="pl-c1">_listen_s</span>.<span class="pl-c1">listen</span>(<span class="pl-c1">1</span>)
-<span class="pl-s1">self</span>.<span class="pl-c1">cl</span>, <span class="pl-s1">self</span>.<span class="pl-c1">remote_addr</span> <span class="pl-c1">=</span> <span class="pl-s1">self</span>.<span class="pl-c1">_listen_s</span>.<span class="pl-c1">accept</span>()</pre></div>
+<pre lang="python" class="notranslate"><code class="notranslate">self._listen_s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+self._listen_s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+addr = socket.getaddrinfo("0.0.0.0", port)[0][4]
+self._listen_s.bind(addr)
+self._listen_s.listen(1)
+self.cl, self.remote_addr = self._listen_s.accept()
+
+</code></pre>
 <p>2、当有request请求的时候，说明有客户端连上，并且给服务器发送了<code class="notranslate">问候</code>，比如下面这种。</p>
 <pre class="notranslate"><code class="notranslate">GET /upload.html HTTP/1.1
 Host: 192.168.0.18
@@ -105,13 +107,14 @@ Accept-Encoding: gzip, deflate
 Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,zh-TW;q=0.7,ja;q=0.6
 </code></pre>
 <p>所以，需要判断客户端是什么请求？ GET? POST? PUT? ...</p>
-<div class="highlight highlight-source-python"><pre class="notranslate"><span class="pl-s1">data</span> <span class="pl-c1">=</span> <span class="pl-s1">self</span>.<span class="pl-c1">cl</span>.<span class="pl-c1">recv</span>(<span class="pl-c1">1024</span>).<span class="pl-c1">decode</span>()
-<span class="pl-k">if</span> <span class="pl-s1">data</span> <span class="pl-c1">and</span> <span class="pl-s">"Upgrade: websocket"</span> <span class="pl-c1">in</span> <span class="pl-s1">data</span>.<span class="pl-c1">split</span>(<span class="pl-s">"<span class="pl-cce">\r</span><span class="pl-cce">\n</span>"</span>): <span class="pl-c"># 协议为websocket</span>
-    <span class="pl-s1">websocket_helper</span>.<span class="pl-c1">server_handshake</span>(<span class="pl-s1">self</span>.<span class="pl-c1">cl</span>)
-<span class="pl-k">elif</span> <span class="pl-s1">data</span> <span class="pl-c1">and</span> <span class="pl-s">"GET"</span> <span class="pl-c1">==</span> <span class="pl-s1">data</span>.<span class="pl-c1">split</span>(<span class="pl-s">" "</span>)[<span class="pl-c1">0</span>]: <span class="pl-c"># 协议为 HTTP GET</span>
-    <span class="pl-s1">self</span>.<span class="pl-c1">htmlserver</span>.<span class="pl-c1">_serve_file</span>(<span class="pl-s1">requested_file</span>, <span class="pl-s1">self</span>.<span class="pl-c1">cl</span>)
-<span class="pl-k">elif</span> <span class="pl-s1">data</span> <span class="pl-c1">and</span> (<span class="pl-s">"PUT"</span> <span class="pl-c1">==</span> <span class="pl-s1">data</span>.<span class="pl-c1">split</span>(<span class="pl-s">" "</span>)[<span class="pl-c1">0</span>] <span class="pl-c1">or</span> <span class="pl-s">"POST"</span> <span class="pl-c1">==</span> <span class="pl-s1">data</span>.<span class="pl-c1">split</span>(<span class="pl-s">" "</span>)[<span class="pl-c1">0</span>]): <span class="pl-c"># 协议为 HTTP PUT POST</span>
-    <span class="pl-s1">self</span>.<span class="pl-c1">htmlserver</span>.<span class="pl-c1">_save_put_request</span>(<span class="pl-s1">self</span>.<span class="pl-c1">cl</span>,<span class="pl-s1">content_length</span>)</pre></div>
+<pre lang="python" class="notranslate"><code class="notranslate">data = self.cl.recv(1024).decode()
+if data and "Upgrade: websocket" in data.split("\r\n"): # 协议为websocket
+    websocket_helper.server_handshake(self.cl)
+elif data and "GET" == data.split(" ")[0]: # 协议为 HTTP GET
+    self.htmlserver._serve_file(requested_file, self.cl)
+elif data and ("PUT" == data.split(" ")[0] or "POST" == data.split(" ")[0]): # 协议为 HTTP PUT POST
+    self.htmlserver._save_put_request(self.cl,content_length)
+</code></pre>
 <p>看到第一个if成立的情况下，我们直接发送握手信号，这个信号是客户端发送一段看不懂的东西，然后服务器端需要加上</p>
 <pre class="notranslate"><code class="notranslate">258EAFA5-E914-47DA-95CA-C5AB0DC85B11
 </code></pre>
