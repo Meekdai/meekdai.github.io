@@ -17,7 +17,7 @@
 <meta property="og:url" content="https://blog.meekdai.com/post/ESP32-S2-yun-xing-circuitpython.html">
 <meta property="og:image" content="https://blog.meekdai.com/avatar.svg">
 <title>ESP32-S2运行circuitpython</title>
-<link href="//unpkg.com/@wooorm/starry-night@2.1.1/style/both.css" rel="stylesheet" />
+
 
 
 </head>
@@ -101,10 +101,11 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 <pre class="notranslate"><code class="notranslate">esptool.py --chip auto --port COM10 -b 460800 --before=default_reset --after=hard_reset write_flash --flash_mode dio --flash_freq 40m --flash_size 4MB 0x0000 adafruit-circuitpython-espressif_saola_1_wrover-en_US-6.0.0-alpha.1.bin
 </code></pre>
 <p>5、固件下载完成后，需要找到<code class="notranslate">IO19</code>和<code class="notranslate">IO20</code>这两个管脚。<code class="notranslate">IO19</code>对应<code class="notranslate">USB_D-</code>，<code class="notranslate">IO20</code>对应<code class="notranslate">USB_D+</code>，通过自制线缆连接到电脑USB端就可以识别出ESP32-S2了，电脑会弹出一个U盘叫<code class="notranslate">CIRCUITPY</code>的盘符，可用空间是1.97MB。打开串口工具就可以连接上circuitpython了，我上面显示的信息是这样的：</p>
-<div class="highlight highlight-source-python"><pre class="notranslate"><span class="pl-v">Auto</span><span class="pl-c1">-</span><span class="pl-s1">reload</span> <span class="pl-c1">is</span> <span class="pl-s1">on</span>. <span class="pl-c1">Simply</span> <span class="pl-s1">save</span> <span class="pl-s1">files</span> <span class="pl-s1">over</span> <span class="pl-c1">USB</span> <span class="pl-s1">to</span> <span class="pl-s1">run</span> <span class="pl-s1">them</span> <span class="pl-c1">or</span> <span class="pl-s1">enter</span> <span class="pl-c1">REPL</span> <span class="pl-s1">to</span> <span class="pl-s1">disable</span>.
+<pre lang="python" class="notranslate"><code class="notranslate">Auto-reload is on. Simply save files over USB to run them or enter REPL to disable.
 
-<span class="pl-c1">Press</span> <span class="pl-s1">any</span> <span class="pl-s1">key</span> <span class="pl-s1">to</span> <span class="pl-s1">enter</span> <span class="pl-s1">the</span> <span class="pl-c1">REPL</span>. <span class="pl-c1">Use</span> <span class="pl-c1">CTRL</span><span class="pl-c1">-</span><span class="pl-c1">D</span> <span class="pl-s1">to</span> <span class="pl-s1">reload</span>.
-<span class="pl-c1">Adafruit</span> <span class="pl-v">CircuitPython</span> <span class="pl-c1">6.0</span>.<span class="pl-c1">0</span><span class="pl-c1">-</span><span class="pl-s1">alpha</span>.<span class="pl-c1">1</span> <span class="pl-c1">on</span> <span class="pl-c1">2020</span><span class="pl-c1">-</span><span class="pl-c1">07</span><span class="pl-c1">-</span><span class="pl-c1">03</span>; <span class="pl-v">Saola</span> <span class="pl-c1">1</span> <span class="pl-s1">w</span><span class="pl-c1">/</span><span class="pl-v">Wrover</span> <span class="pl-s1">with</span> <span class="pl-v">ESP32S2</span></pre></div>
+Press any key to enter the REPL. Use CTRL-D to reload.
+Adafruit CircuitPython 6.0.0-alpha.1 on 2020-07-03; Saola 1 w/Wrover with ESP32S2
+</code></pre>
 <p>最后就可以在上面正常的写入代码了，是不是比之前ESP32编写代码以及下载代码要方便很多呢？</p></div>
 <div style="font-size:small;margin-top:8px;float:right;">❤️ 转载文章请注明出处，谢谢！❤️</div>
 
