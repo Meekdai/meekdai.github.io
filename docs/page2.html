@@ -69,15 +69,7 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
             <path id="music" fill-rule="evenodd"></path>
         </svg>
     </a>
-    <a href="https://blog.meekdai.com/link.html" class="btn btn-invisible circle" title="友情链接">
-        <svg class="octicon" width="16" height="16" >
-            <path id="友情链接" fill-rule="evenodd"></path>
-        </svg>
-    </a><a href="https://blog.meekdai.com/about.html" class="btn btn-invisible circle" title="关于">
-        <svg class="octicon" width="16" height="16" >
-            <path id="关于" fill-rule="evenodd"></path>
-        </svg>
-    </a>
+    
     <a href="https://blog.meekdai.com/rss.xml" target="_blank" id="buttonRSS" class="btn btn-invisible circle" title="RSS">
         <svg class="octicon" width="16" height="16" >
             <path id="pathRSS" fill-rule="evenodd"></path>
@@ -260,7 +252,8 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
     </div>
 </a>
 </nav><nav class="paginate-container" aria-label="Pagination">
-    <div class="pagination"><a class="previous_page" rel="previous" href="https://blog.meekdai.com/index.html" aria-label="Previous Page">上一页</a><a class="next_page" rel="next" href="https://blog.meekdai.com/page3.html" aria-label="Next Page">下一页</a></div>
+    <div class="pagination"><a class="previous_page" rel="previous" href="https://blog.meekdai.com/index.html" aria-label="Previous Page">上一页</a><span class="next_page" aria-disabled="true">下一页</span>
+        </div>
 </nav>
 </div>
     <div id="footer"><div id="footer1">Copyright © <span id="copyrightYear"></span> <a href="https://blog.meekdai.com">Meekdai</a></div>
@@ -328,7 +321,7 @@ for(var i=0;i<iconPost.length;i++){
 
 document.getElementById("music").setAttribute("d",value=IconList["music"]);
 
-document.getElementById("友情链接").setAttribute("d",value=IconList["link"]);document.getElementById("关于").setAttribute("d",value=IconList["about"]);
+
 </script>
 
 
