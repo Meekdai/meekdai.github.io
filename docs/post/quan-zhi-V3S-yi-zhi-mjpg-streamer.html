@@ -17,7 +17,7 @@
 <meta property="og:url" content="https://blog.meekdai.com/post/quan-zhi-V3S-yi-zhi-mjpg-streamer.html">
 <meta property="og:image" content="https://blog.meekdai.com/avatar.svg">
 <title>全志V3S移植mjpg-streamer</title>
-<link href="//unpkg.com/@wooorm/starry-night@2.1.1/style/both.css" rel="stylesheet" />
+
 
 
 </head>
@@ -124,20 +124,21 @@ CFLAGS += -O1 -DLINUX -D_GNU_SOURCE -Wall -shared -fPIC -I /mnt/c/Users/Meekdai/
 <ol start="3">
 <li>根据需要编译下面的插件，内容在主Makefile里。</li>
 </ol>
-<div class="highlight highlight-source-makefile"><pre class="notranslate"><span class="pl-c"><span class="pl-c">#</span> define the names and targets of the plugins</span>
-<span class="pl-smi">PLUGINS</span> = input_uvc.so
-<span class="pl-smi">PLUGINS</span> += output_file.so
-<span class="pl-smi">PLUGINS</span> += output_udp.so
-<span class="pl-smi">PLUGINS</span> += output_http.so
-<span class="pl-smi">PLUGINS</span> += input_testpicture.so
-<span class="pl-c"><span class="pl-c">#</span>PLUGINS += output_autofocus.so</span>
-<span class="pl-c"><span class="pl-c">#</span>PLUGINS += input_gspcav1.so</span>
-<span class="pl-smi">PLUGINS</span> += input_file.so
-<span class="pl-smi">PLUGINS</span> += output_rtsp.so
-<span class="pl-c"><span class="pl-c">#</span> PLUGINS += output_ptp2.so # commented out because it depends on libgphoto</span>
-<span class="pl-c"><span class="pl-c">#</span> PLUGINS += input_control.so # commented out because the output_http does it's job</span>
-<span class="pl-c"><span class="pl-c">#</span> PLUGINS += input_http.so </span>
-<span class="pl-c"><span class="pl-c">#</span> PLUGINS += output_viewer.so # commented out because it depends on SDL</span></pre></div>
+<pre lang="makefile" class="notranslate"><code class="notranslate"># define the names and targets of the plugins
+PLUGINS = input_uvc.so
+PLUGINS += output_file.so
+PLUGINS += output_udp.so
+PLUGINS += output_http.so
+PLUGINS += input_testpicture.so
+#PLUGINS += output_autofocus.so
+#PLUGINS += input_gspcav1.so
+PLUGINS += input_file.so
+PLUGINS += output_rtsp.so
+# PLUGINS += output_ptp2.so # commented out because it depends on libgphoto
+# PLUGINS += input_control.so # commented out because the output_http does it's job
+# PLUGINS += input_http.so 
+# PLUGINS += output_viewer.so # commented out because it depends on SDL
+</code></pre>
 <ol start="4">
 <li>然后执行<code class="notranslate">make CC=/mnt/d/MICROPYTHON/V3S/gcc-linaro-6.3.1-2017.02-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-gcc</code>编译，结束后拷贝文件到<code class="notranslate">V3S</code>中：</li>
 </ol>
